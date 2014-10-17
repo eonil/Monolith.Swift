@@ -12,6 +12,7 @@ struct Test {
 	typealias	EDXC	=	Syntax.EDXC
 	
 	static func run() {
+		let	run	=	EonilParsingEngineTest.run
 		func tx(x:()->()) {
 			x()
 		}
@@ -33,7 +34,7 @@ struct Test {
 			
 		tx {
 			let	s1	=	" \t\n"
-			let	r1	=	parse(data: s1, using: "test-rule" ~~~ EDXC.Rules.whitespaceStrip)
+			let	r1	=	run(data: s1, using: "test-rule" ~~~ EDXC.Rules.whitespaceStrip)
 			println(r1)
 			
 			ok(r1.nodes.count == 1)
@@ -45,7 +46,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	" "
-			let	r1	=	parse(data: s1, using: "test-rule" ~~~ EDXC.Rules.symbolForm)
+			let	r1	=	run(data: s1, using: "test-rule" ~~~ EDXC.Rules.symbolForm)
 			
 			println(r1)
 			ok(r1.match == false)
@@ -63,7 +64,7 @@ struct Test {
 			}
 			
 			let	s1	=	"()"
-			let	r1	=	parse(data: s1, using: Example.list)
+			let	r1	=	run(data: s1, using: Example.list)
 			println(r1)
 			ok(r1.status == Stepping.Status.Match)
 			ok(r1.nodes.count == 1)
@@ -83,7 +84,7 @@ struct Test {
 			}
 			
 			let	s1	=	"("
-			let	r1	=	parse(data: s1, using: Example.list)
+			let	r1	=	run(data: s1, using: Example.list)
 			println(r1)
 			ok(r1.status == Stepping.Status.Error)
 			ok(r1.nodes.count == 2)
@@ -96,7 +97,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	" "
-			let	r1	=	parse(data: s1, using: EDXC.Rules.valueExpression)
+			let	r1	=	run(data: s1, using: EDXC.Rules.valueExpression)
 			
 			println(r1)
 			ok(r1.match == false)
@@ -104,7 +105,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	"a b c"
-			let	r1	=	parse(data: s1, using: EDXC.Rules.valueExpression)
+			let	r1	=	run(data: s1, using: EDXC.Rules.valueExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
@@ -117,7 +118,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	"\"abc\""
-			let	r1	=	parse(data: s1, using: EDXC.Rules.valueExpression)
+			let	r1	=	run(data: s1, using: EDXC.Rules.valueExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
@@ -130,7 +131,7 @@ struct Test {
 
 		tx{
 			let	s1	=	"(a b c)"
-			let	r1	=	parse(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
@@ -155,7 +156,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	"(a (b c d) e)"
-			let	r1	=	parse(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
@@ -193,7 +194,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	"(a   (b\tc\t\td)\ne)"
-			let	r1	=	parse(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
@@ -231,7 +232,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	"( )"
-			let	r1	=	parse(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
 			println(r1)
 			
 			ok(r1.match)
@@ -243,7 +244,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	"( a ( b ) c )"
-			let	r1	=	parse(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
@@ -270,7 +271,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	"abc"
-			let	r1	=	parse(data: s1, using: EDXC.Rules.valueExpression)
+			let	r1	=	run(data: s1, using: EDXC.Rules.valueExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
@@ -285,7 +286,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	"abc2/23lr9$%3$x"
-			let	r1	=	parse(data: s1, using: EDXC.Rules.valueExpression)
+			let	r1	=	run(data: s1, using: EDXC.Rules.valueExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
@@ -301,7 +302,7 @@ struct Test {
 		///	Escape sequence.
 		tx{
 			let	s1	=	"ab\\ c d"
-			let	r1	=	parse(data: s1, using: EDXC.Rules.valueExpression)
+			let	r1	=	run(data: s1, using: EDXC.Rules.valueExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
@@ -318,7 +319,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	"(a )"
-			let	r1	=	parse(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
@@ -338,7 +339,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	"(a"
-			let	r1	=	parse(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
 			println(r1)
 			ok(r1.error)
 		}

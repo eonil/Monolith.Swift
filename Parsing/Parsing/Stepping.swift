@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+
 ///	Represents  parsing state.
 ///
 ///	Parsing state is represneted node-list.
@@ -276,12 +278,34 @@ public struct Stepping : Printable {
 //	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 extension Stepping {
-	public var description:String {
-		get {
-			return	"Parsing(status: \(status), location: \(location), nodes: \(nodes))"
-		}
+public var description:String {
+	get {
+		return	"Parsing(status: \(status), location: \(location), nodes: \(nodes))"
 	}
+}
 }
 
 
@@ -296,19 +320,19 @@ extension Stepping {
 
 
 func + (left:Stepping.NodeList, right:Stepping.NodeList) -> Stepping.NodeList {
-	return	Stepping.NodeList(left._items + right._items)
+return	Stepping.NodeList(left._items + right._items)
 }
 func += (inout left:Stepping.NodeList, right:Stepping.NodeList) {
-	left	=	left + right
+left	=	left + right
 }
 
 
 
 extension Stepping.NodeList {
-	var marking:Bool {
-		get {
-			return	hasAnyMarkingAtCurrentLevel()
-		}
+var marking:Bool {
+	get {
+		return	hasAnyMarkingAtCurrentLevel()
 	}
+}
 }
 

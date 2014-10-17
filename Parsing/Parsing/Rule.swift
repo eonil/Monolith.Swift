@@ -11,7 +11,6 @@ import Foundation
 
 
 
-
 public class Rule {
 	public typealias	Composition	=	(cursor:Cursor) -> Stepping
 	
@@ -210,38 +209,47 @@ public class Rule {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 extension Cursor {
 	
 	///	Disabled due to compiler bug.
 	
-//	///	Empty-range node. Used for error or virtual tokens.
-//	func nodify<T:Node>() -> T {
-//		return	T(start: self, end: self)
-//	}
-//	func nodify<T:Node>(from c1:Cursor) -> T {
-//		return	T(start: c1, end: self)
-//	}
-//	func nodify<T:Node>(to c1:Cursor) -> T {
-//		return	T(start: self, end: c1)
-//	}
-//	func errify(message:String) -> Node.Error {
-//		let	n1		=	nodify() as Node.Error
-//		n1.message	=	message
-//		return	n1
-//	}
-//	func errify(message:String) -> Stepping.Node {
-//		return	Parsing.Node(location: self, error: message)
-//	}
-
-
+	//	///	Empty-range node. Used for error or virtual tokens.
+	//	func nodify<T:Node>() -> T {
+	//		return	T(start: self, end: self)
+	//	}
+	//	func nodify<T:Node>(from c1:Cursor) -> T {
+	//		return	T(start: c1, end: self)
+	//	}
+	//	func nodify<T:Node>(to c1:Cursor) -> T {
+	//		return	T(start: self, end: c1)
+	//	}
+	//	func errify(message:String) -> Node.Error {
+	//		let	n1		=	nodify() as Node.Error
+	//		n1.message	=	message
+	//		return	n1
+	//	}
+	//	func errify(message:String) -> Stepping.Node {
+	//		return	Parsing.Node(location: self, error: message)
+	//	}
+	
+	
 }
-
-
-
-
-
-
-
 
 
 
@@ -268,5 +276,3 @@ public func | (left:Rule.Composition, right:Rule.Composition) -> Rule.Compositio
 public func * (left:Rule.Composition, right:ClosedInterval<Int>) -> Rule.Composition {
 	return	Rule.Component.repetition(left, range:right)
 }
-
-
