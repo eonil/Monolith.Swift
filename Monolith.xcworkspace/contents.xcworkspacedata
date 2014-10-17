@@ -2,12 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:LICENSE.md">
-   </FileRef>
-   <FileRef
       location = "group:README.md">
    </FileRef>
    <FileRef
+      location = "group:LICENSE.md">
+   </FileRef>
+   <FileRef
       location = "container:Monolith/Monolith.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ParsingEngine/ParsingEngine.xcodeproj">
    </FileRef>
 </Workspace>
