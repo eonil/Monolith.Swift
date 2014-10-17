@@ -15,22 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4584D80219F18D930093E2B1"
-               BuildableName = "iOS.framework"
+               BuildableName = "EonilParsingEngine.framework"
                BlueprintName = "ParsingEngine/iOS"
-               ReferencedContainer = "container:ParsingEngine.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4584D80C19F18D930093E2B1"
-               BuildableName = "iOSTests.xctest"
-               BlueprintName = "ParsingEngine/iOSTests"
                ReferencedContainer = "container:ParsingEngine.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,26 +28,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4584D80C19F18D930093E2B1"
-               BuildableName = "iOSTests.xctest"
-               BlueprintName = "ParsingEngine/iOSTests"
-               ReferencedContainer = "container:ParsingEngine.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4584D80219F18D930093E2B1"
-            BuildableName = "iOS.framework"
-            BlueprintName = "ParsingEngine/iOS"
-            ReferencedContainer = "container:ParsingEngine.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -76,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4584D80219F18D930093E2B1"
-            BuildableName = "iOS.framework"
+            BuildableName = "EonilParsingEngine.framework"
             BlueprintName = "ParsingEngine/iOS"
             ReferencedContainer = "container:ParsingEngine.xcodeproj">
          </BuildableReference>
@@ -94,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4584D80219F18D930093E2B1"
-            BuildableName = "iOS.framework"
+            BuildableName = "EonilParsingEngine.framework"
             BlueprintName = "ParsingEngine/iOS"
             ReferencedContainer = "container:ParsingEngine.xcodeproj">
          </BuildableReference>

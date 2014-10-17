@@ -29,7 +29,6 @@
 		4584D7FB19F18CAC0093E2B1 /* Syntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6F19F18ACB00B10810 /* Syntax.swift */; };
 		4584D7FC19F18CAC0093E2B1 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8219F18B0B00B10810 /* Operators.swift */; };
 		4584D7FD19F18CAC0093E2B1 /* Stepping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8519F18B0B00B10810 /* Stepping.swift */; };
-		4584D80819F18D930093E2B1 /* iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4584D80719F18D930093E2B1 /* iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4584D81C19F18DA40093E2B1 /* EDXC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6C19F18ACB00B10810 /* EDXC.swift */; };
 		4584D81D19F18DA40093E2B1 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D7F019F18B4E0093E2B1 /* Engine.swift */; };
 		4584D81E19F18DA40093E2B1 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6D19F18ACB00B10810 /* Entity.swift */; };
@@ -71,19 +70,14 @@
 		45641AC919F0D52200381269 /* EonilParsingEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EonilParsingEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45641AD919F0D52200381269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45641ADA19F0D52200381269 /* ParsingEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingEngineTests.swift; sourceTree = "<group>"; };
-		45641AEE19F0D5DA00381269 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45641B1419F0D6D000381269 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
-		45641B1619F0F70800381269 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4584D7F019F18B4E0093E2B1 /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		4584D80319F18D930093E2B1 /* EonilParsingEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EonilParsingEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4584D80619F18D930093E2B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4584D80719F18D930093E2B1 /* iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = iOS.h; path = ParsingEngine/iOS.h; sourceTree = "<group>"; };
-		4584D81319F18D930093E2B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4584D81419F18D930093E2B1 /* ParsingEngine_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingEngine_iOSTests.swift; sourceTree = "<group>"; };
 		4584D82619F18DD70093E2B1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4584D82819F18E010093E2B1 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		4584D82A19F18E2C0093E2B1 /* SchemaProfile.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SchemaProfile.md; sourceTree = "<group>"; };
 		4584D82B19F18E2C0093E2B1 /* SelfDesribingDataProfile.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SelfDesribingDataProfile.md; sourceTree = "<group>"; };
+		4584D82E19F18EFD0093E2B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4584D83019F18EFD0093E2B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45D987A019ECE38C00B96829 /* EonilParsingEngineTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EonilParsingEngineTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D987AA19ECE39D00B96829 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,10 +122,10 @@
 				4584D82619F18DD70093E2B1 /* README.md */,
 				4584D82B19F18E2C0093E2B1 /* SelfDesribingDataProfile.md */,
 				4584D82A19F18E2C0093E2B1 /* SchemaProfile.md */,
+				45572D6F19F18ACB00B10810 /* Syntax.swift */,
 				45572D6C19F18ACB00B10810 /* EDXC.swift */,
 				45572D6D19F18ACB00B10810 /* Entity.swift */,
 				45572D6E19F18ACB00B10810 /* List.swift */,
-				45572D6F19F18ACB00B10810 /* Syntax.swift */,
 			);
 			path = EDXC;
 			sourceTree = "<group>";
@@ -156,9 +150,8 @@
 		45641AEC19F0D5DA00381269 /* Parsing */ = {
 			isa = PBXGroup;
 			children = (
-				45641AEE19F0D5DA00381269 /* Info.plist */,
-				45572D8019F18B0B00B10810 /* Cursor.swift */,
 				45572D8219F18B0B00B10810 /* Operators.swift */,
+				45572D8019F18B0B00B10810 /* Cursor.swift */,
 				45572D8319F18B0B00B10810 /* Pattern.swift */,
 				45572D8419F18B0B00B10810 /* Rule.swift */,
 				4584D7F019F18B4E0093E2B1 /* Engine.swift */,
@@ -166,50 +159,33 @@
 				45572D6B19F18ACB00B10810 /* EDXC */,
 				45572D6619F18A6700B10810 /* Internal */,
 			);
-			path = Parsing;
+			name = Parsing;
+			path = ParsingEngine;
 			sourceTree = "<group>";
 		};
-		45641B1319F0D6D000381269 /* InternalTest */ = {
+		4584D82C19F18EFD0093E2B1 /* Targets */ = {
 			isa = PBXGroup;
 			children = (
-				45641B1419F0D6D000381269 /* Test.swift */,
-				45641B1619F0F70800381269 /* main.swift */,
+				4584D82D19F18EFD0093E2B1 /* iOS */,
+				4584D82F19F18EFD0093E2B1 /* OSX */,
 			);
-			path = InternalTest;
+			path = Targets;
 			sourceTree = "<group>";
 		};
-		4584D80419F18D930093E2B1 /* ParsingEngine/iOS */ = {
+		4584D82D19F18EFD0093E2B1 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				4584D80719F18D930093E2B1 /* iOS.h */,
-				4584D80519F18D930093E2B1 /* Supporting Files */,
+				4584D82E19F18EFD0093E2B1 /* Info.plist */,
 			);
-			path = ParsingEngine/iOS;
+			path = iOS;
 			sourceTree = "<group>";
 		};
-		4584D80519F18D930093E2B1 /* Supporting Files */ = {
+		4584D82F19F18EFD0093E2B1 /* OSX */ = {
 			isa = PBXGroup;
 			children = (
-				4584D80619F18D930093E2B1 /* Info.plist */,
+				4584D83019F18EFD0093E2B1 /* Info.plist */,
 			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4584D81119F18D930093E2B1 /* ParsingEngine/iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				4584D81419F18D930093E2B1 /* ParsingEngine_iOSTests.swift */,
-				4584D81219F18D930093E2B1 /* Supporting Files */,
-			);
-			path = ParsingEngine/iOSTests;
-			sourceTree = "<group>";
-		};
-		4584D81219F18D930093E2B1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4584D81319F18D930093E2B1 /* Info.plist */,
-			);
-			name = "Supporting Files";
+			path = OSX;
 			sourceTree = "<group>";
 		};
 		45D9879719ECE38C00B96829 = {
@@ -219,9 +195,7 @@
 				4584D82819F18E010093E2B1 /* LICENSE.md */,
 				45641AEC19F0D5DA00381269 /* Parsing */,
 				45641AD719F0D52200381269 /* ParsingEngineTests */,
-				45641B1319F0D6D000381269 /* InternalTest */,
-				4584D80419F18D930093E2B1 /* ParsingEngine/iOS */,
-				4584D81119F18D930093E2B1 /* ParsingEngine/iOSTests */,
+				4584D82C19F18EFD0093E2B1 /* Targets */,
 				45D987A119ECE38C00B96829 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -250,7 +224,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4584D80819F18D930093E2B1 /* iOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +412,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Parsing/Info.plist;
+				INFOPLIST_FILE = Targets/OSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				SKIP_INSTALL = YES;
@@ -458,7 +431,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Parsing/Info.plist;
+				INFOPLIST_FILE = Targets/OSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				SKIP_INSTALL = YES;
@@ -480,7 +453,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = ParsingEngine/iOS/Info.plist;
+				INFOPLIST_FILE = Targets/iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -501,7 +474,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ParsingEngine/iOS/Info.plist;
+				INFOPLIST_FILE = Targets/iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -624,6 +597,7 @@
 				4584D81819F18D930093E2B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45D9879B19ECE38C00B96829 /* Build configuration list for PBXProject "ParsingEngine" */ = {
 			isa = XCConfigurationList;

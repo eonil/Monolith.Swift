@@ -14,7 +14,7 @@
 		<string>https://github.com/Eonil/Monolith.Swift.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Parsing/ParsingEngine.xcodeproj</string>
+	<string>ParsingEngine/ParsingEngine.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>71A00DDED806E25423061F292531DC609604F42E</key>

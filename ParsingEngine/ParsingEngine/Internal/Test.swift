@@ -9,7 +9,6 @@
 import Foundation
 
 struct Test {
-	typealias	EDXC	=	Syntax.EDXC
 	
 	static func run() {
 		let	run	=	EonilParsingEngineTest.run
@@ -34,7 +33,7 @@ struct Test {
 			
 		tx {
 			let	s1	=	" \t\n"
-			let	r1	=	run(data: s1, using: "test-rule" ~~~ EDXC.Rules.whitespaceStrip)
+			let	r1	=	run(data: s1, using: "test-rule" ~~~ EDXC.Syntax.whitespaceStrip)
 			println(r1)
 			
 			ok(r1.nodes.count == 1)
@@ -46,7 +45,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	" "
-			let	r1	=	run(data: s1, using: "test-rule" ~~~ EDXC.Rules.symbolForm)
+			let	r1	=	run(data: s1, using: "test-rule" ~~~ EDXC.Syntax.symbolForm)
 			
 			println(r1)
 			ok(r1.match == false)
@@ -97,7 +96,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	" "
-			let	r1	=	run(data: s1, using: EDXC.Rules.valueExpression)
+			let	r1	=	run(data: s1, using: EDXC.Syntax.valueExpression)
 			
 			println(r1)
 			ok(r1.match == false)
@@ -105,7 +104,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	"a b c"
-			let	r1	=	run(data: s1, using: EDXC.Rules.valueExpression)
+			let	r1	=	run(data: s1, using: EDXC.Syntax.valueExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
@@ -118,7 +117,7 @@ struct Test {
 		
 		tx{
 			let	s1	=	"\"abc\""
-			let	r1	=	run(data: s1, using: EDXC.Rules.valueExpression)
+			let	r1	=	run(data: s1, using: EDXC.Syntax.valueExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
@@ -131,21 +130,21 @@ struct Test {
 
 		tx{
 			let	s1	=	"(a b c)"
-			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Syntax.listExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
 			
 			let	n1	=	r1.nodes[0]
-			ok(n1.origin === EDXC.Rules.listExpression)
+			ok(n1.origin === EDXC.Syntax.listExpression)
 			ok(n1.content == s1)
 			println(n1.content)
 			
 			let	n2	=	{ (i:Int) -> Stepping.Node in return n1.subnodes[i] }
 			ok(n1.subnodes.count == 3)
-			ok(n2(0).origin === EDXC.Rules.atomExpression)
-			ok(n2(1).origin === EDXC.Rules.atomExpression)
-			ok(n2(2).origin === EDXC.Rules.atomExpression)
+			ok(n2(0).origin === EDXC.Syntax.atomExpression)
+			ok(n2(1).origin === EDXC.Syntax.atomExpression)
+			ok(n2(2).origin === EDXC.Syntax.atomExpression)
 			println(n2(0).content)
 			println(n2(1).content)
 			println(n2(2).content)
@@ -156,21 +155,21 @@ struct Test {
 		
 		tx{
 			let	s1	=	"(a (b c d) e)"
-			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Syntax.listExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
 			
 			let	n1	=	r1.nodes[0]
-			ok(n1.origin === EDXC.Rules.listExpression)
+			ok(n1.origin === EDXC.Syntax.listExpression)
 			ok(n1.content == s1)
 			println(n1.content)
 			ok(n1.subnodes.count == 3)
 			
 			let	n2	=	{ (i:Int) -> Stepping.Node in return n1.subnodes[i] }
-			ok(n2(0).origin === EDXC.Rules.atomExpression)
-			ok(n2(1).origin === EDXC.Rules.atomExpression)
-			ok(n2(2).origin === EDXC.Rules.atomExpression)
+			ok(n2(0).origin === EDXC.Syntax.atomExpression)
+			ok(n2(1).origin === EDXC.Syntax.atomExpression)
+			ok(n2(2).origin === EDXC.Syntax.atomExpression)
 			println(n2(0).content)
 			println(n2(1).content)
 			println(n2(2).content)
@@ -180,13 +179,13 @@ struct Test {
 			ok(n2(2).content == "e")
 			
 			let	n3	=	{ (i:Int) -> Stepping.Node in return n2(1).subnodes[i] }
-			ok(n3(0).origin === EDXC.Rules.listExpression)
+			ok(n3(0).origin === EDXC.Syntax.listExpression)
 			ok(n3(0).subnodes.count == 3)
 			
 			let	n4	=	{ (i:Int) -> Stepping.Node in return n3(0).subnodes[i] }
-			ok(n4(0).origin === EDXC.Rules.atomExpression)
-			ok(n4(1).origin === EDXC.Rules.atomExpression)
-			ok(n4(2).origin === EDXC.Rules.atomExpression)
+			ok(n4(0).origin === EDXC.Syntax.atomExpression)
+			ok(n4(1).origin === EDXC.Syntax.atomExpression)
+			ok(n4(2).origin === EDXC.Syntax.atomExpression)
 			ok(n4(0).content == "b")
 			ok(n4(1).content == "c")
 			ok(n4(2).content == "d")
@@ -194,21 +193,21 @@ struct Test {
 		
 		tx{
 			let	s1	=	"(a   (b\tc\t\td)\ne)"
-			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Syntax.listExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
 			
 			let	n1	=	r1.nodes[0]
-			ok(n1.origin === EDXC.Rules.listExpression)
+			ok(n1.origin === EDXC.Syntax.listExpression)
 			ok(n1.content == s1)
 			println(n1.content)
 			ok(n1.subnodes.count == 3)
 			
 			let	n2	=	{ (i:Int) -> Stepping.Node in return n1.subnodes[i] }
-			ok(n2(0).origin === EDXC.Rules.atomExpression)
-			ok(n2(1).origin === EDXC.Rules.atomExpression)
-			ok(n2(2).origin === EDXC.Rules.atomExpression)
+			ok(n2(0).origin === EDXC.Syntax.atomExpression)
+			ok(n2(1).origin === EDXC.Syntax.atomExpression)
+			ok(n2(2).origin === EDXC.Syntax.atomExpression)
 			println(n2(0).content)
 			println(n2(1).content)
 			println(n2(2).content)
@@ -218,13 +217,13 @@ struct Test {
 			ok(n2(2).content == "e")
 			
 			let	n3	=	{ (i:Int) -> Stepping.Node in return n2(1).subnodes[i] }
-			ok(n3(0).origin === EDXC.Rules.listExpression)
+			ok(n3(0).origin === EDXC.Syntax.listExpression)
 			ok(n3(0).subnodes.count == 3)
 			
 			let	n4	=	{ (i:Int) -> Stepping.Node in return n3(0).subnodes[i] }
-			ok(n4(0).origin === EDXC.Rules.atomExpression)
-			ok(n4(1).origin === EDXC.Rules.atomExpression)
-			ok(n4(2).origin === EDXC.Rules.atomExpression)
+			ok(n4(0).origin === EDXC.Syntax.atomExpression)
+			ok(n4(1).origin === EDXC.Syntax.atomExpression)
+			ok(n4(2).origin === EDXC.Syntax.atomExpression)
 			ok(n4(0).content == "b")
 			ok(n4(1).content == "c")
 			ok(n4(2).content == "d")
@@ -232,34 +231,34 @@ struct Test {
 		
 		tx{
 			let	s1	=	"( )"
-			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Syntax.listExpression)
 			println(r1)
 			
 			ok(r1.match)
 			ok(r1.nodes.count == 1)
-			ok(r1.nodes[0].origin === EDXC.Rules.listExpression)
+			ok(r1.nodes[0].origin === EDXC.Syntax.listExpression)
 			ok(r1.nodes[0].content == s1)
 		}
 		
 		
 		tx{
 			let	s1	=	"( a ( b ) c )"
-			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Syntax.listExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
 			ok(r1.nodes.count == 1)
 			
 			let	n1	=	r1.nodes[0]
-			ok(n1.origin === EDXC.Rules.listExpression)
+			ok(n1.origin === EDXC.Syntax.listExpression)
 			println(n1.content)
 			ok(n1.content == s1)
 			ok(n1.subnodes.count == 3)
 			
 			let	n2	=	{ (i:Int) -> Stepping.Node in return n1.subnodes[i] }
-			ok(n2(0).origin === EDXC.Rules.atomExpression)
-			ok(n2(1).origin === EDXC.Rules.atomExpression)
-			ok(n2(2).origin === EDXC.Rules.atomExpression)
+			ok(n2(0).origin === EDXC.Syntax.atomExpression)
+			ok(n2(1).origin === EDXC.Syntax.atomExpression)
+			ok(n2(2).origin === EDXC.Syntax.atomExpression)
 			println(n2(0).content)
 			println(n2(1).content)
 			println(n2(2).content)
@@ -271,14 +270,14 @@ struct Test {
 		
 		tx{
 			let	s1	=	"abc"
-			let	r1	=	run(data: s1, using: EDXC.Rules.valueExpression)
+			let	r1	=	run(data: s1, using: EDXC.Syntax.valueExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
 			ok(r1.nodes.count == 1)
 			
 			let	n1	=	r1.nodes[0]
-			ok(n1.origin === EDXC.Rules.valueExpression)
+			ok(n1.origin === EDXC.Syntax.valueExpression)
 			println(n1.content)
 			ok(n1.content == s1)
 			ok(n1.subnodes.count == 0)
@@ -286,14 +285,14 @@ struct Test {
 		
 		tx{
 			let	s1	=	"abc2/23lr9$%3$x"
-			let	r1	=	run(data: s1, using: EDXC.Rules.valueExpression)
+			let	r1	=	run(data: s1, using: EDXC.Syntax.valueExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
 			ok(r1.nodes.count == 1)
 			
 			let	n1	=	r1.nodes[0]
-			ok(n1.origin === EDXC.Rules.valueExpression)
+			ok(n1.origin === EDXC.Syntax.valueExpression)
 			println(n1.content)
 			ok(n1.content == s1)
 			ok(n1.subnodes.count == 0)
@@ -302,14 +301,14 @@ struct Test {
 		///	Escape sequence.
 		tx{
 			let	s1	=	"ab\\ c d"
-			let	r1	=	run(data: s1, using: EDXC.Rules.valueExpression)
+			let	r1	=	run(data: s1, using: EDXC.Syntax.valueExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
 			ok(r1.nodes.count == 1)
 			
 			let	n1	=	r1.nodes[0]
-			ok(n1.origin === EDXC.Rules.valueExpression)
+			ok(n1.origin === EDXC.Syntax.valueExpression)
 			println(n1.content)
 			ok(n1.content == "ab\\ c")
 			ok(n1.subnodes.count == 0)
@@ -319,27 +318,27 @@ struct Test {
 		
 		tx{
 			let	s1	=	"(a )"
-			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Syntax.listExpression)
 			println(r1)
 			
 			//ok(r1.nodes != nil)
 			ok(r1.nodes.count == 1)
 			
 			let	n1	=	r1.nodes[0]
-			ok(n1.origin === EDXC.Rules.listExpression)
+			ok(n1.origin === EDXC.Syntax.listExpression)
 			println(n1.content)
 			ok(n1.content == s1)
 			ok(n1.subnodes.count == 1)
 			
 			let	n2	=	{ (i:Int) -> Stepping.Node in return n1.subnodes[i] }
-			ok(n2(0).origin === EDXC.Rules.atomExpression)
+			ok(n2(0).origin === EDXC.Syntax.atomExpression)
 			println(n2(0).content)
 			ok(n2(0).content == "a")
 		}
 		
 		tx{
 			let	s1	=	"(a"
-			let	r1	=	run(data: s1, using: EDXC.Rules.listExpression)
+			let	r1	=	run(data: s1, using: EDXC.Syntax.listExpression)
 			println(r1)
 			ok(r1.error)
 		}
