@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "45641AC819F0D52200381269"
-               BuildableName = "EonilParsingEngine.framework"
-               BlueprintName = "ParsingEngine OSX"
+               BlueprintIdentifier = "4584D80219F18D930093E2B1"
+               BuildableName = "iOS.framework"
+               BlueprintName = "ParsingEngine/iOS"
                ReferencedContainer = "container:ParsingEngine.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "45641AD219F0D52200381269"
-               BuildableName = "ParsingEngineTests.xctest"
-               BlueprintName = "ParsingEngineTests"
+               BlueprintIdentifier = "4584D80C19F18D930093E2B1"
+               BuildableName = "iOSTests.xctest"
+               BlueprintName = "ParsingEngine/iOSTests"
                ReferencedContainer = "container:ParsingEngine.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "45641AD219F0D52200381269"
-               BuildableName = "ParsingEngineTests.xctest"
-               BlueprintName = "ParsingEngineTests"
+               BlueprintIdentifier = "4584D80C19F18D930093E2B1"
+               BuildableName = "iOSTests.xctest"
+               BlueprintName = "ParsingEngine/iOSTests"
                ReferencedContainer = "container:ParsingEngine.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "45641AC819F0D52200381269"
-            BuildableName = "EonilParsingEngine.framework"
-            BlueprintName = "ParsingEngine OSX"
+            BlueprintIdentifier = "4584D80219F18D930093E2B1"
+            BuildableName = "iOS.framework"
+            BlueprintName = "ParsingEngine/iOS"
             ReferencedContainer = "container:ParsingEngine.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,9 +75,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "45641AC819F0D52200381269"
-            BuildableName = "EonilParsingEngine.framework"
-            BlueprintName = "ParsingEngine OSX"
+            BlueprintIdentifier = "4584D80219F18D930093E2B1"
+            BuildableName = "iOS.framework"
+            BlueprintName = "ParsingEngine/iOS"
             ReferencedContainer = "container:ParsingEngine.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -93,9 +93,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "45641AC819F0D52200381269"
-            BuildableName = "EonilParsingEngine.framework"
-            BlueprintName = "ParsingEngine OSX"
+            BlueprintIdentifier = "4584D80219F18D930093E2B1"
+            BuildableName = "iOS.framework"
+            BlueprintName = "ParsingEngine/iOS"
             ReferencedContainer = "container:ParsingEngine.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
