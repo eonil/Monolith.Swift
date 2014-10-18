@@ -14,9 +14,7 @@ import Foundation
 
 
 
-public struct
-Parsing
-{
+public struct Parsing {
 }
 
 

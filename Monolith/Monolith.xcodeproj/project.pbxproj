@@ -7,12 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		451EB74719F233B60035601A /* EonilParsingEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451EB74619F233B60035601A /* EonilParsingEngine.framework */; };
+		451EB74819F233BB0035601A /* EonilParsingEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451EB74619F233B60035601A /* EonilParsingEngine.framework */; };
+		451EB74A19F233C20035601A /* EonilCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451EB74919F233C20035601A /* EonilCommon.framework */; };
+		451EB74B19F233C80035601A /* EonilCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451EB74919F233C20035601A /* EonilCommon.framework */; };
+		4543352719F2311C009710B2 /* Transcoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4543352619F2311C009710B2 /* Transcoding.swift */; };
+		4543352819F2311C009710B2 /* Transcoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4543352619F2311C009710B2 /* Transcoding.swift */; };
+		4543352A19F2312E009710B2 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4543352919F2312E009710B2 /* Value.swift */; };
+		4543352B19F2312E009710B2 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4543352919F2312E009710B2 /* Value.swift */; };
+		4543352D19F2313B009710B2 /* TextScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4543352C19F2313B009710B2 /* TextScanner.swift */; };
+		4543352E19F2313B009710B2 /* TextScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4543352C19F2313B009710B2 /* TextScanner.swift */; };
+		4584D83B19F192090093E2B1 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D83A19F192090093E2B1 /* System.swift */; };
+		4584D83E19F192960093E2B1 /* ISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D83D19F192960093E2B1 /* ISO8601.swift */; };
+		4584D83F19F192960093E2B1 /* ISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D83D19F192960093E2B1 /* ISO8601.swift */; };
+		4584D84519F193090093E2B1 /* Parsing.CharacterConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84119F193090093E2B1 /* Parsing.CharacterConsumer.swift */; };
+		4584D84619F193090093E2B1 /* Parsing.CharacterConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84119F193090093E2B1 /* Parsing.CharacterConsumer.swift */; };
+		4584D84719F193090093E2B1 /* Parsing.CharacterCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84219F193090093E2B1 /* Parsing.CharacterCursor.swift */; };
+		4584D84819F193090093E2B1 /* Parsing.CharacterCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84219F193090093E2B1 /* Parsing.CharacterCursor.swift */; };
+		4584D84919F193090093E2B1 /* Parsing.Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84319F193090093E2B1 /* Parsing.Scanner.swift */; };
+		4584D84A19F193090093E2B1 /* Parsing.Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84319F193090093E2B1 /* Parsing.Scanner.swift */; };
+		4584D84B19F193090093E2B1 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84419F193090093E2B1 /* Parsing.swift */; };
+		4584D84C19F193090093E2B1 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84419F193090093E2B1 /* Parsing.swift */; };
+		4584D84E19F19D7C0093E2B1 /* ISO8601.Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84D19F19D7C0093E2B1 /* ISO8601.Test.swift */; };
+		4584D84F19F19D7C0093E2B1 /* ISO8601.Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84D19F19D7C0093E2B1 /* ISO8601.Test.swift */; };
 		458615D219F17DAD007408AF /* Monolith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458615D119F17DAD007408AF /* Monolith.swift */; };
 		4586160C19F17EF5007408AF /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4586160B19F17EF5007408AF /* Operators.swift */; };
 		4586160D19F17EF5007408AF /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4586160B19F17EF5007408AF /* Operators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		451EB74619F233B60035601A /* EonilParsingEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EonilParsingEngine.framework; path = "../../../Temp/Xcode/Derivations/Monolith-grltamqdibcujddlqpmfddxldusq/Build/Products/Debug/EonilParsingEngine.framework"; sourceTree = "<group>"; };
+		451EB74919F233C20035601A /* EonilCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EonilCommon.framework; path = "../../../Temp/Xcode/Derivations/Monolith-grltamqdibcujddlqpmfddxldusq/Build/Products/Debug/EonilCommon.framework"; sourceTree = "<group>"; };
+		4543352619F2311C009710B2 /* Transcoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transcoding.swift; sourceTree = "<group>"; };
+		4543352919F2312E009710B2 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		4543352C19F2313B009710B2 /* TextScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextScanner.swift; sourceTree = "<group>"; };
+		4584D83A19F192090093E2B1 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
+		4584D83D19F192960093E2B1 /* ISO8601.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISO8601.swift; sourceTree = "<group>"; };
+		4584D84119F193090093E2B1 /* Parsing.CharacterConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.CharacterConsumer.swift; sourceTree = "<group>"; };
+		4584D84219F193090093E2B1 /* Parsing.CharacterCursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.CharacterCursor.swift; sourceTree = "<group>"; };
+		4584D84319F193090093E2B1 /* Parsing.Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.Scanner.swift; sourceTree = "<group>"; };
+		4584D84419F193090093E2B1 /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
+		4584D84D19F19D7C0093E2B1 /* ISO8601.Test.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; path = ISO8601.Test.swift; sourceTree = "<group>"; };
 		4586159419F17C4B007408AF /* Monolith.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Monolith.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		458615B319F17CB8007408AF /* Monolith.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Monolith.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		458615CE19F17CD3007408AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -26,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				451EB74B19F233C80035601A /* EonilCommon.framework in Frameworks */,
+				451EB74719F233B60035601A /* EonilParsingEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,17 +70,59 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				451EB74A19F233C20035601A /* EonilCommon.framework in Frameworks */,
+				451EB74819F233BB0035601A /* EonilParsingEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		451EB74C19F233D70035601A /* References */ = {
+			isa = PBXGroup;
+			children = (
+				451EB74919F233C20035601A /* EonilCommon.framework */,
+				451EB74619F233B60035601A /* EonilParsingEngine.framework */,
+			);
+			name = References;
+			sourceTree = "<group>";
+		};
+		4543352519F23116009710B2 /* Transcoding */ = {
+			isa = PBXGroup;
+			children = (
+				4543352619F2311C009710B2 /* Transcoding.swift */,
+				4543352919F2312E009710B2 /* Value.swift */,
+				4543352C19F2313B009710B2 /* TextScanner.swift */,
+			);
+			path = Transcoding;
+			sourceTree = "<group>";
+		};
+		4584D83C19F1928F0093E2B1 /* Standard */ = {
+			isa = PBXGroup;
+			children = (
+				4584D83D19F192960093E2B1 /* ISO8601.swift */,
+				4584D84D19F19D7C0093E2B1 /* ISO8601.Test.swift */,
+			);
+			path = Standard;
+			sourceTree = "<group>";
+		};
+		4584D84019F193090093E2B1 /* Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				4584D84419F193090093E2B1 /* Parsing.swift */,
+				4584D84319F193090093E2B1 /* Parsing.Scanner.swift */,
+				4584D84219F193090093E2B1 /* Parsing.CharacterCursor.swift */,
+				4584D84119F193090093E2B1 /* Parsing.CharacterConsumer.swift */,
+			);
+			path = Parsing;
+			sourceTree = "<group>";
+		};
 		4586156019F17B86007408AF = {
 			isa = PBXGroup;
 			children = (
-				458615B419F17CB8007408AF /* Monolith */,
 				458615CC19F17CD3007408AF /* Targets */,
+				458615B419F17CB8007408AF /* Sources */,
+				451EB74C19F233D70035601A /* References */,
 				4586159519F17C4B007408AF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,13 +136,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		458615B419F17CB8007408AF /* Monolith */ = {
+		458615B419F17CB8007408AF /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				458615D119F17DAD007408AF /* Monolith.swift */,
+				4584D83A19F192090093E2B1 /* System.swift */,
 				4586160B19F17EF5007408AF /* Operators.swift */,
+				4584D83C19F1928F0093E2B1 /* Standard */,
+				4584D84019F193090093E2B1 /* Parsing */,
+				4543352519F23116009710B2 /* Transcoding */,
 			);
-			path = Monolith;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		458615CC19F17CD3007408AF /* Targets */ = {
@@ -203,7 +286,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4543352719F2311C009710B2 /* Transcoding.swift in Sources */,
 				458615D219F17DAD007408AF /* Monolith.swift in Sources */,
+				4543352A19F2312E009710B2 /* Value.swift in Sources */,
+				4584D84719F193090093E2B1 /* Parsing.CharacterCursor.swift in Sources */,
+				4584D84519F193090093E2B1 /* Parsing.CharacterConsumer.swift in Sources */,
+				4584D83B19F192090093E2B1 /* System.swift in Sources */,
+				4584D84E19F19D7C0093E2B1 /* ISO8601.Test.swift in Sources */,
+				4543352D19F2313B009710B2 /* TextScanner.swift in Sources */,
+				4584D84B19F193090093E2B1 /* Parsing.swift in Sources */,
+				4584D84919F193090093E2B1 /* Parsing.Scanner.swift in Sources */,
+				4584D83E19F192960093E2B1 /* ISO8601.swift in Sources */,
 				4586160C19F17EF5007408AF /* Operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,7 +305,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4543352819F2311C009710B2 /* Transcoding.swift in Sources */,
+				4584D83F19F192960093E2B1 /* ISO8601.swift in Sources */,
+				4584D84819F193090093E2B1 /* Parsing.CharacterCursor.swift in Sources */,
+				4543352E19F2313B009710B2 /* TextScanner.swift in Sources */,
+				4584D84A19F193090093E2B1 /* Parsing.Scanner.swift in Sources */,
+				4584D84F19F19D7C0093E2B1 /* ISO8601.Test.swift in Sources */,
+				4543352B19F2312E009710B2 /* Value.swift in Sources */,
 				4586160D19F17EF5007408AF /* Operators.swift in Sources */,
+				4584D84C19F193090093E2B1 /* Parsing.swift in Sources */,
+				4584D84619F193090093E2B1 /* Parsing.CharacterConsumer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +360,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Eonil/Workshop/Temp/Xcode/Derivations/Monolith-grltamqdibcujddlqpmfddxldusq/Build/Products/Debug",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -314,6 +420,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Eonil/Workshop/Temp/Xcode/Derivations/Monolith-grltamqdibcujddlqpmfddxldusq/Build/Products/Debug",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -359,6 +469,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Eonil/Workshop/Temp/Xcode/Derivations/Monolith-grltamqdibcujddlqpmfddxldusq/Build/Products/Debug",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -415,6 +529,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Eonil/Workshop/Temp/Xcode/Derivations/Monolith-grltamqdibcujddlqpmfddxldusq/Build/Products/Debug",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

@@ -147,7 +147,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		45641AEC19F0D5DA00381269 /* Parsing */ = {
+		45641AEC19F0D5DA00381269 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				45572D8219F18B0B00B10810 /* Operators.swift */,
@@ -159,8 +159,7 @@
 				45572D6B19F18ACB00B10810 /* EDXC */,
 				45572D6619F18A6700B10810 /* Internal */,
 			);
-			name = Parsing;
-			path = ParsingEngine;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		4584D82C19F18EFD0093E2B1 /* Targets */ = {
@@ -193,7 +192,7 @@
 			children = (
 				45D987AA19ECE39D00B96829 /* README.md */,
 				4584D82819F18E010093E2B1 /* LICENSE.md */,
-				45641AEC19F0D5DA00381269 /* Parsing */,
+				45641AEC19F0D5DA00381269 /* Sources */,
 				45641AD719F0D52200381269 /* ParsingEngineTests */,
 				4584D82C19F18EFD0093E2B1 /* Targets */,
 				45D987A119ECE38C00B96829 /* Products */,

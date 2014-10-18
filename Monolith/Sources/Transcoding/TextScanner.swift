@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+extension Transcoding {
+	struct TextScanner {
+		static func scan
+		
+	}
+}

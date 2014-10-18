@@ -14,33 +14,32 @@
 		45572D8619F18B0B00B10810 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8019F18B0B00B10810 /* Cursor.swift */; };
 		45572D8819F18B0B00B10810 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8219F18B0B00B10810 /* Operators.swift */; };
 		45572D8919F18B0B00B10810 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8319F18B0B00B10810 /* Pattern.swift */; };
-		45572D8A19F18B0B00B10810 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8419F18B0B00B10810 /* Rule.swift */; };
-		45572D8B19F18B0B00B10810 /* Stepping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8519F18B0B00B10810 /* Stepping.swift */; };
-		4584D7F119F18B4E0093E2B1 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D7F019F18B4E0093E2B1 /* Engine.swift */; };
 		4584D7F219F18CAC0093E2B1 /* EDXC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6C19F18ACB00B10810 /* EDXC.swift */; };
-		4584D7F319F18CAC0093E2B1 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D7F019F18B4E0093E2B1 /* Engine.swift */; };
 		4584D7F419F18CAC0093E2B1 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6D19F18ACB00B10810 /* Entity.swift */; };
 		4584D7F519F18CAC0093E2B1 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8019F18B0B00B10810 /* Cursor.swift */; };
-		4584D7F619F18CAC0093E2B1 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8419F18B0B00B10810 /* Rule.swift */; };
-		4584D7F719F18CAC0093E2B1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6819F18A6700B10810 /* Test.swift */; };
 		4584D7F819F18CAC0093E2B1 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6E19F18ACB00B10810 /* List.swift */; };
 		4584D7F919F18CAC0093E2B1 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8319F18B0B00B10810 /* Pattern.swift */; };
-		4584D7FA19F18CAC0093E2B1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6719F18A6700B10810 /* main.swift */; };
 		4584D7FB19F18CAC0093E2B1 /* Syntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6F19F18ACB00B10810 /* Syntax.swift */; };
 		4584D7FC19F18CAC0093E2B1 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8219F18B0B00B10810 /* Operators.swift */; };
-		4584D7FD19F18CAC0093E2B1 /* Stepping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8519F18B0B00B10810 /* Stepping.swift */; };
 		4584D81C19F18DA40093E2B1 /* EDXC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6C19F18ACB00B10810 /* EDXC.swift */; };
-		4584D81D19F18DA40093E2B1 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D7F019F18B4E0093E2B1 /* Engine.swift */; };
 		4584D81E19F18DA40093E2B1 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6D19F18ACB00B10810 /* Entity.swift */; };
 		4584D81F19F18DA40093E2B1 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8019F18B0B00B10810 /* Cursor.swift */; };
-		4584D82019F18DA40093E2B1 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8419F18B0B00B10810 /* Rule.swift */; };
 		4584D82119F18DA40093E2B1 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6E19F18ACB00B10810 /* List.swift */; };
 		4584D82219F18DA40093E2B1 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8319F18B0B00B10810 /* Pattern.swift */; };
 		4584D82319F18DA40093E2B1 /* Syntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6F19F18ACB00B10810 /* Syntax.swift */; };
 		4584D82419F18DA40093E2B1 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8219F18B0B00B10810 /* Operators.swift */; };
-		4584D82519F18DA40093E2B1 /* Stepping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8519F18B0B00B10810 /* Stepping.swift */; };
 		4584D82719F18DD70093E2B1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4584D82619F18DD70093E2B1 /* README.md */; };
-		4584D82919F18E010093E2B1 /* LICENSE.md in Sources */ = {isa = PBXBuildFile; fileRef = 4584D82819F18E010093E2B1 /* LICENSE.md */; };
+		458E987219F23C0400D93870 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590D29D19F2371E001A7FBB /* Parsing.swift */; };
+		458E987319F23C0400D93870 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590D29E19F2371E001A7FBB /* Rule.swift */; };
+		458E987419F23C0400D93870 /* Stepping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590D29F19F2371E001A7FBB /* Stepping.swift */; };
+		458E987819F248F300D93870 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458E987619F248F300D93870 /* main.swift */; };
+		458E987919F248F300D93870 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458E987719F248F300D93870 /* Test.swift */; };
+		4590D2A019F2371E001A7FBB /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590D29D19F2371E001A7FBB /* Parsing.swift */; };
+		4590D2A119F2371E001A7FBB /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590D29D19F2371E001A7FBB /* Parsing.swift */; };
+		4590D2A219F2371E001A7FBB /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590D29E19F2371E001A7FBB /* Rule.swift */; };
+		4590D2A319F2371E001A7FBB /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590D29E19F2371E001A7FBB /* Rule.swift */; };
+		4590D2A419F2371E001A7FBB /* Stepping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590D29F19F2371E001A7FBB /* Stepping.swift */; };
+		4590D2A519F2371E001A7FBB /* Stepping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590D29F19F2371E001A7FBB /* Stepping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,8 +55,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		45572D6719F18A6700B10810 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		45572D6819F18A6700B10810 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		45572D6C19F18ACB00B10810 /* EDXC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDXC.swift; sourceTree = "<group>"; };
 		45572D6D19F18ACB00B10810 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		45572D6E19F18ACB00B10810 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
@@ -65,20 +62,22 @@
 		45572D8019F18B0B00B10810 /* Cursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
 		45572D8219F18B0B00B10810 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		45572D8319F18B0B00B10810 /* Pattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
-		45572D8419F18B0B00B10810 /* Rule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
-		45572D8519F18B0B00B10810 /* Stepping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stepping.swift; sourceTree = "<group>"; };
-		45641AC919F0D52200381269 /* EonilParsingEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EonilParsingEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45641AC919F0D52200381269 /* EonilText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EonilText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45641AD919F0D52200381269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45641ADA19F0D52200381269 /* ParsingEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingEngineTests.swift; sourceTree = "<group>"; };
-		4584D7F019F18B4E0093E2B1 /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
-		4584D80319F18D930093E2B1 /* EonilParsingEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EonilParsingEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4584D80319F18D930093E2B1 /* EonilText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EonilText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4584D82619F18DD70093E2B1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4584D82819F18E010093E2B1 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		4584D82A19F18E2C0093E2B1 /* SchemaProfile.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SchemaProfile.md; sourceTree = "<group>"; };
 		4584D82B19F18E2C0093E2B1 /* SelfDesribingDataProfile.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SelfDesribingDataProfile.md; sourceTree = "<group>"; };
 		4584D82E19F18EFD0093E2B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4584D83019F18EFD0093E2B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45D987A019ECE38C00B96829 /* EonilParsingEngineTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EonilParsingEngineTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		458E987619F248F300D93870 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		458E987719F248F300D93870 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		4590D29D19F2371E001A7FBB /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
+		4590D29E19F2371E001A7FBB /* Rule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		4590D29F19F2371E001A7FBB /* Stepping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stepping.swift; sourceTree = "<group>"; };
+		45D987A019ECE38C00B96829 /* EonilTextTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EonilTextTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D987AA19ECE39D00B96829 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,15 +106,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		45572D6619F18A6700B10810 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				45572D6719F18A6700B10810 /* main.swift */,
-				45572D6819F18A6700B10810 /* Test.swift */,
-			);
-			path = Internal;
-			sourceTree = "<group>";
-		};
 		45572D6B19F18ACB00B10810 /* EDXC */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,11 +143,9 @@
 				45572D8219F18B0B00B10810 /* Operators.swift */,
 				45572D8019F18B0B00B10810 /* Cursor.swift */,
 				45572D8319F18B0B00B10810 /* Pattern.swift */,
-				45572D8419F18B0B00B10810 /* Rule.swift */,
-				4584D7F019F18B4E0093E2B1 /* Engine.swift */,
-				45572D8519F18B0B00B10810 /* Stepping.swift */,
+				4590D29C19F2371E001A7FBB /* Parsing */,
 				45572D6B19F18ACB00B10810 /* EDXC */,
-				45572D6619F18A6700B10810 /* Internal */,
+				458E987519F248F300D93870 /* Test */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -187,6 +175,25 @@
 			path = OSX;
 			sourceTree = "<group>";
 		};
+		458E987519F248F300D93870 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				458E987619F248F300D93870 /* main.swift */,
+				458E987719F248F300D93870 /* Test.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		4590D29C19F2371E001A7FBB /* Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				4590D29D19F2371E001A7FBB /* Parsing.swift */,
+				4590D29E19F2371E001A7FBB /* Rule.swift */,
+				4590D29F19F2371E001A7FBB /* Stepping.swift */,
+			);
+			path = Parsing;
+			sourceTree = "<group>";
+		};
 		45D9879719ECE38C00B96829 = {
 			isa = PBXGroup;
 			children = (
@@ -202,9 +209,9 @@
 		45D987A119ECE38C00B96829 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				45D987A019ECE38C00B96829 /* EonilParsingEngineTest */,
-				45641AC919F0D52200381269 /* EonilParsingEngine.framework */,
-				4584D80319F18D930093E2B1 /* EonilParsingEngine.framework */,
+				45D987A019ECE38C00B96829 /* EonilTextTest */,
+				45641AC919F0D52200381269 /* EonilText.framework */,
+				4584D80319F18D930093E2B1 /* EonilText.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,9 +236,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		45641AC819F0D52200381269 /* ParsingEngine/OSX */ = {
+		45641AC819F0D52200381269 /* Text OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 45641ADC19F0D52300381269 /* Build configuration list for PBXNativeTarget "ParsingEngine/OSX" */;
+			buildConfigurationList = 45641ADC19F0D52300381269 /* Build configuration list for PBXNativeTarget "Text OSX" */;
 			buildPhases = (
 				45641AC419F0D52200381269 /* Sources */,
 				45641AC519F0D52200381269 /* Frameworks */,
@@ -242,14 +249,14 @@
 			);
 			dependencies = (
 			);
-			name = ParsingEngine/OSX;
+			name = "Text OSX";
 			productName = ParsingEngine;
-			productReference = 45641AC919F0D52200381269 /* EonilParsingEngine.framework */;
+			productReference = 45641AC919F0D52200381269 /* EonilText.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4584D80219F18D930093E2B1 /* ParsingEngine/iOS */ = {
+		4584D80219F18D930093E2B1 /* Text iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4584D81619F18D930093E2B1 /* Build configuration list for PBXNativeTarget "ParsingEngine/iOS" */;
+			buildConfigurationList = 4584D81619F18D930093E2B1 /* Build configuration list for PBXNativeTarget "Text iOS" */;
 			buildPhases = (
 				4584D7FE19F18D930093E2B1 /* Sources */,
 				4584D7FF19F18D930093E2B1 /* Frameworks */,
@@ -260,14 +267,14 @@
 			);
 			dependencies = (
 			);
-			name = ParsingEngine/iOS;
+			name = "Text iOS";
 			productName = ParsingEngine/iOS;
-			productReference = 4584D80319F18D930093E2B1 /* EonilParsingEngine.framework */;
+			productReference = 4584D80319F18D930093E2B1 /* EonilText.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		45D9879F19ECE38C00B96829 /* ParsingEngine/OSX/Test */ = {
+		45D9879F19ECE38C00B96829 /* Text OSX Test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 45D987A719ECE38C00B96829 /* Build configuration list for PBXNativeTarget "ParsingEngine/OSX/Test" */;
+			buildConfigurationList = 45D987A719ECE38C00B96829 /* Build configuration list for PBXNativeTarget "Text OSX Test" */;
 			buildPhases = (
 				45D9879C19ECE38C00B96829 /* Sources */,
 				45D9879D19ECE38C00B96829 /* Frameworks */,
@@ -277,9 +284,9 @@
 			);
 			dependencies = (
 			);
-			name = ParsingEngine/OSX/Test;
+			name = "Text OSX Test";
 			productName = EDX;
-			productReference = 45D987A019ECE38C00B96829 /* EonilParsingEngineTest */;
+			productReference = 45D987A019ECE38C00B96829 /* EonilTextTest */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -302,7 +309,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 45D9879B19ECE38C00B96829 /* Build configuration list for PBXProject "ParsingEngine" */;
+			buildConfigurationList = 45D9879B19ECE38C00B96829 /* Build configuration list for PBXProject "Text" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -314,9 +321,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				45641AC819F0D52200381269 /* ParsingEngine/OSX */,
-				4584D80219F18D930093E2B1 /* ParsingEngine/iOS */,
-				45D9879F19ECE38C00B96829 /* ParsingEngine/OSX/Test */,
+				45641AC819F0D52200381269 /* Text OSX */,
+				4584D80219F18D930093E2B1 /* Text iOS */,
+				45D9879F19ECE38C00B96829 /* Text OSX Test */,
 			);
 		};
 /* End PBXProject section */
@@ -344,17 +351,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				45572D7019F18ACB00B10810 /* EDXC.swift in Sources */,
-				4584D7F119F18B4E0093E2B1 /* Engine.swift in Sources */,
+				4590D2A419F2371E001A7FBB /* Stepping.swift in Sources */,
+				4590D2A019F2371E001A7FBB /* Parsing.swift in Sources */,
 				45572D7119F18ACB00B10810 /* Entity.swift in Sources */,
 				45572D8619F18B0B00B10810 /* Cursor.swift in Sources */,
-				4584D82919F18E010093E2B1 /* LICENSE.md in Sources */,
-				45572D8A19F18B0B00B10810 /* Rule.swift in Sources */,
 				45572D7219F18ACB00B10810 /* List.swift in Sources */,
 				45572D8919F18B0B00B10810 /* Pattern.swift in Sources */,
 				45572D7319F18ACB00B10810 /* Syntax.swift in Sources */,
 				45572D8819F18B0B00B10810 /* Operators.swift in Sources */,
+				4590D2A219F2371E001A7FBB /* Rule.swift in Sources */,
 				4584D82719F18DD70093E2B1 /* README.md in Sources */,
-				45572D8B19F18B0B00B10810 /* Stepping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,13 +369,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4584D81C19F18DA40093E2B1 /* EDXC.swift in Sources */,
-				4584D82019F18DA40093E2B1 /* Rule.swift in Sources */,
+				4590D2A519F2371E001A7FBB /* Stepping.swift in Sources */,
 				4584D81F19F18DA40093E2B1 /* Cursor.swift in Sources */,
-				4584D82519F18DA40093E2B1 /* Stepping.swift in Sources */,
-				4584D81D19F18DA40093E2B1 /* Engine.swift in Sources */,
 				4584D81E19F18DA40093E2B1 /* Entity.swift in Sources */,
 				4584D82219F18DA40093E2B1 /* Pattern.swift in Sources */,
 				4584D82319F18DA40093E2B1 /* Syntax.swift in Sources */,
+				4590D2A119F2371E001A7FBB /* Parsing.swift in Sources */,
+				4590D2A319F2371E001A7FBB /* Rule.swift in Sources */,
 				4584D82119F18DA40093E2B1 /* List.swift in Sources */,
 				4584D82419F18DA40093E2B1 /* Operators.swift in Sources */,
 			);
@@ -379,18 +385,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4584D7FD19F18CAC0093E2B1 /* Stepping.swift in Sources */,
 				4584D7F419F18CAC0093E2B1 /* Entity.swift in Sources */,
-				4584D7F319F18CAC0093E2B1 /* Engine.swift in Sources */,
+				458E987819F248F300D93870 /* main.swift in Sources */,
 				4584D7F219F18CAC0093E2B1 /* EDXC.swift in Sources */,
-				4584D7F719F18CAC0093E2B1 /* Test.swift in Sources */,
+				458E987919F248F300D93870 /* Test.swift in Sources */,
+				458E987319F23C0400D93870 /* Rule.swift in Sources */,
 				4584D7FB19F18CAC0093E2B1 /* Syntax.swift in Sources */,
 				4584D7F919F18CAC0093E2B1 /* Pattern.swift in Sources */,
-				4584D7FA19F18CAC0093E2B1 /* main.swift in Sources */,
+				458E987219F23C0400D93870 /* Parsing.swift in Sources */,
 				4584D7FC19F18CAC0093E2B1 /* Operators.swift in Sources */,
 				4584D7F519F18CAC0093E2B1 /* Cursor.swift in Sources */,
-				4584D7F619F18CAC0093E2B1 /* Rule.swift in Sources */,
 				4584D7F819F18CAC0093E2B1 /* List.swift in Sources */,
+				458E987419F23C0400D93870 /* Stepping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +420,7 @@
 				INFOPLIST_FILE = Targets/OSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = EonilText;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -433,6 +440,7 @@
 				INFOPLIST_FILE = Targets/OSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = EonilText;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -456,6 +464,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = EonilText;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -477,6 +486,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = EonilText;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -566,21 +576,21 @@
 		45D987A819ECE38C00B96829 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = EonilParsingEngineTest;
+				PRODUCT_NAME = EonilTextTest;
 			};
 			name = Debug;
 		};
 		45D987A919ECE38C00B96829 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = EonilParsingEngineTest;
+				PRODUCT_NAME = EonilTextTest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		45641ADC19F0D52300381269 /* Build configuration list for PBXNativeTarget "ParsingEngine/OSX" */ = {
+		45641ADC19F0D52300381269 /* Build configuration list for PBXNativeTarget "Text OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45641ADD19F0D52300381269 /* Debug */,
@@ -589,7 +599,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4584D81619F18D930093E2B1 /* Build configuration list for PBXNativeTarget "ParsingEngine/iOS" */ = {
+		4584D81619F18D930093E2B1 /* Build configuration list for PBXNativeTarget "Text iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4584D81719F18D930093E2B1 /* Debug */,
@@ -598,7 +608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		45D9879B19ECE38C00B96829 /* Build configuration list for PBXProject "ParsingEngine" */ = {
+		45D9879B19ECE38C00B96829 /* Build configuration list for PBXProject "Text" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45D987A519ECE38C00B96829 /* Debug */,
@@ -607,7 +617,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		45D987A719ECE38C00B96829 /* Build configuration list for PBXNativeTarget "ParsingEngine/OSX/Test" */ = {
+		45D987A719ECE38C00B96829 /* Build configuration list for PBXNativeTarget "Text OSX Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45D987A819ECE38C00B96829 /* Debug */,

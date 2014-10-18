@@ -1,15 +1,16 @@
 //
-//  Common_iOSTests.swift
-//  Common/iOSTests
+//  ParsingEngineTests.swift
+//  ParsingEngineTests
 //
-//  Created by Hoon H. on 10/18/14.
-//
+//  Created by Hoon H. on 10/17/14.
+//  Copyright (c) 2014 Eonil. All rights reserved.
 //
 
-import UIKit
+import Cocoa
 import XCTest
+import EonilParsingEngine
 
-class Common_iOSTests: XCTestCase {
+class ParsingEngineTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

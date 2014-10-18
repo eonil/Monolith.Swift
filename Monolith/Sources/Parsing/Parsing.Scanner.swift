@@ -8,14 +8,9 @@
 
 import Foundation
 
-extension
-Parsing
-{
-	struct
-	Scanner
-	{
-		static func scanIntMax(expression:String) -> IntMax?
-		{
+extension Parsing {
+	struct Scanner {
+		static func scanIntMax(expression:String) -> IntMax? {
 			let	s3	=	NSScanner(string: expression)
 			var	p1	=	UnsafeMutablePointer<Int64>.alloc(1)
 			p1.initialize(0)
@@ -28,12 +23,10 @@ Parsing
 		
 		
 		
-		init(expression:String)
-		{
+		init(expression:String) {
 			self.init(cursor: Parsing.CharacterCursor(characters:expression))
 		}
-		init(cursor:Parsing.CharacterCursor)
-		{
+		init(cursor:Parsing.CharacterCursor) {
 			_cc	=	cursor
 		}
 		
@@ -44,40 +37,30 @@ Parsing
 //				crash()
 //			}
 //		}
-		mutating func tryScanningSingleCharacter() -> Character?
-		{
-			if _cc.available
-			{
+		mutating func tryScanningSingleCharacter() -> Character? {
+			if _cc.available {
 				let	ch1	=	_cc.current
 				_cc.step()
 				return	ch1
-			}
-			else
-			{
+			} else {
 				return	nil
 			}
 		}
-		mutating func trySkippingCharacter(asCharacter ch1:Character) -> Bool
-		{
-			if _cc.available && _cc.current == ch1
-			{
+		mutating func trySkippingCharacter(asCharacter ch1:Character) -> Bool {
+			if _cc.available && _cc.current == ch1 {
 				_cc.step()
 				return	true
 			}
 			return	false
 		}
-		mutating func tryScanningAnyAvailableNumericExpressionAsInteger(byLength len:Int) -> Int?
-		{
+		mutating func tryScanningAnyAvailableNumericExpressionAsInteger(byLength len:Int) -> Int? {
 			var	intscan	=	IntegerScanner(value: nil)
-			while _cc.available
-			{
-				if let v1 = IntegerScanner.integerValueForCharacter(_cc.current)
-				{
+			while _cc.available {
+				if let v1 = IntegerScanner.integerValueForCharacter(_cc.current) {
 					intscan.push(digit: v1)
 					_cc.step()
 				}
-				else
-				{
+				else {
 					break
 				}
 			}
@@ -86,48 +69,39 @@ Parsing
 		
 		private var	_cc:Parsing.CharacterCursor
 	}
-	struct
-	IntegerScanner
-	{
+	
+	
+	
+	struct IntegerScanner {
 		var	value:Int?
 		
-		mutating func push(digit v1:Int)
-		{
+		mutating func push(digit v1:Int) {
 			assert(v1 < 10)
 			assert(v1 >= 0)
 			
-			if let v2 = value
-			{
+			if let v2 = value {
 				value	=	(v2 * 10) + v1
 			}
-			else
-			{
+			else {
 				value	=	v1
 			}
 		}
-		mutating func push(digits s1:String)
-		{
-			for ch1 in s1
-			{
+		mutating func push(digits s1:String) {
+			for ch1 in s1 {
 				push(digit: ch1)
 			}
 		}
-		mutating func push(digit ch1:Character)
-		{
-			if let v1 = IntegerScanner.integerValueForCharacter(ch1)
-			{
+		mutating func push(digit ch1:Character) {
+			if let v1 = IntegerScanner.integerValueForCharacter(ch1) {
 				push(digit: v1)
 			}
-			else
-			{
+			else {
 				value	=	nil
 			}
 		}
 		
-		private static func integerValueForCharacter(ch1:Character) -> Int?
-		{
-			switch ch1
-			{
+		private static func integerValueForCharacter(ch1:Character) -> Int? {
+			switch ch1 {
 				case "0":	return 0
 				case "1":	return 1
 				case "2":	return 2
@@ -142,45 +116,33 @@ Parsing
 			}
 		}
 	}
-	struct
-	HexadecimalIntegerScanner
-	{
+	struct HexadecimalIntegerScanner {
 		var	value:Int?
 		
-		mutating func push(digit v1:Int)
-		{
-			if let v2 = value
-			{
+		mutating func push(digit v1:Int) {
+			if let v2 = value {
 				value	=	(v2 * 16) + v1
 			}
-			else
-			{
+			else {
 				value	=	v1
 			}
 		}
-		mutating func push(digits s1:String)
-		{
-			for ch1 in s1
-			{
+		mutating func push(digits s1:String) {
+			for ch1 in s1 {
 				push(digit: ch1)
 			}
 		}
-		mutating func push(digit ch1:Character)
-		{
-			if let v1 = IntegerScanner.integerValueForCharacter(ch1)
-			{
+		mutating func push(digit ch1:Character) {
+			if let v1 = IntegerScanner.integerValueForCharacter(ch1) {
 				push(digit: v1)
 			}
-			else
-			{
+			else {
 				value	=	nil
 			}
 		}
 		
-		private static func hexadecimalIntegerValueForCharacter(ch1:Character) -> Int?
-		{
-			switch ch1
-			{
+		private static func hexadecimalIntegerValueForCharacter(ch1:Character) -> Int?{
+			switch ch1 {
 				case "0":	return 0
 				case "1":	return 1
 				case "2":	return 2

@@ -11,6 +11,9 @@
       location = "container:Monolith/Monolith.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:ParsingEngine/ParsingEngine.xcodeproj">
+      location = "group:Text/Text.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Common/Common.xcodeproj">
    </FileRef>
 </Workspace>
