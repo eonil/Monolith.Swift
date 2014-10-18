@@ -272,7 +272,6 @@ extension Cursor {
 
 
 infix operator ~~~ {
-
 }
 
 public func ~~~ (left:String, right:Parsing.Rule.Composition) -> Parsing.Rule {

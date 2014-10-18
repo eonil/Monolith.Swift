@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		451F57A719F2BE7500E13DBE /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451F57A619F2BE7500E13DBE /* Scanner.swift */; };
+		451F57A819F2BE7500E13DBE /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451F57A619F2BE7500E13DBE /* Scanner.swift */; };
+		451F57A919F2BE7500E13DBE /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451F57A619F2BE7500E13DBE /* Scanner.swift */; };
 		45572D7019F18ACB00B10810 /* EDXC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6C19F18ACB00B10810 /* EDXC.swift */; };
 		45572D7119F18ACB00B10810 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6D19F18ACB00B10810 /* Entity.swift */; };
 		45572D7219F18ACB00B10810 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6E19F18ACB00B10810 /* List.swift */; };
-		45572D7319F18ACB00B10810 /* Syntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6F19F18ACB00B10810 /* Syntax.swift */; };
 		45572D8619F18B0B00B10810 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8019F18B0B00B10810 /* Cursor.swift */; };
 		45572D8819F18B0B00B10810 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8219F18B0B00B10810 /* Operators.swift */; };
 		45572D8919F18B0B00B10810 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8319F18B0B00B10810 /* Pattern.swift */; };
@@ -19,14 +21,12 @@
 		4584D7F519F18CAC0093E2B1 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8019F18B0B00B10810 /* Cursor.swift */; };
 		4584D7F819F18CAC0093E2B1 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6E19F18ACB00B10810 /* List.swift */; };
 		4584D7F919F18CAC0093E2B1 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8319F18B0B00B10810 /* Pattern.swift */; };
-		4584D7FB19F18CAC0093E2B1 /* Syntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6F19F18ACB00B10810 /* Syntax.swift */; };
 		4584D7FC19F18CAC0093E2B1 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8219F18B0B00B10810 /* Operators.swift */; };
 		4584D81C19F18DA40093E2B1 /* EDXC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6C19F18ACB00B10810 /* EDXC.swift */; };
 		4584D81E19F18DA40093E2B1 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6D19F18ACB00B10810 /* Entity.swift */; };
 		4584D81F19F18DA40093E2B1 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8019F18B0B00B10810 /* Cursor.swift */; };
 		4584D82119F18DA40093E2B1 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6E19F18ACB00B10810 /* List.swift */; };
 		4584D82219F18DA40093E2B1 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8319F18B0B00B10810 /* Pattern.swift */; };
-		4584D82319F18DA40093E2B1 /* Syntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6F19F18ACB00B10810 /* Syntax.swift */; };
 		4584D82419F18DA40093E2B1 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8219F18B0B00B10810 /* Operators.swift */; };
 		4584D82719F18DD70093E2B1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4584D82619F18DD70093E2B1 /* README.md */; };
 		458E987219F23C0400D93870 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590D29D19F2371E001A7FBB /* Parsing.swift */; };
@@ -55,10 +55,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		451F57A619F2BE7500E13DBE /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scanner.swift; path = Scanning/Scanner.swift; sourceTree = "<group>"; };
 		45572D6C19F18ACB00B10810 /* EDXC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDXC.swift; sourceTree = "<group>"; };
 		45572D6D19F18ACB00B10810 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		45572D6E19F18ACB00B10810 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
-		45572D6F19F18ACB00B10810 /* Syntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Syntax.swift; sourceTree = "<group>"; };
 		45572D8019F18B0B00B10810 /* Cursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
 		45572D8219F18B0B00B10810 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		45572D8319F18B0B00B10810 /* Pattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
@@ -112,7 +112,6 @@
 				4584D82619F18DD70093E2B1 /* README.md */,
 				4584D82B19F18E2C0093E2B1 /* SelfDesribingDataProfile.md */,
 				4584D82A19F18E2C0093E2B1 /* SchemaProfile.md */,
-				45572D6F19F18ACB00B10810 /* Syntax.swift */,
 				45572D6C19F18ACB00B10810 /* EDXC.swift */,
 				45572D6D19F18ACB00B10810 /* Entity.swift */,
 				45572D6E19F18ACB00B10810 /* List.swift */,
@@ -143,6 +142,7 @@
 				45572D8219F18B0B00B10810 /* Operators.swift */,
 				45572D8019F18B0B00B10810 /* Cursor.swift */,
 				45572D8319F18B0B00B10810 /* Pattern.swift */,
+				451F57A619F2BE7500E13DBE /* Scanner.swift */,
 				4590D29C19F2371E001A7FBB /* Parsing */,
 				45572D6B19F18ACB00B10810 /* EDXC */,
 				458E987519F248F300D93870 /* Test */,
@@ -356,8 +356,8 @@
 				45572D7119F18ACB00B10810 /* Entity.swift in Sources */,
 				45572D8619F18B0B00B10810 /* Cursor.swift in Sources */,
 				45572D7219F18ACB00B10810 /* List.swift in Sources */,
+				451F57A719F2BE7500E13DBE /* Scanner.swift in Sources */,
 				45572D8919F18B0B00B10810 /* Pattern.swift in Sources */,
-				45572D7319F18ACB00B10810 /* Syntax.swift in Sources */,
 				45572D8819F18B0B00B10810 /* Operators.swift in Sources */,
 				4590D2A219F2371E001A7FBB /* Rule.swift in Sources */,
 				4584D82719F18DD70093E2B1 /* README.md in Sources */,
@@ -373,7 +373,7 @@
 				4584D81F19F18DA40093E2B1 /* Cursor.swift in Sources */,
 				4584D81E19F18DA40093E2B1 /* Entity.swift in Sources */,
 				4584D82219F18DA40093E2B1 /* Pattern.swift in Sources */,
-				4584D82319F18DA40093E2B1 /* Syntax.swift in Sources */,
+				451F57A819F2BE7500E13DBE /* Scanner.swift in Sources */,
 				4590D2A119F2371E001A7FBB /* Parsing.swift in Sources */,
 				4590D2A319F2371E001A7FBB /* Rule.swift in Sources */,
 				4584D82119F18DA40093E2B1 /* List.swift in Sources */,
@@ -388,9 +388,9 @@
 				4584D7F419F18CAC0093E2B1 /* Entity.swift in Sources */,
 				458E987819F248F300D93870 /* main.swift in Sources */,
 				4584D7F219F18CAC0093E2B1 /* EDXC.swift in Sources */,
+				451F57A919F2BE7500E13DBE /* Scanner.swift in Sources */,
 				458E987919F248F300D93870 /* Test.swift in Sources */,
 				458E987319F23C0400D93870 /* Rule.swift in Sources */,
-				4584D7FB19F18CAC0093E2B1 /* Syntax.swift in Sources */,
 				4584D7F919F18CAC0093E2B1 /* Pattern.swift in Sources */,
 				458E987219F23C0400D93870 /* Parsing.swift in Sources */,
 				4584D7FC19F18CAC0093E2B1 /* Operators.swift in Sources */,
