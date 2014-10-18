@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		451EB74719F233B60035601A /* EonilParsingEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451EB74619F233B60035601A /* EonilParsingEngine.framework */; };
-		451EB74819F233BB0035601A /* EonilParsingEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451EB74619F233B60035601A /* EonilParsingEngine.framework */; };
 		451EB74A19F233C20035601A /* EonilCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451EB74919F233C20035601A /* EonilCommon.framework */; };
 		451EB74B19F233C80035601A /* EonilCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451EB74919F233C20035601A /* EonilCommon.framework */; };
+		451F57AF19F2BF6E00E13DBE /* EonilText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451F57AE19F2BF6E00E13DBE /* EonilText.framework */; };
+		451F57B019F2BF7300E13DBE /* EonilText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451F57AE19F2BF6E00E13DBE /* EonilText.framework */; };
 		4543352719F2311C009710B2 /* Transcoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4543352619F2311C009710B2 /* Transcoding.swift */; };
 		4543352819F2311C009710B2 /* Transcoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4543352619F2311C009710B2 /* Transcoding.swift */; };
 		4543352A19F2312E009710B2 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4543352919F2312E009710B2 /* Value.swift */; };
@@ -38,6 +38,7 @@
 /* Begin PBXFileReference section */
 		451EB74619F233B60035601A /* EonilParsingEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EonilParsingEngine.framework; path = "../../../Temp/Xcode/Derivations/Monolith-grltamqdibcujddlqpmfddxldusq/Build/Products/Debug/EonilParsingEngine.framework"; sourceTree = "<group>"; };
 		451EB74919F233C20035601A /* EonilCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EonilCommon.framework; path = "../../../Temp/Xcode/Derivations/Monolith-grltamqdibcujddlqpmfddxldusq/Build/Products/Debug/EonilCommon.framework"; sourceTree = "<group>"; };
+		451F57AE19F2BF6E00E13DBE /* EonilText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EonilText.framework; path = "../../../Temp/Xcode/Derivations/Monolith-grltamqdibcujddlqpmfddxldusq/Build/Products/Debug/EonilText.framework"; sourceTree = "<group>"; };
 		4543352619F2311C009710B2 /* Transcoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transcoding.swift; sourceTree = "<group>"; };
 		4543352919F2312E009710B2 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
 		4543352C19F2313B009710B2 /* TextScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextScanner.swift; sourceTree = "<group>"; };
@@ -61,8 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				451F57B019F2BF7300E13DBE /* EonilText.framework in Frameworks */,
 				451EB74B19F233C80035601A /* EonilCommon.framework in Frameworks */,
-				451EB74719F233B60035601A /* EonilParsingEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,8 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				451F57AF19F2BF6E00E13DBE /* EonilText.framework in Frameworks */,
 				451EB74A19F233C20035601A /* EonilCommon.framework in Frameworks */,
-				451EB74819F233BB0035601A /* EonilParsingEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +121,7 @@
 		4586156019F17B86007408AF = {
 			isa = PBXGroup;
 			children = (
+				451F57AE19F2BF6E00E13DBE /* EonilText.framework */,
 				458615CC19F17CD3007408AF /* Targets */,
 				458615B419F17CB8007408AF /* Sources */,
 				451EB74C19F233D70035601A /* References */,
@@ -194,9 +196,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4586159319F17C4B007408AF /* Monolith/OSX */ = {
+		4586159319F17C4B007408AF /* Monolith OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 458615A819F17C4B007408AF /* Build configuration list for PBXNativeTarget "Monolith/OSX" */;
+			buildConfigurationList = 458615A819F17C4B007408AF /* Build configuration list for PBXNativeTarget "Monolith OSX" */;
 			buildPhases = (
 				4586158F19F17C4B007408AF /* Sources */,
 				4586159019F17C4B007408AF /* Frameworks */,
@@ -207,14 +209,14 @@
 			);
 			dependencies = (
 			);
-			name = Monolith/OSX;
+			name = "Monolith OSX";
 			productName = Monolith;
 			productReference = 4586159419F17C4B007408AF /* Monolith.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		458615B219F17CB8007408AF /* Monolith/iOS */ = {
+		458615B219F17CB8007408AF /* Monolith iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 458615C619F17CB8007408AF /* Build configuration list for PBXNativeTarget "Monolith/iOS" */;
+			buildConfigurationList = 458615C619F17CB8007408AF /* Build configuration list for PBXNativeTarget "Monolith iOS" */;
 			buildPhases = (
 				458615AE19F17CB8007408AF /* Sources */,
 				458615AF19F17CB8007408AF /* Frameworks */,
@@ -225,7 +227,7 @@
 			);
 			dependencies = (
 			);
-			name = Monolith/iOS;
+			name = "Monolith iOS";
 			productName = Monolith;
 			productReference = 458615B319F17CB8007408AF /* Monolith.framework */;
 			productType = "com.apple.product-type.framework";
@@ -258,8 +260,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4586159319F17C4B007408AF /* Monolith/OSX */,
-				458615B219F17CB8007408AF /* Monolith/iOS */,
+				4586159319F17C4B007408AF /* Monolith OSX */,
+				458615B219F17CB8007408AF /* Monolith iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -565,7 +567,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		458615A819F17C4B007408AF /* Build configuration list for PBXNativeTarget "Monolith/OSX" */ = {
+		458615A819F17C4B007408AF /* Build configuration list for PBXNativeTarget "Monolith OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				458615A919F17C4B007408AF /* Debug */,
@@ -574,7 +576,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		458615C619F17CB8007408AF /* Build configuration list for PBXNativeTarget "Monolith/iOS" */ = {
+		458615C619F17CB8007408AF /* Build configuration list for PBXNativeTarget "Monolith iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				458615C719F17CB8007408AF /* Debug */,

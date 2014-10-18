@@ -28,7 +28,6 @@
 		4584D82119F18DA40093E2B1 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D6E19F18ACB00B10810 /* List.swift */; };
 		4584D82219F18DA40093E2B1 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8319F18B0B00B10810 /* Pattern.swift */; };
 		4584D82419F18DA40093E2B1 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45572D8219F18B0B00B10810 /* Operators.swift */; };
-		4584D82719F18DD70093E2B1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4584D82619F18DD70093E2B1 /* README.md */; };
 		458E987219F23C0400D93870 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590D29D19F2371E001A7FBB /* Parsing.swift */; };
 		458E987319F23C0400D93870 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590D29E19F2371E001A7FBB /* Rule.swift */; };
 		458E987419F23C0400D93870 /* Stepping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590D29F19F2371E001A7FBB /* Stepping.swift */; };
@@ -360,7 +359,6 @@
 				45572D8919F18B0B00B10810 /* Pattern.swift in Sources */,
 				45572D8819F18B0B00B10810 /* Operators.swift in Sources */,
 				4590D2A219F2371E001A7FBB /* Rule.swift in Sources */,
-				4584D82719F18DD70093E2B1 /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
