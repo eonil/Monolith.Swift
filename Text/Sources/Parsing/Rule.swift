@@ -287,6 +287,9 @@ public func | (left:Parsing.Rule.Composition, right:Parsing.Rule.Composition) ->
 public func * (left:Parsing.Rule.Composition, right:ClosedInterval<Int>) -> Parsing.Rule.Composition {
 	return	Parsing.Rule.Component.repetition(left, range:right)
 }
+public func * (left:Parsing.Rule.Composition, right:Int) -> Parsing.Rule.Composition {
+	return	left * (right...right)
+}
 
 
 

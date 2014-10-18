@@ -24,14 +24,23 @@ public struct Cursor {
 	let	code:Code
 	let	location:String.Index
 	
-	var available:Bool {
+	init(code:Code, location:String.Index) {
+		self.code		=	code
+		self.location	=	location
+	}
+	
+	public init(string:String) {
+		self.init(code: Code(data: string), location: string.startIndex)
+	}
+	
+	public var available:Bool {
 		get {
 			return	location < code.data.endIndex
 		}
 	}
 	
 	///	Crashes if not `available`.
-	var current:Character {
+	public var current:Character {
 		get {
 			precondition(available)
 			
@@ -39,7 +48,7 @@ public struct Cursor {
 		}
 	}
 	
-	var continuation:Cursor {
+	public var continuation:Cursor {
 		get {
 			precondition(available)
 			
@@ -62,7 +71,7 @@ public struct Cursor {
 		
 		return	Cursor(code: code, location: location.successor())
 	}
-	func stepping(by c1:Int) -> Cursor {
+	public func stepping(by c1:Int) -> Cursor {
 		precondition(available)
 		
 		return	c1 == 0 ? self : stepping(by: c1 - 1)
