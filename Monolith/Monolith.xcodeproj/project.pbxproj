@@ -14,13 +14,9 @@
 		4504412019F2C479006DC05C /* EonilText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450440F919F2C454006DC05C /* EonilText.framework */; };
 		4504412219F2C49A006DC05C /* Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504412119F2C49A006DC05C /* Standard.swift */; };
 		45682FB719F2F89F0085CBC5 /* Monolith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458615D119F17DAD007408AF /* Monolith.swift */; };
-		45682FB819F2F89F0085CBC5 /* Parsing.CharacterCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84219F193090093E2B1 /* Parsing.CharacterCursor.swift */; };
 		45682FB919F2F89F0085CBC5 /* RFC3339.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450440F019F2C419006DC05C /* RFC3339.swift */; };
-		45682FBA19F2F89F0085CBC5 /* Parsing.CharacterConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84119F193090093E2B1 /* Parsing.CharacterConsumer.swift */; };
 		45682FBB19F2F89F0085CBC5 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D83A19F192090093E2B1 /* System.swift */; };
 		45682FBD19F2F89F0085CBC5 /* Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504412119F2C49A006DC05C /* Standard.swift */; };
-		45682FBE19F2F89F0085CBC5 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84419F193090093E2B1 /* Parsing.swift */; };
-		45682FBF19F2F89F0085CBC5 /* Parsing.Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84319F193090093E2B1 /* Parsing.Scanner.swift */; };
 		45682FC019F2F89F0085CBC5 /* xISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D83D19F192960093E2B1 /* xISO8601.swift */; };
 		45682FC119F2F89F0085CBC5 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4586160B19F17EF5007408AF /* Operators.swift */; };
 		4568300D19F3012A0085CBC5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4568300C19F3012A0085CBC5 /* main.swift */; };
@@ -30,10 +26,6 @@
 		4568301419F3017B0085CBC5 /* Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504412119F2C49A006DC05C /* Standard.swift */; };
 		4568301519F3017B0085CBC5 /* RFC3339.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450440F019F2C419006DC05C /* RFC3339.swift */; };
 		4568301619F3017B0085CBC5 /* xISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D83D19F192960093E2B1 /* xISO8601.swift */; };
-		4568301719F3017B0085CBC5 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84419F193090093E2B1 /* Parsing.swift */; };
-		4568301819F3017B0085CBC5 /* Parsing.Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84319F193090093E2B1 /* Parsing.Scanner.swift */; };
-		4568301919F3017B0085CBC5 /* Parsing.CharacterCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84219F193090093E2B1 /* Parsing.CharacterCursor.swift */; };
-		4568301A19F3017B0085CBC5 /* Parsing.CharacterConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84119F193090093E2B1 /* Parsing.CharacterConsumer.swift */; };
 		4568307219F302DF0085CBC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4568307119F302DF0085CBC5 /* AppDelegate.swift */; };
 		4568307419F302DF0085CBC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4568307319F302DF0085CBC5 /* ViewController.swift */; };
 		4568307719F302DF0085CBC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4568307519F302DF0085CBC5 /* Main.storyboard */; };
@@ -45,20 +37,12 @@
 		4568309219F3033D0085CBC5 /* Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504412119F2C49A006DC05C /* Standard.swift */; };
 		4568309319F3033D0085CBC5 /* RFC3339.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450440F019F2C419006DC05C /* RFC3339.swift */; };
 		4568309419F3033D0085CBC5 /* xISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D83D19F192960093E2B1 /* xISO8601.swift */; };
-		4568309519F3033D0085CBC5 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84419F193090093E2B1 /* Parsing.swift */; };
-		4568309619F3033D0085CBC5 /* Parsing.Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84319F193090093E2B1 /* Parsing.Scanner.swift */; };
-		4568309719F3033D0085CBC5 /* Parsing.CharacterCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84219F193090093E2B1 /* Parsing.CharacterCursor.swift */; };
-		4568309819F3033D0085CBC5 /* Parsing.CharacterConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84119F193090093E2B1 /* Parsing.CharacterConsumer.swift */; };
 		4568309919F303800085CBC5 /* EonilCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4504411619F2C46A006DC05C /* EonilCommon.framework */; };
 		4568309A19F303800085CBC5 /* EonilText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450440F919F2C454006DC05C /* EonilText.framework */; };
 		4568309B19F303880085CBC5 /* EonilCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4504411619F2C46A006DC05C /* EonilCommon.framework */; };
 		4568309C19F303880085CBC5 /* EonilText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450440F919F2C454006DC05C /* EonilText.framework */; };
 		4584D83B19F192090093E2B1 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D83A19F192090093E2B1 /* System.swift */; };
 		4584D83E19F192960093E2B1 /* xISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D83D19F192960093E2B1 /* xISO8601.swift */; };
-		4584D84519F193090093E2B1 /* Parsing.CharacterConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84119F193090093E2B1 /* Parsing.CharacterConsumer.swift */; };
-		4584D84719F193090093E2B1 /* Parsing.CharacterCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84219F193090093E2B1 /* Parsing.CharacterCursor.swift */; };
-		4584D84919F193090093E2B1 /* Parsing.Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84319F193090093E2B1 /* Parsing.Scanner.swift */; };
-		4584D84B19F193090093E2B1 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D84419F193090093E2B1 /* Parsing.swift */; };
 		458615D219F17DAD007408AF /* Monolith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458615D119F17DAD007408AF /* Monolith.swift */; };
 		4586160C19F17EF5007408AF /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4586160B19F17EF5007408AF /* Operators.swift */; };
 		45942F0819F3B86B008EB820 /* System.Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45942F0719F3B86B008EB820 /* System.Time.swift */; };
@@ -145,10 +129,6 @@
 		4568307B19F302DF0085CBC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4584D83A19F192090093E2B1 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		4584D83D19F192960093E2B1 /* xISO8601.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = xISO8601.swift; sourceTree = "<group>"; };
-		4584D84119F193090093E2B1 /* Parsing.CharacterConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.CharacterConsumer.swift; sourceTree = "<group>"; };
-		4584D84219F193090093E2B1 /* Parsing.CharacterCursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.CharacterCursor.swift; sourceTree = "<group>"; };
-		4584D84319F193090093E2B1 /* Parsing.Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.Scanner.swift; sourceTree = "<group>"; };
-		4584D84419F193090093E2B1 /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
 		4586159419F17C4B007408AF /* Monolith.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Monolith.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		458615B319F17CB8007408AF /* Monolith.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Monolith.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		458615CE19F17CD3007408AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -221,9 +201,9 @@
 			isa = PBXGroup;
 			children = (
 				4504411619F2C46A006DC05C /* EonilCommon.framework */,
-				4504411819F2C46A006DC05C /* Common/iOS/Test.xctest */,
+				4504411819F2C46A006DC05C /* Common iOS Test.xctest */,
 				4504411A19F2C46A006DC05C /* EonilCommon.framework */,
-				4504411C19F2C46A006DC05C /* Common/OSX/Test.xctest */,
+				4504411C19F2C46A006DC05C /* Common OSX Test.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -270,10 +250,6 @@
 		4584D84019F193090093E2B1 /* Parsing */ = {
 			isa = PBXGroup;
 			children = (
-				4584D84419F193090093E2B1 /* Parsing.swift */,
-				4584D84319F193090093E2B1 /* Parsing.Scanner.swift */,
-				4584D84219F193090093E2B1 /* Parsing.CharacterCursor.swift */,
-				4584D84119F193090093E2B1 /* Parsing.CharacterConsumer.swift */,
 			);
 			path = Parsing;
 			sourceTree = "<group>";
@@ -512,7 +488,7 @@
 			remoteRef = 4504411519F2C46A006DC05C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4504411819F2C46A006DC05C /* Common/iOS/Test.xctest */ = {
+		4504411819F2C46A006DC05C /* Common iOS Test.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Common iOS Test.xctest";
@@ -526,7 +502,7 @@
 			remoteRef = 4504411919F2C46A006DC05C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4504411C19F2C46A006DC05C /* Common/OSX/Test.xctest */ = {
+		4504411C19F2C46A006DC05C /* Common OSX Test.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Common OSX Test.xctest";
@@ -573,10 +549,6 @@
 				4568301419F3017B0085CBC5 /* Standard.swift in Sources */,
 				4568301519F3017B0085CBC5 /* RFC3339.swift in Sources */,
 				4568301619F3017B0085CBC5 /* xISO8601.swift in Sources */,
-				4568301719F3017B0085CBC5 /* Parsing.swift in Sources */,
-				4568301819F3017B0085CBC5 /* Parsing.Scanner.swift in Sources */,
-				4568301919F3017B0085CBC5 /* Parsing.CharacterCursor.swift in Sources */,
-				4568301A19F3017B0085CBC5 /* Parsing.CharacterConsumer.swift in Sources */,
 				4568300D19F3012A0085CBC5 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,10 +563,6 @@
 				4568309219F3033D0085CBC5 /* Standard.swift in Sources */,
 				4568309319F3033D0085CBC5 /* RFC3339.swift in Sources */,
 				4568309419F3033D0085CBC5 /* xISO8601.swift in Sources */,
-				4568309519F3033D0085CBC5 /* Parsing.swift in Sources */,
-				4568309619F3033D0085CBC5 /* Parsing.Scanner.swift in Sources */,
-				4568309719F3033D0085CBC5 /* Parsing.CharacterCursor.swift in Sources */,
-				4568309819F3033D0085CBC5 /* Parsing.CharacterConsumer.swift in Sources */,
 				4568307419F302DF0085CBC5 /* ViewController.swift in Sources */,
 				4568307219F302DF0085CBC5 /* AppDelegate.swift in Sources */,
 			);
@@ -605,14 +573,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				458615D219F17DAD007408AF /* Monolith.swift in Sources */,
-				4584D84719F193090093E2B1 /* Parsing.CharacterCursor.swift in Sources */,
 				45942F0819F3B86B008EB820 /* System.Time.swift in Sources */,
 				450440F119F2C419006DC05C /* RFC3339.swift in Sources */,
-				4584D84519F193090093E2B1 /* Parsing.CharacterConsumer.swift in Sources */,
 				4584D83B19F192090093E2B1 /* System.swift in Sources */,
 				4504412219F2C49A006DC05C /* Standard.swift in Sources */,
-				4584D84B19F193090093E2B1 /* Parsing.swift in Sources */,
-				4584D84919F193090093E2B1 /* Parsing.Scanner.swift in Sources */,
 				4584D83E19F192960093E2B1 /* xISO8601.swift in Sources */,
 				4586160C19F17EF5007408AF /* Operators.swift in Sources */,
 			);
@@ -625,13 +589,9 @@
 				45682FBD19F2F89F0085CBC5 /* Standard.swift in Sources */,
 				45682FBB19F2F89F0085CBC5 /* System.swift in Sources */,
 				45682FB719F2F89F0085CBC5 /* Monolith.swift in Sources */,
-				45682FBA19F2F89F0085CBC5 /* Parsing.CharacterConsumer.swift in Sources */,
-				45682FBF19F2F89F0085CBC5 /* Parsing.Scanner.swift in Sources */,
 				45682FC019F2F89F0085CBC5 /* xISO8601.swift in Sources */,
 				45682FC119F2F89F0085CBC5 /* Operators.swift in Sources */,
-				45682FBE19F2F89F0085CBC5 /* Parsing.swift in Sources */,
 				45682FB919F2F89F0085CBC5 /* RFC3339.swift in Sources */,
-				45682FB819F2F89F0085CBC5 /* Parsing.CharacterCursor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
