@@ -8,14 +8,14 @@
 
 import Foundation
 
-extension Standard {
+public extension Standard {
 
-	typealias	HTTP	=	RFC2616
+	public typealias	HTTP	=	RFC2616
 	
 	///	Defines HTTP/1.1 protocol.
 	///	http://tools.ietf.org/html/rfc2616
-	class RFC2616 {
-		enum Method : String {
+	public class RFC2616 {
+		public enum Method : String {
 			case Options	=	"OPTIONS"
 			case Get		=	"GET"
 			case Head		=	"HEAD"

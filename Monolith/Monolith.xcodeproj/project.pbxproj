@@ -207,6 +207,7 @@
 		450440FE19F2C457006DC05C /* References */ = {
 			isa = PBXGroup;
 			children = (
+				45682FCA19F2FD340085CBC5 /* Cocoa.framework */,
 				4504410E19F2C46A006DC05C /* Common.xcodeproj */,
 				450440F219F2C454006DC05C /* Text.xcodeproj */,
 			);
@@ -268,7 +269,6 @@
 		4586156019F17B86007408AF = {
 			isa = PBXGroup;
 			children = (
-				45682FCA19F2FD340085CBC5 /* Cocoa.framework */,
 				458615CC19F17CD3007408AF /* Targets */,
 				458615B419F17CB8007408AF /* Sources */,
 				450440FE19F2C457006DC05C /* References */,

@@ -13,7 +13,7 @@ public extension Standard {
 	
 	///	http://tools.ietf.org/html/rfc1808
 	///	Defines URL features.
-	///	This just complement `NSURL`, and does not
+	///	This just complements `NSURL`, and does not
 	///	try to cover the full specification.
 	public class RFC1808 {
 		
