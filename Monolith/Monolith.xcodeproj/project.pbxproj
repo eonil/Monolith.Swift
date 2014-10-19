@@ -247,13 +247,6 @@
 			path = Standard;
 			sourceTree = "<group>";
 		};
-		4584D84019F193090093E2B1 /* Parsing */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Parsing;
-			sourceTree = "<group>";
-		};
 		4586156019F17B86007408AF = {
 			isa = PBXGroup;
 			children = (
@@ -286,7 +279,6 @@
 				45942F0719F3B86B008EB820 /* System.Time.swift */,
 				4586160B19F17EF5007408AF /* Operators.swift */,
 				4584D83C19F1928F0093E2B1 /* Standard */,
-				4584D84019F193090093E2B1 /* Parsing */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
