@@ -136,7 +136,7 @@ public extension Standard {
 
 
 ///	MARK:
-extension Standard.RFC3339 {
+private extension Standard.RFC3339 {
 	///	Optimised as a mutable imperative parser.
 	///	Designed to avoid dynamic allocations as much as possible.
 	///	(e.g. `String`, `Array<T>`, ...)
