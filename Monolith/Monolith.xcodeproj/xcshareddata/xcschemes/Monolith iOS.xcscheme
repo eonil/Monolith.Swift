@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "45AFAD2919F3DE2300EC17DC"
-               BuildableName = "Monolith iOS.framework"
+               BuildableName = "Monolith.framework"
                BlueprintName = "Monolith iOS"
                ReferencedContainer = "container:Monolith.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "45AFAD2919F3DE2300EC17DC"
-            BuildableName = "Monolith iOS.framework"
+            BuildableName = "Monolith.framework"
             BlueprintName = "Monolith iOS"
             ReferencedContainer = "container:Monolith.xcodeproj">
          </BuildableReference>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "45AFAD2919F3DE2300EC17DC"
-            BuildableName = "Monolith iOS.framework"
+            BuildableName = "Monolith.framework"
             BlueprintName = "Monolith iOS"
             ReferencedContainer = "container:Monolith.xcodeproj">
          </BuildableReference>

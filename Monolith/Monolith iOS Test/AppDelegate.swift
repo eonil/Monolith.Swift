@@ -14,8 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+		Standard.RFC1808.Test.run()
 		Standard.RFC3339.Test.run()
+		Standard.RFC2616.Test.run()
 		return true
 	}
 }
+
+
 
