@@ -71,7 +71,7 @@ public struct Cursor {
 		
 		return	Cursor(code: code, location: location.successor())
 	}
-	public func stepping(by c1:Int) -> Cursor {
+	func stepping(by c1:Int) -> Cursor {
 		precondition(available)
 		
 		return	c1 == 0 ? self : stepping(by: c1 - 1)

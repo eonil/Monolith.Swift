@@ -8,5 +8,6 @@
 
 import Foundation
 
-class Standard {
+///	Collection of features which implements explicitly specified technical standards.
+public class Standard {
 }

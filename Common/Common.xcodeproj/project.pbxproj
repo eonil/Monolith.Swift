@@ -36,9 +36,9 @@
 
 /* Begin PBXFileReference section */
 		451EB6F419F2323E0035601A /* EonilCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EonilCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		451EB6FE19F2323E0035601A /* Common/iOS/Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Common/iOS/Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		451EB6FE19F2323E0035601A /* Common iOS Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Common iOS Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		451EB71219F232440035601A /* EonilCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EonilCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		451EB71C19F232440035601A /* Common/OSX/Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Common/OSX/Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		451EB71C19F232440035601A /* Common OSX Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Common OSX Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		451EB72E19F233030035601A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		451EB73119F233030035601A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		451EB73C19F2334E0035601A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -166,9 +166,9 @@
 			isa = PBXGroup;
 			children = (
 				451EB6F419F2323E0035601A /* EonilCommon.framework */,
-				451EB6FE19F2323E0035601A /* Common/iOS/Test.xctest */,
+				451EB6FE19F2323E0035601A /* Common iOS Test.xctest */,
 				451EB71219F232440035601A /* EonilCommon.framework */,
-				451EB71C19F232440035601A /* Common/OSX/Test.xctest */,
+				451EB71C19F232440035601A /* Common OSX Test.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,9 +193,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		451EB6F319F2323E0035601A /* Common/iOS */ = {
+		451EB6F319F2323E0035601A /* Common iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 451EB70B19F2323E0035601A /* Build configuration list for PBXNativeTarget "Common/iOS" */;
+			buildConfigurationList = 451EB70B19F2323E0035601A /* Build configuration list for PBXNativeTarget "Common iOS" */;
 			buildPhases = (
 				451EB6EF19F2323E0035601A /* Sources */,
 				451EB6F019F2323E0035601A /* Frameworks */,
@@ -206,14 +206,14 @@
 			);
 			dependencies = (
 			);
-			name = Common/iOS;
+			name = "Common iOS";
 			productName = iOS;
 			productReference = 451EB6F419F2323E0035601A /* EonilCommon.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		451EB6FD19F2323E0035601A /* Common/iOS/Test */ = {
+		451EB6FD19F2323E0035601A /* Common iOS Test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 451EB70C19F2323E0035601A /* Build configuration list for PBXNativeTarget "Common/iOS/Test" */;
+			buildConfigurationList = 451EB70C19F2323E0035601A /* Build configuration list for PBXNativeTarget "Common iOS Test" */;
 			buildPhases = (
 				451EB6FA19F2323E0035601A /* Sources */,
 				451EB6FB19F2323E0035601A /* Frameworks */,
@@ -224,14 +224,14 @@
 			dependencies = (
 				451EB70119F2323E0035601A /* PBXTargetDependency */,
 			);
-			name = Common/iOS/Test;
+			name = "Common iOS Test";
 			productName = iOSTests;
-			productReference = 451EB6FE19F2323E0035601A /* Common/iOS/Test.xctest */;
+			productReference = 451EB6FE19F2323E0035601A /* Common iOS Test.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		451EB71119F232440035601A /* Common/OSX */ = {
+		451EB71119F232440035601A /* Common OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 451EB72519F232440035601A /* Build configuration list for PBXNativeTarget "Common/OSX" */;
+			buildConfigurationList = 451EB72519F232440035601A /* Build configuration list for PBXNativeTarget "Common OSX" */;
 			buildPhases = (
 				451EB70D19F232440035601A /* Sources */,
 				451EB70E19F232440035601A /* Frameworks */,
@@ -242,14 +242,14 @@
 			);
 			dependencies = (
 			);
-			name = Common/OSX;
+			name = "Common OSX";
 			productName = OSX;
 			productReference = 451EB71219F232440035601A /* EonilCommon.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		451EB71B19F232440035601A /* Common/OSX/Test */ = {
+		451EB71B19F232440035601A /* Common OSX Test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 451EB72819F232440035601A /* Build configuration list for PBXNativeTarget "Common/OSX/Test" */;
+			buildConfigurationList = 451EB72819F232440035601A /* Build configuration list for PBXNativeTarget "Common OSX Test" */;
 			buildPhases = (
 				451EB71819F232440035601A /* Sources */,
 				451EB71919F232440035601A /* Frameworks */,
@@ -260,9 +260,9 @@
 			dependencies = (
 				451EB71F19F232440035601A /* PBXTargetDependency */,
 			);
-			name = Common/OSX/Test;
+			name = "Common OSX Test";
 			productName = OSXTests;
-			productReference = 451EB71C19F232440035601A /* Common/OSX/Test.xctest */;
+			productReference = 451EB71C19F232440035601A /* Common OSX Test.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -300,10 +300,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				451EB6F319F2323E0035601A /* Common/iOS */,
-				451EB6FD19F2323E0035601A /* Common/iOS/Test */,
-				451EB71119F232440035601A /* Common/OSX */,
-				451EB71B19F232440035601A /* Common/OSX/Test */,
+				451EB6F319F2323E0035601A /* Common iOS */,
+				451EB6FD19F2323E0035601A /* Common iOS Test */,
+				451EB71119F232440035601A /* Common OSX */,
+				451EB71B19F232440035601A /* Common OSX Test */,
 			);
 		};
 /* End PBXProject section */
@@ -379,12 +379,12 @@
 /* Begin PBXTargetDependency section */
 		451EB70119F2323E0035601A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 451EB6F319F2323E0035601A /* Common/iOS */;
+			target = 451EB6F319F2323E0035601A /* Common iOS */;
 			targetProxy = 451EB70019F2323E0035601A /* PBXContainerItemProxy */;
 		};
 		451EB71F19F232440035601A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 451EB71119F232440035601A /* Common/OSX */;
+			target = 451EB71119F232440035601A /* Common OSX */;
 			targetProxy = 451EB71E19F232440035601A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -623,7 +623,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		451EB70B19F2323E0035601A /* Build configuration list for PBXNativeTarget "Common/iOS" */ = {
+		451EB70B19F2323E0035601A /* Build configuration list for PBXNativeTarget "Common iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				451EB70719F2323E0035601A /* Debug */,
@@ -632,7 +632,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		451EB70C19F2323E0035601A /* Build configuration list for PBXNativeTarget "Common/iOS/Test" */ = {
+		451EB70C19F2323E0035601A /* Build configuration list for PBXNativeTarget "Common iOS Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				451EB70919F2323E0035601A /* Debug */,
@@ -641,7 +641,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		451EB72519F232440035601A /* Build configuration list for PBXNativeTarget "Common/OSX" */ = {
+		451EB72519F232440035601A /* Build configuration list for PBXNativeTarget "Common OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				451EB72619F232440035601A /* Debug */,
@@ -650,7 +650,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		451EB72819F232440035601A /* Build configuration list for PBXNativeTarget "Common/OSX/Test" */ = {
+		451EB72819F232440035601A /* Build configuration list for PBXNativeTarget "Common OSX Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				451EB72919F232440035601A /* Debug */,

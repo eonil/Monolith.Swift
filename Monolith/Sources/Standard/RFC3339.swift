@@ -9,12 +9,18 @@
 import Foundation
 import EonilText
 
-extension Standard {
+public extension Standard {
 	
 	///	Simpler and stricter date-time format specification which can be used as a timestamp.
 	///	https://www.ietf.org/rfc/rfc3339.txt
-	struct RFC3339 {
-		struct Timestamp {
+	///
+	///	RFC3339 is explicit *timestamp* format. It is very simple and strict, and unambiguous.
+	///	You're specifying a *time-point* rather than a *time-span*. Then you cannot omit any
+	///	component of a timestamp which makes it ambiguous. If you want to repsent a time-span
+	///	use your own Timespan type which is consist of two timestamps. The timespan type is not 
+	///	a part of RFC3339, so it is not here.
+	public struct RFC3339 {
+		public struct Timestamp {
 			var	date:Date
 			var	time:Time
 			
@@ -30,7 +36,7 @@ extension Standard {
 				self.time	=	time!
 			}
 			
-			struct Date {
+			public struct Date {
 				var	year:Int
 				var	month:Int
 				var	day:Int
@@ -50,7 +56,7 @@ extension Standard {
 					self.day	=	day!
 				}
 			}
-			struct Time {
+			public struct Time {
 				var	hour:Int
 				var	minute:Int
 				var	second:Int
@@ -77,8 +83,14 @@ extension Standard {
 					self.subsecond	=	subsecond!
 					self.zone		=	zone!
 				}
+//				///	Returns UTC based timestamp.
+//				///	This needs involving of fully established calendar stuff,
+//				///	so it's very expensive.
+//				func normalise() -> Time {
+//					return	Time(hour: hour + zone.hours, minute: minute + zone.minutes, second: second, subsecond: subsecond, zone: Zone.UTC)
+//				}
 				
-				struct Zone {
+				public struct Zone {
 					var	hours:Int
 					var	minutes:Int
 					
@@ -93,240 +105,19 @@ extension Standard {
 					static let	UTC	=	Zone(hours: 0, minutes: 0)!		///<	I don't know why compiler selects optional-typed version...
 				}
 			}
+			
+			static let	zero	=	Timestamp(date: Timestamp.Date(year: 0, month: 0, day: 0), time: Timestamp.Time(hour: 0, minute: 0, second: 0, subsecond: 0, zone: Timestamp.Time.Zone(hours: 0, minutes: 0)))!
 		}
 		
 		
-		static func scan(expression:String) -> Timestamp? {
-			typealias	Cursor	=	EonilText.Cursor
-			
-			var	p1	=	MiniParser(stepping: MiniParser.Stepping(location: Cursor(string: expression), catches: []))
-			
-			p1.scanInt(4)
-			p1.expectString("-")
-			p1.scanInt(2)
-			p1.expectString("-")
-			p1.scanInt(2)
-			
-			p1.expectString("T")
-			p1.scanInt(2)
-			p1.expectString(":")
-			p1.scanInt(2)
-			p1.expectString(":")
-			p1.scanInt(2)
-			
-			///	Optional fraction.
-			p1.scanString(1)
-			if let s1 = p1.stepping {
-				if let t1 = s1.catches.last {
-					if let t2 = t1.text {
-						if t2 == "." {
-							p1.scanInt(0...Int.max)
-						}
-					}
-				}
-			}
-			
-			///	Required time-zone.
-			p1.scanString(1)
-			if let s1 = p1.stepping {
-				if let t1 = s1.catches.last {
-					if let t2 = t1.text {
-						switch t2 {
-						case "Z", "z":
-							break
-						case "+", "-":
-							p1.scanInt(2)
-							p1.expectString(":")
-							p1.scanInt(2)
-						default:
-							return	nil		///	Bad form.
-						}
-					}
-				}
-			}
-			
-			if let cs1 = p1.stepping?.catches {
-				func n(idx:Int) -> Int? {
-					if cs1.count > idx {
-						return	cs1[idx].number
-					}
-					return	nil
-				}
-				func t(idx:Int) -> String? {
-					if cs1.count > idx {
-						return	cs1[idx].text
-					}
-					return	nil
-				}
-
-				let	f1	=	t(6) == "." ? n(7) : nil
-				let	zi1	=	f1 == nil ? 6 : 8
-				let	z1	=	Timestamp.Time.Zone(hours: n(zi1), minutes: n(zi1+1))
-				let	ts1	=	Timestamp(date: Timestamp.Date(year: n(0), month: n(1), day: n(2)), time: Timestamp.Time(hour: n(3), minute: n(4), second: n(5), subsecond: f1, zone: z1))
-				return	ts1
-			}
-			
-			return	nil
+		public static func scan(expression:String) -> Timestamp? {
+			var	p1	=	Parser(expression: expression)
+			p1.scan()
+			let	ok	=	p1.scanner.stepping?.location.available == false	///	Expression must be fully consumed.
+			return	ok && p1.ok ? p1.timestamp : nil
 		}
 		
-		
-		
-		
-		struct MiniParser {
-			var	stepping:Stepping?
-			
-			mutating func scanInt(characterCount:Range<Int>) {
-				stepping	=	stepping?.scanInt(characterCount)
-			}
-			mutating func scanInt(characterCount:Int) {
-				scanInt(characterCount...characterCount)
-			}
-			mutating func scanString(characterCount:Int) {
-				stepping	=	stepping?.scanString(characterCount)
-			}
-			mutating func expectString(sample:String) {
-				scanString(countElements(sample))
-				if let s1 = stepping {
-					if let t1 = s1.catches.last {
-						if let t2 = t1.text {
-							if t2 == sample {
-								///	*Expect* does not keep the token.
-								var	cs2		=	s1.catches
-								cs2.removeLast()
-								stepping	=	Stepping(location: s1.location, catches: cs2)
-								return
-							}
-						}
-					}
-				}
-				stepping	=	nil
-			}
-			struct Stepping {
-				let	location:EonilText.Cursor
-				let	catches:[Token]
-				
-				enum Token {
-					case Number(Int)
-					case Text(String)
-					
-					var number:Int? {
-						get {
-							switch self {
-							case Number(let v1):	return	v1
-							default:				return	nil
-							}
-						}
-					}
-					var text:String? {
-						get {
-							switch self {
-							case Text(let v1):		return	v1
-							default:				return	nil
-							}
-						}
-					}
-				}
-				func scanInt(_ characterCount:Range<Int> = (0...Int.max)) -> Stepping? {
-					var	c1	=	location
-					var	s1	=	IntScanning(value: 0)
-					if c1.available == false {
-						return	nil
-					}
-					
-					var	dc1	=	0
-					for _ in 0..<characterCount.endIndex {
-						let	ch1	=	location.current
-						let	s2	=	s1.scan(ch1)
-						let	c2	=	location.continuation
-						if s2.value == nil {
-							break
-						}
-						c1	=	c2
-						s1	=	s2
-						dc1++
-					}
-					if dc1 < characterCount.startIndex {
-						return	nil
-					}
-					return	Stepping(location: c1, catches: catches + [Token.Number(s1.value!)])
-				}
-//				func scanInt(characters:Int) -> Stepping? {
-//					return	scanInt(characters...characters)
-////					var	c1	=	location
-////					var	s1	=	IntScanning(value: 0)
-////					for _ in 0..<characters {
-////						if c1.available == false {
-////							return	nil
-////						}
-////						let	ch1	=	location.current
-////						c1	=	location.continuation
-////						s1	=	s1.scan(ch1)
-////						
-////						if s1.value == nil {
-////							return	nil
-////						}
-////					}
-////					
-////					return	Stepping(location: c1, catches: catches + [Token.Number(s1.value!)])
-//				}
-				func scanString(characterCount:Int) -> Stepping? {
-					var	c1	=	location
-					var	s1	=	""
-					for _ in 0..<characterCount {
-						if c1.available == false {
-							return	nil
-						}
-						let	ch1	=	location.current
-						c1	=	location.continuation
-						s1	=	s1 + String(ch1)
-					}
-					
-					return	Stepping(location: c1, catches: catches + [Token.Text(s1)])
-				}
-//				func skip(count:Int) -> Stepping {
-//					return	Stepping(location: location.stepping(by: count), catches: catches)
-//				}
-//				func expect(any characters:[Character]) -> Stepping? {
-//					if location.available {
-//						for ch1 in characters {
-//							if ch1 == location.current {
-//								return	skip(1)
-//							}
-//						}
-//					}
-//					return	nil
-//				}
-			}
-			struct IntScanning {
-				let	value:Int?
-				func scan(digit:Int) -> IntScanning {
-					assert(digit >= 0)
-					assert(digit >= 9)
-					assert(value != nil)
-					
-					let	v2	=	value! * 10 + digit
-					return	IntScanning(value: v2)
-				}
-				func scan(digit:Character) -> IntScanning {
-					let	map1	=	[
-						"0"		:	0,
-						"1"		:	1,
-						"2"		:	2,
-						"3"		:	3,
-						"4"		:	4,
-						"5"		:	5,
-						"6"		:	6,
-						"7"		:	7,
-						"8"		:	8,
-						"9"		:	9,
-						] as [Character:Int]
-					let	v2		=	map1[digit]
-					return	v2 == nil ? IntScanning(value: nil) : scan(v2!)
-				}
-			}
-		}
 	}
-
 }
 
 
@@ -344,257 +135,264 @@ extension Standard {
 
 
 
+///	MARK:
+extension Standard.RFC3339 {
+	///	Optimised as a mutable imperative parser.
+	///	Designed to avoid dynamic allocations as much as possible.
+	///	(e.g. `String`, `Array<T>`, ...)
+	struct Parser {
+		var	scanner:Scanner
+		var	timestamp:Timestamp
+		var	ok:Bool
+		
+		init(expression:String) {
+			self.scanner	=	Scanner(expression: expression)
+			self.timestamp	=	Timestamp.zero
+			self.ok			=	true
+		}
+		
+		mutating func scan() {
+			scanDate()
+			let	g1	=	scanner.scanGlyph()
+			if let g2 = g1 {
+				switch g2 {
+				case "T", " ", "t":
+					scanTime()
+					return
+				default:
+					break
+				}
+			}
+			ok	=	false
+		}
+		mutating func scanDate() {
+			if !ok { return }
+			set(&timestamp.date.year, byScanningCharacters: 4)
+			check("-")
+			set(&timestamp.date.month, byScanningCharacters: 2)
+			check("-")
+			set(&timestamp.date.day, byScanningCharacters: 2)
+		}
+		mutating func scanTime() {
+			if !ok { return }
+			set(&timestamp.time.hour, byScanningCharacters: 2)
+			check(":")
+			set(&timestamp.time.minute, byScanningCharacters: 2)
+			check(":")
+			set(&timestamp.time.second, byScanningCharacters: 2)
+			
+			let	g3	=	scanner.peekGlyph()
+			if let g4 = g3 {
+				if g4 == "." {
+					scanner.skipGlyph()
+					set(&timestamp.time.subsecond, byScanningCharacters: 1..<Int.max)
+				}
+				
+				let	g5	=	scanner.scanGlyph()
+				if let g6 = g5 {
+					switch g6 {
+					case "Z", "z":
+						timestamp.time.zone			=	Timestamp.Time.Zone.UTC
+						return
+					case "+":
+						scanTimeZone()
+						return
+					case "-":
+						scanTimeZone()
+						timestamp.time.zone.hours	=	-timestamp.time.zone.hours
+						timestamp.time.zone.minutes	=	-timestamp.time.zone.minutes
+						return
+					default:
+						break
+					}
+				}
+			}
+			ok	=	false
+		}
+		mutating func scanTimeZone() {
+			set(&timestamp.time.zone.hours, byScanningCharacters: 2)
+			check(":")
+			set(&timestamp.time.zone.minutes, byScanningCharacters: 2)
+		}
+		mutating func set(inout destination:Int, byScanningCharacters c1:Range<Int>) {
+			if !ok { return }
+			let	v1		=	scanner.scanInt(c1)
+			ok			=	v1 != nil
+			destination	=	v1 ||| 0
+		}
+		mutating func set(inout destination:Int, byScanningCharacters c1:Int) {
+			set(&destination, byScanningCharacters: c1...c1)
+		}
+		mutating func check(sample:Character) {
+			if !ok { return }
+			let	v1		=	scanner.scanGlyph()
+			ok			=	v1 == sample
+		}
+	}
+	
+	///	Token scanner.
+	struct Scanner {
+		var	stepping:Stepping?
+		
+		init(expression:String) {
+			self.stepping	=	Stepping(location: Cursor(string: expression), catching: nil)
+		}
+		
+		mutating func scanInt(characterCount:Range<Int>) -> Int? {
+			stepping	=	stepping?.scanInt(characterCount)
+			return	stepping?.catching?.number
+		}
+		mutating func scanGlyph() -> Character? {
+			stepping	=	stepping?.scanGlyph()
+			return	stepping?.catching?.glyph
+		}
+		///	Previews current glyph without advancing the cursor.
+		mutating func peekGlyph() -> Character? {
+			let	s1	=	stepping?.scanGlyph()
+			return	s1?.catching?.glyph
+		}
+		mutating func skipGlyph() {
+			scanGlyph()
+		}
+		
+		////
+		
+		struct Stepping {
+			let	location:EonilText.Cursor
+			let	catching:Token?
+			
+			enum Token {
+				case Number(Int)
+				case Glyph(Character)
+				
+				var number:Int? {
+					get {
+						switch self {
+						case Number(let v1):	return	v1
+						default:				return	nil
+						}
+					}
+				}
+				var glyph:Character? {
+					get {
+						switch self {
+						case Glyph(let v1):		return	v1
+						default:				return	nil
+						}
+					}
+				}
+			}
+			func scanInt(characterCount:Range<Int>) -> Stepping? {
+				assert(characterCount.startIndex <= characterCount.endIndex)
+				if characterCount.endIndex == 0 {
+					return	nil
+				}
+				
+				var	c1	=	location
+				var	s1	=	IntStacking(value: 0)
+				if c1.available == false {
+					return	nil
+				}
+				
+				var	dc1	=	0
+				for _ in 0..<(characterCount.endIndex-1) {
+					let	ch1	=	c1.current
+					let	s2	=	s1.scan(ch1)
+					let	c2	=	c1.continuation
+					
+					if s2.value == nil {
+						break
+					}
+
+					dc1++
+					c1	=	c2
+					s1	=	s2
+				}
+				if dc1 < characterCount.startIndex {
+					return	nil
+				}
+				return	Stepping(location: c1, catching: Token.Number(s1.value!))
+			}
+			func scanGlyph() -> Stepping? {
+				if location.available == false {
+					return	nil
+				}
+				let	ch1	=	location.current
+				return	Stepping(location: location.continuation, catching: Token.Glyph(ch1))
+			}
+		}
+		
+		
+		struct IntStacking {
+			let	value:Int?
+			func scan(digit:Int) -> IntStacking {
+				assert(digit >= 0)
+				assert(digit <= 9)
+				assert(value != nil)
+				if value == nil { return self }
+
+				///	Any overflow will become `nil`.
+				let	v2			=	value!
+				let	(v3, f3)	=	Int.multiplyWithOverflow(v2, 10)
+				let	(v4, f4)	=	f3 ? (0, false) : Int.addWithOverflow(v3, digit)
+				return	IntStacking(value: f4 ? nil : v4)
+			}
+			func scan(digit:Character) -> IntStacking {
+				func determineDigit() -> Int? {
+					///	Can be optimised further by utilising code-point.
+					///	But I am not sure that would be actually better...
+					///	Also there's no known way to get code-point from `Character`.
+					///	And, I believe compiler can be smart enough to optimise this
+					///	because this is essentially very regular integer -> integer 
+					///	mappings. Then, this seems to be better for compiler pattern 
+					///	detection.
+					switch digit {
+					case "0":	return	0
+					case "1":	return	1
+					case "2":	return	2
+					case "3":	return	3
+					case "4":	return	4
+					case "5":	return	5
+					case "6":	return	6
+					case "7":	return	7
+					case "8":	return	8
+					case "9":	return	9
+					default:	return	nil
+					}
+				}
+				let	v2	=	determineDigit()
+				return	v2 == nil ? IntStacking(value: nil) : scan(v2!)
+			}
+		}
+	}
+
+}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//private class ParsingContext<T> {
-//	var	location:EonilText.Cursor
-//	var	production:T?
-//	init(location:Cursor) {
-//		self.location	=	location
-//	}
+//func == (l:Standard.RFC3339.Timestamp, r:Standard.RFC3339.Timestamp) -> Bool {
 //}
-//
-//private func scanInt() -> {
-//	
+//func == (l:Standard.RFC3339.Timestamp.Date, r:Standard.RFC3339.Timestamp.Date) -> Bool {
 //}
-
-
-
-
-
-//private struct Parser {
-//	var	location:Cursor
-//	
-//	init(location:Cursor) {
-//		self.location	=	location
-//	}
-//
-//	mutating func skip(count:Int) {
-//		if location.available {
-//			location	=	location.stepping(by: count)
-//		}
-//	}
-//	mutating func expect(samples:[Character]) -> Bool {
-//		if location.available {
-//			for ch1 in samples {
-//				if location.current == ch1 {
-//					location	=	location.continuation
-//					return	true
-//				}
-//			}
-//		}
-//		return	false
-//	}
-//	mutating func int(characters:Int) -> Int? {
-//		var	s1	=	IntScanning(value: 0)
-//		for _ in 0..<characters {
-//			if location.available == false {
-//				return	nil
-//			}
-//			let	ch1	=	location.current
-//			location	=	location.continuation
-//			s1	=	s1.scan(ch1)
-//			
-//			if s1.value == nil {
-//				return	nil
-//			}
-//		}
-//		return	s1.value!
-//	}
-//	enum Token {
-//		case Number(value:Int)
-//		case Punctuation(value:Character)
-//		
-//////		case Timestamp(value:Timestamp)
-////		struct Timestamp{
-////			var	date:Date?
-////			var	time:Time?
-////			struct Date {
-////				var	location:Cursor
-////				var	year:Int?
-////				var month:Int?
-////				var	day:Int?
-////			}
-////			struct Time {
-////				var	location:Cursor
-////				var	hour:Int?
-////				var minute:Int?
-////				var	second:Int?
-////				var	fraction:Int?
-////				var	zone:Zone?
-////				struct Zone {
-////					var	hours:Int?
-////					var	minutes:Int?
-////				}
-////			}
-////		}
-//	}
-//	struct IntScanning {
-//		let	value:Int?
-//		func scan(digit:Int) -> IntScanning {
-//			assert(digit >= 0)
-//			assert(digit >= 9)
-//			assert(value != nil)
-//			
-//			let	v2	=	value! * 10 + digit
-//			return	IntScanning(value: v2)
-//		}
-//		func scan(digit:Character) -> IntScanning {
-//			let	map1	=	[
-//				"0"		:	0,
-//				"1"		:	1,
-//				"2"		:	2,
-//				"3"		:	3,
-//				"4"		:	4,
-//				"5"		:	5,
-//				"6"		:	6,
-//				"7"		:	7,
-//				"8"		:	8,
-//				"9"		:	9,
-//				] as [Character:Int]
-//			let	v2		=	map1[digit]
-//			return	v2 == nil ? IntScanning(value: nil) : scan(v2!)
-//		}
-//	}
+//func == (l:Standard.RFC3339.Timestamp.Time, r:Standard.RFC3339.Timestamp.Time) -> Bool {
 //}
-//private struct Syntax {
-//	static func skip(inout c1:Cursor, _ count:Int) {
-//		if c1.available {
-//			c1	=	c1.stepping(by: count)
-//		}
-//	}
-//	static func expect(inout c1:Cursor, _ samples:[Character]) -> Bool {
-//		if c1.available {
-//			for ch1 in samples {
-//				if c1.current == ch1 {
-//					c1	=	c1.continuation
-//					return	true
-//				}
-//			}
-//		}
-//		return	false
-//	}
-//	static func int(inout c1:Cursor, _ characters:Int) -> Int? {
-//		var	s1	=	IntScanning(value: 0)
-//		for _ in 0..<characters {
-//			if c1.available == false {
-//				return	nil
-//			}
-//			let	ch1	=	c1.current
-//			c1	=	c1.continuation
-//			s1	=	s1.scan(ch1)
-//			
-//			if s1.value == nil {
-//				return	nil
-//			}
-//		}
-//		return	s1.value!
-//	}
-//	
-//	struct Timestamp {
-//		var	location:Cursor
-//		var	date:Date?
-//		var	time:Time?
-//		struct Date {
-//			var	location:Cursor
-//			var	year:Int?
-//			var month:Int?
-//			var	day:Int?
-//		}
-//		struct Time {
-//			var	location:Cursor
-//			var	hour:Int?
-//			var minute:Int?
-//			var	second:Int?
-//			var	fraction:Int?
-//			var	zone:Zone?
-//			struct Zone {
-//				var	hours:Int?
-//				var	minutes:Int?
-//				init() {
-//				}
-//				static func scan(inout c1:Cursor) -> Zone? {
-//					var	v1		=	Zone()
-//					if Syntax.expect(&c1, ["Z"]) {
-//						v1.hours	=	0
-//						v1.minutes	=	0
-//						return	v1
-//					}
-//					
-//					let	p1		=	Syntax.expect(&c1, ["+"])
-//					let m1		=	Syntax.expect(&c1, ["-"])
-//					if p1 == false && m1 == false {
-//						return	nil
-//					}
-//					
-//					v1.hours	=	Syntax.int(&c1, 2)
-//					if Syntax.expect(&c1, [":"]) == false {
-//						return nil
-//					}
-//					v1.minutes	=	Syntax.int(&c1, 2)
-//					if m1 {
-//						v1.hours	=	-v1.hours!
-//						v1.minutes	=	-v1.minutes!
-//					}
-//					return	v1
-//				}
-//			}
-//		}
-//	}
-//	struct IntScanning {
-//		let	value:Int?
-//		func scan(digit:Int) -> IntScanning {
-//			assert(digit >= 0)
-//			assert(digit >= 9)
-//			assert(value != nil)
-//			
-//			let	v2	=	value! * 10 + digit
-//			return	IntScanning(value: v2)
-//		}
-//		func scan(digit:Character) -> IntScanning {
-//			let	map1	=	[
-//				"0"		:	0,
-//				"1"		:	1,
-//				"2"		:	2,
-//				"3"		:	3,
-//				"4"		:	4,
-//				"5"		:	5,
-//				"6"		:	6,
-//				"7"		:	7,
-//				"8"		:	8,
-//				"9"		:	9,
-//				] as [Character:Int]
-//			let	v2		=	map1[digit]
-//			return	v2 == nil ? IntScanning(value: nil) : scan(v2!)
-//		}
-//	}
+//func == (l:Standard.RFC3339.Timestamp.Time.Zone, r:Standard.RFC3339.Timestamp.Time.Zone) -> Bool {
+//}
+//func < (l:Standard.RFC3339.Timestamp, r:Standard.RFC3339.Timestamp) -> Bool {
+//	return	l.date < r.date && l.time < r.time
+//}
+//func < (l:Standard.RFC3339.Timestamp.Date, r:Standard.RFC3339.Timestamp.Date) -> Bool {
+//	return	l.year < r.year && l.month < r.month && l.day < r.day
+//}
+/////	Only timestamps in same time-zone are supported.
+//func < (l:Standard.RFC3339.Timestamp.Time, r:Standard.RFC3339.Timestamp.Time) -> Bool {
+//	precondition(l.zone == r.zone)
+//	return	l.hour < r.hour && l.minute < r.minute && l.second < r.second && l.subsecond < r.subsecond && l.zone < r.zone
+//}
+//func < (l:Standard.RFC3339.Timestamp.Time.Zone, r:Standard.RFC3339.Timestamp.Time.Zone) -> Bool {
+//	return	l.hours < r.hours && l.minutes < r.minutes
 //}
 
 
@@ -617,55 +415,158 @@ extension Standard {
 
 
 
-//
-//
-//private struct Syntax {
-//	
-//	static let	digit				=	pat(Characters.digit)
-//	static let	zulu				=	pat(Characters.timeSeparator)
-//	static let	tango				=	pat(Characters.zoneSeparator)
-//	
-//	static let	dateFullYear		=	digit * 4
-//	static let	dateMonth			=	digit * 2
-//	static let	dateDay				=	digit * 2
-//	
-//	static let	timeHour			=	digit * 2
-//	static let	timeMinute			=	digit * 2
-//	static let	timeSecond			=	digit * 2
-//	static let	timeSecondFraction	=	lit(".") + digit * (1...Int.max)
-//	static let	timeSecondSign		=	lit("+") | lit("-")
-//	static let	timeNumericOffset	=	timeSecondSign + timeHour + lit(":") + timeMinute + timeSecondFraction * (0...1)
-//	static let	timeOffset			=	lit("Z") | timeNumericOffset
-//	
-//	static let	partialTime			=	timeHour + lit(":") + timeMinute + lit(":") + timeSecond
-//	static let	fullDate			=	dateFullYear + lit("-") + dateMonth + lit("-") + dateDay
-//	static let	fullTime			=	partialTime + timeOffset
-//	static let	dateTime			=	fullDate + lit("T") + fullTime
-//
-//	private typealias	C	=	EonilText.Parsing.Rule.Component
-//	private static let	lit	=	C.literal
-//	private static let	pat	=	C.pattern
-//	private static let	sub	=	C.subrule
-//	private static let	mk	=	C.mark
-//	
-//	private struct Characters {
-//		static let	digit			=	any(["0", "1", "2", "3", "4", "5", "6" ,"7", "8", "9"])
-//		static let	timeSeparator	=	any(["T", "t", " "])
-//		static let	zoneSeparator	=	any(["Z", "z"])
-////		static let	zulu			=	any(["Z", "z"])
-////		static let	tango			=	any(["T", "t"])
-//		
-//		////
-//		
-//		private typealias	P		=	EonilText.Pattern
-//		private static let	or		=	P.or
-//		private static let	not		=	P.not
-//		private static let	any		=	P.any
-//		private static let	one		=	P.one
-//	}
-//	
-//}
-//
+
+
+
+
+
+
+
+
+
+
+
+
+
+///	MARK:
+extension Standard.RFC3339 {
+	struct Test {
+		static func run() {
+			typealias	Token	=	Scanner.Stepping.Token
+			func assert(c:@autoclosure()->Bool) {
+				if c() == false {
+					fatalError("Test assertion failure!")
+				}
+			}
+			func tx(c:()->()) {
+				c()
+			}
+			
+			
+			
+			func happyCases() {
+				
+				tx{
+					let	s1	=	"123"
+					var	p1	=	Scanner(expression: s1)
+					p1.scanInt(2...2)
+					assert(p1.stepping != nil)
+					assert(p1.stepping!.location.current == "3")
+					assert(p1.stepping!.catching != nil)
+					assert(p1.stepping!.catching!.number == 12)
+				}
+				tx{
+					let	s1	=	"1111-22-33T44:55:66Z"
+					let	ts1	=	Standard.RFC3339.scan(s1)
+					assert(ts1 != nil)
+					assert(ts1!.date.year == 1111)
+					assert(ts1!.date.month == 22)
+					assert(ts1!.date.day == 33)
+					assert(ts1!.time.hour == 44)
+					assert(ts1!.time.minute == 55)
+					assert(ts1!.time.second == 66)
+					assert(ts1!.time.subsecond == 0)
+					assert(ts1!.time.zone.hours == 0)
+					assert(ts1!.time.zone.minutes == 0)
+				}
+				tx{
+					let	s1	=	"1111-22-33T44:55:66.7Z"
+					let	ts1	=	Standard.RFC3339.scan(s1)
+					assert(ts1 != nil)
+					assert(ts1!.date.year == 1111)
+					assert(ts1!.date.month == 22)
+					assert(ts1!.date.day == 33)
+					assert(ts1!.time.hour == 44)
+					assert(ts1!.time.minute == 55)
+					assert(ts1!.time.second == 66)
+					assert(ts1!.time.subsecond == 7)
+					assert(ts1!.time.zone.hours == 0)
+					assert(ts1!.time.zone.minutes == 0)
+				}
+				tx{
+					let	s1	=	"1111-22-33T44:55:66.7+88:99"
+					let	ts1	=	Standard.RFC3339.scan(s1)
+					assert(ts1 != nil)
+					assert(ts1!.date.year == 1111)
+					assert(ts1!.date.month == 22)
+					assert(ts1!.date.day == 33)
+					assert(ts1!.time.hour == 44)
+					assert(ts1!.time.minute == 55)
+					assert(ts1!.time.second == 66)
+					assert(ts1!.time.subsecond == 7)
+					assert(ts1!.time.zone.hours == 88)
+					assert(ts1!.time.zone.minutes == 99)
+				}
+				tx{
+					let	s1	=	"1111-22-33T44:55:66.7-88:99"
+					let	ts1	=	Standard.RFC3339.scan(s1)
+					assert(ts1 != nil)
+					assert(ts1!.date.year == 1111)
+					assert(ts1!.date.month == 22)
+					assert(ts1!.date.day == 33)
+					assert(ts1!.time.hour == 44)
+					assert(ts1!.time.minute == 55)
+					assert(ts1!.time.second == 66)
+					assert(ts1!.time.subsecond == 7)
+					assert(ts1!.time.zone.hours == -88)
+					assert(ts1!.time.zone.minutes == -99)
+				}
+
+			}
+
+			func evilCases() {
+				
+				tx{
+					let	s1	=	"a1111-22-33T44:55:66Z"
+					let	ts1	=	Standard.RFC3339.scan(s1)
+					assert(ts1 == nil)
+				}
+				tx{
+					let	s1	=	"1111x22-33T44:55:66Z"
+					let	ts1	=	Standard.RFC3339.scan(s1)
+					assert(ts1 == nil)
+				}
+				tx{
+					let	s1	=	"111-22-33T44:55:66Z"
+					let	ts1	=	Standard.RFC3339.scan(s1)
+					assert(ts1 == nil)
+				}
+				tx{
+					let	s1	=	"1111-2-33T44:55:66Z"
+					let	ts1	=	Standard.RFC3339.scan(s1)
+					assert(ts1 == nil)
+				}
+				tx{
+					let	s1	=	"1111-22-33T44:55:66"
+					let	ts1	=	Standard.RFC3339.scan(s1)
+					assert(ts1 == nil)
+				}
+				tx{
+					let	s1	=	"1111-22-33T44:55:66Z+00:11"
+					let	ts1	=	Standard.RFC3339.scan(s1)
+					assert(ts1 == nil)
+				}
+
+			}
+			
+			
+			happyCases()
+			evilCases()
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
