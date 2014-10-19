@@ -16,4 +16,7 @@
    <FileRef
       location = "group:Common/Common.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:MonolithTestExampleApplication/MonolithTestExampleApplication.xcodeproj">
+   </FileRef>
 </Workspace>
