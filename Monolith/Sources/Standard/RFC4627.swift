@@ -25,7 +25,7 @@ public extension Standard.RFC4627 {
 		case Boolean(Bool)
 		case Null
 		
-		var object:[SwiftString:Value]? {
+		public var object:[SwiftString:Value]? {
 			get {				
 				switch self {
 				case let Object(state):		return	state
@@ -33,7 +33,7 @@ public extension Standard.RFC4627 {
 				}
 			}
 		}
-		var array:[Value]? {
+		public var array:[Value]? {
 			get {
 				switch self {
 				case let Array(state):		return	state
