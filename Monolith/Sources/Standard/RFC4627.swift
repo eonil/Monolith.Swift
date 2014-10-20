@@ -13,13 +13,15 @@ public extension Standard {
 	}
 }
 
+typealias	JSONString	=	String
+
 public extension Standard.RFC4627 {
 	typealias	SwiftString	=	String	///	There should be a better way than this...
 	
 	///	Explicitly typed representation.
 	public enum Value : Equatable {
-		case Object([SwiftString:Value])
-		case Array([Value])
+		case Object(Standard.RFC4627.Object)
+		case Array(Standard.RFC4627.Array)
 		case String(SwiftString)
 		case Number(Standard.RFC4627.Number)
 		case Boolean(Bool)
@@ -75,6 +77,9 @@ public extension Standard.RFC4627 {
 		}
 	}
 	
+	public typealias	Object	=	[SwiftString:Value]
+	public typealias	Array	=	[Value]
+
 	///	Arbitrary precision number container.
 	public enum Number : Equatable {
 		case Integer(Int64)
