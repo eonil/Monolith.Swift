@@ -12,7 +12,7 @@ import Foundation
 ///	`JSON.Value` is treated as an array when you enumerate on it.
 ///	If underlying value is not an array, it will cause program crash.
 ///
-extension Standard.JSON.Value : CollectionType {
+extension Standard.RFC4627.Value : CollectionType {
 	
 	public var startIndex:Int {
 		get {
