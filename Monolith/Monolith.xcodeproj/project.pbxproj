@@ -92,6 +92,10 @@
 		45B24B2419F43B6A001D3E18 /* OBJCLevelFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B24B2219F43B6A001D3E18 /* OBJCLevelFeatures.m */; };
 		45B24B2519F43B6A001D3E18 /* OBJCLevelFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B24B2219F43B6A001D3E18 /* OBJCLevelFeatures.m */; };
 		45B24B2619F43B6A001D3E18 /* OBJCLevelFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B24B2219F43B6A001D3E18 /* OBJCLevelFeatures.m */; };
+		45BAF50219F5895F001F6894 /* RFC1808+RFC4627.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BAF50119F5895F001F6894 /* RFC1808+RFC4627.swift */; };
+		45BAF50319F58A9F001F6894 /* RFC1808+RFC4627.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BAF50119F5895F001F6894 /* RFC1808+RFC4627.swift */; };
+		45BAF50419F58A9F001F6894 /* RFC1808+RFC4627.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BAF50119F5895F001F6894 /* RFC1808+RFC4627.swift */; };
+		45BAF50519F58A9F001F6894 /* RFC1808+RFC4627.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BAF50119F5895F001F6894 /* RFC1808+RFC4627.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +185,7 @@
 		45B24B1919F43AAB001D3E18 /* Monolith-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Monolith-Bridging-Header.h"; sourceTree = "<group>"; };
 		45B24B2219F43B6A001D3E18 /* OBJCLevelFeatures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBJCLevelFeatures.m; sourceTree = "<group>"; };
 		45B24B2719F43B7D001D3E18 /* OBJCLevelFeatures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OBJCLevelFeatures.h; sourceTree = "<group>"; };
+		45BAF50119F5895F001F6894 /* RFC1808+RFC4627.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RFC1808+RFC4627.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +277,7 @@
 				4504412119F2C49A006DC05C /* Standard.swift */,
 				454052D919F5785600B6A408 /* URL.swift */,
 				45B24B0919F4326F001D3E18 /* RFC1808.swift */,
+				45BAF50119F5895F001F6894 /* RFC1808+RFC4627.swift */,
 				454052D119F5783300B6A408 /* HTTP.swift */,
 				45389DEE19F42B0D0045A4C4 /* RFC2616.swift */,
 				450440F019F2C419006DC05C /* RFC3339.swift */,
@@ -561,6 +567,7 @@
 				45B24B0B19F43643001D3E18 /* RFC1808.swift in Sources */,
 				454052C919F577EE00B6A408 /* RFC4627.Literals.swift in Sources */,
 				45AFAD4F19F3DE4D00EC17DC /* Standard.swift in Sources */,
+				45BAF50419F58A9F001F6894 /* RFC1808+RFC4627.swift in Sources */,
 				45AFAD5119F3DE4D00EC17DC /* Operators.swift in Sources */,
 				454052E519F5789200B6A408 /* RFC4627.Operators.swift in Sources */,
 				4524474019F5821C00B47EC4 /* Error.swift in Sources */,
@@ -593,6 +600,7 @@
 				457934C319F54038001C12F6 /* RFC4627.swift in Sources */,
 				4568309419F3033D0085CBC5 /* xISO8601.swift in Sources */,
 				45B24B0819F42FAE001D3E18 /* RFC2616.swift in Sources */,
+				45BAF50519F58A9F001F6894 /* RFC1808+RFC4627.swift in Sources */,
 				454052DD19F5785600B6A408 /* URL.swift in Sources */,
 				454052CB19F577EF00B6A408 /* RFC4627.Literals.swift in Sources */,
 				45AFAD5219F3DE4E00EC17DC /* System.Time.swift in Sources */,
@@ -616,6 +624,7 @@
 				45942F0819F3B86B008EB820 /* System.Time.swift in Sources */,
 				454052C819F5779600B6A408 /* RFC4627.Literals.swift in Sources */,
 				45B24B0A19F4326F001D3E18 /* RFC1808.swift in Sources */,
+				45BAF50219F5895F001F6894 /* RFC1808+RFC4627.swift in Sources */,
 				454052DF19F5787A00B6A408 /* RFC4627.Extensions.swift in Sources */,
 				454052C619F5752900B6A408 /* RFC4627.Unused.swift in Sources */,
 				454052DA19F5785600B6A408 /* URL.swift in Sources */,
@@ -637,6 +646,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				457934BE19F54037001C12F6 /* RFC4627.swift in Sources */,
+				45BAF50319F58A9F001F6894 /* RFC1808+RFC4627.swift in Sources */,
 				454052CA19F577EE00B6A408 /* RFC4627.Literals.swift in Sources */,
 				45AFAD4619F3DE4800EC17DC /* System.swift in Sources */,
 				45AFAD4819F3DE4800EC17DC /* xISO8601.swift in Sources */,

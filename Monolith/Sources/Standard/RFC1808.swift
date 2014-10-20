@@ -76,6 +76,29 @@ public extension Standard {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 extension Standard.RFC1808 {
 	struct Test {
 		static func run() {
@@ -143,3 +166,41 @@ extension Standard.RFC1808 {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///	MARK:
+///	Move to `RFC1808+RFC4627.swift` when compiler bug to be fixed.
+
+public extension Standard.RFC1808.Query {
+	///	Supports only string -> string flat JSON object.
+	public static func encode(parameters:Standard.JSON.Object) -> String? {
+		var	ps2	=	[:] as [String:String]
+		for p1 in parameters {
+			if p1.1.string == nil {
+				return	Error.trap("Input string contains non-strig (possibly complex) value, and it cannot be used to form a query-string.")
+			}
+			ps2[p1.0]	=	p1.1.string!
+		}
+		return	encode(ps2)
+	}
+}
