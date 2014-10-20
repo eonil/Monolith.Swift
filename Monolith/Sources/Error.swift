@@ -10,16 +10,18 @@ import Foundation
 
 struct Error {
 	static func trap(_ message:String? = nil) -> () {
-		///	Install debugger breakpoint here to stop at any returning-`nil`-by-an-error situation.
+		///	Install debugger breakpoint here to stop at any returning-by-an-error situation.
 		#if DEBUG
 			if message != nil {
 			println("Trapped an error: " + message!)
 			}
 		#endif
 	}
-
+	
 	static func trap<T>(_ message:String? = nil) -> T? {
+		///	Install debugger breakpoint here to stop at any returning-`nil`-by-an-error situation.
 		trap(message)
 		return	nil
 	}
 }
+

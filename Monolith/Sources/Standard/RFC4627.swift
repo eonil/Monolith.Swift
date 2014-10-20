@@ -107,7 +107,7 @@ public extension Standard.RFC4627 {
 
 }
 
-public extension Standard.RFC4627.Value {
+public extension Standard.RFC4627 {
 	public static func deserialise(data:NSData) -> Standard.JSON.Value? {
 		var	e1:NSError?		=	nil
 		let	o2:AnyObject?	=	NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &e1)
@@ -392,7 +392,7 @@ extension Standard.RFC4627 {
 			tx {
 				let	a1	=	"{ \"aaa\" : 123 }"
 				let	a2	=	a1.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
-				let	a3	=	JSON.Value.deserialise(a2)!
+				let	a3	=	JSON.deserialise(a2)!
 				
 				let	a4	=	JSON.Value.Object([
 					"aaa"	:	JSON.Value.Number(Standard.RFC4627.Number.Integer(123))
@@ -448,10 +448,10 @@ extension Standard.RFC4627 {
 				let	v1	=	a1.object!["aaa"]!
 				assert(a1.object!["aaa"]! == nil)
 				
-				let	a2	=	JSON.Value.serialise(a1)!
+				let	a2	=	JSON.serialise(a1)!
 				println(a2)
 				
-				let	a3	=	JSON.Value.deserialise(a2)!
+				let	a3	=	JSON.deserialise(a2)!
 				println(a3)
 				
 				assert(a3 == a1)
@@ -474,10 +474,10 @@ extension Standard.RFC4627 {
 					] as Value
 				
 				
-				let	a2	=	JSON.Value.serialise(a1)!
+				let	a2	=	JSON.serialise(a1)!
 				println(a2)
 				
-				let	a3	=	JSON.Value.deserialise(a2)!
+				let	a3	=	JSON.deserialise(a2)!
 				println(a3)
 				
 				assert(a3 == a1)
