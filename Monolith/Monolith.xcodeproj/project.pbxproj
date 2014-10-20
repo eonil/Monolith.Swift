@@ -116,6 +116,20 @@
 			remoteGlobalIDString = 45D987A019ECE38C00B96829;
 			remoteInfo = "Text OSX Test";
 		};
+		45BAF4F319F585FC001F6894 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 450440F219F2C454006DC05C /* Text.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4584D80219F18D930093E2B1;
+			remoteInfo = "Text iOS";
+		};
+		45BAF4F819F585FF001F6894 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 450440F219F2C454006DC05C /* Text.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 45641AC819F0D52200381269;
+			remoteInfo = "Text OSX";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -410,6 +424,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				45BAF4F919F585FF001F6894 /* PBXTargetDependency */,
 			);
 			name = "Monolith OSX";
 			productName = Monolith;
@@ -428,6 +443,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				45BAF4F419F585FC001F6894 /* PBXTargetDependency */,
 			);
 			name = "Monolith iOS";
 			productName = "Monolith iOS";
@@ -643,6 +659,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45BAF4F419F585FC001F6894 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Text iOS";
+			targetProxy = 45BAF4F319F585FC001F6894 /* PBXContainerItemProxy */;
+		};
+		45BAF4F919F585FF001F6894 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Text OSX";
+			targetProxy = 45BAF4F819F585FF001F6894 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4568307519F302DF0085CBC5 /* Main.storyboard */ = {
