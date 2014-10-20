@@ -9,7 +9,6 @@
 import Foundation
 
 public extension Standard {
-	public typealias	URL	=	RFC1808
 	
 	///	http://tools.ietf.org/html/rfc1808
 	///	Defines URL features.

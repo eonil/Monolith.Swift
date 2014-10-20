@@ -9,8 +9,6 @@
 import Foundation
 
 public extension Standard {
-
-	public typealias	HTTP	=	RFC2616
 	
 	///	Defines HTTP/1.1 protocol.
 	///	http://tools.ietf.org/html/rfc2616
