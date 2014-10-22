@@ -9,7 +9,7 @@
 import Foundation
 
 extension Standard.RFC4627.Value : NilLiteralConvertible, BooleanLiteralConvertible, IntegerLiteralConvertible, FloatLiteralConvertible, StringLiteralConvertible, ExtendedGraphemeClusterLiteralConvertible, UnicodeScalarLiteralConvertible, ArrayLiteralConvertible, DictionaryLiteralConvertible {
-	public typealias	Key		=	Standard.RFC4627.SwiftString
+	public typealias	Key		=	Swift.String
 	public typealias	Value	=	Standard.RFC4627.Value
 	public typealias	Element	=	Standard.RFC4627.Value
 	

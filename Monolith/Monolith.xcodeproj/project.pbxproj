@@ -10,6 +10,10 @@
 		450440F119F2C419006DC05C /* RFC3339.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450440F019F2C419006DC05C /* RFC3339.swift */; };
 		4504411E19F2C474006DC05C /* EonilText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450440F919F2C454006DC05C /* EonilText.framework */; };
 		4504412219F2C49A006DC05C /* Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504412119F2C49A006DC05C /* Standard.swift */; };
+		4514879719F69CFE0089D5FE /* RFC4627.Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514879619F69CFE0089D5FE /* RFC4627.Parsing.swift */; };
+		4514879819F69CFE0089D5FE /* RFC4627.Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514879619F69CFE0089D5FE /* RFC4627.Parsing.swift */; };
+		4514879919F69CFE0089D5FE /* RFC4627.Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514879619F69CFE0089D5FE /* RFC4627.Parsing.swift */; };
+		4514879A19F69CFE0089D5FE /* RFC4627.Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514879619F69CFE0089D5FE /* RFC4627.Parsing.swift */; };
 		4524473F19F5821C00B47EC4 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524473E19F5821C00B47EC4 /* Error.swift */; };
 		4524474019F5821C00B47EC4 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524473E19F5821C00B47EC4 /* Error.swift */; };
 		4524474119F5821C00B47EC4 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524473E19F5821C00B47EC4 /* Error.swift */; };
@@ -152,6 +156,7 @@
 		450440F019F2C419006DC05C /* RFC3339.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC3339.swift; sourceTree = "<group>"; };
 		450440F219F2C454006DC05C /* Text.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Text.xcodeproj; path = ../Text/Text.xcodeproj; sourceTree = "<group>"; };
 		4504412119F2C49A006DC05C /* Standard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Standard.swift; sourceTree = "<group>"; };
+		4514879619F69CFE0089D5FE /* RFC4627.Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC4627.Parsing.swift; sourceTree = "<group>"; };
 		4524473E19F5821C00B47EC4 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		45389DEE19F42B0D0045A4C4 /* RFC2616.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC2616.swift; sourceTree = "<group>"; };
 		454052C519F5752900B6A408 /* RFC4627.Unused.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC4627.Unused.swift; sourceTree = "<group>"; };
@@ -286,6 +291,7 @@
 				454052E319F5789200B6A408 /* RFC4627.Operators.swift */,
 				454052DE19F5787A00B6A408 /* RFC4627.Extensions.swift */,
 				454052C719F5779600B6A408 /* RFC4627.Literals.swift */,
+				4514879619F69CFE0089D5FE /* RFC4627.Parsing.swift */,
 				454052C519F5752900B6A408 /* RFC4627.Unused.swift */,
 				4584D83D19F192960093E2B1 /* xISO8601.swift */,
 			);
@@ -561,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4514879819F69CFE0089D5FE /* RFC4627.Parsing.swift in Sources */,
 				454052D319F5783300B6A408 /* HTTP.swift in Sources */,
 				457934C219F54038001C12F6 /* RFC4627.swift in Sources */,
 				454052E019F5787A00B6A408 /* RFC4627.Extensions.swift in Sources */,
@@ -611,6 +618,7 @@
 				45B24B2619F43B6A001D3E18 /* OBJCLevelFeatures.m in Sources */,
 				4524474219F5821C00B47EC4 /* Error.swift in Sources */,
 				4568307219F302DF0085CBC5 /* AppDelegate.swift in Sources */,
+				4514879A19F69CFE0089D5FE /* RFC4627.Parsing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +630,7 @@
 				458615D219F17DAD007408AF /* Monolith.swift in Sources */,
 				454052D019F5780900B6A408 /* JSON.swift in Sources */,
 				45942F0819F3B86B008EB820 /* System.Time.swift in Sources */,
+				4514879719F69CFE0089D5FE /* RFC4627.Parsing.swift in Sources */,
 				454052C819F5779600B6A408 /* RFC4627.Literals.swift in Sources */,
 				45B24B0A19F4326F001D3E18 /* RFC1808.swift in Sources */,
 				45BAF50219F5895F001F6894 /* RFC1808+RFC4627.swift in Sources */,
@@ -649,6 +658,7 @@
 				45BAF50319F58A9F001F6894 /* RFC1808+RFC4627.swift in Sources */,
 				454052CA19F577EE00B6A408 /* RFC4627.Literals.swift in Sources */,
 				45AFAD4619F3DE4800EC17DC /* System.swift in Sources */,
+				4514879919F69CFE0089D5FE /* RFC4627.Parsing.swift in Sources */,
 				45AFAD4819F3DE4800EC17DC /* xISO8601.swift in Sources */,
 				45B24B0C19F43644001D3E18 /* RFC1808.swift in Sources */,
 				45B24B0719F42FAE001D3E18 /* RFC2616.swift in Sources */,

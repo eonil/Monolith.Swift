@@ -13,21 +13,21 @@ public extension Standard {
 	}
 }
 
-typealias	JSONString	=	String
+
 
 public extension Standard.RFC4627 {
-	typealias	SwiftString	=	String	///	There should be a better way than this...
+//	typealias	SwiftString	=	String	///	There should be a better way than this...
 	
 	///	Explicitly typed representation.
 	public enum Value : Equatable {
 		case Object(Standard.RFC4627.Object)
 		case Array(Standard.RFC4627.Array)
-		case String(SwiftString)
+		case String(Swift.String)
 		case Number(Standard.RFC4627.Number)
 		case Boolean(Bool)
 		case Null
 		
-		public var object:[SwiftString:Value]? {
+		public var object:[Swift.String:Value]? {
 			get {				
 				switch self {
 				case let Object(state):		return	state
@@ -43,7 +43,7 @@ public extension Standard.RFC4627 {
 				}
 			}
 		}
-		public var string:SwiftString? {
+		public var string:Swift.String? {
 			get {
 				switch self {
 				case let String(state):		return	state
@@ -77,7 +77,7 @@ public extension Standard.RFC4627 {
 		}
 	}
 	
-	public typealias	Object	=	[SwiftString:Value]
+	public typealias	Object	=	[Swift.String:Value]
 	public typealias	Array	=	[Value]
 
 	///	Arbitrary precision number container.
@@ -119,11 +119,19 @@ public extension Standard.RFC4627 {
 		let	o3	=	Converter.convertFromOBJ(o2!)
 		return	o3
 	}
+	
 	public static func serialise(value:Standard.JSON.Value) -> NSData? {
+		return	serialise(value, allowFragment: false)
+	}
+	///	This does not allow serialisation of fragment. A JSON value must be one
+	///	of object or array type. This limitation is due to limitation of `NSJSONSerialization` class.
+	static func serialise(value:Standard.JSON.Value, allowFragment:Bool) -> NSData? {
+		assert(value.object != nil || value.array != nil)
 		let	o2:AnyObject	=	Converter.convertFromSwift(value)
 		var	e1:NSError?		=	nil
+//		let	d3:NSData?		=	NSJSONSerialization.dataWithJSONObject(o2, options: (NSJSONWritingOptions.allZeros) | NSJSONWritingOptions.PrettyPrinted), error: &e1)
 		let	d3:NSData?		=	NSJSONSerialization.dataWithJSONObject(o2, options: NSJSONWritingOptions.PrettyPrinted, error: &e1)
-		///	I don't think there's any reason to return `nil` from JSON serialisation, 
+		///	I don't think there's any reason to return `nil` from JSON serialisation,
 		///	but anyway, OBJC API is written in that way. I just follow it.
 		if e1 != nil { return Error.trap() }
 		if d3 == nil { return Error.trap() }
@@ -486,6 +494,27 @@ extension Standard.RFC4627 {
 				let	v1	=	a3.object!["aaa"]!
 				assert(a3.object!["aaa"]! == nil)
 				assert(a3.object!["fff"]! == [d1, d1, d1])
+			}
+
+			tx {
+				let	a1	=	[
+					"aaa"	:	nil,
+					"bbb"	:	true,
+					"ccc"	:	123,
+					"ddd"	:	456.789,
+					"eee"	:	"Here be a dragon.",
+					"fff"	:	["xxx", "yyy", "zzz"],
+					"ggg"	:	[
+						"f1"	:	"v1",
+						"f2"	:	"v2",
+						"f3"	:	"v3",
+					],
+					] as Value
+				
+				let	a2	=	JSON.serialise(a1)!
+				let	a3	=	a1.description
+				let	a4	=	a3.dataUsingEncoding(NSUTF8StringEncoding)
+				assert(a3 == a4)
 			}
 		}
 	}
