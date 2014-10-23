@@ -9,7 +9,10 @@
 import Foundation
 
 
-//typealias	Element		=	Range<String.Index>
+///typealias	Element		=	Range<String.Index>
+
+///	An element is an abstracted unit of source data. It can be a character, an index or even a range from 0 to multiple characters.
+///	Comparison of Element is fully defined by `RuleTest`. Analyser core does not define equality of element.
 typealias	Element		=	Character
 
 
@@ -71,7 +74,8 @@ enum RuleTest {
 
 struct Node {
 	var	sigificance:Bool
-	var	element:Element
+//	var	range:(start:Element, end:Element)
+	var	element:Element			///<	Wrongly designed. A location of input element when the node was fully detected. We also need start location anyway.
 	var	subnodes:[Node]
 	var	error:String?
 }
@@ -322,6 +326,38 @@ extension Rule {
 	}
 }
 
+//extension Step {
+//	var	allStackingLayers:GeneratorOf<Step> {
+//		get {
+//			
+//		}
+//	}
+//	var currentElementsOverAllLayers:[Element] {
+//		get {
+//			
+//		}
+//	}
+//}
+
+//struct StepStack: SequenceType {
+//	typealias	Element		=	Step
+//	typealias	Generator	=	GeneratorOf<Step>
+//	let	origin:Step
+//	
+//	func generate() -> Generator {
+//		var	s1	=	origin as Step?
+//		func next() -> Step? {
+//			let	s2	=	s1
+//			s1	=	s1?.substep
+//			return	s2
+//		}
+//		return	GeneratorOf<Step>(next)
+//	}
+//	
+//	func currentElements() -> [Element] {
+//		return	lazy(self).map()
+//	}
+//}
 
 
 
@@ -335,8 +371,24 @@ extension Rule {
 
 
 
+///	I don't know why this operator is needed for `[Element?]` type... Compiler doesn't work.
+func == <T:Equatable> (a:[T?], b:[T?]) -> Bool {
+	if a.count != b.count { return false }
+	for i in 0..<a.count {
+		if a[i] != b[i] { return false }
+	}
+	return true
+}
 
 func test() {
+	struct TestHelper {
+		static func currentElementsOfAllLayersOf(s1:Step) -> [Element?] {
+			switch s1.substep {
+			case let .None:			return	s1.elements.available ? [s1.elements.current] : [nil]
+			case let .Some(ss):		return	[s1.elements.current] + currentElementsOfAllLayersOf(ss)
+			}
+		}
+	}
 //	func assert(b1:@autoclosure()->Bool) {
 //		println(b1())
 //		Swift.assert(b1(), "Test assertion failure!")
@@ -463,7 +515,7 @@ func test() {
 			assert(s1.substep == nil)
 			///	Finished because it's not repeated.
 		}
-		
+
 		test("Multiple rule choice match with sequence.") {
 			func t1(ch1:Character)(ch2:Character) -> Bool {
 				return	ch1 == ch2
@@ -480,118 +532,150 @@ func test() {
 			let	r5	=	Rule(significance: false, test: RuleTest.Composition(mode: Mode.Any, subrules: rs1))
 			let	r6	=	Rule(significance: false, test: RuleTest.Composition(mode: Mode.All, subrules: cursor([r4, r5])))
 			
-			var	s0	=	r6.step(es1)
-			///	Set to first rule "A".
-			assert(s0.rules.current === r6)
-			assert(s0.done == false)
-			assert(s0.elements.current == "C")
-			assert(s0.nodes.count == 0)
-			assert(s0.substep == nil)
-			
-			var	s1	=	s0.continuation()
-			assert(s1.rules.current === r6)
-			assert(s1.done == false)
-			assert(s1.elements.current == "C")
-			assert(s1.nodes.count == 0)
-			assert(s1.substep != nil)
-			assert(s1.substep!.elements.current == "C")
-			assert(s1.substep!.nodes.count == 0)
-			assert(s1.substep!.rules.current === r4)
-			
-			s1	=	s1.continuation()
-			assert(s1.rules.current === r6)
-			assert(s1.done == false)
-			assert(s1.elements.current == "C")
-			assert(s1.nodes.count == 0)
-			assert(s1.substep != nil)
-			assert(s1.substep!.elements.current == "C")
-			assert(s1.substep!.nodes.count == 0)
-			assert(s1.substep!.rules.current === r4)
-			assert(s1.substep!.substep != nil)
-			assert(s1.substep!.substep!.elements.current == "C")
-			assert(s1.substep!.substep!.nodes.count == 0)
-			assert(s1.substep!.substep!.rules.current === r1)
-			
-			s1	=	s1.continuation()
-			assert(s1.rules.current === r6)
-			assert(s1.done == false)
-			assert(s1.elements.current == "C")
-			assert(s1.nodes.count == 0)
-			assert(s1.substep != nil)
-			assert(s1.substep!.elements.current == "C")
-			assert(s1.substep!.nodes.count == 0)
-			assert(s1.substep!.rules.current === r4)
-			assert(s1.substep!.substep != nil)
-			assert(s1.substep!.substep!.elements.current == "C")
-			assert(s1.substep!.substep!.nodes.count == 0)
-			assert(s1.substep!.substep!.rules.available == false)
-			
-			s1	=	s1.continuation()
-			assert(s1.rules.current === r6)
-			assert(s1.done == false)
-			assert(s1.elements.current == "C")
-			assert(s1.nodes.count == 0)
-			assert(s1.substep != nil)
-			println(s1.substep!.elements.current)
-			assert(s1.substep!.elements.current == "C")
-			assert(s1.substep!.nodes.count == 0)
-			assert(s1.substep!.rules.current === r4)
-			assert(s1.substep!.substep != nil)
-			assert(s1.substep!.substep!.elements.current == "C")
-			assert(s1.substep!.substep!.nodes.count == 0)
-			assert(s1.substep!.substep!.rules.current === r2)
-			
-			s1	=	s1.continuation()
-			assert(s1.rules.current === r6)
-			assert(s1.done == false)
-			assert(s1.elements.current == "C")
-			assert(s1.nodes.count == 0)
-			assert(s1.substep != nil)
-			assert(s1.substep!.elements.current == "C")
-			assert(s1.substep!.nodes.count == 0)
-			assert(s1.substep!.rules.current === r4)
-			assert(s1.substep!.substep != nil)
-			assert(s1.substep!.substep!.elements.current == "B")
-			assert(s1.substep!.substep!.nodes.count == 0)
-			assert(s1.substep!.substep!.rules.current === r3)
-			
-			s1	=	s1.continuation()
-			assert(s1.rules.current === r6)
-			assert(s1.done == false)
-			assert(s1.elements.current == "C")
-			assert(s1.nodes.count == 0)
-			assert(s1.substep != nil)
-			assert(s1.substep!.elements.current == "C")
-			assert(s1.substep!.nodes.count == 0)
-			assert(s1.substep!.rules.current === r4)
-			assert(s1.substep!.substep != nil)
-			assert(s1.substep!.substep!.elements.current == "B")
-			assert(s1.substep!.substep!.nodes.count == 0)
-			assert(s1.substep!.substep!.rules.available == false)
-			
-			s1	=	s1.continuation()
-			///	Switched to rule "C". 
-			///	Now it matched.
-			///	Element avanced to "B".
-			///	Stepped up.
-			assert(s1.done == false)
-			assert(s1.nodes.count == 1)
-			assert(s1.nodes[0].element == "C")
-			assert(s1.elements.current == "B")
-			assert(s1.substep == nil)
-			
-			s1	=	s1.continuation()
-			assert(s1.done == false)
-			assert(s1.nodes.count == 1)
-			assert(s1.nodes[0].element == "C")
-			assert(s1.elements.current == "B")
-			assert(s1.substep != nil)
-			assert(s1.substep?.elements.current == "C")
-			assert(s1.substep?.nodes.count == 0)
-			
+			let	ees	=	TestHelper.currentElementsOfAllLayersOf
 
-
+			var	s1	=	r6.step(es1)
+			assert(ees(s1) == ["C"])
+			
+			s1	=	s1.continuation()
+			assert(ees(s1) == ["C", "C"])
+			
+			s1	=	s1.continuation()
+			assert(ees(s1) == ["C", "C", "C"])
+			
+			s1	=	s1.continuation()
+			assert(ees(s1) == ["C", "C", "C"])
 		}
+//		test("Multiple rule choice match with sequence.") {
+//			func t1(ch1:Character)(ch2:Character) -> Bool {
+//				return	ch1 == ch2
+//			}
+//			
+//			let	r1	=	Rule(significance: false, test: RuleTest.Atom(test: t1("A")))
+//			let	r2	=	Rule(significance: false, test: RuleTest.Atom(test: t1("B")))
+//			let	r3	=	Rule(significance: false, test: RuleTest.Atom(test: t1("C")))
+//			
+//			let	g1	=	"CBA".generate()
+//			let	es1	=	cursor(GeneratorOf<Element>(g1))
+//			let	rs1	=	cursor([r1, r2, r3])
+//			let	r4	=	Rule(significance: false, test: RuleTest.Composition(mode: Mode.Any, subrules: rs1))
+//			let	r5	=	Rule(significance: false, test: RuleTest.Composition(mode: Mode.Any, subrules: rs1))
+//			let	r6	=	Rule(significance: false, test: RuleTest.Composition(mode: Mode.All, subrules: cursor([r4, r5])))
+//			
+//			let	ees	=	TestHelper.stepAllCurrentElementsOfAllLayers
+//			
+//			var	s0	=	r6.step(es1)
+//			///	Set to first rule "A".
+//			assert(s0.rules.current === r6)
+//			assert(s0.done == false)
+//			assert(s0.elements.current == "C")
+//			assert(s0.nodes.count == 0)
+//			assert(s0.substep == nil)
+//			
+//			var	s1	=	s0.continuation()
+//			assert(s1.rules.current === r6)
+//			assert(s1.done == false)
+//			assert(s1.elements.current == "C")
+//			assert(s1.nodes.count == 0)
+//			assert(s1.substep != nil)
+//			assert(s1.substep!.elements.current == "C")
+//			assert(s1.substep!.nodes.count == 0)
+//			assert(s1.substep!.rules.current === r4)
+//			
+//			s1	=	s1.continuation()
+//			assert(s1.rules.current === r6)
+//			assert(s1.done == false)
+//			assert(s1.elements.current == "C")
+//			assert(s1.nodes.count == 0)
+//			assert(s1.substep != nil)
+//			assert(s1.substep!.elements.current == "C")
+//			assert(s1.substep!.nodes.count == 0)
+//			assert(s1.substep!.rules.current === r4)
+//			assert(s1.substep!.substep != nil)
+//			assert(s1.substep!.substep!.elements.current == "C")
+//			assert(s1.substep!.substep!.nodes.count == 0)
+//			assert(s1.substep!.substep!.rules.current === r1)
+//			
+//			s1	=	s1.continuation()
+//			assert(s1.rules.current === r6)
+//			assert(s1.done == false)
+//			assert(s1.elements.current == "C")
+//			assert(s1.nodes.count == 0)
+//			assert(s1.substep != nil)
+//			assert(s1.substep!.elements.current == "C")
+//			assert(s1.substep!.nodes.count == 0)
+//			assert(s1.substep!.rules.current === r4)
+//			assert(s1.substep!.substep != nil)
+//			assert(s1.substep!.substep!.elements.current == "C")
+//			assert(s1.substep!.substep!.nodes.count == 0)
+//			assert(s1.substep!.substep!.rules.available == false)
+//			
+//			s1	=	s1.continuation()
+//			assert(s1.rules.current === r6)
+//			assert(s1.done == false)
+//			assert(s1.elements.current == "C")
+//			assert(s1.nodes.count == 0)
+//			assert(s1.substep != nil)
+//			println(s1.substep!.elements.current)
+//			assert(s1.substep!.elements.current == "C")
+//			assert(s1.substep!.nodes.count == 0)
+//			assert(s1.substep!.rules.current === r4)
+//			assert(s1.substep!.substep != nil)
+//			assert(s1.substep!.substep!.elements.current == "C")
+//			assert(s1.substep!.substep!.nodes.count == 0)
+//			assert(s1.substep!.substep!.rules.current === r2)
+//			
+//			s1	=	s1.continuation()
+//			assert(s1.rules.current === r6)
+//			assert(s1.done == false)
+//			assert(s1.elements.current == "C")
+//			assert(s1.nodes.count == 0)
+//			assert(s1.substep != nil)
+//			assert(s1.substep!.elements.current == "C")
+//			assert(s1.substep!.nodes.count == 0)
+//			assert(s1.substep!.rules.current === r4)
+//			assert(s1.substep!.substep != nil)
+//			assert(s1.substep!.substep!.elements.current == "B")
+//			assert(s1.substep!.substep!.nodes.count == 0)
+//			assert(s1.substep!.substep!.rules.current === r3)
+//			
+//			s1	=	s1.continuation()
+//			assert(s1.rules.current === r6)
+//			assert(s1.done == false)
+//			assert(s1.elements.current == "C")
+//			assert(s1.nodes.count == 0)
+//			assert(s1.substep != nil)
+//			assert(s1.substep!.elements.current == "C")
+//			assert(s1.substep!.nodes.count == 0)
+//			assert(s1.substep!.rules.current === r4)
+//			assert(s1.substep!.substep != nil)
+//			assert(s1.substep!.substep!.elements.current == "B")
+//			assert(s1.substep!.substep!.nodes.count == 0)
+//			assert(s1.substep!.substep!.rules.available == false)
+//			
+//			s1	=	s1.continuation()
+//			///	Switched to rule "C". 
+//			///	Now it matched.
+//			///	Element avanced to "B".
+//			///	Stepped up.
+//			assert(s1.done == false)
+//			assert(s1.nodes.count == 1)
+//			assert(s1.nodes[0].element == "C")
+//			assert(s1.elements.current == "B")
+//			assert(s1.substep == nil)
+//			
+//			s1	=	s1.continuation()
+//			assert(s1.done == false)
+//			assert(s1.nodes.count == 1)
+//			assert(s1.nodes[0].element == "C")
+//			assert(s1.elements.current == "B")
+//			assert(s1.substep != nil)
+//			assert(s1.substep?.elements.current == "C")
+//			assert(s1.substep?.nodes.count == 0)
+//			
+//
+//
+//		}
 
 	}
 	
