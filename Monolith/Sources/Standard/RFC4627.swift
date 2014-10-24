@@ -383,11 +383,6 @@ private struct Converter {
 extension Standard.RFC4627 {
 	struct Test {
 		static func run() {
-			func assert(c:@autoclosure()->Bool) {
-				if c() == false {
-					fatalError("Test assertion failure!")
-				}
-			}
 			func tx(c:()->()) {
 				c()
 			}
@@ -496,26 +491,6 @@ extension Standard.RFC4627 {
 				assert(a3.object!["fff"]! == [d1, d1, d1])
 			}
 
-			tx {
-				let	a1	=	[
-					"aaa"	:	nil,
-					"bbb"	:	true,
-					"ccc"	:	123,
-					"ddd"	:	456.789,
-					"eee"	:	"Here be a dragon.",
-					"fff"	:	["xxx", "yyy", "zzz"],
-					"ggg"	:	[
-						"f1"	:	"v1",
-						"f2"	:	"v2",
-						"f3"	:	"v3",
-					],
-					] as Value
-				
-				let	a2	=	JSON.serialise(a1)!
-				let	a3	=	a1.description
-				let	a4	=	a3.dataUsingEncoding(NSUTF8StringEncoding)
-				assert(a3 == a4)
-			}
 		}
 	}
 }
