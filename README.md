@@ -1,6 +1,6 @@
 Monolith.Swift
 ==============
-Monolithic collection of multiple libraries for programs written in Apple Swift by Hoon H..
+Monolithic collection of multiple features in Apple Swift by Hoon H..
 
 
 
