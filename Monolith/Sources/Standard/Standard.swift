@@ -8,6 +8,6 @@
 
 import Foundation
 
-///	Collection of features which implements explicitly specified technical standards.
+///	Collection of features that implements some technical standards.
 public class Standard {
 }

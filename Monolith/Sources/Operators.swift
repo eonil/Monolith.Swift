@@ -26,7 +26,7 @@ infix operator ||| {
 
 }
 
-func ||| <T> (left:T?, right:T) -> T {
+public func ||| <T> (left:T?, right:T) -> T {
 	if left == nil {
 		return	right
 	} else {

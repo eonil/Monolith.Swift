@@ -8,6 +8,9 @@
       location = "group:LICENSE.md">
    </FileRef>
    <FileRef
+      location = "group:NOTE.md">
+   </FileRef>
+   <FileRef
       location = "container:Monolith/Monolith.xcodeproj">
    </FileRef>
    <FileRef
