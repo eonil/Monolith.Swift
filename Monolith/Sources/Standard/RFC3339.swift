@@ -21,14 +21,14 @@ public extension Standard {
 	///	a part of RFC3339, so it is not here.
 	public struct RFC3339 {
 		public struct Timestamp {
-			var	date:Date
-			var	time:Time
+			public var	date:Date
+			public var	time:Time
 			
-			init(date:Date, time:Time) {
+			public init(date:Date, time:Time) {
 				self.date	=	date
 				self.time	=	time
 			}
-			init?(date:Date?, time:Time?) {
+			public init?(date:Date?, time:Time?) {
 				if date == nil { return nil }
 				if time == nil { return nil }
 				
@@ -37,16 +37,16 @@ public extension Standard {
 			}
 			
 			public struct Date {
-				var	year:Int
-				var	month:Int
-				var	day:Int
+				public var	year:Int
+				public var	month:Int
+				public var	day:Int
 				
-				init(year:Int, month:Int, day:Int) {
+				public init(year:Int, month:Int, day:Int) {
 					self.year	=	year
 					self.month	=	month
 					self.day	=	day
 				}
-				init?(year:Int?, month:Int?, day:Int?) {
+				public init?(year:Int?, month:Int?, day:Int?) {
 					if year == nil { return nil }
 					if month == nil { return nil }
 					if day == nil { return nil }
@@ -57,20 +57,20 @@ public extension Standard {
 				}
 			}
 			public struct Time {
-				var	hour:Int
-				var	minute:Int
-				var	second:Int
-				var	subsecond:Int
-				var	zone:Zone
+				public var	hour:Int
+				public var	minute:Int
+				public var	second:Int
+				public var	subsecond:Int
+				public var	zone:Zone
 				
-				init(hour:Int, minute:Int, second:Int, subsecond:Int, zone:Zone = Zone.UTC) {
+				public init(hour:Int, minute:Int, second:Int, subsecond:Int, zone:Zone = Zone.UTC) {
 					self.hour		=	hour
 					self.minute		=	minute
 					self.second		=	second
 					self.subsecond	=	subsecond
 					self.zone		=	zone
 				}
-				init?(hour:Int?, minute:Int?, second:Int?, subsecond:Int?, zone:Zone? = Zone.UTC) {
+				public init?(hour:Int?, minute:Int?, second:Int?, subsecond:Int?, zone:Zone? = Zone.UTC) {
 					if hour == nil { return nil }
 					if minute == nil { return nil }
 					if second == nil { return nil }
@@ -91,10 +91,10 @@ public extension Standard {
 //				}
 				
 				public struct Zone {
-					var	hours:Int
-					var	minutes:Int
+					public var	hours:Int
+					public var	minutes:Int
 					
-					init?(hours:Int?, minutes:Int?) {
+					public init?(hours:Int?, minutes:Int?) {
 						if hours == nil { return nil }
 						if minutes == nil { return nil }
 						
@@ -102,7 +102,7 @@ public extension Standard {
 						self.minutes	=	minutes!
 					}
 					
-					static let	UTC	=	Zone(hours: 0, minutes: 0)!		///<	I don't know why compiler selects optional-typed version...
+					public static let	UTC	=	Zone(hours: 0, minutes: 0)!		///<	I don't know why compiler selects optional-typed version...
 				}
 			}
 			
