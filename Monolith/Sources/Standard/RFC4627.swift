@@ -147,6 +147,46 @@ public extension Standard.RFC4627 {
 
 
 
+///	MARK:
+///	MARK:	Literals
+///	MARK:
+extension Standard.RFC4627.Value : NilLiteralConvertible, BooleanLiteralConvertible, IntegerLiteralConvertible, FloatLiteralConvertible, StringLiteralConvertible, ExtendedGraphemeClusterLiteralConvertible, UnicodeScalarLiteralConvertible, ArrayLiteralConvertible, DictionaryLiteralConvertible {
+	public typealias	Key		=	Swift.String
+	public typealias	Value	=	Standard.RFC4627.Value
+	public typealias	Element	=	Standard.RFC4627.Value
+	
+	public init(nilLiteral: ()) {
+		self	=	Value.Null
+	}
+	public init(booleanLiteral value: BooleanLiteralType) {
+		self	=	Value.Boolean(value)
+	}
+	public init(integerLiteral value: IntegerLiteralType) {
+		self	=	Value.Number(Standard.RFC4627.Number.Integer(Int64(value)))
+	}
+	public init(floatLiteral value: FloatLiteralType) {
+		self	=	Value.Number(Standard.RFC4627.Number.Float(Float64(value)))
+	}
+	public init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterType) {
+		self.init(stringLiteral: value)
+	}
+	public init(stringLiteral value: StringLiteralType) {
+		self	=	Value.String(value)
+	}
+	public init(unicodeScalarLiteral value: UnicodeScalarType) {
+		self.init(stringLiteral: value)
+	}
+	public init(arrayLiteral elements: Element...) {
+		self	=	Value.Array(elements)
+	}
+	public init(dictionaryLiteral elements: (Key, Value)...) {
+		var	o1	=	[:] as [Key:Value]
+		for (k,v) in elements {
+			o1[k]	=	v
+		}
+		self	=	Value.Object(o1)
+	}
+}
 
 
 
@@ -156,8 +196,51 @@ public extension Standard.RFC4627 {
 
 
 
+///	MARK:
+///	MARK:	Collecion Support
+///	MARK:
 
+///	`JSON.Value` is treated as an array when you enumerate on it.
+///	If underlying value is not an array, it will cause program crash.
+///
+extension Standard.RFC4627.Value : CollectionType {
+	
+	public var startIndex:Int {
+		get {
+			precondition(array != nil)
+			return	array!.startIndex
+		}
+	}
+	public var endIndex:Int {
+		get {
+			precondition(array != nil)
+			return	array!.endIndex
+		}
+	}
 
+	public subscript(name:Swift.String) -> Value? {
+		get {
+			return	object?[name]
+		}
+	}
+	public subscript(index:Int) -> Value {
+		get {
+			return	array![index]
+		}
+	}
+	
+	public func generate() -> IndexingGenerator<[Value]> {
+		precondition(array != nil, "Current `Value` does not contain an array.")
+		return	array!.generate()
+	}
+	
+	
+	
+	
+	
+	
+	
+}
 
 
 
@@ -213,6 +296,15 @@ public extension Standard.RFC4627 {
 
 
 
+
+
+
+
+
+
+///	MARK:
+///	MARK:	Private Stuffs
+///	MARK:
 
 ///	Converts JSON tree between Objective-C and Swift representations.
 private struct Converter {
