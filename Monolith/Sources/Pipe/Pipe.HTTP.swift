@@ -110,13 +110,13 @@ extension Pipe {
 		public let	authenticationResolver:AuthenticationResolver?
 		public func dispatch(signal: RequestSignal, _ observer: ResponseSignal -> ()) -> Cancel {
 			
-			let	ErrorDomain	=	"HTTPProgressiveDownloadTask"
 			
 			struct GlobalQueue {
 				static let	theQueue	=	NSOperationQueue()
 			}
 			
 			final class Controller: NSObject, NSURLSessionDownloadDelegate {
+				let	ErrorDomain	=	"HTTPProgressiveDownloadTask"
 				let	observer:ResponseSignal->()
 				let	authenticationResolver:AuthenticationResolver?
 				private var	lastKnownCompletedOffset:Int64?
@@ -150,29 +150,33 @@ extension Pipe {
 				}
 				private func URLSession(session: NSURLSession, task: NSURLSessionTask, didReceiveChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
 					assert(authenticationResolver != nil)
-					//				if let a1 = authenticationResolver {
-					//					let	c1	=	a1(challenge)
-					//					completionHandler(c1.0, c1.1)
-					//				} else {
-					//					session.invalidateAndCancel()
-					//					observer(HTTPProgressiveDownloadTask.ResponseSignal.Unavailable(error: NSError(domain: ErrorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: "This session requires authentication, but no resolver has been provided."])))
-					//				}
+					if let a1 = authenticationResolver {
+						let	(c1,c2)	=	a1(challenge)
+						completionHandler(c1, c2)
+					} else {
+						session.invalidateAndCancel()
+						let	info	=	[
+							NSLocalizedDescriptionKey:	"This session requires authentication, but no resolver has been provided."
+						] as [NSObject:AnyObject]
+						let	err2	=	NSError(domain: ErrorDomain, code: 0, userInfo: [:])
+						observer(HTTPProgressiveDownloadTask.ResponseSignal.Unavailable(error: err2))
+					}
 				}
-				//			private func URLSession(session: NSURLSession, task: NSURLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
-				//
-				//			}
-				//			private func URLSession(session: NSURLSession, task: NSURLSessionTask, needNewBodyStream completionHandler: (NSInputStream!) -> Void) {
-				//
-				//			}
-				//			private func URLSession(session: NSURLSession, task: NSURLSessionTask, willPerformHTTPRedirection response: NSHTTPURLResponse, newRequest request: NSURLRequest, completionHandler: (NSURLRequest!) -> Void) {
-				//
-				//			}
-				//			private func URLSession(session: NSURLSession, didBecomeInvalidWithError error: NSError?) {
-				//
-				//			}
-				//			private func URLSession(session: NSURLSession, didReceiveChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
-				//
-				//			}
+//				private func URLSession(session: NSURLSession, task: NSURLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
+//	
+//				}
+//				private func URLSession(session: NSURLSession, task: NSURLSessionTask, needNewBodyStream completionHandler: (NSInputStream!) -> Void) {
+//	
+//				}
+//				private func URLSession(session: NSURLSession, task: NSURLSessionTask, willPerformHTTPRedirection response: NSHTTPURLResponse, newRequest request: NSURLRequest, completionHandler: (NSURLRequest!) -> Void) {
+//	
+//				}
+//				private func URLSession(session: NSURLSession, didBecomeInvalidWithError error: NSError?) {
+//	
+//				}
+//				private func URLSession(session: NSURLSession, didReceiveChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
+//	
+//				}
 			}
 			
 			let	conf1	=	NSURLSessionConfiguration.backgroundSessionConfigurationWithIdentifier(backgroundOperationID)
@@ -210,7 +214,7 @@ extension Pipe {
 		}
 		
 		public enum ResponseSignal {
-			//		case Authenticate(provide:(NSURLCredential)->())
+//			case Authenticate(provide:(NSURLCredential)->())
 			
 			///	A part of data has been downloaded and written to disk.
 			case Progress(range:Range<Int64>, total:Range<Int64>?)
