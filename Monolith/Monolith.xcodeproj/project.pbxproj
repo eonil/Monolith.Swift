@@ -82,6 +82,12 @@
 		45AFAD5019F3DE4D00EC17DC /* xISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D83D19F192960093E2B1 /* xISO8601.swift */; };
 		45AFAD5119F3DE4D00EC17DC /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4586160B19F17EF5007408AF /* Operators.swift */; };
 		45AFAD5219F3DE4E00EC17DC /* System.Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45942F0719F3B86B008EB820 /* System.Time.swift */; };
+		45B020DA1A093AAF00C0AFFA /* EonilPipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B020D31A093AA900C0AFFA /* EonilPipe.framework */; };
+		45B020DD1A093AC600C0AFFA /* EonilPipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B020D31A093AA900C0AFFA /* EonilPipe.framework */; };
+		45B020E51A093B5500C0AFFA /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B020E41A093B5500C0AFFA /* Pipe.swift */; };
+		45B020E61A093B5500C0AFFA /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B020E41A093B5500C0AFFA /* Pipe.swift */; };
+		45B020E81A093B5C00C0AFFA /* Pipe.HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B020E71A093B5C00C0AFFA /* Pipe.HTTP.swift */; };
+		45B020E91A093B5C00C0AFFA /* Pipe.HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B020E71A093B5C00C0AFFA /* Pipe.HTTP.swift */; };
 		45B24AFF19F42FAD001D3E18 /* RFC2616.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45389DEE19F42B0D0045A4C4 /* RFC2616.swift */; };
 		45B24B0719F42FAE001D3E18 /* RFC2616.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45389DEE19F42B0D0045A4C4 /* RFC2616.swift */; };
 		45B24B0819F42FAE001D3E18 /* RFC2616.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45389DEE19F42B0D0045A4C4 /* RFC2616.swift */; };
@@ -149,6 +155,62 @@
 			remoteGlobalIDString = 45641AC819F0D52200381269;
 			remoteInfo = "Text OSX";
 		};
+		45B020401A0938E200C0AFFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B0201B1A0938DF00C0AFFA /* Pipe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45F1FC3E1A07D81600A32EE9;
+			remoteInfo = Test1;
+		};
+		45B020421A0938E200C0AFFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B0201B1A0938DF00C0AFFA /* Pipe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45E477B61A080CC000B53C2F;
+			remoteInfo = Tester;
+		};
+		45B020D21A093AA900C0AFFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B0201B1A0938DF00C0AFFA /* Pipe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45B020801A093A3F00C0AFFA;
+			remoteInfo = PipeForWorkstation;
+		};
+		45B020D41A093AA900C0AFFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B0201B1A0938DF00C0AFFA /* Pipe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45B0208A1A093A3F00C0AFFA;
+			remoteInfo = PipeForWorkstationTests;
+		};
+		45B020D61A093AA900C0AFFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B0201B1A0938DF00C0AFFA /* Pipe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45B020AA1A093A7800C0AFFA;
+			remoteInfo = PipeForDevice;
+		};
+		45B020D81A093AA900C0AFFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B0201B1A0938DF00C0AFFA /* Pipe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45B020B41A093A7800C0AFFA;
+			remoteInfo = PipeForDeviceTests;
+		};
+		45B020DB1A093AC100C0AFFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B0201B1A0938DF00C0AFFA /* Pipe.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 45B020A91A093A7800C0AFFA;
+			remoteInfo = PipeForDevice;
+		};
+		45B020DE1A093ACA00C0AFFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B0201B1A0938DF00C0AFFA /* Pipe.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 45B0207F1A093A3F00C0AFFA;
+			remoteInfo = PipeForWorkstation;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -196,6 +258,9 @@
 		4586160B19F17EF5007408AF /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		45942F0719F3B86B008EB820 /* System.Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.Time.swift; sourceTree = "<group>"; };
 		45AFAD2A19F3DE2300EC17DC /* Monolith.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Monolith.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45B0201B1A0938DF00C0AFFA /* Pipe.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pipe.xcodeproj; path = Pipe/Pipe.xcodeproj; sourceTree = "<group>"; };
+		45B020E41A093B5500C0AFFA /* Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pipe.swift; sourceTree = "<group>"; };
+		45B020E71A093B5C00C0AFFA /* Pipe.HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pipe.HTTP.swift; sourceTree = "<group>"; };
 		45B24B0919F4326F001D3E18 /* RFC1808.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC1808.swift; sourceTree = "<group>"; };
 		45B24B1919F43AAB001D3E18 /* Monolith-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Monolith-Bridging-Header.h"; sourceTree = "<group>"; };
 		45B24B2219F43B6A001D3E18 /* OBJCLevelFeatures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBJCLevelFeatures.m; sourceTree = "<group>"; };
@@ -224,6 +289,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B020DD1A093AC600C0AFFA /* EonilPipe.framework in Frameworks */,
 				450942FB19FAC7F600E4C7BD /* EonilText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +298,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B020DA1A093AAF00C0AFFA /* EonilPipe.framework in Frameworks */,
 				4509430019FAC80000E4C7BD /* EonilText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				450942ED19FAC7DE00E4C7BD /* Text.xcodeproj */,
+				45B0201B1A0938DF00C0AFFA /* Pipe.xcodeproj */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -357,6 +425,7 @@
 				4524473E19F5821C00B47EC4 /* Error.swift */,
 				45B24B1819F43A89001D3E18 /* Bridging */,
 				4584D83C19F1928F0093E2B1 /* Standard */,
+				45B020E31A093B4F00C0AFFA /* Pipe */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -384,6 +453,28 @@
 				458615D019F17CD3007408AF /* Info.plist */,
 			);
 			path = OSX;
+			sourceTree = "<group>";
+		};
+		45B020301A0938E200C0AFFA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45B020D31A093AA900C0AFFA /* EonilPipe.framework */,
+				45B020D51A093AA900C0AFFA /* PipeForWorkstationTests.xctest */,
+				45B020D71A093AA900C0AFFA /* EonilPipe.framework */,
+				45B020D91A093AA900C0AFFA /* PipeForDeviceTests.xctest */,
+				45B020411A0938E200C0AFFA /* Pipe */,
+				45B020431A0938E200C0AFFA /* Tester.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45B020E31A093B4F00C0AFFA /* Pipe */ = {
+			isa = PBXGroup;
+			children = (
+				45B020E41A093B5500C0AFFA /* Pipe.swift */,
+				45B020E71A093B5C00C0AFFA /* Pipe.HTTP.swift */,
+			);
+			path = Pipe;
 			sourceTree = "<group>";
 		};
 		45B24B1819F43A89001D3E18 /* Bridging */ = {
@@ -464,6 +555,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				45B020DF1A093ACA00C0AFFA /* PBXTargetDependency */,
 				450942FD19FAC7F900E4C7BD /* PBXTargetDependency */,
 			);
 			name = "Monolith OSX";
@@ -483,6 +575,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				45B020DC1A093AC100C0AFFA /* PBXTargetDependency */,
 				450942FF19FAC7FD00E4C7BD /* PBXTargetDependency */,
 			);
 			name = "Monolith iOS";
@@ -525,6 +618,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 45B020301A0938E200C0AFFA /* Products */;
+					ProjectRef = 45B0201B1A0938DF00C0AFFA /* Pipe.xcodeproj */;
+				},
+				{
 					ProductGroup = 450942EE19FAC7DE00E4C7BD /* Products */;
 					ProjectRef = 450942ED19FAC7DE00E4C7BD /* Text.xcodeproj */;
 				},
@@ -559,6 +656,48 @@
 			fileType = "compiled.mach-o.executable";
 			path = EonilTextTest;
 			remoteRef = 450942F719FAC7DE00E4C7BD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		45B020411A0938E200C0AFFA /* Pipe */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Pipe;
+			remoteRef = 45B020401A0938E200C0AFFA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		45B020431A0938E200C0AFFA /* Tester.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Tester.app;
+			remoteRef = 45B020421A0938E200C0AFFA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		45B020D31A093AA900C0AFFA /* EonilPipe.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EonilPipe.framework;
+			remoteRef = 45B020D21A093AA900C0AFFA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		45B020D51A093AA900C0AFFA /* PipeForWorkstationTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PipeForWorkstationTests.xctest;
+			remoteRef = 45B020D41A093AA900C0AFFA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		45B020D71A093AA900C0AFFA /* EonilPipe.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EonilPipe.framework;
+			remoteRef = 45B020D61A093AA900C0AFFA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		45B020D91A093AA900C0AFFA /* PipeForDeviceTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PipeForDeviceTests.xctest;
+			remoteRef = 45B020D81A093AA900C0AFFA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -658,10 +797,12 @@
 				45942F0819F3B86B008EB820 /* System.Time.swift in Sources */,
 				45B24B0A19F4326F001D3E18 /* RFC1808.swift in Sources */,
 				45BAF50219F5895F001F6894 /* RFC1808+RFC4627.swift in Sources */,
+				45B020E81A093B5C00C0AFFA /* Pipe.HTTP.swift in Sources */,
 				454052DF19F5787A00B6A408 /* RFC4627.Extensions.swift in Sources */,
 				450942E819FAC72C00E4C7BD /* Tests.swift in Sources */,
 				454052C619F5752900B6A408 /* RFC4627.Unused.swift in Sources */,
 				454052DA19F5785600B6A408 /* URL.swift in Sources */,
+				45B020E51A093B5500C0AFFA /* Pipe.swift in Sources */,
 				454052E419F5789200B6A408 /* RFC4627.Operators.swift in Sources */,
 				454EE88B19F52F22009EF039 /* RFC4627.swift in Sources */,
 				45389DEF19F42B0D0045A4C4 /* RFC2616.swift in Sources */,
@@ -685,10 +826,12 @@
 				45AFAD4819F3DE4800EC17DC /* xISO8601.swift in Sources */,
 				45B24B0C19F43644001D3E18 /* RFC1808.swift in Sources */,
 				45B24B0719F42FAE001D3E18 /* RFC2616.swift in Sources */,
+				45B020E91A093B5C00C0AFFA /* Pipe.HTTP.swift in Sources */,
 				454052E119F5787A00B6A408 /* RFC4627.Extensions.swift in Sources */,
 				450942EA19FAC72C00E4C7BD /* Tests.swift in Sources */,
 				454052D719F5783600B6A408 /* JSON.swift in Sources */,
 				454052DC19F5785600B6A408 /* URL.swift in Sources */,
+				45B020E61A093B5500C0AFFA /* Pipe.swift in Sources */,
 				454052E619F5789200B6A408 /* RFC4627.Operators.swift in Sources */,
 				45AFAD4919F3DE4800EC17DC /* Operators.swift in Sources */,
 				45B24B2519F43B6A001D3E18 /* OBJCLevelFeatures.m in Sources */,
@@ -724,6 +867,16 @@
 			isa = PBXTargetDependency;
 			name = "Text OSX";
 			targetProxy = 4509430319FAC80900E4C7BD /* PBXContainerItemProxy */;
+		};
+		45B020DC1A093AC100C0AFFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PipeForDevice;
+			targetProxy = 45B020DB1A093AC100C0AFFA /* PBXContainerItemProxy */;
+		};
+		45B020DF1A093ACA00C0AFFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PipeForWorkstation;
+			targetProxy = 45B020DE1A093ACA00C0AFFA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

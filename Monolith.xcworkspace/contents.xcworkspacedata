@@ -14,10 +14,10 @@
       location = "container:Monolith/Monolith.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Monolith/Components/Text/Text.xcodeproj">
+      location = "group:Common/Common.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Common/Common.xcodeproj">
+      location = "group:Monolith/Components/Text/Text.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:MonolithTestExampleApplication/MonolithTestExampleApplication.xcodeproj">
