@@ -16,6 +16,12 @@ extension Pipe {
 	public struct HTTPAtomicTranssmissionTask : Task {
 		let	cachePolicy:NSURLRequestCachePolicy
 		let	timeoutInterval:NSTimeInterval
+		
+		public init(cachePolicy:NSURLRequestCachePolicy, timeoutInterval:NSTimeInterval) {
+			self.cachePolicy		=	cachePolicy
+			self.timeoutInterval	=	timeoutInterval
+		}
+		
 		public func dispatch(signal: Incoming, _ observer: Outgoing -> ()) -> Cancel {
 			let	ErrorDomain	=	"HTTPAtomicTransmissionTask"
 			
@@ -108,6 +114,12 @@ extension Pipe {
 		public let	backgroundOperationID:String
 		///	Will be used for any situation which requires authentication.
 		public let	authenticationResolver:AuthenticationResolver?
+		
+		public init(backgroundOperationID:String, authenticationResolver:AuthenticationResolver?) {
+			self.backgroundOperationID	=	backgroundOperationID
+			self.authenticationResolver	=	authenticationResolver
+		}
+		
 		public func dispatch(signal: RequestSignal, _ observer: ResponseSignal -> ()) -> Cancel {
 			
 			
