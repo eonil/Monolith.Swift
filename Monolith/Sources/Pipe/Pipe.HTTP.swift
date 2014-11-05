@@ -131,22 +131,23 @@ extension Pipe {
 				let	ErrorDomain	=	"HTTPProgressiveDownloadTask"
 				let	observer:ResponseSignal->()
 				let	authenticationResolver:AuthenticationResolver?
-				private var	lastKnownCompletedOffset:Int64?
+				
 				init(observer:ResponseSignal->(), authenticationResolver:AuthenticationResolver?) {
 					self.observer				=	observer
 					self.authenticationResolver	=	authenticationResolver
 				}
+				deinit {
+					System.Debug.log("A pipe task (\(self)) deinitialised.")
+				}
 				private func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
 					let	r1	=	Range<Int64>(start: fileOffset, end: fileOffset)
 					let	r2	=	expectedTotalBytes == NSURLSessionTransferSizeUnknown ? nil : Range<Int64>(start: 0, end: expectedTotalBytes) as Range<Int64>?
-					lastKnownCompletedOffset	=	fileOffset
 					observer(ResponseSignal.Progress(range: r1, total: r2))
 					session.invalidateAndCancel()
 				}
 				private func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-					assert(lastKnownCompletedOffset != nil)
-					assert(totalBytesWritten == NSURLSessionTransferSizeUnknown || lastKnownCompletedOffset! != (totalBytesWritten - bytesWritten))
-					let	r1	=	Range<Int64>(start: lastKnownCompletedOffset!, end: lastKnownCompletedOffset! + bytesWritten)
+					assert(totalBytesWritten >= bytesWritten)
+					let	r1	=	Range<Int64>(start: totalBytesWritten - bytesWritten, end: totalBytesWritten)
 					let	r2	=	totalBytesExpectedToWrite == NSURLSessionTransferSizeUnknown ? nil : Range<Int64>(start: 0, end: totalBytesExpectedToWrite) as Range<Int64>?
 					observer(ResponseSignal.Progress(range: r1, total: r2))
 				}
@@ -240,12 +241,6 @@ extension Pipe {
 			
 			///	Downloading failed.
 			case Unavailable(error:NSError)
-			
-			public enum Sequence {
-				case Start
-				case Progress(data:NSData)
-				case Resume
-			}
 		}
 	}
 	
@@ -257,7 +252,18 @@ extension Pipe {
 }
 
 
-
+extension Pipe.HTTPProgressiveDownloadTask.ResponseSignal: Printable {
+	public var description:String {
+		get {
+			switch self {
+			case .Available(file: let f1):					return	"Available(\(f1))"
+			case .Unavailable(error: let e1):				return	"Unavailable(\(e1))"
+			case .Cancel(continuation: let c1):				return	"Cancel(\(c1))"
+			case .Progress(range: let r1, total: let r2):	return	"Progress(range: \(r1), total: \(r2)"
+			}
+		}
+	}
+}
 
 
 

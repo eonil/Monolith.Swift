@@ -380,12 +380,12 @@
 				45E477D71A083D7100B53C2F /* README.md */,
 				4538EE751A08448F006A3343 /* NOTE.md */,
 				459DEEDD1A09307600F5AEEC /* Experiments.playground */,
+				459DEECC1A09301B00F5AEEC /* Sources */,
 				45B020811A093A3F00C0AFFA /* PipeForWorkstation */,
 				45B020901A093A3F00C0AFFA /* PipeForWorkstationTests */,
 				45B020AB1A093A7800C0AFFA /* PipeForDevice */,
 				45B020BA1A093A7800C0AFFA /* PipeForDeviceTests */,
 				459DEF361A0931DA00F5AEEC /* Frameworks */,
-				459DEECC1A09301B00F5AEEC /* Sources */,
 				459DEECD1A09301B00F5AEEC /* Tests */,
 				45E477B71A080CC000B53C2F /* Tester */,
 				459DEEE61A09315E00F5AEEC /* PipeForMobile */,
@@ -1043,6 +1043,7 @@
 				45B0209B1A093A3F00C0AFFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45B0209D1A093A3F00C0AFFA /* Build configuration list for PBXNativeTarget "PipeForWorkstationTests" */ = {
 			isa = XCConfigurationList;
@@ -1051,6 +1052,7 @@
 				45B0209F1A093A3F00C0AFFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45B020C31A093A7800C0AFFA /* Build configuration list for PBXNativeTarget "PipeForDevice" */ = {
 			isa = XCConfigurationList;
@@ -1059,6 +1061,7 @@
 				45B020C51A093A7800C0AFFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45B020C61A093A7800C0AFFA /* Build configuration list for PBXNativeTarget "PipeForDeviceTests" */ = {
 			isa = XCConfigurationList;
@@ -1067,6 +1070,7 @@
 				45B020C81A093A7800C0AFFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45E477D11A080CC000B53C2F /* Build configuration list for PBXNativeTarget "Tester" */ = {
 			isa = XCConfigurationList;
