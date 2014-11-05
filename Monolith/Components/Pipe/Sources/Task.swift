@@ -12,6 +12,7 @@ import Foundation
 
 public typealias	Cancel	=	()->()
 
+
 ///	Accepts input and produces an async outputs.
 ///	Unlike filters, occurrences of input and output
 ///	are asymmetric. One input can make
@@ -44,7 +45,7 @@ public struct TaskOf<IN,OUT> {
 public struct ContinuationTask<F1:Task, F2:Task where F1.OUT == F2.IN> : Task {
 	let	left:F1
 	let	right:F2
-
+	
 	public func dispatch(signal: F1.IN, _ observer: F2.OUT -> ()) -> Cancel {
 		var	cancel1	=	NOOP
 		var	cancel2	=	NOOP

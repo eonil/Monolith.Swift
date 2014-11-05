@@ -140,7 +140,7 @@ extension Pipe {
 					System.Debug.log("A pipe task (\(self)) deinitialised.")
 				}
 				private func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
-					let	r1	=	Range<Int64>(start: fileOffset, end: fileOffset)
+					let	r1	=	Range<Int64>(start: 0, end: fileOffset)
 					let	r2	=	expectedTotalBytes == NSURLSessionTransferSizeUnknown ? nil : Range<Int64>(start: 0, end: expectedTotalBytes) as Range<Int64>?
 					observer(ResponseSignal.Progress(range: r1, total: r2))
 					session.invalidateAndCancel()
