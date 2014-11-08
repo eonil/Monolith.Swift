@@ -9,8 +9,9 @@ wait for new signals.
 In contrast, tasks always waits for new signals, and route then into observers. 
 Cancellation or progress signaling is fully up to implementations of each tasks. 
 There's no unified way of them because everything require different approach on such
-stuffs.
+stuffs. Then cancellation or progress must be sent as a part of signal.
 
-Because queries return immediately, there's no need to separate classes and instances
-of the processing, but tasks need strict separation. Single instance of a task performs
-single operation, and all signals must be arrived in correct order.
+A task instance can be stateful. Actually they usually do due to impure nature of
+I/O. Being stateful is the only way to process those uncertainity. Cancellation also
+needs impure output from input. 
+

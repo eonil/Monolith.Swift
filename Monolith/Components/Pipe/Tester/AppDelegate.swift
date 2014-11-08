@@ -35,7 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 		
 		func run() {
-			let	f1	=	ConstantTimeWaitTask<String>(0.01)
+			let	f1	=	Delay<String>(0.01)
 			let	f2	=	Evalute { (s:String)->String in println("PASSING: \(s) ~ \(++self.c1)"); return s }
 			let f2b	=	Evalute { (s:String)->String in self.checkup(); return s }
 			let	f3	=	f1 >>> f2 >>> f2b

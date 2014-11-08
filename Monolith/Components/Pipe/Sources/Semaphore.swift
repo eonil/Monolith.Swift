@@ -31,5 +31,8 @@ struct Semaphore {
 func === (left:Semaphore, right:Semaphore) -> Bool {
 	return	left._raw === right._raw
 }
+func !== (left:Semaphore, right:Semaphore) -> Bool {
+	return	left._raw !== right._raw
+}
 
 

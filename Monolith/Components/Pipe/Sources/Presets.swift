@@ -32,10 +32,13 @@ public struct Emitter<T> : QueryType, TaskType {
 	public init(_ v:T) {
 		value	=	v
 	}
-	public func dispatch(signal: (), _ observer: T -> ()) -> Cancel {
+	public func dispatch(signal: (), _ observer: T -> ()) {
 		observer(value)
-		return	NOOP
 	}
+//	public func dispatch(signal: (), _ observer: T -> ()) -> Cancel {
+//		observer(value)
+//		return	NOOP
+//	}
 	public func evaluate(_: ()) -> (T) {
 		return	value
 	}
@@ -43,10 +46,13 @@ public struct Emitter<T> : QueryType, TaskType {
 
 ///	Consumes a value with no result.
 public struct Absorber<T> : QueryType, TaskType {
-	public func dispatch(signal: T, _ observer: () -> ()) -> Cancel {
+	public func dispatch(signal: T, _ observer: () -> ()) {
 		observer()
-		return	NOOP
 	}
+//	public func dispatch(signal: T, _ observer: () -> ()) -> Cancel {
+//		observer()
+//		return	NOOP
+//	}
 	public func evaluate(_: T) -> () {
 		return	NOOP()
 	}
@@ -70,16 +76,19 @@ public struct Absorber<T> : QueryType, TaskType {
 
 
 ///	A node to run arbitrary function.
-public struct Evalute<IN,OUT> : QueryType, TaskType {
-	public let	filter:IN->OUT
-	public init(_ filter:IN->OUT) {
+public struct Evalute<I,O> : QueryType, TaskType {
+	public let	filter:I->O
+	public init(_ filter:I->O) {
 		self.filter	=	filter
 	}
-	public func dispatch(signal: IN, _ observer: OUT -> ()) -> Cancel {
+	public func dispatch(signal: I, _ observer: O -> ()) {
 		signal >>> filter >>> observer
-		return	NOOP
 	}
-	public func evaluate(v: IN) -> (OUT) {
+//	public func dispatch(signal: IN, _ observer: OUT -> ()) -> Cancel {
+//		signal >>> filter >>> observer
+//		return	NOOP
+//	}
+	public func evaluate(v: I) -> (O) {
 		return	filter(v)
 	}
 }
@@ -100,37 +109,95 @@ public struct Evalute<IN,OUT> : QueryType, TaskType {
 ///	MARK:	Task-Only Presets
 ///	MARK:
 
-
-///	Waits for constant time. Signal will be passed through.
-public struct ConstantTimeWaitTask<T> : TaskType {
-	let	seconds:NSTimeInterval
-	public init(_ seconds:NSTimeInterval) {
-		self.seconds	=	seconds
+///	Delays all signals for specified time.
+///	This possibly make one thread for each signal,
+///	and should be avoided.
+public final class Delay<T> : TaskType {
+	private let	_core	=	_DelayCore()
+	
+	public init(_ s:NSTimeInterval) {
+		_core.seconds	=	s
 	}
-	public func dispatch(signal: T, _ observer: T->()) -> Cancel {
-		let	w1	=	ShortWaitingRepeater()
-		w1.resetTimeBySeconds(seconds)
-		w1.waitAndRun {observer(signal)}
-		return	{
-			w1.stopAsSoonAsPossible()
+	deinit {
+		_core.halt.compareAndSwapBarrier(oldValue: false, newValue: true)
+		for s1 in _core.semaphores {
+			s1.signal()
+		}
+	}
+	public func dispatch(signal:T, _ observer:T->()) {
+		let	c1	=	_core
+		let	s1	=	Semaphore()
+		c1.semaphores.append(s1)
+		//
+		//	Do not let the closure to capture the `self` for correct deinitialisation timing.
+		//
+		Dispatch.backgroundConcurrently { () -> () in
+			s1.wait(c1.seconds)
+			c1.semaphores	=	c1.semaphores.filter {$0 !== s1}
+			if c1.halt.value == false {
+				observer(signal)
+			}
 		}
 	}
 }
 
-///	Waits for parametric time. The time parameter should be
-///	passed a part of signal.
-public struct ParametricTimeWaitTask<T> : TaskType {
-	public init() {
-	}
-	public func dispatch(signal: TimeSignal<T>, _ observer: T->()) -> Cancel {
-		let	w1	=	ShortWaitingRepeater()
-		w1.resetTimeBySeconds(signal.time)
-		w1.waitAndRun {observer(signal.value)}
-		return	{
-			w1.stopAsSoonAsPossible()
-		}
-	}
+private final class _DelayCore {
+	var	seconds		=	0 as NSTimeInterval
+	var	semaphores	=	[] as [Semaphore]
+	var	halt		=	AtomicBoolSlot(false)
 }
+
+
+
+/////	Waits for constant time. Signal will be passed through.
+//public struct ConstantTimeWaitTask<T> : TaskType {
+//	let	seconds:NSTimeInterval
+//	public init(_ seconds:NSTimeInterval) {
+//		self.seconds	=	seconds
+//	}
+//	deinit {
+//		
+//	}
+//	public func dispatch(signal: T, _ observer: T -> ()) {
+//		let	w1	=	ShortWaitingRepeater()
+//		w1.resetTimeBySeconds(seconds)
+//		w1.waitAndRun {observer(signal)}
+//		return	{
+//			w1.stopAsSoonAsPossible()
+//		}
+//	}
+////	public func dispatch(signal: T, _ observer: T->()) -> Cancel {
+////		let	w1	=	ShortWaitingRepeater()
+////		w1.resetTimeBySeconds(seconds)
+////		w1.waitAndRun {observer(signal)}
+////		return	{
+////			w1.stopAsSoonAsPossible()
+////		}
+////	}
+//}
+//
+/////	Waits for parametric time. The time parameter should be
+/////	passed a part of signal.
+//public struct ParametricTimeWaitTask<T> : TaskType {
+//	public init() {
+//	}
+//	public func dispatch(signal: T, _ observer: T -> ()) {
+//		let	w1	=	ShortWaitingRepeater()
+//		w1.resetTimeBySeconds(signal.time)
+//		w1.waitAndRun {observer(signal.value)}
+//		return	{
+//			w1.stopAsSoonAsPossible()
+//		}
+//	}
+////	public func dispatch(signal: TimeSignal<T>, _ observer: T->()) -> Cancel {
+////		let	w1	=	ShortWaitingRepeater()
+////		w1.resetTimeBySeconds(signal.time)
+////		w1.waitAndRun {observer(signal.value)}
+////		return	{
+////			w1.stopAsSoonAsPossible()
+////		}
+////	}
+//}
 public struct TimeSignal<T> {
 	public let	time:NSTimeInterval
 	public let	value:T
@@ -149,14 +216,17 @@ public struct TimeSignal<T> {
 ///	You can build up a loop using this.
 ///	With combining a condition branch,
 ///	task-framework becomes turing-complete.
-public struct DynamicTask<IN,OUT> : TaskType {
-	let	resolve:()->TaskOf<IN,OUT>
-	public init(_ resolve:()->TaskOf<IN,OUT>) {
+public struct DynamicTask<I,O> : TaskType {
+	let	resolve:()->TaskOf<I,O>
+	public init(_ resolve:()->TaskOf<I,O>) {
 		self.resolve	=	resolve
 	}
-	public func dispatch(signal: IN, _ observer: OUT -> ()) -> Cancel {
+	public func dispatch(signal: I, _ observer: O->()) {
 		return	resolve().dispatch(signal, observer)
 	}
+//	public func dispatch(signal: IN, _ observer: OUT -> ()) -> Cancel {
+//		return	resolve().dispatch(signal, observer)
+//	}
 }
 
 
