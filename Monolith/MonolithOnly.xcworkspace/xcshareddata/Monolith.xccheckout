@@ -5,20 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>EF976BC9-3CB7-43BE-BEF4-7C9351D4392D</string>
+	<string>669FFB44-4745-4E3A-BFCE-A8490E4A6426</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Pipe</string>
+	<string>Monolith</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>71A00DDED806E25423061F292531DC609604F42E</key>
 		<string>https://github.com/Eonil/Monolith.Swift.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Monolith/Components/Pipe/Pipe.xcodeproj</string>
+	<string>Monolith/Monolith.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>71A00DDED806E25423061F292531DC609604F42E</key>
-		<string>../../../../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Eonil/Monolith.Swift.git</string>
