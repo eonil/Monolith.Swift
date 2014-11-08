@@ -14,6 +14,8 @@ public final class Trigger {
 	private var	_watches	=	[] as [WeakBox<Watch>]
 	private let	_sync		=	NSLock()
 	
+	public init() {
+	}
 	public var state:Bool {
 		get {
 			return	_flag.value
