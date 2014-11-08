@@ -1,15 +1,15 @@
 //
-//  CancellableBlockingIOForWorkstationTests.swift
-//  CancellableBlockingIOForWorkstationTests
+//  TestApplicationTests.swift
+//  TestApplicationTests
 //
 //  Created by Hoon H. on 11/9/14.
 //  Copyright (c) 2014 Eonil. All rights reserved.
 //
 
-import UIKit
+import Cocoa
 import XCTest
 
-class CancellableBlockingIOForWorkstationTests: XCTestCase {
+class TestApplicationTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

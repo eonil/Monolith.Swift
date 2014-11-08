@@ -1,6 +1,6 @@
 //
-//  CancellableBlockingIOForDevicesTests.swift
-//  CancellableBlockingIOForDevicesTests
+//  OSXTests.swift
+//  OSXTests
 //
 //  Created by Hoon H. on 11/9/14.
 //  Copyright (c) 2014 Eonil. All rights reserved.
@@ -9,7 +9,7 @@
 import Cocoa
 import XCTest
 
-class CancellableBlockingIOForDevicesTests: XCTestCase {
+class OSXTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

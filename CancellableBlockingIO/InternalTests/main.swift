@@ -1,6 +1,6 @@
 //
 //  main.swift
-//  dispatch_semaphore_test
+//  InternalTests
 //
 //  Created by Hoon H. on 11/7/14.
 //  Copyright (c) 2014 Eonil. All rights reserved.

@@ -9,28 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "453CBD731A0E73260044C502"
-               BuildableName = "EonilCancellableBlockingIO.framework"
-               BlueprintName = "CancellableBlockingIOForDevices"
-               ReferencedContainer = "container:CancellableBlockingIO.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "453CBD7D1A0E73260044C502"
-               BuildableName = "CancellableBlockingIOForDevicesTests.xctest"
-               BlueprintName = "CancellableBlockingIOForDevicesTests"
+               BlueprintIdentifier = "45F623661A0E88D800DDAD02"
+               BuildableName = "iOSTests.xctest"
+               BlueprintName = "iOSTests"
                ReferencedContainer = "container:CancellableBlockingIO.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "453CBD7D1A0E73260044C502"
-               BuildableName = "CancellableBlockingIOForDevicesTests.xctest"
-               BlueprintName = "CancellableBlockingIOForDevicesTests"
+               BlueprintIdentifier = "45F623661A0E88D800DDAD02"
+               BuildableName = "iOSTests.xctest"
+               BlueprintName = "iOSTests"
                ReferencedContainer = "container:CancellableBlockingIO.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "453CBD731A0E73260044C502"
-            BuildableName = "EonilCancellableBlockingIO.framework"
-            BlueprintName = "CancellableBlockingIOForDevices"
+            BlueprintIdentifier = "45F623661A0E88D800DDAD02"
+            BuildableName = "iOSTests.xctest"
+            BlueprintName = "iOSTests"
             ReferencedContainer = "container:CancellableBlockingIO.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,9 +61,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "453CBD731A0E73260044C502"
-            BuildableName = "EonilCancellableBlockingIO.framework"
-            BlueprintName = "CancellableBlockingIOForDevices"
+            BlueprintIdentifier = "45F623661A0E88D800DDAD02"
+            BuildableName = "iOSTests.xctest"
+            BlueprintName = "iOSTests"
             ReferencedContainer = "container:CancellableBlockingIO.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -93,9 +79,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "453CBD731A0E73260044C502"
-            BuildableName = "EonilCancellableBlockingIO.framework"
-            BlueprintName = "CancellableBlockingIOForDevices"
+            BlueprintIdentifier = "45F623661A0E88D800DDAD02"
+            BuildableName = "iOSTests.xctest"
+            BlueprintName = "iOSTests"
             ReferencedContainer = "container:CancellableBlockingIO.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "453CBD551A0E73190044C502"
-               BuildableName = "EonilCancellableBlockingIO.framework"
-               BlueprintName = "CancellableBlockingIOForWorkstation"
+               BlueprintIdentifier = "45F623121A0E87F100DDAD02"
+               BuildableName = "TestApplication.app"
+               BlueprintName = "TestApplication"
                ReferencedContainer = "container:CancellableBlockingIO.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "453CBD5F1A0E73190044C502"
-               BuildableName = "CancellableBlockingIOForWorkstationTests.xctest"
-               BlueprintName = "CancellableBlockingIOForWorkstationTests"
+               BlueprintIdentifier = "45F623411A0E88D200DDAD02"
+               BuildableName = "OSXTests.xctest"
+               BlueprintName = "OSXTests"
                ReferencedContainer = "container:CancellableBlockingIO.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "453CBD5F1A0E73190044C502"
-               BuildableName = "CancellableBlockingIOForWorkstationTests.xctest"
-               BlueprintName = "CancellableBlockingIOForWorkstationTests"
+               BlueprintIdentifier = "45F623411A0E88D200DDAD02"
+               BuildableName = "OSXTests.xctest"
+               BlueprintName = "OSXTests"
                ReferencedContainer = "container:CancellableBlockingIO.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "453CBD551A0E73190044C502"
-            BuildableName = "EonilCancellableBlockingIO.framework"
-            BlueprintName = "CancellableBlockingIOForWorkstation"
+            BlueprintIdentifier = "45F623121A0E87F100DDAD02"
+            BuildableName = "TestApplication.app"
+            BlueprintName = "TestApplication"
             ReferencedContainer = "container:CancellableBlockingIO.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -72,15 +72,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "453CBD551A0E73190044C502"
-            BuildableName = "EonilCancellableBlockingIO.framework"
-            BlueprintName = "CancellableBlockingIOForWorkstation"
+            BlueprintIdentifier = "45F623121A0E87F100DDAD02"
+            BuildableName = "TestApplication.app"
+            BlueprintName = "TestApplication"
             ReferencedContainer = "container:CancellableBlockingIO.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -90,15 +90,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "453CBD551A0E73190044C502"
-            BuildableName = "EonilCancellableBlockingIO.framework"
-            BlueprintName = "CancellableBlockingIOForWorkstation"
+            BlueprintIdentifier = "45F623121A0E87F100DDAD02"
+            BuildableName = "TestApplication.app"
+            BlueprintName = "TestApplication"
             ReferencedContainer = "container:CancellableBlockingIO.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
