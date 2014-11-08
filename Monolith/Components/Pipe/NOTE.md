@@ -6,9 +6,10 @@
 Queries all returns immediately. It uses only currently available data and does not
 wait for new signals. 
 
-In contrast, tasks always waits for new signals, and route then into observers. Due 
-to this time-dependent nature of tasks, all of them have consistent way of 
-cancellation.
+In contrast, tasks always waits for new signals, and route then into observers. 
+Cancellation or progress signaling is fully up to implementations of each tasks. 
+There's no unified way of them because everything require different approach on such
+stuffs.
 
 Because queries return immediately, there's no need to separate classes and instances
 of the processing, but tasks need strict separation. Single instance of a task performs

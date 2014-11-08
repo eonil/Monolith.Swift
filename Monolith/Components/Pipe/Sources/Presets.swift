@@ -36,7 +36,7 @@ public struct Emitter<T> : QueryType, TaskType {
 		observer(value)
 		return	NOOP
 	}
-	public func signal(_: ()) -> (T) {
+	public func evaluate(_: ()) -> (T) {
 		return	value
 	}
 }
@@ -47,7 +47,7 @@ public struct Absorber<T> : QueryType, TaskType {
 		observer()
 		return	NOOP
 	}
-	public func signal(_: T) -> () {
+	public func evaluate(_: T) -> () {
 		return	NOOP()
 	}
 }
@@ -79,7 +79,7 @@ public struct Evalute<IN,OUT> : QueryType, TaskType {
 		signal >>> filter >>> observer
 		return	NOOP
 	}
-	public func signal(v: IN) -> (OUT) {
+	public func evaluate(v: IN) -> (OUT) {
 		return	filter(v)
 	}
 }
@@ -220,3 +220,4 @@ private final class ShortWaitingRepeater {
 		timeToGoInNanoseconds	=	0
 	}
 }
+//

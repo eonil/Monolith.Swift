@@ -24,7 +24,7 @@ import Foundation
 public protocol QueryType {
 	typealias	In
 	typealias	Out
-	func signal(In)->(Out)
+	func evaluate(In)->(Out)
 }
 
 
@@ -44,7 +44,7 @@ public struct QueryOf<I,O>: QueryType {
 		self.filter	=	filter
 	}
 	
-	public func signal(s:I) -> O {
+	public func evaluate(s:I) -> O {
 		return	filter(s)
 	}
 }
@@ -54,8 +54,8 @@ public struct QueryFlow<F1:QueryType, F2:QueryType where F1.Out == F2.In> : Quer
 	let	left:F1
 	let	right:F2
 	
-	public func signal(s:F1.In) -> F2.Out {
-		return	right.signal(left.signal(s))
+	public func evaluate(s:F1.In) -> F2.Out {
+		return	right.evaluate(left.evaluate(s))
 	}
 }
 
@@ -65,9 +65,9 @@ public struct QueryFlow<F1:QueryType, F2:QueryType where F1.Out == F2.In> : Quer
 public struct MulticastQuery<F:QueryType> : QueryType {
 	let	all:[F]
 	
-	public func signal(s:F.In) -> () {
+	public func evaluate(s:F.In) -> () {
 		for f in all {
-			f.signal(s)
+			f.evaluate(s)
 		}
 	}
 }
