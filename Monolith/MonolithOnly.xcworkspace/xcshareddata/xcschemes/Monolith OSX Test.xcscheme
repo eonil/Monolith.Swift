@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "45682FA019F2F88C0085CBC5"
+               BlueprintIdentifier = "4568300919F3012A0085CBC5"
                BuildableName = "Monolith OSX Test"
                BlueprintName = "Monolith OSX Test"
                ReferencedContainer = "container:Monolith.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "45682FA019F2F88C0085CBC5"
+            BlueprintIdentifier = "4568300919F3012A0085CBC5"
             BuildableName = "Monolith OSX Test"
             BlueprintName = "Monolith OSX Test"
             ReferencedContainer = "container:Monolith.xcodeproj">
@@ -51,7 +51,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "45682FA019F2F88C0085CBC5"
+            BlueprintIdentifier = "4568300919F3012A0085CBC5"
             BuildableName = "Monolith OSX Test"
             BlueprintName = "Monolith OSX Test"
             ReferencedContainer = "container:Monolith.xcodeproj">
@@ -69,7 +69,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "45682FA019F2F88C0085CBC5"
+            BlueprintIdentifier = "4568300919F3012A0085CBC5"
             BuildableName = "Monolith OSX Test"
             BlueprintName = "Monolith OSX Test"
             ReferencedContainer = "container:Monolith.xcodeproj">

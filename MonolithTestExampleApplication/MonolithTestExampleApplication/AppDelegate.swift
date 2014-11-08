@@ -8,7 +8,6 @@
 
 import UIKit
 import Monolith
-import EonilPipe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,15 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Override point for customization after application launch.
 		
-		let	a1	=	111 as Standard.JSON.Value
-		
-		let	t1	=	Pipe.HTTPProgressiveDownloadTask(backgroundOperationID: "TestOp1", authenticationResolver: nil)
-		
-		let	ps1	=	Pipe.HTTPProgressiveDownloadTask.RequestSignal.Launch(address: NSURL(string: "https://www.ietf.org/rfc/rfc-index.xml")!)
-		
-		let	c1	=	t1.dispatch(ps1) { (signal:Pipe.HTTPProgressiveDownloadTask.ResponseSignal) -> () in
-			signal >>> println
-		}
+//		let	a1	=	111 as Standard.JSON.Value
+//		
+//		let	t1	=	Pipe.HTTPProgressiveDownloadTask(backgroundOperationID: "TestOp1", authenticationResolver: nil)
+//		
+//		let	ps1	=	Pipe.HTTPProgressiveDownloadTask.RequestSignal.Launch(address: NSURL(string: "https://www.ietf.org/rfc/rfc-index.xml")!)
+//		
+//		let	c1	=	t1.dispatch(ps1) { (signal:Pipe.HTTPProgressiveDownloadTask.ResponseSignal) -> () in
+//			signal >>> println
+//		}
 		
 		return true
 	}
