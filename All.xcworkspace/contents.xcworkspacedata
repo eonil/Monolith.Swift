@@ -22,4 +22,7 @@
    <FileRef
       location = "group:MonolithTestExampleApplication/MonolithTestExampleApplication.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:CancellableBlockingIO/CancellableBlockingIO.xcodeproj">
+   </FileRef>
 </Workspace>
