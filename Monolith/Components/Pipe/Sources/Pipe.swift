@@ -9,13 +9,13 @@
 import Foundation
 
 
-///	Pipe operator.
+///	Directed pipe operator.
 infix operator >>> {
 associativity left
 precedence 140
 }
 
-///	Pipe functions synchronously. Take care that this will not be exposed publicly.
+///	Pipe two functions synchronously.
 public func >>> <T,U> (left:T, right:(T)->(U)) -> U {
 	return	right(left)
 }

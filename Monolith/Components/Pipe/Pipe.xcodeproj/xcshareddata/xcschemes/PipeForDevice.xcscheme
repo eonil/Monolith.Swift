@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "459DEEE41A09315E00F5AEEC"
+               BlueprintIdentifier = "45B020A91A093A7800C0AFFA"
                BuildableName = "EonilPipe.framework"
-               BlueprintName = "PipeForMobile"
+               BlueprintName = "PipeForDevice"
                ReferencedContainer = "container:Pipe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "459DEEE41A09315E00F5AEEC"
+            BlueprintIdentifier = "45B020A91A093A7800C0AFFA"
             BuildableName = "EonilPipe.framework"
-            BlueprintName = "PipeForMobile"
+            BlueprintName = "PipeForDevice"
             ReferencedContainer = "container:Pipe.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "459DEEE41A09315E00F5AEEC"
+            BlueprintIdentifier = "45B020A91A093A7800C0AFFA"
             BuildableName = "EonilPipe.framework"
-            BlueprintName = "PipeForMobile"
+            BlueprintName = "PipeForDevice"
             ReferencedContainer = "container:Pipe.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

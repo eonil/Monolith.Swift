@@ -242,6 +242,24 @@ extension Pipe {
 			///	Downloading failed.
 			case Unavailable(error:NSError)
 		}
+		
+		public enum Command {
+			case Launch(address:NSURL)
+			case Resume(continuation:NSData)
+			case Cancel
+		}
+		
+//		public enum Progress {
+//			case Continue(range:Range<Int64>, total:Range<Int64>?)
+//			case Done(Status)
+//			
+//			public enum Status {
+//				case Cancel(continuation:NSData)
+//				case Error(message:String)
+//				case Ready(file:NSURL)
+//			}
+//		}
+		
 	}
 	
 	

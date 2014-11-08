@@ -36,13 +36,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		
 		func run() {
 			let	f1	=	ConstantTimeWaitTask<String>(0.01)
-			let	f2	=	Step { (s:String)->String in println("PASSING: \(s) ~ \(++self.c1)"); return s }
-			let f2b	=	Step { (s:String)->String in self.checkup(); return s }
-			let	f3	=	f1 ~~> f2 ~~> f2b
+			let	f2	=	Evalute { (s:String)->String in println("PASSING: \(s) ~ \(++self.c1)"); return s }
+			let f2b	=	Evalute { (s:String)->String in self.checkup(); return s }
+			let	f3	=	f1 >>> f2 >>> f2b
 			
 			var	f4	=	nil as TaskOf<String,String>?
-			let	f5	=	DynamicTask { self.c1 < 100 ? f4! : task(Step{$0}) }
-			let	f6	=	f3 ~~> f5
+			let	f5	=	DynamicTask { self.c1 < 100 ? f4! : task(Evalute{$0}) }
+			let	f6	=	f3 >>> f5
 			f4		=	task(f6)
 			
 			self.cancelTest	=	f6.dispatch("Hello!") { String->() in println("DONE!") }
@@ -56,12 +56,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	func applicationDidFinishLaunching(aNotification: NSNotification) {
 		func example1() {
-			let	f1	=	ValueEmitterTask("AAA")
-			let	f2	=	Step { TimeSignal(time: 1, value: $0 + " A") }
-			let	f3	=	Step { TimeSignal(time: 2, value: $0 + " B") }
-			let	f4	=	Step { TimeSignal(time: 3, value: $0 + " C") }
+			let	f1	=	Emitter("AAA")
+			let	f2	=	Evalute { TimeSignal(time: 1, value: $0 + " A") }
+			let	f3	=	Evalute { TimeSignal(time: 2, value: $0 + " B") }
+			let	f4	=	Evalute { TimeSignal(time: 3, value: $0 + " C") }
 			let	f5	=	ParametricTimeWaitTask<String>()
-			let	f6	=	Step<String,()> { $0 >>> println }
+			let	f6	=	Evalute<String,()> { $0 >>> println }
 			
 			let	f8	=	f1 >>> [
 				f2 >>> f5 >>> f6,
@@ -83,4 +83,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
 

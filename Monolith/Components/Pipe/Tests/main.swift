@@ -14,8 +14,8 @@ import Foundation
 //	///	Example 1.
 //	///	Shows basic filter composition.
 //	
-//	let	f1	=	synchronousFilter { $0 + 2 }				//	Make an addition filter.
-//	let	f2	=	synchronousFilter { $0 * 10 }				//	Make a multiplication filter.
+//	let	f1	=	Query { $0 + 2 }				//	Make an addition filter.
+//	let	f2	=	Query { $0 * 10 }				//	Make a multiplication filter.
 //	
 //	let	f3	=	3 >>> f1 >>> f2 >>> println		//	Make a chain of filters.
 //	

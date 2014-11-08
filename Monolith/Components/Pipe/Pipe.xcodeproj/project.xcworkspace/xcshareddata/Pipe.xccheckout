@@ -14,11 +14,11 @@
 		<string>https://github.com/Eonil/Monolith.Swift.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Pipe/Pipe.xcodeproj</string>
+	<string>Monolith/Components/Pipe/Pipe.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>71A00DDED806E25423061F292531DC609604F42E</key>
-		<string>../../..</string>
+		<string>../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Eonil/Monolith.Swift.git</string>
