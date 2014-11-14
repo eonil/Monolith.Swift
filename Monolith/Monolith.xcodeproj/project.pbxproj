@@ -27,6 +27,8 @@
 		459B09691A16CAAC0068B462 /* OBJCLevelFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B24B2219F43B6A001D3E18 /* OBJCLevelFeatures.m */; };
 		459B09751A16CB200068B462 /* Monolith.h in Headers */ = {isa = PBXBuildFile; fileRef = 459B09741A16CB190068B462 /* Monolith.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		459B09761A16CB200068B462 /* Monolith.h in Headers */ = {isa = PBXBuildFile; fileRef = 459B09741A16CB190068B462 /* Monolith.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		459B097C1A16CE5F0068B462 /* OBJCLevelFeatures.h in Headers */ = {isa = PBXBuildFile; fileRef = 45B24B2719F43B7D001D3E18 /* OBJCLevelFeatures.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		459B097E1A16CE600068B462 /* OBJCLevelFeatures.h in Headers */ = {isa = PBXBuildFile; fileRef = 45B24B2719F43B7D001D3E18 /* OBJCLevelFeatures.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		45AFAD4319F3DE4800EC17DC /* Monolith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458615D119F17DAD007408AF /* Monolith.swift */; };
 		45AFAD4419F3DE4800EC17DC /* System.Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45942F0719F3B86B008EB820 /* System.Time.swift */; };
 		45AFAD4619F3DE4800EC17DC /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584D83A19F192090093E2B1 /* System.swift */; };
@@ -250,6 +252,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				459B097C1A16CE5F0068B462 /* OBJCLevelFeatures.h in Headers */,
 				459B09751A16CB200068B462 /* Monolith.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +261,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				459B097E1A16CE600068B462 /* OBJCLevelFeatures.h in Headers */,
 				459B09761A16CB200068B462 /* Monolith.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
