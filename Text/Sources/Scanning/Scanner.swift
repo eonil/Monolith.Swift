@@ -11,6 +11,7 @@ import Foundation
 
 ///	Simple value scanner from text representation.
 ///	All methods require full consumption of source string.
+///	This is actually a thin wrapper of `NSScanner`.
 struct Scanner {
 	static func scanInt(expression:String) -> Int? {
 		return	scan(expression, 0 as Int, { s, p in return s.scanInteger(p) }, true)
