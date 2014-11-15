@@ -84,11 +84,11 @@ public extension Parsing.Rule {
 				a1	+=	[ch]
 			}
 			
-			let	a2	=	a1.map({ n in return self.pattern(Pattern.one(n)) }) as [Composition]
+			let	a2	=	a1.map({ n in return self.chars(CharacterSubset.one(n)) }) as [Composition]
 			let	s1	=	sequence(a2)
 			return	s1
 		}
-		public static func pattern(pattern:Pattern.Test)(cursor:Cursor) -> Parsing.Stepping {
+		public static func chars(pattern:CharacterSubset.Test)(cursor:Cursor) -> Parsing.Stepping {
 			let	ok	=	pattern(cursor.current)
 			if ok {
 				let c2	=	cursor.continuation

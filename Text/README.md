@@ -19,9 +19,9 @@ Typical Example
 
 Here's an example which describes [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) BNF syntax.
 
-	static let	digit				=	pat(Characters.digit)
-	static let	zulu				=	pat(Characters.zulu)
-	static let	tango				=	pat(Characters.tango)
+	static let	digit				=	chs(Characters.digit)
+	static let	zulu				=	chs(Characters.zulu)
+	static let	tango				=	chs(Characters.tango)
 	
 	static let	dateFullYear		=	digit * 4
 	static let	dateMonth			=	digit * 2
@@ -42,7 +42,7 @@ Here's an example which describes [RFC3339](https://www.ietf.org/rfc/rfc3339.txt
 
 	private typealias	C	=	EonilText.Parsing.Rule.Component
 	private static let	lit	=	C.literal
-	private static let	pat	=	C.pattern
+	private static let	chs	=	C.pattern
 	private static let	sub	=	C.subrule
 	private static let	mk	=	C.mark
 
@@ -53,10 +53,20 @@ Here's an example which describes [RFC3339](https://www.ietf.org/rfc/rfc3339.txt
 		static let	zulu			=	any(["Z", "z"])
 		static let	tango			=	any(["T", "t"])
 		
-		private typealias	P		=	EonilText.Pattern
+		private typealias	P		=	CharacterSubset
 		private static let	or		=	P.or
 		private static let	not		=	P.not
 		private static let	any		=	P.any
 		private static let	one		=	P.one
 	}
 	
+
+
+
+
+
+
+
+
+
+

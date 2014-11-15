@@ -60,7 +60,7 @@ struct Test {
 				
 				private typealias	C	=	Rule.Component
 				private static let	lit	=	C.literal
-				private static let	pat	=	C.pattern
+				private static let	chs	=	C.chars
 				private static let	sub	=	C.subrule
 				private static let	mk	=	C.mark
 			}
@@ -80,7 +80,7 @@ struct Test {
 				
 				private typealias	C	=	Rule.Component
 				private static let	lit	=	C.literal
-				private static let	pat	=	C.pattern
+				private static let	chs	=	C.chars
 				private static let	sub	=	C.subrule
 				private static let	mk	=	C.mark
 			}

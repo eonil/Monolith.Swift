@@ -1,5 +1,5 @@
 //
-//  Pattern.swift
+//  CharacterSubset.swift
 //  EDXC
 //
 //  Created by Hoon H. on 10/13/14.
@@ -9,7 +9,8 @@
 import Foundation
 
 
-public struct Pattern {
+///	Defines a subset of characters.
+public struct CharacterSubset {
 	public typealias	Test	=	Character -> Bool
 	
 	public static func or(cs:[Test])(character ch:Character) -> Bool {
@@ -30,3 +31,4 @@ public struct Pattern {
 		return	ch1 == ch2
 	}
 }
+

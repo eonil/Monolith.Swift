@@ -26,21 +26,21 @@ struct EDXC {
 			
 			////
 			
-			private typealias	P		=	Pattern
+			private typealias	P		=	CharacterSubset
 			private static let	or		=	P.or
 			private static let	not		=	P.not
 			private static let	any		=	P.any
 			private static let	one		=	P.one
 		}
 		
-		static let	whitespaceStrip			=	pat(Characters.whitespace) * (1...Int.max)
+		static let	whitespaceStrip			=	chs(Characters.whitespace) * (1...Int.max)
 		static let	maybeWhitespaceStrip	=	whitespaceStrip * (0...Int.max)
 //			static let	whitespaceExpression	=	sub(whitespaceStrip)
 		
-		static let	escapingSequence		=	lit("\\") + pat(Characters.escapee)
-		static let	symbolicUnit			=	pat(Characters.symbolic) | escapingSequence
+		static let	escapingSequence		=	lit("\\") + chs(Characters.escapee)
+		static let	symbolicUnit			=	chs(Characters.symbolic) | escapingSequence
 		static let	symbolForm				=	symbolicUnit * (1...Int.max)
-		static let	quotableUnit			=	pat(Characters.quotable) | escapingSequence
+		static let	quotableUnit			=	chs(Characters.quotable) | escapingSequence
 		static let	quotationForm			=	lit("\"") + (quotableUnit * (1...Int.max)) + lit("\"")
 		static let	valueExpression			=	"value-expr"	~~~	symbolForm | quotationForm
 		
@@ -63,7 +63,7 @@ struct EDXC {
 		
 		private typealias	C	=	Parsing.Rule.Component
 		private static let	lit	=	C.literal
-		private static let	pat	=	C.pattern
+		private static let	chs	=	C.chars
 		private static let	sub	=	C.subrule
 		private static let	mk	=	C.mark
 		
