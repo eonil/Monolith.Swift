@@ -26,6 +26,6 @@
       location = "group:Common/Common.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Dispatch/EonilDispatch.xcodeproj">
+      location = "group:Dispatch/Dispatch.xcodeproj">
    </FileRef>
 </Workspace>

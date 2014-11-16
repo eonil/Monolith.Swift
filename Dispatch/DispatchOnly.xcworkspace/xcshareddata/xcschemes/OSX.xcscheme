@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "459A04181A18D74D00F946BD"
-               BuildableName = "OSX.framework"
+               BuildableName = "EonilDispatch.framework"
                BlueprintName = "OSX"
-               ReferencedContainer = "container:EonilDispatch.xcodeproj">
+               ReferencedContainer = "container:Dispatch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "459A04221A18D74D00F946BD"
                BuildableName = "OSXTests.xctest"
                BlueprintName = "OSXTests"
-               ReferencedContainer = "container:EonilDispatch.xcodeproj">
+               ReferencedContainer = "container:Dispatch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "459A04221A18D74D00F946BD"
                BuildableName = "OSXTests.xctest"
                BlueprintName = "OSXTests"
-               ReferencedContainer = "container:EonilDispatch.xcodeproj">
+               ReferencedContainer = "container:Dispatch.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "459A04181A18D74D00F946BD"
-            BuildableName = "OSX.framework"
+            BuildableName = "EonilDispatch.framework"
             BlueprintName = "OSX"
-            ReferencedContainer = "container:EonilDispatch.xcodeproj">
+            ReferencedContainer = "container:Dispatch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "459A04181A18D74D00F946BD"
-            BuildableName = "OSX.framework"
+            BuildableName = "EonilDispatch.framework"
             BlueprintName = "OSX"
-            ReferencedContainer = "container:EonilDispatch.xcodeproj">
+            ReferencedContainer = "container:Dispatch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "459A04181A18D74D00F946BD"
-            BuildableName = "OSX.framework"
+            BuildableName = "EonilDispatch.framework"
             BlueprintName = "OSX"
-            ReferencedContainer = "container:EonilDispatch.xcodeproj">
+            ReferencedContainer = "container:Dispatch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
