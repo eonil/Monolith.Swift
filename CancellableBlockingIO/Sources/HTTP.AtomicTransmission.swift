@@ -18,18 +18,33 @@ extension HTTP {
 		)
 		
 		public struct Request {
-			var	security:Bool
-			var	method:String
-			var	host:String
-			var	port:Int
-			var	path:String					///<	Will be encoded using RFC 3986. So do not passed encoded one.
-			var	headers:[Header]
-			var	body:NSData
+			public var	security:Bool
+			public var	method:String
+			public var	host:String
+			public var	port:Int
+			public var	path:String					///<	Will be encoded using RFC 3986. So do not passed encoded one.
+			public var	headers:[Header]
+			public var	body:NSData?
+			
+			public init(security:Bool, method:String, host:String, port:Int, path:String, headers:[HTTP.AtomicTransmission.Header], body:NSData?) {
+				self.security	=	security
+				self.method		=	method
+				self.host		=	host
+				self.port		=	port
+				self.path		=	path
+				self.headers	=	headers
+				self.body		=	body
+			}
 		}
 		public struct Response {
-			var	status:Int
-			var	headers:[Header]
-			var	body:NSData
+			public var	status:Int
+			public var	headers:[Header]
+			
+			///	Body can be missing if the request does not need to provide 
+			///	output as a successful request. `nil` on this parameter does 
+			///	not mean it request failed. If you got a this object, then
+			///	that means request itself finished successfully.
+			public var	body:NSData?
 		}
 		
 //		public enum Initiate {
@@ -42,6 +57,44 @@ extension HTTP {
 		}
 	}
 }
+
+public extension HTTP.AtomicTransmission.Request {
+}
+
+extension HTTP.AtomicTransmission.Request: Printable {
+	public var description:String {
+		get {
+			return	"Request(securit: \(security), method: \(method), host: \(host), port: \(port), path: \(path), headers: \(headers), body: \(body?.length) bytes)"
+		}
+	}
+}
+
+extension HTTP.AtomicTransmission.Response: Printable {
+	public var description:String {
+		get {
+			return	"Response(status: \(status), headers: \(headers), body: \(body?.length) bytes)"
+		}
+	}
+}
+
+extension HTTP.AtomicTransmission.Complete: Printable {
+	public var description:String {
+		get {
+			switch self {
+			case .Cancel:		return	"Cancel"
+			case .Abort(let s):	return	"Abort(\(s))"
+			case .Done(let s):	return	"Done(\(s))"
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
 
 public extension HTTP.AtomicTransmission {
 	

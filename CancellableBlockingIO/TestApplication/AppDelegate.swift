@@ -7,6 +7,11 @@
 //
 
 import Cocoa
+import EonilCancellableBlockingIO
+
+
+
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -15,7 +20,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
 	func applicationDidFinishLaunching(aNotification: NSNotification) {
-		// Insert code here to initialize your application
+		let	q1	=	HTTP.AtomicTransmission.Request(security: false, method: "GET", host: "apple.com", port: 80, path: "/", headers: [], body: NSData())
+		let	t1	=	Trigger()
+		let	a1	=	HTTP.transmit(q1, t1)
+		println(a1)
 	}
 
 	func applicationWillTerminate(aNotification: NSNotification) {
