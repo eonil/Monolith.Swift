@@ -8,11 +8,11 @@
 
 import Foundation
 
-public struct Dispatch {
-	public static func main(p:()->()) {
+struct Dispatch {
+	static func main(p:()->()) {
 		dispatch_async(dispatch_get_main_queue(), p)
 	}
-	public static func backgroundConcurrently(p:()->()) {
+	static func backgroundConcurrently(p:()->()) {
 		dispatch_async(defaultGlobalBackgroundQueue(), p)
 	}
 	

@@ -1048,6 +1048,7 @@
 				456BDEF71A0E89C00010A1BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45F6232E1A0E87F100DDAD02 /* Build configuration list for PBXNativeTarget "TestApplication" */ = {
 			isa = XCConfigurationList;

@@ -14,10 +14,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4568300919F3012A0085CBC5"
-               BuildableName = "Monolith OSX Test"
-               BlueprintName = "Monolith OSX Test"
-               ReferencedContainer = "container:Monolith.xcodeproj">
+               BlueprintIdentifier = "459A04181A18D74D00F946BD"
+               BuildableName = "OSX.framework"
+               BlueprintName = "OSX"
+               ReferencedContainer = "container:EonilDispatch.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "459A04221A18D74D00F946BD"
+               BuildableName = "OSXTests.xctest"
+               BlueprintName = "OSXTests"
+               ReferencedContainer = "container:EonilDispatch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,14 +42,24 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "459A04221A18D74D00F946BD"
+               BuildableName = "OSXTests.xctest"
+               BlueprintName = "OSXTests"
+               ReferencedContainer = "container:EonilDispatch.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4568300919F3012A0085CBC5"
-            BuildableName = "Monolith OSX Test"
-            BlueprintName = "Monolith OSX Test"
-            ReferencedContainer = "container:Monolith.xcodeproj">
+            BlueprintIdentifier = "459A04181A18D74D00F946BD"
+            BuildableName = "OSX.framework"
+            BlueprintName = "OSX"
+            ReferencedContainer = "container:EonilDispatch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -48,15 +72,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4568300919F3012A0085CBC5"
-            BuildableName = "Monolith OSX Test"
-            BlueprintName = "Monolith OSX Test"
-            ReferencedContainer = "container:Monolith.xcodeproj">
+            BlueprintIdentifier = "459A04181A18D74D00F946BD"
+            BuildableName = "OSX.framework"
+            BlueprintName = "OSX"
+            ReferencedContainer = "container:EonilDispatch.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -66,15 +90,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4568300919F3012A0085CBC5"
-            BuildableName = "Monolith OSX Test"
-            BlueprintName = "Monolith OSX Test"
-            ReferencedContainer = "container:Monolith.xcodeproj">
+            BlueprintIdentifier = "459A04181A18D74D00F946BD"
+            BuildableName = "OSX.framework"
+            BlueprintName = "OSX"
+            ReferencedContainer = "container:EonilDispatch.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4568306C19F302DF0085CBC5"
-               BuildableName = "Monolith iOS Test.app"
-               BlueprintName = "Monolith iOS Test"
-               ReferencedContainer = "container:Monolith.xcodeproj">
+               BlueprintIdentifier = "459A03F31A18D70000F946BD"
+               BuildableName = "EonilDispatch.framework"
+               BlueprintName = "iOS"
+               ReferencedContainer = "container:EonilDispatch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4568308019F302DF0085CBC5"
-               BuildableName = "Monolith iOS TestTests.xctest"
-               BlueprintName = "Monolith iOS TestTests"
-               ReferencedContainer = "container:Monolith.xcodeproj">
+               BlueprintIdentifier = "459A03FD1A18D70000F946BD"
+               BuildableName = "iOSTests.xctest"
+               BlueprintName = "iOSTests"
+               ReferencedContainer = "container:EonilDispatch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,20 +46,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4568308019F302DF0085CBC5"
-               BuildableName = "Monolith iOS TestTests.xctest"
-               BlueprintName = "Monolith iOS TestTests"
-               ReferencedContainer = "container:Monolith.xcodeproj">
+               BlueprintIdentifier = "459A03FD1A18D70000F946BD"
+               BuildableName = "iOSTests.xctest"
+               BlueprintName = "iOSTests"
+               ReferencedContainer = "container:EonilDispatch.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4568306C19F302DF0085CBC5"
-            BuildableName = "Monolith iOS Test.app"
-            BlueprintName = "Monolith iOS Test"
-            ReferencedContainer = "container:Monolith.xcodeproj">
+            BlueprintIdentifier = "459A03F31A18D70000F946BD"
+            BuildableName = "EonilDispatch.framework"
+            BlueprintName = "iOS"
+            ReferencedContainer = "container:EonilDispatch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -72,15 +72,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4568306C19F302DF0085CBC5"
-            BuildableName = "Monolith iOS Test.app"
-            BlueprintName = "Monolith iOS Test"
-            ReferencedContainer = "container:Monolith.xcodeproj">
+            BlueprintIdentifier = "459A03F31A18D70000F946BD"
+            BuildableName = "EonilDispatch.framework"
+            BlueprintName = "iOS"
+            ReferencedContainer = "container:EonilDispatch.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -90,15 +90,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4568306C19F302DF0085CBC5"
-            BuildableName = "Monolith iOS Test.app"
-            BlueprintName = "Monolith iOS Test"
-            ReferencedContainer = "container:Monolith.xcodeproj">
+            BlueprintIdentifier = "459A03F31A18D70000F946BD"
+            BuildableName = "EonilDispatch.framework"
+            BlueprintName = "iOS"
+            ReferencedContainer = "container:EonilDispatch.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
