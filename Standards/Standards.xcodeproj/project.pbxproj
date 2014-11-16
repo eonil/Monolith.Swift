@@ -49,6 +49,8 @@
 		454234B31A16C2CA0006DB67 /* OBJCLevelFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 454234AD1A16C2CA0006DB67 /* OBJCLevelFeatures.m */; };
 		454234BB1A16C4AD0006DB67 /* Standards.h in Headers */ = {isa = PBXBuildFile; fileRef = 454234BA1A16C4A30006DB67 /* Standards.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		454234BC1A16C4AD0006DB67 /* Standards.h in Headers */ = {isa = PBXBuildFile; fileRef = 454234BA1A16C4A30006DB67 /* Standards.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		457E2E2C1A18C131000CEC96 /* EonilText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454234981A16C2310006DB67 /* EonilText.framework */; };
+		457E2E2D1A18C131000CEC96 /* EonilText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 454234981A16C2310006DB67 /* EonilText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		459B09131A16C90D0068B462 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B09121A16C90D0068B462 /* AppDelegate.swift */; };
 		459B09151A16C90D0068B462 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459B09141A16C90D0068B462 /* Images.xcassets */; };
 		459B09181A16C90D0068B462 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459B09161A16C90D0068B462 /* MainMenu.xib */; };
@@ -68,7 +70,6 @@
 		459B09391A16C9750068B462 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454234751A16C17C0006DB67 /* URL.swift */; };
 		459B093A1A16C9750068B462 /* xISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454234761A16C17C0006DB67 /* xISO8601.swift */; };
 		459B093B1A16C9750068B462 /* OBJCLevelFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 454234AD1A16C2CA0006DB67 /* OBJCLevelFeatures.m */; };
-		459B093D1A16C9970068B462 /* NOTE.md in Sources */ = {isa = PBXBuildFile; fileRef = 459B093C1A16C9970068B462 /* NOTE.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,7 +108,28 @@
 			remoteGlobalIDString = 45D987A019ECE38C00B96829;
 			remoteInfo = "Text OSX Test";
 		};
+		457E2E2E1A18C131000CEC96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454234911A16C2310006DB67 /* Text.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 45641AC819F0D52200381269;
+			remoteInfo = "Text OSX";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		457E2E301A18C131000CEC96 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				457E2E2D1A18C131000CEC96 /* EonilText.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		454234161A16C10D0006DB67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -189,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457E2E2C1A18C131000CEC96 /* EonilText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,19 +353,19 @@
 			children = (
 				454234A41A16C2A20006DB67 /* Error.swift */,
 				454234A71A16C2B70006DB67 /* Operators.swift */,
-				4542346A1A16C17C0006DB67 /* HTTP.swift */,
-				4542346B1A16C17C0006DB67 /* JSON.swift */,
+				454234751A16C17C0006DB67 /* URL.swift */,
 				4542346C1A16C17C0006DB67 /* RFC1808.swift */,
 				4542346D1A16C17C0006DB67 /* RFC1808+RFC4627.swift */,
+				4542346A1A16C17C0006DB67 /* HTTP.swift */,
 				4542346E1A16C17C0006DB67 /* RFC2616.swift */,
 				4542346F1A16C17C0006DB67 /* RFC3339.swift */,
+				4542346B1A16C17C0006DB67 /* JSON.swift */,
 				454234701A16C17C0006DB67 /* RFC4627.Extensions.swift */,
 				454234711A16C17C0006DB67 /* RFC4627.Operators.swift */,
 				454234721A16C17C0006DB67 /* RFC4627.swift */,
 				454234731A16C17C0006DB67 /* RFC4627.Unused.swift */,
-				454234741A16C17C0006DB67 /* Standard.swift */,
-				454234751A16C17C0006DB67 /* URL.swift */,
 				454234761A16C17C0006DB67 /* xISO8601.swift */,
+				454234741A16C17C0006DB67 /* Standard.swift */,
 				454234AA1A16C2CA0006DB67 /* Bridging */,
 			);
 			path = Sources;
@@ -498,10 +521,12 @@
 				459B090A1A16C90D0068B462 /* Sources */,
 				459B090B1A16C90D0068B462 /* Frameworks */,
 				459B090C1A16C90D0068B462 /* Resources */,
+				457E2E301A18C131000CEC96 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				457E2E2F1A18C131000CEC96 /* PBXTargetDependency */,
 			);
 			name = InternalTests;
 			productName = InternalTests;
@@ -634,7 +659,6 @@
 				454234771A16C17C0006DB67 /* HTTP.swift in Sources */,
 				454234871A16C17C0006DB67 /* RFC4627.swift in Sources */,
 				454234B21A16C2CA0006DB67 /* OBJCLevelFeatures.m in Sources */,
-				459B093D1A16C9970068B462 /* NOTE.md in Sources */,
 				454234811A16C17C0006DB67 /* RFC3339.swift in Sources */,
 				454234831A16C17C0006DB67 /* RFC4627.Extensions.swift in Sources */,
 				4542347F1A16C17C0006DB67 /* RFC2616.swift in Sources */,
@@ -726,6 +750,11 @@
 			target = 4542344E1A16C1240006DB67 /* iOS */;
 			targetProxy = 4542345B1A16C1240006DB67 /* PBXContainerItemProxy */;
 		};
+		457E2E2F1A18C131000CEC96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Text OSX";
+			targetProxy = 457E2E2E1A18C131000CEC96 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -800,6 +829,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = Standards;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -848,6 +878,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Standards;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -990,6 +1021,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = Standards;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1037,6 +1069,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Standards;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1155,6 +1188,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1204,6 +1238,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
