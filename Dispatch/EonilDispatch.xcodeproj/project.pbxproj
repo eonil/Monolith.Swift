@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		459A03FF1A18D70000F946BD /* EonilDispatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459A03F41A18D70000F946BD /* EonilDispatch.framework */; };
-		459A04241A18D74D00F946BD /* OSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459A04191A18D74D00F946BD /* OSX.framework */; };
+		459A04241A18D74D00F946BD /* EonilDispatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459A04191A18D74D00F946BD /* EonilDispatch.framework */; };
 		459A043B1A18D78D00F946BD /* EonilDispatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A043A1A18D78D00F946BD /* EonilDispatchTests.swift */; };
 		459A043C1A18D78D00F946BD /* EonilDispatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A043A1A18D78D00F946BD /* EonilDispatchTests.swift */; };
 		459A04451A18D7B900F946BD /* EonilDispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 459A043E1A18D7B900F946BD /* EonilDispatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,7 +49,7 @@
 		459A03F71A18D70000F946BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		459A03FE1A18D70000F946BD /* iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		459A04041A18D70000F946BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		459A04191A18D74D00F946BD /* OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		459A04191A18D74D00F946BD /* EonilDispatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EonilDispatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		459A041C1A18D74D00F946BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		459A04231A18D74D00F946BD /* OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		459A04291A18D74D00F946BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				459A04241A18D74D00F946BD /* OSX.framework in Frameworks */,
+				459A04241A18D74D00F946BD /* EonilDispatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +201,7 @@
 			children = (
 				459A03F41A18D70000F946BD /* EonilDispatch.framework */,
 				459A03FE1A18D70000F946BD /* iOSTests.xctest */,
-				459A04191A18D74D00F946BD /* OSX.framework */,
+				459A04191A18D74D00F946BD /* EonilDispatch.framework */,
 				459A04231A18D74D00F946BD /* OSXTests.xctest */,
 			);
 			name = Products;
@@ -280,7 +280,7 @@
 			);
 			name = OSX;
 			productName = OSX;
-			productReference = 459A04191A18D74D00F946BD /* OSX.framework */;
+			productReference = 459A04191A18D74D00F946BD /* EonilDispatch.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		459A04221A18D74D00F946BD /* OSXTests */ = {
@@ -526,7 +526,6 @@
 				INFOPLIST_FILE = OSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -543,7 +542,6 @@
 				INFOPLIST_FILE = OSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -673,6 +671,7 @@
 				459A04081A18D70000F946BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		459A040C1A18D70000F946BD /* Build configuration list for PBXNativeTarget "iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -681,6 +680,7 @@
 				459A040A1A18D70000F946BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		459A042C1A18D74D00F946BD /* Build configuration list for PBXNativeTarget "OSX" */ = {
 			isa = XCConfigurationList;
@@ -689,6 +689,7 @@
 				459A042E1A18D74D00F946BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		459A042F1A18D74D00F946BD /* Build configuration list for PBXNativeTarget "OSXTests" */ = {
 			isa = XCConfigurationList;
@@ -697,6 +698,7 @@
 				459A04311A18D74D00F946BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45C1A48A1A12EA0700BC4B23 /* Build configuration list for PBXProject "EonilDispatch" */ = {
 			isa = XCConfigurationList;
