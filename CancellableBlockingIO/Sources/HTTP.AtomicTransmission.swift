@@ -59,6 +59,23 @@ extension HTTP {
 }
 
 public extension HTTP.AtomicTransmission.Request {
+	///	Creates with these default parameters.
+	///
+	///		self.security	=	false
+	///		self.method		=	"GET"
+	///		self.port		=	80
+	///		self.headers	=	[]
+	///		self.body		=	nil
+	///
+	public init(host:String, path:String) {
+		self.security	=	false
+		self.method		=	"GET"
+		self.host		=	host
+		self.port		=	80
+		self.path		=	path
+		self.headers	=	[]
+		self.body		=	nil
+	}
 }
 
 extension HTTP.AtomicTransmission.Request: Printable {
