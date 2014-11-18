@@ -37,6 +37,9 @@
 		45B18D211A0E767B000D4467 /* EonilText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B18D0E1A0E75F4000D4467 /* EonilText.framework */; };
 		45B24B2319F43B6A001D3E18 /* OBJCLevelFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B24B2219F43B6A001D3E18 /* OBJCLevelFeatures.m */; };
 		45B24B2519F43B6A001D3E18 /* OBJCLevelFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B24B2219F43B6A001D3E18 /* OBJCLevelFeatures.m */; };
+		45EFABE61A1C0B6D00C093D0 /* Atomics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EFABE51A1C0B6D00C093D0 /* Atomics.swift */; };
+		45EFABE71A1C0B6D00C093D0 /* Atomics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EFABE51A1C0B6D00C093D0 /* Atomics.swift */; };
+		45EFABE81A1C0B6D00C093D0 /* Atomics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EFABE51A1C0B6D00C093D0 /* Atomics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +102,7 @@
 		45B18CF61A0E75BD000D4467 /* Text.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Text.xcodeproj; path = ../Text/Text.xcodeproj; sourceTree = "<group>"; };
 		45B24B2219F43B6A001D3E18 /* OBJCLevelFeatures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBJCLevelFeatures.m; sourceTree = "<group>"; };
 		45B24B2719F43B7D001D3E18 /* OBJCLevelFeatures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OBJCLevelFeatures.h; sourceTree = "<group>"; };
+		45EFABE51A1C0B6D00C093D0 /* Atomics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atomics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,8 +177,8 @@
 				458615D119F17DAD007408AF /* Monolith.swift */,
 				4584D83A19F192090093E2B1 /* System.swift */,
 				45942F0719F3B86B008EB820 /* System.Time.swift */,
-				4586160B19F17EF5007408AF /* Operators.swift */,
 				4524473E19F5821C00B47EC4 /* Error.swift */,
+				45EFABEA1A1C0BF000C093D0 /* (public features) */,
 				45B24B1819F43A89001D3E18 /* Bridging */,
 			);
 			path = Sources;
@@ -243,6 +247,15 @@
 				45B24B2219F43B6A001D3E18 /* OBJCLevelFeatures.m */,
 			);
 			path = Bridging;
+			sourceTree = "<group>";
+		};
+		45EFABEA1A1C0BF000C093D0 /* (public features) */ = {
+			isa = PBXGroup;
+			children = (
+				4586160B19F17EF5007408AF /* Operators.swift */,
+				45EFABE51A1C0B6D00C093D0 /* Atomics.swift */,
+			);
+			name = "(public features)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45EFABE61A1C0B6D00C093D0 /* Atomics.swift in Sources */,
 				458615D219F17DAD007408AF /* Monolith.swift in Sources */,
 				45942F0819F3B86B008EB820 /* System.Time.swift in Sources */,
 				450942E819FAC72C00E4C7BD /* Tests.swift in Sources */,
@@ -443,6 +457,7 @@
 				459B09641A16CAAC0068B462 /* Monolith.swift in Sources */,
 				459B09651A16CAAC0068B462 /* System.swift in Sources */,
 				459B09661A16CAAC0068B462 /* System.Time.swift in Sources */,
+				45EFABE81A1C0B6D00C093D0 /* Atomics.swift in Sources */,
 				459B09671A16CAAC0068B462 /* Operators.swift in Sources */,
 				459B09681A16CAAC0068B462 /* Error.swift in Sources */,
 				459B09691A16CAAC0068B462 /* OBJCLevelFeatures.m in Sources */,
@@ -453,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45EFABE71A1C0B6D00C093D0 /* Atomics.swift in Sources */,
 				45AFAD4619F3DE4800EC17DC /* System.swift in Sources */,
 				450942EA19FAC72C00E4C7BD /* Tests.swift in Sources */,
 				45AFAD4919F3DE4800EC17DC /* Operators.swift in Sources */,

@@ -249,17 +249,16 @@
 				453D72691A1B714600A083E9 /* Debug.swift */,
 				45A7F25D1A0C90B30008FEBD /* WeakBox.swift */,
 				4539234A1A0D59A4000C6B9A /* IdentityBox.swift */,
-				455928241A0D4E4C00962961 /* PromiseFutureAndWatch.swift */,
 				45503D8E1A0DE77400CD317E /* Trigger.swift */,
 				453F2C3F1A0C0DB200C4A58F /* Atomics.swift */,
-				455E67A21A0BFB610023BE31 /* Dispatch.swift */,
-				455E679F1A0BF3990023BE31 /* Semaphore.swift */,
 				455E679A1A0BECEF0023BE31 /* Channel.swift */,
 				455E679C1A0BF2560023BE31 /* Wait.swift */,
 				453F2C451A0C1A8300C4A58F /* HTTP.swift */,
 				4539234C1A0D78A0000C6B9A /* HTTP.ProgressiveDownloading2.swift */,
 				453F2C431A0C192700C4A58F /* HTTP.AtomicTransmission.swift */,
 				45AAEE031A0C33400077E818 /* Test.swift */,
+				45EFABE41A1C0B1F00C093D0 /* (GCD mini) */,
+				45EFABE31A1C0B0100C093D0 /* (junkyard) */,
 				456E57421A0C2E61000D81B7 /* (planned) */,
 				45D9785D1A0C500E00D707CE /* (for fun!) */,
 				4539234E1A0D7A49000C6B9A /* (trashed) */,
@@ -291,6 +290,23 @@
 				45D9785B1A0C410900D707CE /* ActorModelConcurrency.swift */,
 			);
 			name = "(for fun!)";
+			sourceTree = "<group>";
+		};
+		45EFABE31A1C0B0100C093D0 /* (junkyard) */ = {
+			isa = PBXGroup;
+			children = (
+				455928241A0D4E4C00962961 /* PromiseFutureAndWatch.swift */,
+			);
+			name = "(junkyard)";
+			sourceTree = "<group>";
+		};
+		45EFABE41A1C0B1F00C093D0 /* (GCD mini) */ = {
+			isa = PBXGroup;
+			children = (
+				455E67A21A0BFB610023BE31 /* Dispatch.swift */,
+				455E679F1A0BF3990023BE31 /* Semaphore.swift */,
+			);
+			name = "(GCD mini)";
 			sourceTree = "<group>";
 		};
 		45F623141A0E87F100DDAD02 /* TestApplication */ = {
