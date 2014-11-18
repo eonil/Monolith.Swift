@@ -24,6 +24,7 @@ public final class Trigger {
 	
 	///	Becomes no-op after once set.
 	public func set() {
+		Debug.log("Cancellation triggered.")
 		if _flag.compareAndSwapBarrier(oldValue: false, newValue: true) {
 			for w1 in _watches {
 				w1.value!._f()

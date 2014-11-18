@@ -8,6 +8,17 @@
 
 import Foundation
 
+
+
+
+private let	DEFAULT_TIMEOUT		=	15 as NSTimeInterval
+
+
+
+
+
+
+
 extension HTTP {
 	public struct AtomicTransmission {
 		public typealias	Error	=	DebugPrintable
@@ -78,29 +89,29 @@ public extension HTTP.AtomicTransmission.Request {
 	}
 }
 
-extension HTTP.AtomicTransmission.Request: Printable {
-	public var description:String {
+extension HTTP.AtomicTransmission.Request: DebugPrintable {
+	public var debugDescription:String {
 		get {
-			return	"Request(securit: \(security), method: \(method), host: \(host), port: \(port), path: \(path), headers: \(headers), body: \(body?.length) bytes)"
+			return	"Request(securit: \(security), method: \(method.debugDescription), host: \(host.debugDescription), port: \(port), path: \(path.debugDescription), headers: \(headers.debugDescription), body: \(body?.length) bytes)"
 		}
 	}
 }
 
-extension HTTP.AtomicTransmission.Response: Printable {
-	public var description:String {
+extension HTTP.AtomicTransmission.Response: DebugPrintable {
+	public var debugDescription:String {
 		get {
-			return	"Response(status: \(status), headers: \(headers), body: \(body?.length) bytes)"
+			return	"Response(status: \(status), headers: \(headers.debugDescription), body: \(body?.length) bytes)"
 		}
 	}
 }
 
-extension HTTP.AtomicTransmission.Complete: Printable {
-	public var description:String {
+extension HTTP.AtomicTransmission.Complete: DebugPrintable {
+	public var debugDescription:String {
 		get {
 			switch self {
 			case .Cancel:		return	"Cancel"
-			case .Abort(let s):	return	"Abort(\(s))"
-			case .Done(let s):	return	"Done(\(s))"
+			case .Abort(let s):	return	"Abort(\(s.debugDescription))"
+			case .Done(let s):	return	"Done(\(s.debugDescription))"
 			}
 		}
 	}
@@ -124,27 +135,60 @@ public extension HTTP.AtomicTransmission {
 		
 		////
 		
+		Debug.log("AtomicTransmission started.")
+		
 		let	addr1	=	NSURL(scheme: (parameters.security ? "https" : "http") as NSString, host: parameters.host as NSString, path: parameters.path as NSString)!
-		let	reqe1	=	NSMutableURLRequest(URL: addr1, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 15)
+		let	reqe1	=	NSMutableURLRequest(URL: addr1, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: DEFAULT_TIMEOUT)
 		reqe1.HTTPMethod	=	parameters.method
 		for h1 in parameters.headers {
 			reqe1.addValue(h1.value, forHTTPHeaderField: h1.name)
 		}
 		reqe1.HTTPBody		=	parameters.body
 		
-		var	tran1	=	Transfer<Response>()
+		var	tran1	=	Transfer<Complete>()
 		let	task1	=	NSURLSession.sharedSession().dataTaskWithRequest(reqe1, completionHandler: { (data:NSData!, response:NSURLResponse!, error:NSError!) -> Void in
+			if let err2 = error {
+				Debug.log("AtomicTransmission error discovered.")
+				if err2.code == NSURLErrorCancelled {
+					Debug.log("AtomicTransmission error by cancel.")
+					tran1.signal(Complete.Cancel)
+					return
+				} else {
+					Debug.log("AtomicTransmission error is \(err2.localizedDescription.debugDescription).")
+					tran1.signal(Complete.Abort(err2.localizedDescription))
+					return
+				}
+			}
+			
 			let	r1	=	response as NSHTTPURLResponse
 			var	hs1	=	[] as [Header]
 			for h1 in r1.allHeaderFields {
 				hs1.append((name: h1.0 as String, value: h1.1 as String))
 			}
 			let	r2	=	Response(status: r1.statusCode, headers: hs1, body: data!)
-			tran1.signal(r2)
+			tran1.signal(Complete.Done(r2))
+			
+			Debug.log("AtomicTransmission finished successfully.")
 		})
 		
+		let watc1	=	cancellation.watch {
+			Debug.log("AtomicTransmission detected cancellation trigerring.")
+			task1.cancel()
+		}
+		
 		task1.resume()
-		return	Complete.Done(tran1.wait())
+		return	tran1.wait()
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+

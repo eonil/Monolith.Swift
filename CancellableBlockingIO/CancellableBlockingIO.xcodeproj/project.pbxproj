@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		453D726A1A1B714600A083E9 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D72691A1B714600A083E9 /* Debug.swift */; };
+		453D726B1A1B714600A083E9 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D72691A1B714600A083E9 /* Debug.swift */; };
+		453D726C1A1B714600A083E9 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D72691A1B714600A083E9 /* Debug.swift */; };
 		456BDEF41A0E89C00010A1BB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456BDEF31A0E89C00010A1BB /* main.swift */; };
 		456BDEF81A0E89CD0010A1BB /* Internals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452329E11A0E5823005D061F /* Internals.swift */; };
 		456BDEF91A0E89CD0010A1BB /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7F25D1A0C90B30008FEBD /* WeakBox.swift */; };
@@ -113,6 +116,7 @@
 		4538EDAF1A0C65DE00EA9D14 /* Cancellable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
 		4539234A1A0D59A4000C6B9A /* IdentityBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityBox.swift; sourceTree = "<group>"; };
 		4539234C1A0D78A0000C6B9A /* HTTP.ProgressiveDownloading2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.ProgressiveDownloading2.swift; sourceTree = "<group>"; };
+		453D72691A1B714600A083E9 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		453F2C3F1A0C0DB200C4A58F /* Atomics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atomics.swift; sourceTree = "<group>"; };
 		453F2C411A0C191200C4A58F /* HTTP.ProgressiveDownloading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.ProgressiveDownloading.swift; sourceTree = "<group>"; };
 		453F2C431A0C192700C4A58F /* HTTP.AtomicTransmission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.AtomicTransmission.swift; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				452329E11A0E5823005D061F /* Internals.swift */,
+				453D72691A1B714600A083E9 /* Debug.swift */,
 				45A7F25D1A0C90B30008FEBD /* WeakBox.swift */,
 				4539234A1A0D59A4000C6B9A /* IdentityBox.swift */,
 				455928241A0D4E4C00962961 /* PromiseFutureAndWatch.swift */,
@@ -631,6 +636,7 @@
 				456BDF041A0E89CD0010A1BB /* HTTP.AtomicTransmission.swift in Sources */,
 				456BDEFC1A0E89CD0010A1BB /* Trigger.swift in Sources */,
 				456BDF021A0E89CD0010A1BB /* HTTP.swift in Sources */,
+				453D726C1A1B714600A083E9 /* Debug.swift in Sources */,
 				456BDEFA1A0E89CD0010A1BB /* IdentityBox.swift in Sources */,
 				456BDF011A0E89CD0010A1BB /* Wait.swift in Sources */,
 			);
@@ -653,6 +659,7 @@
 				45F623931A0E890800DDAD02 /* Wait.swift in Sources */,
 				45F6238F1A0E890800DDAD02 /* Atomics.swift in Sources */,
 				45F623941A0E890800DDAD02 /* HTTP.swift in Sources */,
+				453D726A1A1B714600A083E9 /* Debug.swift in Sources */,
 				45F6238D1A0E890800DDAD02 /* PromiseFutureAndWatch.swift in Sources */,
 				45F623961A0E890800DDAD02 /* HTTP.AtomicTransmission.swift in Sources */,
 				45F6238E1A0E890800DDAD02 /* Trigger.swift in Sources */,
@@ -681,6 +688,7 @@
 				45F623851A0E890800DDAD02 /* Wait.swift in Sources */,
 				45F623811A0E890800DDAD02 /* Atomics.swift in Sources */,
 				45F623861A0E890800DDAD02 /* HTTP.swift in Sources */,
+				453D726B1A1B714600A083E9 /* Debug.swift in Sources */,
 				45F6237F1A0E890800DDAD02 /* PromiseFutureAndWatch.swift in Sources */,
 				45F623881A0E890800DDAD02 /* HTTP.AtomicTransmission.swift in Sources */,
 				45F623801A0E890800DDAD02 /* Trigger.swift in Sources */,
@@ -778,6 +786,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_NAME = "Eonil${PROJECT_NAME}";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

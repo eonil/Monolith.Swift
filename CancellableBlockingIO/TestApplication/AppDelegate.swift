@@ -10,7 +10,20 @@ import Cocoa
 import EonilCancellableBlockingIO
 
 
-
+class Tester {
+	let	cancellation	=	Trigger()
+	func run() {
+		let	q1	=	HTTP.AtomicTransmission.Request(security: false, method: "GET", host: "apple.com", port: 80, path: "/", headers: [], body: NSData())
+		
+		dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), { () -> Void in
+			let	a1	=	HTTP.transmit(q1, self.cancellation)
+			
+			dispatch_async(dispatch_get_main_queue(), { () -> Void in
+				debugPrintln(a1)
+			})
+		})
+	}
+}
 
 
 @NSApplicationMain
@@ -18,18 +31,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	@IBOutlet weak var window: NSWindow!
 
+	let	tester	=	Tester()
 
 	func applicationDidFinishLaunching(aNotification: NSNotification) {
-		let	q1	=	HTTP.AtomicTransmission.Request(security: false, method: "GET", host: "apple.com", port: 80, path: "/", headers: [], body: NSData())
-		let	t1	=	Trigger()
-		let	a1	=	HTTP.transmit(q1, t1)
-		println(a1)
+		tester.run()
 	}
-
-	func applicationWillTerminate(aNotification: NSNotification) {
-		// Insert code here to tear down your application
+	
+	@IBAction
+	func cancelIO(sender:AnyObject?) {
+		tester.cancellation.set()
 	}
-
 
 }
 
