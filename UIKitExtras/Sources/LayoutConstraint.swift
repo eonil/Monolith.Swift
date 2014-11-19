@@ -48,9 +48,6 @@ infix operator ~~ {
 public func .. (left:UIView, right:NSLayoutAttribute) -> LayoutArgument {
 	return	(left,right)
 }
-public func .. (left:UIViewController, right:NSLayoutAttribute) -> LayoutArgument {
-	return	(left.view,right)
-}
 
 public func ~~ (left:NSLayoutConstraint, right:UILayoutPriority) -> NSLayoutConstraint {
 	let	c1	=	NSLayoutConstraint(item: left.firstItem, attribute: left.firstAttribute, relatedBy: left.relation, toItem: left.secondItem, attribute: left.secondAttribute, multiplier: left.multiplier, constant: left.constant)
@@ -65,6 +62,10 @@ public func * (left:LayoutArgument, right:CGFloat) -> LayoutExpression {
 
 public func + (left:LayoutExpression, right:CGFloat) -> LayoutExpression {
 	return	LayoutExpression(argument: left.argument, multiplier: left.multiplier, constant: right)
+}
+
+public func - (left:LayoutExpression, right:CGFloat) -> LayoutExpression {
+	return	LayoutExpression(argument: left.argument, multiplier: left.multiplier, constant: -right)
 }
 
 
