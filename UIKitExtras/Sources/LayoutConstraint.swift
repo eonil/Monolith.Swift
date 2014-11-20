@@ -21,15 +21,17 @@ public struct LayoutExpression {
 
 public typealias	LayoutArgument	=	(view: UIView, attribute:NSLayoutAttribute)
 
-public let	width	=	NSLayoutAttribute.Width
-public let	height	=	NSLayoutAttribute.Height
-public let	centerX	=	NSLayoutAttribute.CenterX
-public let	centerY	=	NSLayoutAttribute.CenterY
+public let	width		=	NSLayoutAttribute.Width
+public let	height		=	NSLayoutAttribute.Height
+public let	centerX		=	NSLayoutAttribute.CenterX
+public let	centerY		=	NSLayoutAttribute.CenterY
 
-public let	left	=	NSLayoutAttribute.Left
-public let	right	=	NSLayoutAttribute.Right
-public let	top		=	NSLayoutAttribute.Top
-public let	bottom	=	NSLayoutAttribute.Bottom
+public let	left		=	NSLayoutAttribute.Left
+public let	right		=	NSLayoutAttribute.Right
+public let	top			=	NSLayoutAttribute.Top
+public let	bottom		=	NSLayoutAttribute.Bottom
+
+public let	baseline	=	NSLayoutAttribute.Baseline
 
 
 
