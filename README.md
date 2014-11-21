@@ -46,6 +46,19 @@ standard.
 
 
 
+
+`UIKitExtras` Features 
+----------------------
+
+-	Operator based auto-layout constraint builder.
+-	Many extensions to UIKit classes for convenience with Swift. 
+
+
+
+
+
+
+
 License
 -------
 MIT license.
