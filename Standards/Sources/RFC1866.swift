@@ -59,6 +59,16 @@ public struct RFC1866 {
 			
 			private struct Utility {
 				static func URLEncode(s1:String) -> String {
+					//	[Specification] says just
+					//
+					//	>	... non-alphanumeric characters are replaced by `%HH' ...
+					//	
+					//	This is vague, and I couldn't find proper definition. It is unclear
+					//	which are the *alpha-numeric*, and is it fine to escape them too.
+					//	So I just follows most safe conventions. Exclude Roman alphbet and 
+					//	number characters from the escpae.
+					
+					let	cs	=	NSCharacterSet(charactersInString: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890")
 					return	s1.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet())!		//	Must be succeeded always.
 				}
 				static func URLDecode(s1:String) -> String? {
