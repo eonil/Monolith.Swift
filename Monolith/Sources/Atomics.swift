@@ -38,7 +38,7 @@ public final class AtomicInt32Slot {
 
 
 ///	A wrapper for `OSAtomic` stuffs.
-public struct AtomicBoolSlot {
+public final class AtomicBoolSlot {
 	let	int32:AtomicInt32Slot
 	public init(_ value:Bool) {
 		int32	=	AtomicInt32Slot(value ? 1 : 0)
