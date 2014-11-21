@@ -11,4 +11,4 @@ import Foundation
 
 
 
-typealias	HTML	=	RFC1866
+public typealias	HTML	=	RFC1866
