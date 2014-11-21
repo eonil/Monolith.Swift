@@ -1,11 +1,12 @@
+////
+////  URL.swift
+////  Monolith
+////
+////  Created by Hoon H. on 10/21/14.
+////
+////
 //
-//  URL.swift
-//  Monolith
+//import Foundation
 //
-//  Created by Hoon H. on 10/21/14.
-//
-//
-
-import Foundation
-
-public typealias	URL	=	RFC1808
+////public typealias	URL	=	RFC1808
+//public typealias	URL	=	RFC3986

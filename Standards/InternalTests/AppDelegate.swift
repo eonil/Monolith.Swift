@@ -12,7 +12,7 @@ import Cocoa
 
 struct Tests {
 	static func runAll() {
-		RFC1808.Test.run()
+		RFC1866.Test.run()
 		RFC3339.Test.run()
 		RFC2616.Test.run()
 		RFC4627.Test.run()

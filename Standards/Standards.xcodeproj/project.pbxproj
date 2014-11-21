@@ -49,6 +49,15 @@
 		454234B31A16C2CA0006DB67 /* OBJCLevelFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 454234AD1A16C2CA0006DB67 /* OBJCLevelFeatures.m */; };
 		454234BB1A16C4AD0006DB67 /* Standards.h in Headers */ = {isa = PBXBuildFile; fileRef = 454234BA1A16C4A30006DB67 /* Standards.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		454234BC1A16C4AD0006DB67 /* Standards.h in Headers */ = {isa = PBXBuildFile; fileRef = 454234BA1A16C4A30006DB67 /* Standards.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45470F341A1F1855009283DB /* RFC3986.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45470F331A1F1855009283DB /* RFC3986.swift */; };
+		45470F351A1F1855009283DB /* RFC3986.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45470F331A1F1855009283DB /* RFC3986.swift */; };
+		45470F361A1F1855009283DB /* RFC3986.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45470F331A1F1855009283DB /* RFC3986.swift */; };
+		45470F3A1A1F1F0C009283DB /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45470F391A1F1F0C009283DB /* HTML.swift */; };
+		45470F3B1A1F1F0C009283DB /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45470F391A1F1F0C009283DB /* HTML.swift */; };
+		45470F3C1A1F1F0C009283DB /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45470F391A1F1F0C009283DB /* HTML.swift */; };
+		45470F3E1A1F1FC1009283DB /* RFC1866.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45470F3D1A1F1FC1009283DB /* RFC1866.swift */; };
+		45470F3F1A1F1FC1009283DB /* RFC1866.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45470F3D1A1F1FC1009283DB /* RFC1866.swift */; };
+		45470F401A1F1FC1009283DB /* RFC1866.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45470F3D1A1F1FC1009283DB /* RFC1866.swift */; };
 		457E2E2C1A18C131000CEC96 /* EonilText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454234981A16C2310006DB67 /* EonilText.framework */; };
 		457E2E2D1A18C131000CEC96 /* EonilText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 454234981A16C2310006DB67 /* EonilText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		459B09131A16C90D0068B462 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B09121A16C90D0068B462 /* AppDelegate.swift */; };
@@ -70,6 +79,7 @@
 		459B09391A16C9750068B462 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454234751A16C17C0006DB67 /* URL.swift */; };
 		459B093A1A16C9750068B462 /* xISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454234761A16C17C0006DB67 /* xISO8601.swift */; };
 		459B093B1A16C9750068B462 /* OBJCLevelFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 454234AD1A16C2CA0006DB67 /* OBJCLevelFeatures.m */; };
+		45DC31351A1F21D7006F87B9 /* RFC1866+RFC4627.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC31341A1F21D7006F87B9 /* RFC1866+RFC4627.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +175,9 @@
 		454234AC1A16C2CA0006DB67 /* OBJCLevelFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBJCLevelFeatures.h; sourceTree = "<group>"; };
 		454234AD1A16C2CA0006DB67 /* OBJCLevelFeatures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBJCLevelFeatures.m; sourceTree = "<group>"; };
 		454234BA1A16C4A30006DB67 /* Standards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Standards.h; sourceTree = "<group>"; };
+		45470F331A1F1855009283DB /* RFC3986.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC3986.swift; sourceTree = "<group>"; };
+		45470F391A1F1F0C009283DB /* HTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTML.swift; sourceTree = "<group>"; };
+		45470F3D1A1F1FC1009283DB /* RFC1866.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC1866.swift; sourceTree = "<group>"; };
 		459B090E1A16C90D0068B462 /* InternalTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternalTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		459B09111A16C90D0068B462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		459B09121A16C90D0068B462 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +185,7 @@
 		459B09171A16C90D0068B462 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		459B093C1A16C9970068B462 /* NOTE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = NOTE.md; sourceTree = "<group>"; };
 		459B09701A16CAF00068B462 /* InternalTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "InternalTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		45DC31341A1F21D7006F87B9 /* RFC1866+RFC4627.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RFC1866+RFC4627.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,19 +367,23 @@
 			children = (
 				454234A41A16C2A20006DB67 /* Error.swift */,
 				454234A71A16C2B70006DB67 /* Operators.swift */,
-				454234751A16C17C0006DB67 /* URL.swift */,
+				454234741A16C17C0006DB67 /* Standard.swift */,
 				4542346C1A16C17C0006DB67 /* RFC1808.swift */,
 				4542346D1A16C17C0006DB67 /* RFC1808+RFC4627.swift */,
+				45470F391A1F1F0C009283DB /* HTML.swift */,
+				45470F3D1A1F1FC1009283DB /* RFC1866.swift */,
+				45DC31341A1F21D7006F87B9 /* RFC1866+RFC4627.swift */,
 				4542346A1A16C17C0006DB67 /* HTTP.swift */,
 				4542346E1A16C17C0006DB67 /* RFC2616.swift */,
 				4542346F1A16C17C0006DB67 /* RFC3339.swift */,
+				454234751A16C17C0006DB67 /* URL.swift */,
+				45470F331A1F1855009283DB /* RFC3986.swift */,
 				4542346B1A16C17C0006DB67 /* JSON.swift */,
 				454234701A16C17C0006DB67 /* RFC4627.Extensions.swift */,
 				454234711A16C17C0006DB67 /* RFC4627.Operators.swift */,
 				454234721A16C17C0006DB67 /* RFC4627.swift */,
 				454234731A16C17C0006DB67 /* RFC4627.Unused.swift */,
 				454234761A16C17C0006DB67 /* xISO8601.swift */,
-				454234741A16C17C0006DB67 /* Standard.swift */,
 				454234AA1A16C2CA0006DB67 /* Bridging */,
 			);
 			path = Sources;
@@ -655,6 +673,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45470F3A1A1F1F0C009283DB /* HTML.swift in Sources */,
 				4542348F1A16C17C0006DB67 /* xISO8601.swift in Sources */,
 				454234771A16C17C0006DB67 /* HTTP.swift in Sources */,
 				454234871A16C17C0006DB67 /* RFC4627.swift in Sources */,
@@ -664,11 +683,14 @@
 				4542347F1A16C17C0006DB67 /* RFC2616.swift in Sources */,
 				454234891A16C17C0006DB67 /* RFC4627.Unused.swift in Sources */,
 				4542347D1A16C17C0006DB67 /* RFC1808+RFC4627.swift in Sources */,
+				45470F341A1F1855009283DB /* RFC3986.swift in Sources */,
 				454234851A16C17C0006DB67 /* RFC4627.Operators.swift in Sources */,
+				45470F3E1A1F1FC1009283DB /* RFC1866.swift in Sources */,
 				4542348B1A16C17C0006DB67 /* Standard.swift in Sources */,
 				454234791A16C17C0006DB67 /* JSON.swift in Sources */,
 				454234A81A16C2B70006DB67 /* Operators.swift in Sources */,
 				4542347B1A16C17C0006DB67 /* RFC1808.swift in Sources */,
+				45DC31351A1F21D7006F87B9 /* RFC1866+RFC4627.swift in Sources */,
 				454234A51A16C2A20006DB67 /* Error.swift in Sources */,
 				4542348D1A16C17C0006DB67 /* URL.swift in Sources */,
 			);
@@ -686,6 +708,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45470F3B1A1F1F0C009283DB /* HTML.swift in Sources */,
 				454234901A16C17C0006DB67 /* xISO8601.swift in Sources */,
 				454234781A16C17C0006DB67 /* HTTP.swift in Sources */,
 				454234881A16C17C0006DB67 /* RFC4627.swift in Sources */,
@@ -695,7 +718,9 @@
 				454234801A16C17C0006DB67 /* RFC2616.swift in Sources */,
 				4542348A1A16C17C0006DB67 /* RFC4627.Unused.swift in Sources */,
 				4542347E1A16C17C0006DB67 /* RFC1808+RFC4627.swift in Sources */,
+				45470F351A1F1855009283DB /* RFC3986.swift in Sources */,
 				454234861A16C17C0006DB67 /* RFC4627.Operators.swift in Sources */,
+				45470F3F1A1F1FC1009283DB /* RFC1866.swift in Sources */,
 				4542348C1A16C17C0006DB67 /* Standard.swift in Sources */,
 				4542347A1A16C17C0006DB67 /* JSON.swift in Sources */,
 				454234A91A16C2B70006DB67 /* Operators.swift in Sources */,
@@ -720,6 +745,7 @@
 				459B09381A16C9750068B462 /* Standard.swift in Sources */,
 				459B092C1A16C9750068B462 /* Error.swift in Sources */,
 				459B09351A16C9750068B462 /* RFC4627.Operators.swift in Sources */,
+				45470F361A1F1855009283DB /* RFC3986.swift in Sources */,
 				459B092F1A16C9750068B462 /* JSON.swift in Sources */,
 				459B09321A16C9750068B462 /* RFC2616.swift in Sources */,
 				459B09391A16C9750068B462 /* URL.swift in Sources */,
@@ -728,10 +754,12 @@
 				459B09341A16C9750068B462 /* RFC4627.Extensions.swift in Sources */,
 				459B092E1A16C9750068B462 /* HTTP.swift in Sources */,
 				459B09131A16C90D0068B462 /* AppDelegate.swift in Sources */,
+				45470F401A1F1FC1009283DB /* RFC1866.swift in Sources */,
 				459B093A1A16C9750068B462 /* xISO8601.swift in Sources */,
 				459B092D1A16C9750068B462 /* Operators.swift in Sources */,
 				459B09361A16C9750068B462 /* RFC4627.swift in Sources */,
 				459B09311A16C9750068B462 /* RFC1808+RFC4627.swift in Sources */,
+				45470F3C1A1F1F0C009283DB /* HTML.swift in Sources */,
 				459B093B1A16C9750068B462 /* OBJCLevelFeatures.m in Sources */,
 				459B09371A16C9750068B462 /* RFC4627.Unused.swift in Sources */,
 			);
