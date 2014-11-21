@@ -66,9 +66,13 @@ public struct RFC1866 {
 					//	This is vague, and I couldn't find proper definition. It is unclear
 					//	which are the *alpha-numeric*, and is it fine to escape them too.
 					//	So I just follows most safe conventions. Exclude Roman alphbet and 
-					//	number characters from the escpae.
+					//	number characters from the escape.
+					//
+					//	Added more characters according to this document.
+					//	http://stackoverflow.com/questions/3208555/does-httputility-urlencode-match-the-spec-for-x-www-form-urlencoded
+					//	But I am still not sure which characters are strictly allowed.
 					
-					let	cs	=	NSCharacterSet(charactersInString: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890")
+					let	cs	=	NSCharacterSet(charactersInString: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890" + "()*-._!")
 					return	s1.stringByAddingPercentEncodingWithAllowedCharacters(cs)!		//	Must be succeeded always.
 				}
 				static func URLDecode(s1:String) -> String? {
