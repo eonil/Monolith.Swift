@@ -69,7 +69,7 @@ public struct RFC1866 {
 					//	number characters from the escpae.
 					
 					let	cs	=	NSCharacterSet(charactersInString: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890")
-					return	s1.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet())!		//	Must be succeeded always.
+					return	s1.stringByAddingPercentEncodingWithAllowedCharacters(cs)!		//	Must be succeeded always.
 				}
 				static func URLDecode(s1:String) -> String? {
 					return	s1.stringByRemovingPercentEncoding
