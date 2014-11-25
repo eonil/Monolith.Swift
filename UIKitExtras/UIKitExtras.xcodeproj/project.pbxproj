@@ -186,7 +186,7 @@
 		4537FC101A1C94C300ABFB64 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				TargetAttributes = {
 					4537FC1A1A1C950900ABFB64 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -263,6 +263,7 @@
 		4537FC141A1C94C300ABFB64 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "Eonil${PROJECT_NAME}";
 			};
 			name = Debug;

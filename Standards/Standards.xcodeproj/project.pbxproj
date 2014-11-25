@@ -537,7 +537,7 @@
 		454234071A16C0E30006DB67 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				TargetAttributes = {
 					454234301A16C1170006DB67 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -768,6 +768,7 @@
 		4542340B1A16C0E30006DB67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "${PROJECT_NAME}";
 			};
 			name = Debug;
@@ -824,7 +825,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Standards;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1016,7 +1016,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Standards;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
