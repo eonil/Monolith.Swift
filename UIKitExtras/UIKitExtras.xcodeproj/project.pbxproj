@@ -16,6 +16,11 @@
 		45FDB2691A25EFED00227AB3 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDB2681A25EFED00227AB3 /* LayoutConstraint.swift */; };
 		45FDB26C1A25F12500227AB3 /* InternalOnlyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDB26B1A25F12500227AB3 /* InternalOnlyExtensions.swift */; };
 		45FDB26E1A25F17E00227AB3 /* Preconditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDB26D1A25F17E00227AB3 /* Preconditions.swift */; };
+		45FDB2751A25F1F400227AB3 /* StaticTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDB2701A25F1F400227AB3 /* StaticTableViewCells.swift */; };
+		45FDB2761A25F1F400227AB3 /* StaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDB2711A25F1F400227AB3 /* StaticTableViewController.swift */; };
+		45FDB2771A25F1F400227AB3 /* Subcomponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDB2731A25F1F400227AB3 /* Subcomponent.swift */; };
+		45FDB2781A25F1F400227AB3 /* SubcomponentHostingStaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDB2741A25F1F400227AB3 /* SubcomponentHostingStaticTableViewController.swift */; };
+		45FDB27A1A25F21E00227AB3 /* InternalOnlyOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDB2791A25F21E00227AB3 /* InternalOnlyOperators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +47,11 @@
 		45FDB2681A25EFED00227AB3 /* LayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraint.swift; sourceTree = "<group>"; };
 		45FDB26B1A25F12500227AB3 /* InternalOnlyExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalOnlyExtensions.swift; sourceTree = "<group>"; };
 		45FDB26D1A25F17E00227AB3 /* Preconditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preconditions.swift; sourceTree = "<group>"; };
+		45FDB2701A25F1F400227AB3 /* StaticTableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableViewCells.swift; sourceTree = "<group>"; };
+		45FDB2711A25F1F400227AB3 /* StaticTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableViewController.swift; sourceTree = "<group>"; };
+		45FDB2731A25F1F400227AB3 /* Subcomponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subcomponent.swift; sourceTree = "<group>"; };
+		45FDB2741A25F1F400227AB3 /* SubcomponentHostingStaticTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubcomponentHostingStaticTableViewController.swift; sourceTree = "<group>"; };
+		45FDB2791A25F21E00227AB3 /* InternalOnlyOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalOnlyOperators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +133,8 @@
 			children = (
 				45FDB26A1A25F11800227AB3 /* InternalOnly */,
 				45FDB2631A25EFD600227AB3 /* Autolayout */,
+				45FDB26F1A25F1F400227AB3 /* StaticTable */,
+				45FDB2721A25F1F400227AB3 /* Subcomponent */,
 				4537FC3A1A1C957100ABFB64 /* Extensions.swift */,
 				45FDB26D1A25F17E00227AB3 /* Preconditions.swift */,
 			);
@@ -150,8 +162,27 @@
 			isa = PBXGroup;
 			children = (
 				45FDB26B1A25F12500227AB3 /* InternalOnlyExtensions.swift */,
+				45FDB2791A25F21E00227AB3 /* InternalOnlyOperators.swift */,
 			);
 			path = InternalOnly;
+			sourceTree = "<group>";
+		};
+		45FDB26F1A25F1F400227AB3 /* StaticTable */ = {
+			isa = PBXGroup;
+			children = (
+				45FDB2701A25F1F400227AB3 /* StaticTableViewCells.swift */,
+				45FDB2711A25F1F400227AB3 /* StaticTableViewController.swift */,
+			);
+			path = StaticTable;
+			sourceTree = "<group>";
+		};
+		45FDB2721A25F1F400227AB3 /* Subcomponent */ = {
+			isa = PBXGroup;
+			children = (
+				45FDB2731A25F1F400227AB3 /* Subcomponent.swift */,
+				45FDB2741A25F1F400227AB3 /* SubcomponentHostingStaticTableViewController.swift */,
+			);
+			path = Subcomponent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +296,12 @@
 				4537FC3C1A1C957100ABFB64 /* Extensions.swift in Sources */,
 				45FDB2661A25EFD600227AB3 /* Anchors.swift in Sources */,
 				45FDB26C1A25F12500227AB3 /* InternalOnlyExtensions.swift in Sources */,
+				45FDB2771A25F1F400227AB3 /* Subcomponent.swift in Sources */,
+				45FDB2781A25F1F400227AB3 /* SubcomponentHostingStaticTableViewController.swift in Sources */,
+				45FDB2751A25F1F400227AB3 /* StaticTableViewCells.swift in Sources */,
+				45FDB2761A25F1F400227AB3 /* StaticTableViewController.swift in Sources */,
 				45FDB2671A25EFD600227AB3 /* Strip.swift in Sources */,
+				45FDB27A1A25F21E00227AB3 /* InternalOnlyOperators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
