@@ -7,9 +7,14 @@
 //
 
 import Foundation
+
+#if os(iOS)
 import UIKit
+#endif
 
-
+#if os(OSX)
+import AppKit
+#endif
 
 
 
@@ -23,6 +28,11 @@ public struct LayoutStrip {
 	#if	os(iOS)
 	public typealias	Priority	=	UILayoutPriority
 	public typealias	View		=	UIView
+	#endif
+	
+	#if	os(OSX)
+	public typealias	Priority	=	NSLayoutPriority
+	public typealias	View		=	NSView
 	#endif
 	
 	
@@ -42,7 +52,7 @@ public struct LayoutStrip {
 	
 	public init(_ views:[LayoutStrip.View]) {
 		for v in views {
-			precondition(v.translatesAutoresizingMaskIntoConstraints() == false)
+			preconditionNoAutoresizingMasking(v)
 		}
 		
 		self.views	=	views
@@ -267,7 +277,7 @@ private extension LayoutStrip {
 
 
 private func resolveAlignmentCS(vs:[LayoutStrip.View], toAnchor:Anchor, withDisplacement:CGFloat, priority:LayoutStrip.Priority) -> [C] {
-	func proc1(v:UIView) -> [C] {
+	func proc1(v:LayoutStrip.View) -> [C] {
 		let	a1	=	toAnchor.forView(v)
 		let	x1	=	a1 == toAnchor + CGSize(width: withDisplacement, height: withDisplacement)
 		let	cs1	=	x1.constraints

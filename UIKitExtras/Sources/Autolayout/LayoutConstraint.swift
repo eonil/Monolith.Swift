@@ -7,7 +7,19 @@
 //
 
 import Foundation
-import UIKit
+
+#if os(iOS)
+	import UIKit
+#endif
+
+#if os(OSX)
+	import AppKit
+#endif
+
+
+
+
+
 
 
 
@@ -20,7 +32,7 @@ public struct LayoutExpression {
 }
 
 @availability(*,deprecated=0.0,message="Single constraint expression deprecated. Please migrate to anchor based one. See `Anchor` for details.")
-public typealias	LayoutArgument	=	(view: UIView, attribute:NSLayoutAttribute)
+public typealias	LayoutArgument	=	(view: Anchor.View, attribute:NSLayoutAttribute)
 
 @availability(*,deprecated=0.0,message="Single constraint expression deprecated. Please migrate to anchor based one. See `Anchor` for details.") public let	width		=	NSLayoutAttribute.Width
 @availability(*,deprecated=0.0,message="Single constraint expression deprecated. Please migrate to anchor based one. See `Anchor` for details.") public let	height		=	NSLayoutAttribute.Height
@@ -49,12 +61,12 @@ infix operator ~~ {
 
 
 @availability(*,deprecated=0.0,message="Single constraint expression deprecated. Please migrate to anchor based one. See `Anchor` for details.")
-public func .. (left:UIView, right:NSLayoutAttribute) -> LayoutArgument {
+public func .. (left:Anchor.View, right:NSLayoutAttribute) -> LayoutArgument {
 	return	(left,right)
 }
 
 @availability(*,deprecated=0.0,message="Single constraint expression deprecated. Please migrate to anchor based one. See `Anchor` for details.")
-public func ~~ (left:NSLayoutConstraint, right:UILayoutPriority) -> NSLayoutConstraint {
+public func ~~ (left:NSLayoutConstraint, right:Anchor.Priority) -> NSLayoutConstraint {
 	let	c1	=	NSLayoutConstraint(item: left.firstItem, attribute: left.firstAttribute, relatedBy: left.relation, toItem: left.secondItem, attribute: left.secondAttribute, multiplier: left.multiplier, constant: left.constant)
 	c1.priority	=	right
 	return	c1
@@ -113,8 +125,8 @@ public func <= (left:LayoutArgument, right:CGFloat) -> NSLayoutConstraint {
 
 
 @availability(*,deprecated=0.0,message="Single constraint expression deprecated. Please migrate to anchor based one. See `Anchor` for details.")
-private func assertForCorrectAutoresigingTranslationState(v:UIView) {
-	assert(v.translatesAutoresizingMaskIntoConstraints() == false, "The feature `translatesAutoresizingMaskIntoConstraints` never works with auto-layout. Please turn it off.")
+private func assertForCorrectAutoresigingTranslationState(v:Anchor.View) {
+	preconditionNoAutoresizingMasking(v)
 }
 
 

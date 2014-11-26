@@ -7,12 +7,33 @@
 //
 
 import Foundation
+
+#if os(iOS)
 import UIKit
+#endif
+
+#if os(OSX)
+import AppKit
+#endif
+
+
 
 
 
 public struct Anchor {
-	private var	view:UIView
+	
+	#if	os(iOS)
+	public typealias	Priority	=	UILayoutPriority
+	public typealias	View		=	UIView
+	#endif
+	
+	#if	os(OSX)
+	public typealias	Priority	=	NSLayoutPriority
+	public typealias	View		=	NSView
+	#endif
+
+
+	private var	view:View
 	private var	x:NSLayoutAttribute
 	private var	y:NSLayoutAttribute
 	
@@ -27,7 +48,7 @@ public struct Anchor {
 	///	Returns an anchor object if for same location of the view.
 	///	For example, if this anchor was obtained from `leftTop`, 
 	///	this returns `leftTop` of the supplied view.
-	func forView(v:UIView) -> Anchor {
+	func forView(v:View) -> Anchor {
 		var	a1	=	self
 		a1.view	=	v
 		return	a1
@@ -46,12 +67,12 @@ private	let	FITTING		=	50		as Float
 
 
 
-public extension UIView {
+public extension Anchor.View {
 	public func addConstraintsWithLayoutAnchoring(a:[AnchoringEqualityExpression]) {
 		addConstraintsWithLayoutAnchoring(a, priority: REQUIRED)
 	}
 	///	Returns array of `NSLayoutConstraint` which are added to the view.
-	public func addConstraintsWithLayoutAnchoring(a:[AnchoringEqualityExpression], priority:UILayoutPriority) -> [NSLayoutConstraint] {
+	public func addConstraintsWithLayoutAnchoring(a:[AnchoringEqualityExpression], priority:Anchor.Priority) -> [NSLayoutConstraint] {
 		let	a1	=	a.map({$0.constraints})
 		let	a2	=	a1.reduce([] as [NSLayoutConstraint], combine: { u, n in return u + n })
 		a2.map({$0.priority = priority})
@@ -66,7 +87,7 @@ public extension UIView {
 
 
 ///	1D anchors.
-public extension UIView {
+public extension Anchor.View {
 	public var	centerXAnchor:Anchor {
 		get {
 			return	Anchor(view: self, x: NSLayoutAttribute.CenterX, y: NA)
@@ -109,7 +130,7 @@ public extension UIView {
 
 
 ///	2D anchors.
-public extension UIView {
+public extension Anchor.View {
 	public var	centerAnchor:Anchor {
 		get {
 			return	Anchor(view: self, x: NSLayoutAttribute.CenterX, y: NSLayoutAttribute.CenterY)
