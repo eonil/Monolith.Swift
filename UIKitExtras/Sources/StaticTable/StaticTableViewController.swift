@@ -184,7 +184,15 @@ public class StaticTable {
 			return	_sections
 		}
 		set(v) {
+			for s in _sections {
+				assert(s.table === self, "Old sections must still be bound to this table.")
+				s.table	=	nil
+			}
 			_sections	=	v
+			for s in _sections {
+				assert(s.table === self, "New sections must not be bound to any section.")
+				s.table	=	nil
+			}
 			reloadSelf()
 		}
 	}
@@ -284,7 +292,15 @@ public class StaticTableSection {
 		reloadSelfInTable(animation: animation)
 	}
 	public func setRows(rows:[Row], animation:UITableViewRowAnimation) {
+		for r in _rows {
+			assert(r.section === self, "Old rows must still be bound to this section.")
+			r.section	=	nil
+		}
 		_rows	=	rows
+		for r in _rows {
+			assert(r.section === nil, "New rows must not be bound to any section.")
+			r.section	=	self
+		}
 		reloadSelfInTable(animation: animation)
 	}
 	public func insertRow(r:Row, atIndex:Int, animation:UITableViewRowAnimation) {
@@ -480,6 +496,9 @@ public extension StaticTableSection {
 	}
 	public func deleteLastRow() {
 		deleteRowAtIndex(rows.count-1)
+	}
+	public func deleteAllRows() {
+		deleteAllRowsWithAnimation(UITableViewRowAnimation.None)
 	}
 }
 public extension StaticTableRow {
