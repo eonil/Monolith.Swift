@@ -14,13 +14,19 @@ import EonilText
 ///	Simpler and stricter date-time format specification which can be used as a timestamp.
 ///	https://www.ietf.org/rfc/rfc3339.txt
 ///
-///	RFC3339 is explicit *timestamp* format. It is very simple and strict, and unambiguous.
+///	RFC3339 is an explicit *timestamp* format. It is very simple and strict, and unambiguous.
 ///	You're specifying a *time-point* rather than a *time-span*. Then you cannot omit any
 ///	component of a timestamp which makes it ambiguous. If you want to repsent a time-span
 ///	use your own Timespan type which is consist of two timestamps. The timespan type is not 
 ///	a part of RFC3339, so it is not here.
+///
+///	This type is a canonical syntactic tree of a RFC3339 expression. *Canonical* means you cannot
+///	distinguish different form of same semantic values. For example, `+00:00`, `-00:00` and `Z` 
+///	time-zones will all be treated as UTC time-zone. You cannot differentiate them with this type.
+///	Basically, you need to convert this into another time type to get semantics.
+///	Anyway this provides some semantic operations such as `Equatable`. That is based on
 public struct RFC3339 {
-	public struct Timestamp {
+	public struct Expression {
 		public var	date:Date
 		public var	time:Time
 		
@@ -28,13 +34,13 @@ public struct RFC3339 {
 			self.date	=	date
 			self.time	=	time
 		}
-		public init?(date:Date?, time:Time?) {
-			if date == nil { return nil }
-			if time == nil { return nil }
-			
-			self.date	=	date!
-			self.time	=	time!
-		}
+//		public init?(date:Date?, time:Time?) {
+//			if date == nil { return nil }
+//			if time == nil { return nil }
+//			
+//			self.date	=	date!
+//			self.time	=	time!
+//		}
 		
 		public struct Date {
 			public var	year:Int
@@ -46,43 +52,44 @@ public struct RFC3339 {
 				self.month	=	month
 				self.day	=	day
 			}
-			public init?(year:Int?, month:Int?, day:Int?) {
-				if year == nil { return nil }
-				if month == nil { return nil }
-				if day == nil { return nil }
-				
-				self.year	=	year!
-				self.month	=	month!
-				self.day	=	day!
-			}
+//			public init?(year:Int?, month:Int?, day:Int?) {
+//				if year == nil { return nil }
+//				if month == nil { return nil }
+//				if day == nil { return nil }
+//				
+//				self.year	=	year!
+//				self.month	=	month!
+//				self.day	=	day!
+//			}
 		}
 		public struct Time {
 			public var	hour:Int
 			public var	minute:Int
 			public var	second:Int
-			public var	subsecond:Int
+			public var	fraction:Int	///<	Take care that this is parsed fractional part integer as is was in the original expression. You need to divide this by its digits to get actual value. For example, if this is `1234`, the actual value is `1234/10000`. This is defined as like this to be consistent with other parts.
 			public var	zone:Zone
 			
-			public init(hour:Int, minute:Int, second:Int, subsecond:Int, zone:Zone = Zone.UTC) {
+			public init(hour:Int, minute:Int, second:Int, fraction:Int, zone:Zone = Zone.UTC) {
 				self.hour		=	hour
 				self.minute		=	minute
 				self.second		=	second
-				self.subsecond	=	subsecond
+				self.fraction	=	fraction
 				self.zone		=	zone
 			}
-			public init?(hour:Int?, minute:Int?, second:Int?, subsecond:Int?, zone:Zone? = Zone.UTC) {
-				if hour == nil { return nil }
-				if minute == nil { return nil }
-				if second == nil { return nil }
-				if subsecond == nil { return nil }
-				if zone == nil { return nil }
-				
-				self.hour		=	hour!
-				self.minute		=	minute!
-				self.second		=	second!
-				self.subsecond	=	subsecond!
-				self.zone		=	zone!
-			}
+//			public init?(hour:Int?, minute:Int?, second:Int?, fraction:Int?, zone:Zone? = Zone.UTC) {
+//				if hour == nil { return nil }
+//				if minute == nil { return nil }
+//				if second == nil { return nil }
+//				if fraction == nil { return nil }
+//				if zone == nil { return nil }
+//				
+//				self.hour		=	hour!
+//				self.minute		=	minute!
+//				self.second		=	second!
+//				self.fraction	=	fraction!
+//				self.zone		=	zone!
+//			}
+			
 //				///	Returns UTC based timestamp.
 //				///	This needs involving of fully established calendar stuff,
 //				///	so it's very expensive.
@@ -90,38 +97,57 @@ public struct RFC3339 {
 //					return	Time(hour: hour + zone.hours, minute: minute + zone.minutes, second: second, subsecond: subsecond, zone: Zone.UTC)
 //				}
 			
+			
+			///	`Z` is canonical with `+00:00` or `-00:00`.
 			public struct Zone {
+				public var	sign:Sign
 				public var	hours:Int
 				public var	minutes:Int
 				
-				public init?(hours:Int?, minutes:Int?) {
-					if hours == nil { return nil }
-					if minutes == nil { return nil }
+				public init(sign:Sign, hours:Int, minutes:Int) {
+					assert(hours <= 24)
+					assert(hours >= -24)
+					assert(minutes <= 60)
+					assert(minutes >= -60)
+					assert((hours > 0 || minutes > 0) || sign == Sign.Zero)
 					
-					self.hours		=	hours!
-					self.minutes	=	minutes!
+					self.sign		=	sign
+					self.hours		=	hours
+					self.minutes	=	minutes
 				}
+//				public init?(hours:Int?, minutes:Int?) {
+//					if hours == nil { return nil }
+//					if minutes == nil { return nil }
+//					
+//					self.hours		=	hours!
+//					self.minutes	=	minutes!
+//				}
 				
-				public static let	UTC	=	Zone(hours: 0, minutes: 0)!		///<	I don't know why compiler selects optional-typed version...
+				public static let	UTC	=	Zone(sign:Sign.Zero, hours: 0, minutes: 0)		///<	I don't know why compiler selects optional-typed version...
+				
+				public enum Sign {
+					case Zero	//	Which means `Z` sign.
+					case Plus
+					case Minus
+				}
 			}
 		}
 		
-		static let	zero	=	Timestamp(date: Timestamp.Date(year: 0, month: 0, day: 0), time: Timestamp.Time(hour: 0, minute: 0, second: 0, subsecond: 0, zone: Timestamp.Time.Zone(hours: 0, minutes: 0)))!
+		static let	zero	=	Expression(date: Expression.Date(year: 0, month: 0, day: 0), time: Expression.Time(hour: 0, minute: 0, second: 0, fraction: 0, zone: Expression.Time.Zone(sign: Expression.Time.Zone.Sign.Zero, hours: 0, minutes: 0)))
 	}
 	
 	
-	public static func scan(expression:String) -> Timestamp? {
+	public static func scan(expression:String) -> Expression? {
 		var	p1	=	Parser(expression: expression)
 		p1.scan()
 		let	ok	=	p1.scanner.stepping?.location.available == false	///	Expression must be fully consumed.
 		return	ok && p1.ok ? p1.timestamp : nil
 	}
+	public static func print(value:RFC3339.Expression) -> String {
+		return	value.description
+	}
 	
 }
-
-
-
-
 
 
 
@@ -142,12 +168,12 @@ private extension RFC3339 {
 	///	(e.g. `String`, `Array<T>`, ...)
 	struct Parser {
 		var	scanner:Scanner
-		var	timestamp:Timestamp
+		var	timestamp:Expression
 		var	ok:Bool
 		
 		init(expression:String) {
 			self.scanner	=	Scanner(expression: expression)
-			self.timestamp	=	Timestamp.zero
+			self.timestamp	=	Expression.zero
 			self.ok			=	true
 		}
 		
@@ -185,22 +211,22 @@ private extension RFC3339 {
 			if let g4 = g3 {
 				if g4 == "." {
 					scanner.skipGlyph()
-					set(&timestamp.time.subsecond, byScanningCharacters: 1..<Int.max)
+					set(&timestamp.time.fraction, byScanningCharacters: 1..<Int.max)
 				}
 				
 				let	g5	=	scanner.scanGlyph()
 				if let g6 = g5 {
 					switch g6 {
 					case "Z", "z":
-						timestamp.time.zone			=	Timestamp.Time.Zone.UTC
+						timestamp.time.zone			=	Expression.Time.Zone.UTC
 						return
 					case "+":
+						timestamp.time.zone.sign	=	Expression.Time.Zone.Sign.Plus
 						scanTimeZone()
 						return
 					case "-":
+						timestamp.time.zone.sign	=	Expression.Time.Zone.Sign.Minus
 						scanTimeZone()
-						timestamp.time.zone.hours	=	-timestamp.time.zone.hours
-						timestamp.time.zone.minutes	=	-timestamp.time.zone.minutes
 						return
 					default:
 						break
@@ -372,26 +398,26 @@ private extension RFC3339 {
 
 
 
-//func == (l:RFC3339.Timestamp, r:RFC3339.Timestamp) -> Bool {
+//func == (l:RFC3339.Expression, r:RFC3339.Expression) -> Bool {
 //}
-//func == (l:RFC3339.Timestamp.Date, r:RFC3339.Timestamp.Date) -> Bool {
+//func == (l:RFC3339.Expression.Date, r:RFC3339.Expression.Date) -> Bool {
 //}
-//func == (l:RFC3339.Timestamp.Time, r:RFC3339.Timestamp.Time) -> Bool {
+//func == (l:RFC3339.Expression.Time, r:RFC3339.Expression.Time) -> Bool {
 //}
-//func == (l:RFC3339.Timestamp.Time.Zone, r:RFC3339.Timestamp.Time.Zone) -> Bool {
+//func == (l:RFC3339.Expression.Time.Zone, r:RFC3339.Expression.Time.Zone) -> Bool {
 //}
-//func < (l:RFC3339.Timestamp, r:RFC3339.Timestamp) -> Bool {
+//func < (l:RFC3339.Expression, r:RFC3339.Expression) -> Bool {
 //	return	l.date < r.date && l.time < r.time
 //}
-//func < (l:RFC3339.Timestamp.Date, r:RFC3339.Timestamp.Date) -> Bool {
+//func < (l:RFC3339.Expression.Date, r:RFC3339.Expression.Date) -> Bool {
 //	return	l.year < r.year && l.month < r.month && l.day < r.day
 //}
 /////	Only timestamps in same time-zone are supported.
-//func < (l:RFC3339.Timestamp.Time, r:RFC3339.Timestamp.Time) -> Bool {
+//func < (l:RFC3339.Expression.Time, r:RFC3339.Expression.Time) -> Bool {
 //	precondition(l.zone == r.zone)
 //	return	l.hour < r.hour && l.minute < r.minute && l.second < r.second && l.subsecond < r.subsecond && l.zone < r.zone
 //}
-//func < (l:RFC3339.Timestamp.Time.Zone, r:RFC3339.Timestamp.Time.Zone) -> Bool {
+//func < (l:RFC3339.Expression.Time.Zone, r:RFC3339.Expression.Time.Zone) -> Bool {
 //	return	l.hours < r.hours && l.minutes < r.minutes
 //}
 
@@ -465,7 +491,8 @@ extension RFC3339 {
 					assert(ts1!.time.hour == 44)
 					assert(ts1!.time.minute == 55)
 					assert(ts1!.time.second == 66)
-					assert(ts1!.time.subsecond == 0)
+					assert(ts1!.time.fraction == 0)
+					assert(ts1!.time.zone.sign == Expression.Time.Zone.Sign.Zero)
 					assert(ts1!.time.zone.hours == 0)
 					assert(ts1!.time.zone.minutes == 0)
 				}
@@ -479,7 +506,8 @@ extension RFC3339 {
 					assert(ts1!.time.hour == 44)
 					assert(ts1!.time.minute == 55)
 					assert(ts1!.time.second == 66)
-					assert(ts1!.time.subsecond == 7)
+					assert(ts1!.time.fraction == 7)
+					assert(ts1!.time.zone.sign == Expression.Time.Zone.Sign.Zero)
 					assert(ts1!.time.zone.hours == 0)
 					assert(ts1!.time.zone.minutes == 0)
 				}
@@ -493,7 +521,8 @@ extension RFC3339 {
 					assert(ts1!.time.hour == 44)
 					assert(ts1!.time.minute == 55)
 					assert(ts1!.time.second == 66)
-					assert(ts1!.time.subsecond == 7)
+					assert(ts1!.time.fraction == 7)
+					assert(ts1!.time.zone.sign == Expression.Time.Zone.Sign.Plus)
 					assert(ts1!.time.zone.hours == 88)
 					assert(ts1!.time.zone.minutes == 99)
 				}
@@ -507,9 +536,10 @@ extension RFC3339 {
 					assert(ts1!.time.hour == 44)
 					assert(ts1!.time.minute == 55)
 					assert(ts1!.time.second == 66)
-					assert(ts1!.time.subsecond == 7)
-					assert(ts1!.time.zone.hours == -88)
-					assert(ts1!.time.zone.minutes == -99)
+					assert(ts1!.time.fraction == 7)
+					assert(ts1!.time.zone.sign == Expression.Time.Zone.Sign.Minus)
+					assert(ts1!.time.zone.hours == 88)
+					assert(ts1!.time.zone.minutes == 99)
 				}
 
 			}
@@ -546,12 +576,14 @@ extension RFC3339 {
 					let	ts1	=	RFC3339.scan(s1)
 					assert(ts1 == nil)
 				}
-
 			}
 			
 			
 			happyCases()
 			evilCases()
+
+
+			testOperators()
 		}
 	}
 }
