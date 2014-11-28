@@ -93,17 +93,7 @@ public class StaticTableViewController: UITableViewController {
 		return	table.sections[section].footer?.heightAsCellInTableView(tableView) ||| 0
 	}
 	public override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//		let	v	=	UISegmentedControl()
-//		v.insertSegmentWithTitle("FWEFWF", atIndex: 0, animated: false)
-//		v.insertSegmentWithTitle("FWEFWF", atIndex: 0, animated: false)
-//		v.frame	=	CGRectMake(0, 0, 100, 100)
-//		v.backgroundColor	=	UIColor.redColor()
-//		return	v
-		let	v	=	table.sections[section].header
-//		v?.setNeedsUpdateConstraints()
-//		v?.setNeedsLayout()
-//		v?.layoutIfNeeded()
-		return	v
+		return	table.sections[section].header
 	}
 	public override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 		return	table.sections[section].footer
@@ -229,7 +219,6 @@ public class StaticTable {
 		s.table	=	self
 		
 		hostTableViewController?.tableView?.insertSections(NSIndexSet(intArray: [atIndex]), withRowAnimation: animation)
-		hostTableViewController?.tableView?.layoutIfNeeded()
 	}
 	public func replaceSectionAtIndex(index:Int, withSection:Section, animation:UITableViewRowAnimation) {
 		precondition(withSection.table == nil, "Supplied section must not be bound to a table.")
