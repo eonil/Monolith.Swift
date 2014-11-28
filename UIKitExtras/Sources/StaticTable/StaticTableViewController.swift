@@ -210,10 +210,7 @@ public class StaticTable {
 	}
 	public func insertSection(s:Section, atIndex:Int, animation:UITableViewRowAnimation) {
 		precondition(s.table == nil, "Supplied section must not be bound to a table.")
-		
-		println(_sections.count)
-		println(hostTableViewController?.tableView.numberOfSections())
-		assert(_sections.count == hostTableViewController?.tableView?.numberOfSections())
+		assert(hostTableViewController?.tableView? == nil || _sections.count == hostTableViewController?.tableView?.numberOfSections())
 		
 		_sections.insert(s, atIndex: atIndex)
 		s.table	=	self
