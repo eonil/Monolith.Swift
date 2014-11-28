@@ -93,7 +93,17 @@ public class StaticTableViewController: UITableViewController {
 		return	table.sections[section].footer?.heightAsCellInTableView(tableView) ||| 0
 	}
 	public override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		return	table.sections[section].header
+//		let	v	=	UISegmentedControl()
+//		v.insertSegmentWithTitle("FWEFWF", atIndex: 0, animated: false)
+//		v.insertSegmentWithTitle("FWEFWF", atIndex: 0, animated: false)
+//		v.frame	=	CGRectMake(0, 0, 100, 100)
+//		v.backgroundColor	=	UIColor.redColor()
+//		return	v
+		let	v	=	table.sections[section].header
+//		v?.setNeedsUpdateConstraints()
+//		v?.setNeedsLayout()
+//		v?.layoutIfNeeded()
+		return	v
 	}
 	public override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 		return	table.sections[section].footer
@@ -162,6 +172,7 @@ public class StaticTable {
 	///	You must set its frame manually BEFORE passing it into this property.
 	public var	header:UIView? {
 		didSet {
+			assertView____SHOULD____SupportTranslationOfAutoresizingLayout(header)
 //			if let v = header {
 //				v.frame		=	CGRect(origin: CGPointZero, size: v.systemLayoutSizeFittingSize(CGSizeZero))
 //			}
@@ -172,6 +183,7 @@ public class StaticTable {
 	///	You must set its frame manually BEFORE passing it into this property.
 	public var	footer:UIView? {
 		didSet {
+			assertView____SHOULD____SupportTranslationOfAutoresizingLayout(footer)
 //			if let v = header {
 //				v.frame		=	CGRect(origin: CGPointZero, size: v.systemLayoutSizeFittingSize(CGSizeZero))
 //			}
@@ -199,19 +211,25 @@ public class StaticTable {
 	
 	public func setSections(sections:[Section], animation:UITableViewRowAnimation) {
 		if let t = hostTableViewController?.tableView? {
-			t.beginUpdates()
+			_sections	=	[]
 			t.deleteSections(NSIndexSet(indexesInRange: NSRange(location: 0, length: sections.count)), withRowAnimation: animation)
+			
 			_sections	=	sections
 			t.insertSections(NSIndexSet(indexesInRange: NSRange(location: 0, length: sections.count)), withRowAnimation: animation)
-			t.endUpdates()
 		}
 	}
 	public func insertSection(s:Section, atIndex:Int, animation:UITableViewRowAnimation) {
 		precondition(s.table == nil, "Supplied section must not be bound to a table.")
 		
+		println(_sections.count)
+		println(hostTableViewController?.tableView.numberOfSections())
+		assert(_sections.count == hostTableViewController?.tableView?.numberOfSections())
+		
 		_sections.insert(s, atIndex: atIndex)
 		s.table	=	self
+		
 		hostTableViewController?.tableView?.insertSections(NSIndexSet(intArray: [atIndex]), withRowAnimation: animation)
+		hostTableViewController?.tableView?.layoutIfNeeded()
 	}
 	public func replaceSectionAtIndex(index:Int, withSection:Section, animation:UITableViewRowAnimation) {
 		precondition(withSection.table == nil, "Supplied section must not be bound to a table.")
@@ -246,7 +264,7 @@ public class StaticTable {
 	//	newrly set section header and footer. I believe this is something related to
 	//	autolayout, but not sure.
 	private func layoutTableViewIfNeeded() {
-		hostTableViewController?.tableView?.layoutIfNeeded()
+//		hostTableViewController?.tableView?.layoutIfNeeded()
 	}
 	
 	private weak var hostTableViewController:UITableViewController? {
@@ -263,25 +281,29 @@ public class StaticTableSection {
 	public typealias	Row			=	StaticTableRow
 	
 	private var	_rows		=	[] as [Row]
+	private var	_header		:	UIView?
+	private var	_footer		:	UIView?
 	
 	public init() {
 	}
 	
 	///	Height will be resolved using auto-layout. (`systemLayoutSizeFittingSize`)
-	public var	header:UIView? {
-		didSet {
-			if table != nil {
-				reloadSelfInTable(animation: UITableViewRowAnimation.None)
-			}
+	public var header:UIView? {
+		get {
+			return	_header
+		}
+		set(v) {
+			setHeaderWithAnimation(v, animation: UITableViewRowAnimation.None)
 		}
 	}
 	
 	///	Height will be resolved using auto-layout. (`systemLayoutSizeFittingSize`)
-	public var	footer:UIView? {
-		didSet {
-			if table != nil {
-				reloadSelfInTable(animation: UITableViewRowAnimation.None)
-			}
+	public var footer:UIView? {
+		get {
+			return	_footer
+		}
+		set(v) {
+			setFooterWithAnimation(v, animation: UITableViewRowAnimation.None)
 		}
 	}
 	public var rows:[StaticTableRow] {
@@ -293,11 +315,21 @@ public class StaticTableSection {
 		}
 	}
 	
-	public func setHeaderWithAnimation(animation:UITableViewRowAnimation) {
-		reloadSelfInTable(animation: animation)
+	public func setHeaderWithAnimation(v:UIView?, animation:UITableViewRowAnimation) {
+		assertView____SHOULD____SupportTranslationOfAutoresizingLayout(v)
+
+		_header	=	v
+		if table != nil {
+			reloadSelfInTable(animation: animation)
+		}
 	}
-	public func setFooterWithAnimation(animation:UITableViewRowAnimation) {
-		reloadSelfInTable(animation: animation)
+	public func setFooterWithAnimation(v:UIView?, animation:UITableViewRowAnimation) {
+		assertView____SHOULD____SupportTranslationOfAutoresizingLayout(v)
+
+		_footer	=	v
+		if table != nil {
+			reloadSelfInTable(animation: animation)
+		}
 	}
 	public func setRows(rows:[Row], animation:UITableViewRowAnimation) {
 		for r in _rows {
@@ -571,7 +603,9 @@ private extension NSIndexSet {
 
 
 
-
+private func assertView____SHOULD____SupportTranslationOfAutoresizingLayout(v:UIView?) {
+	assert(v == nil || v!.translatesAutoresizingMaskIntoConstraints() == true, "Layout of table/section header/footer view are controlled by `UITableView`, then it should support translation of autoresizing masks.")
+}
 
 
 

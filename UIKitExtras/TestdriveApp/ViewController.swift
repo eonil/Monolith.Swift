@@ -10,7 +10,7 @@ import UIKit
 import EonilUIKitExtras
 
 func makeLabelForTest() -> UILabel {
-	let	v	=	UILabel(translatesAutoresizingMaskIntoConstraints: false)
+	let	v	=	UILabel()
 	v.backgroundColor	=	UIColor.redColor()
 	v.addConstraintsWithLayoutAnchoring([
 		v.bottomAnchor	==	v.topAnchor + CGSize(width: 0, height: 100)
@@ -19,7 +19,7 @@ func makeLabelForTest() -> UILabel {
 	return	v
 }
 func makeViewForTest() -> UIView {
-	let	v	=	UISegmentedControl(translatesAutoresizingMaskIntoConstraints: false)
+	let	v	=	UISegmentedControl()
 	v.insertSegmentWithTitle("AAAA", atIndex: 0, animated: false)
 	v.insertSegmentWithTitle("AAAA", atIndex: 0, animated: false)
 	v.insertSegmentWithTitle("AAAA", atIndex: 0, animated: false)
@@ -55,10 +55,6 @@ class ViewController: StaticTableViewController {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		table.appendSection().header	=	makeLabelForTest()
-		table.sections.last!.appendRow()
-		table.sections.last!.appendRow()
-		table.sections.last!.appendRow()
 		
 //		tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.None)
 //		tableView.reloadData()
@@ -81,8 +77,36 @@ class ViewController: StaticTableViewController {
 //		
 //		table.sections[0].rows	=	rs
 ////		table.replaceSectionAtIndex(0, withSection: s, animation: UITableViewRowAnimation.Fade)
+//		tableView.beginUpdates()
+//		tableView.endUpdates()
+		
+		NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "test:", userInfo: nil, repeats: false)
 	}
 
+	func test(AnyObject?) {
+		assert(NSThread.mainThread() == NSThread.currentThread())
+		
+		let	s	=	table.appendSection()
+		
+		
+//		tableView.setNeedsDisplay()
+		tableView.setNeedsLayout()
+//		tableView.setNeedsUpdateConstraints()
+		tableView.layoutIfNeeded()
+		
+		tableView.beginUpdates()
+//		s.header	=	makeViewForTest()
+		s.setHeaderWithAnimation(makeViewForTest(), animation: UITableViewRowAnimation.Fade)
+		
+		table.sections.last!.appendRow()
+		table.sections.last!.appendRow()
+		table.sections.last!.appendRow()
+		tableView.endUpdates()
+
+		tableView.setNeedsLayout()
+		tableView.layoutIfNeeded()
+	}
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
