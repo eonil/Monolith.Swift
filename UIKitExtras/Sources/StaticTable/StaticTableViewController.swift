@@ -239,6 +239,14 @@ public class StaticTable {
 	}
 	private func reloadSectionsAtIndexes(indexes:[Int], animation:UITableViewRowAnimation) {
 		hostTableViewController?.tableView?.reloadSections(NSIndexSet(intArray: indexes), withRowAnimation: animation)
+		layoutTableViewIfNeeded()
+	}
+	
+	//	I don't know why I need this, but required to make the `UITableView` to display
+	//	newrly set section header and footer. I believe this is something related to
+	//	autolayout, but not sure.
+	private func layoutTableViewIfNeeded() {
+		hostTableViewController?.tableView?.layoutIfNeeded()
 	}
 	
 	private weak var hostTableViewController:UITableViewController? {
@@ -309,6 +317,7 @@ public class StaticTableSection {
 		r.section	=	self
 		_rows.insert(r, atIndex: atIndex)
 		table?.hostTableViewController?.tableView?.insertRowsAtIndexPaths([NSIndexPath(forRow: atIndex, inSection: indexInTable!)], withRowAnimation: animation)
+		table?.layoutTableViewIfNeeded()
 	}
 	public func replaceRowAtIndex(index:Int, withRow:Row, animation:UITableViewRowAnimation) {
 		precondition(withRow.section == nil, "Supplied row must not be bound to a section.")
@@ -331,6 +340,7 @@ public class StaticTableSection {
 		_rows.removeAtIndex(index)
 		
 		table?.hostTableViewController?.tableView?.deleteRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: indexInTable!)], withRowAnimation: animation)
+		table?.layoutTableViewIfNeeded()
 	}
 	public func deleteAllRowsWithAnimation(animation:UITableViewRowAnimation) {
 		for r in rows {
@@ -362,8 +372,15 @@ public class StaticTableSection {
 	private func reloadSelfInTable(#animation:UITableViewRowAnimation) {
 		table?.reloadSectionsAtIndexes([indexInTable!], animation: animation)
 	}
-	private func reloadRowAtIndexes(indexes:[Int], animation:UITableViewRowAnimation) {
-		table?.hostTableViewController?.tableView?.reloadSections(NSIndexSet(intArray: indexes), withRowAnimation: animation)
+	private func reloadRowsAtIndexes(indexes:[Int], animation:UITableViewRowAnimation) {
+		if let sidx = indexInTable {
+			var	idxps	=	[] as [NSIndexPath]
+			for idx in indexes {
+				idxps.append(NSIndexPath(forRow: idx, inSection: indexInTable!))
+			}
+			table?.hostTableViewController?.tableView?.reloadRowsAtIndexPaths(idxps, withRowAnimation: animation)
+			table?.layoutTableViewIfNeeded()
+		}
 	}
 }
 
@@ -419,7 +436,7 @@ public class StaticTableRow {
 		}
 	}
 	private func reloadSelfInSection(#animation:UITableViewRowAnimation) {
-		section?.reloadRowAtIndexes([indexInSection!], animation: animation)
+		section?.reloadRowsAtIndexes([indexInSection!], animation: animation)
 	}
 }
 

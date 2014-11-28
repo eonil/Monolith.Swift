@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		window.rootViewController	=	nc
 		nc.pushViewController(vc, animated: true)
+		
+		window.makeKeyAndVisible()
 		return true
 	}
 
