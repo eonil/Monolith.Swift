@@ -27,6 +27,12 @@ public class StaticTableViewController: UITableViewController {
 	
 	private var	_table	=	nil as Table?
 
+	deinit {
+		if let t = _table {
+			unownTable(t)
+		}
+	}
+	
 	private func ownTable(targetTable:Table) {
 		precondition(table.hostTableViewController == nil, "Supplied table object alread bound to another table view controller.")
 		table.hostTableViewController	=	self
@@ -37,7 +43,6 @@ public class StaticTableViewController: UITableViewController {
 	private func unownTable(targetTable:Table) {
 		assert(table.hostTableViewController == self)
 		table.hostTableViewController	=	nil
-		
 		tableView?.tableHeaderView	=	nil
 		tableView?.tableFooterView	=	nil
 	}
@@ -157,6 +162,11 @@ public class StaticTable {
 	
 	public init() {
 	}
+	deinit {
+		for s in _sections {
+			s.table	=	nil
+		}
+	}
 
 	///	There's no effective way to set the header's size automatically using auto-layout.
 	///	You must set its frame manually BEFORE passing it into this property.
@@ -263,6 +273,11 @@ public class StaticTableSection {
 	private var	_footer		:	UIView?
 	
 	public init() {
+	}
+	deinit {
+		for r in _rows {
+			r.section	=	nil
+		}
 	}
 	
 	///	Height will be resolved using auto-layout. (`systemLayoutSizeFittingSize`)
