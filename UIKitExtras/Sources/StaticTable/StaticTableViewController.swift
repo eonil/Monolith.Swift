@@ -153,7 +153,8 @@ private extension UIView {
 
 
 
-
+///	If you need to modify multiple elements at once, then the best practice is
+///	making a new table and replacing whole table with it instead replacing each elements.
 public class StaticTable {
 	public typealias	Section		=	StaticTableSection
 	public typealias	Row			=	StaticTableRow
