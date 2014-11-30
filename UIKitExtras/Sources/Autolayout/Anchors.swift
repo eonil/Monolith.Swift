@@ -113,33 +113,33 @@ public extension Anchor.View {
 
 
 
-public protocol LayoutAnchoringSupport {
-	var	centerXAnchor:Anchor { get }
-	var	centerYAnchor:Anchor { get }
-	var	leftAnchor:Anchor { get }
-	var	rightAnchor:Anchor { get }
-	var	topAnchor:Anchor { get }
-	var	bottomAnchor:Anchor { get }
-	var	baselineAnchor:Anchor { get }
-	var widthAnchor:Anchor { get }
-	var heightAnchor:Anchor { get }
-	
-	var	centerAnchor:Anchor { get }
-	var leftTopAnchor:Anchor { get }
-	var leftCenterAnchor:Anchor { get }
-	var leftBottomAnchor:Anchor { get }
-	var centerTopAnchor:Anchor { get }
-	var centerBottomAnchor:Anchor { get }
-	var rightTopAnchor:Anchor { get }
-	var rightCenterAnchor:Anchor { get }
-	var rightBottomAnchor:Anchor { get }
-	var leftBaselineAnchor:Anchor { get }
-	var rightBaselineAnchor:Anchor { get }
-	var sizeAnchor:Anchor { get }
-}
+//public protocol LayoutAnchoringSupport {
+//	var	centerXAnchor:Anchor { get }
+//	var	centerYAnchor:Anchor { get }
+//	var	leftAnchor:Anchor { get }
+//	var	rightAnchor:Anchor { get }
+//	var	topAnchor:Anchor { get }
+//	var	bottomAnchor:Anchor { get }
+//	var	baselineAnchor:Anchor { get }
+//	var widthAnchor:Anchor { get }
+//	var heightAnchor:Anchor { get }
+//	
+//	var	centerAnchor:Anchor { get }
+//	var leftTopAnchor:Anchor { get }
+//	var leftCenterAnchor:Anchor { get }
+//	var leftBottomAnchor:Anchor { get }
+//	var centerTopAnchor:Anchor { get }
+//	var centerBottomAnchor:Anchor { get }
+//	var rightTopAnchor:Anchor { get }
+//	var rightCenterAnchor:Anchor { get }
+//	var rightBottomAnchor:Anchor { get }
+//	var leftBaselineAnchor:Anchor { get }
+//	var rightBaselineAnchor:Anchor { get }
+//	var sizeAnchor:Anchor { get }
+//}
 
 ///	1D anchors.
-extension Anchor.View: LayoutAnchoringSupport {
+extension Anchor.View {
 	public var centerXAnchor:Anchor {
 		get {
 			return	Anchor(view: self, x: NSLayoutAttribute.CenterX, y: NA)
@@ -192,7 +192,7 @@ extension Anchor.View: LayoutAnchoringSupport {
 
 
 ///	2D anchors.
-extension Anchor.View: LayoutAnchoringSupport {
+extension Anchor.View {
 	public var centerAnchor:Anchor {
 		get {
 			return	Anchor(view: self, x: NSLayoutAttribute.CenterX, y: NSLayoutAttribute.CenterY)
@@ -259,6 +259,52 @@ extension Anchor.View: LayoutAnchoringSupport {
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#if os(iOS)
+extension UIViewController {
+	public var topLayoutGuideAnchor:Anchor {
+		get {
+			return	Anchor(item: topLayoutGuide, x: NA, y: TOP)
+		}
+	}
+	public var bottomLayoutGuideAnchor:Anchor {
+		get {
+			return	Anchor(item: bottomLayoutGuide, x: NA, y: BOTTOM)
+		}
+	}
+}
+#endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
