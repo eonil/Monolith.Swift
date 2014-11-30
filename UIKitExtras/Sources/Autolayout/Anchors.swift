@@ -33,9 +33,22 @@ public struct Anchor {
 	#endif
 
 
-	private var	view:View
+	private var	item:NSObjectProtocol
 	private var	x:NSLayoutAttribute
 	private var	y:NSLayoutAttribute
+	
+	#if os(iOS)
+	private init(item:UILayoutSupport, x:NSLayoutAttribute, y:NSLayoutAttribute) {
+		self.item	=	item
+		self.x		=	x
+		self.y		=	y
+	}
+	#endif
+	private init(view:View, x:NSLayoutAttribute, y:NSLayoutAttribute) {
+		self.item	=	view
+		self.x		=	x
+		self.y		=	y
+	}
 	
 	var dimensions:Int {
 		get {
@@ -50,7 +63,7 @@ public struct Anchor {
 	///	this returns `leftTop` of the supplied view.
 	func forView(v:View) -> Anchor {
 		var	a1	=	self
-		a1.view	=	v
+		a1.item	=	v
 		return	a1
 	}
 }
@@ -86,42 +99,91 @@ public extension Anchor.View {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public protocol LayoutAnchoringSupport {
+	var	centerXAnchor:Anchor { get }
+	var	centerYAnchor:Anchor { get }
+	var	leftAnchor:Anchor { get }
+	var	rightAnchor:Anchor { get }
+	var	topAnchor:Anchor { get }
+	var	bottomAnchor:Anchor { get }
+	var	baselineAnchor:Anchor { get }
+	var widthAnchor:Anchor { get }
+	var heightAnchor:Anchor { get }
+	
+	var	centerAnchor:Anchor { get }
+	var leftTopAnchor:Anchor { get }
+	var leftCenterAnchor:Anchor { get }
+	var leftBottomAnchor:Anchor { get }
+	var centerTopAnchor:Anchor { get }
+	var centerBottomAnchor:Anchor { get }
+	var rightTopAnchor:Anchor { get }
+	var rightCenterAnchor:Anchor { get }
+	var rightBottomAnchor:Anchor { get }
+	var leftBaselineAnchor:Anchor { get }
+	var rightBaselineAnchor:Anchor { get }
+	var sizeAnchor:Anchor { get }
+}
+
 ///	1D anchors.
-public extension Anchor.View {
-	public var	centerXAnchor:Anchor {
+extension Anchor.View: LayoutAnchoringSupport {
+	public var centerXAnchor:Anchor {
 		get {
 			return	Anchor(view: self, x: NSLayoutAttribute.CenterX, y: NA)
 		}
 	}
 	
-	public var	centerYAnchor:Anchor {
+	public var centerYAnchor:Anchor {
 		get {
 			return	Anchor(view: self, x: NA, y: NSLayoutAttribute.CenterY)
 		}
 	}
-	public var	leftAnchor:Anchor {
+	public var leftAnchor:Anchor {
 		get {
 			return	Anchor(view: self, x: LEFT, y: NA)
 		}
 	}
-	public var	rightAnchor:Anchor {
+	public var rightAnchor:Anchor {
 		get {
 			return	Anchor(view: self, x: RIGHT, y: NA)
 		}
 	}
-	public var	topAnchor:Anchor {
+	public var topAnchor:Anchor {
 		get {
 			return	Anchor(view: self, x: NA, y: TOP)
 		}
 	}
-	public var	bottomAnchor:Anchor {
+	public var bottomAnchor:Anchor {
 		get {
 			return	Anchor(view: self, x: NA, y: BOTTOM)
 		}
 	}
-	public var	baselineAnchor:Anchor {
+	public var baselineAnchor:Anchor {
 		get {
 			return	Anchor(view: self, x: BASELINE, y: NA)
+		}
+	}
+	public var widthAnchor:Anchor {
+		get {
+			return	Anchor(view: self, x: WIDTH, y: NA)
+		}
+	}
+	public var heightAnchor:Anchor {
+		get {
+			return	Anchor(view: self, x: NA, y: HEIGHT)
 		}
 	}
 }
@@ -130,8 +192,8 @@ public extension Anchor.View {
 
 
 ///	2D anchors.
-public extension Anchor.View {
-	public var	centerAnchor:Anchor {
+extension Anchor.View: LayoutAnchoringSupport {
+	public var centerAnchor:Anchor {
 		get {
 			return	Anchor(view: self, x: NSLayoutAttribute.CenterX, y: NSLayoutAttribute.CenterY)
 		}
@@ -191,6 +253,11 @@ public extension Anchor.View {
 			return	Anchor(view: self, x: NSLayoutAttribute.Right, y: NSLayoutAttribute.Baseline)
 		}
 	}
+	public var sizeAnchor:Anchor {
+		get {
+			return	Anchor(view: self, x: WIDTH, y: HEIGHT)
+		}
+	}
 }
 
 
@@ -216,11 +283,11 @@ public struct AnchoringEqualityExpression {
 			
 			var	a1	=	[] as [NSLayoutConstraint]
 			if left.x != NA && right.x != NA {
-				let	c1	=	NSLayoutConstraint(item: left.view, attribute: left.x, relatedBy: relation, toItem: right.view, attribute: right.x, multiplier: 1, constant: displacement.width)
+				let	c1	=	NSLayoutConstraint(item: left.item, attribute: left.x, relatedBy: relation, toItem: right.item, attribute: right.x, multiplier: 1, constant: displacement.width)
 				a1.append(c1)
 			}
 			if left.y != NA && right.y != NA {
-				let	c1	=	NSLayoutConstraint(item: left.view, attribute: left.y, relatedBy: relation, toItem: right.view, attribute: right.y, multiplier: 1, constant: displacement.height)
+				let	c1	=	NSLayoutConstraint(item: left.item, attribute: left.y, relatedBy: relation, toItem: right.item, attribute: right.y, multiplier: 1, constant: displacement.height)
 				a1.append(c1)
 			}
 			return	a1
@@ -272,6 +339,9 @@ private let			RIGHT		=	NSLayoutAttribute.Right
 private let			TOP			=	NSLayoutAttribute.Top
 private let			BOTTOM		=	NSLayoutAttribute.Bottom
 private let			BASELINE	=	NSLayoutAttribute.Baseline
+
+private let			WIDTH		=	NSLayoutAttribute.Width
+private let			HEIGHT		=	NSLayoutAttribute.Height
 
 private typealias	ATTR		=	NSLayoutAttribute
 

@@ -12,7 +12,7 @@ import EonilUIKitExtras
 func makeLabelForTest() -> UILabel {
 	let	v	=	UILabel()
 	v.backgroundColor	=	UIColor.redColor()
-	v.addConstraintsWithLayoutAnchoring([
+	let	a1	=	v.addConstraintsWithLayoutAnchoring([
 		v.bottomAnchor	==	v.topAnchor + CGSize(width: 0, height: 100)
 		], priority: 750)
 //	v.invalidateIntrinsicContentSize()
