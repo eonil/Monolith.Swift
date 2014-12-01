@@ -112,13 +112,13 @@ public class StaticTableViewController: UITableViewController {
 	}
 	
 	public override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-		return	table.rowAtIndexPath(indexPath).willSelect().indexPath
+		return	table.rowAtIndexPath(indexPath).willSelect()?.indexPath
 	}
 	public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		table.rowAtIndexPath(indexPath).didSelect()
 	}
 	public override func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-		return	table.rowAtIndexPath(indexPath).willDeselect().indexPath
+		return	table.rowAtIndexPath(indexPath).willDeselect()?.indexPath
 	}
 	public override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
 		table.rowAtIndexPath(indexPath).didDeselect()
@@ -424,14 +424,14 @@ public class StaticTableRow {
 	}
 	
 	///	Return another row object if you want to override.
-	public func willSelect() -> StaticTableRow {
+	public func willSelect() -> StaticTableRow? {
 		return	self
 	}
 	public func didSelect() {
 	}
 	
 	///	Return another row object if you want to override.
-	public func willDeselect() -> StaticTableRow {
+	public func willDeselect() -> StaticTableRow? {
 		return	self
 	}
 	public func didDeselect() {

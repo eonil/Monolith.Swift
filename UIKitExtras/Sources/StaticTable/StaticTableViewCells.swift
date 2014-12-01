@@ -12,21 +12,21 @@ import UIKit
 
 
 public class StaticTableRowWithFunctions: StaticTableRow {
-	public var	willSelectFunction		=	{$0} as (StaticTableRow)->(StaticTableRow)
-	public var	willDeselectFunction	=	{$0} as (StaticTableRow)->(StaticTableRow)
+	public var	willSelectFunction		=	{$0} as (StaticTableRow?)->(StaticTableRow?)
+	public var	willDeselectFunction	=	{$0} as (StaticTableRow?)->(StaticTableRow?)
 	
 	public var	didSelectFunction		=	{} as ()->()
 	public var	didDeselectFunction		=	{} as ()->()
 	
 	
-	public override func willSelect() -> StaticTableRow {
+	public override func willSelect() -> StaticTableRow? {
 		return	willSelectFunction(super.willSelect())
 	}
 	public override func didSelect() {
 		didSelectFunction()
 		super.didSelect()
 	}
-	public override func willDeselect() -> StaticTableRow {
+	public override func willDeselect() -> StaticTableRow? {
 		return	willDeselectFunction(super.willDeselect())
 	}
 	public override func didDeselect() {
