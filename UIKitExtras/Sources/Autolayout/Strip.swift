@@ -41,7 +41,7 @@ public struct LayoutStrip {
 	private var	views	:	[LayoutStrip.View]
 	
 	private var	flow	:	FlowDirection?
-	private	var	mingap	:	CGFloat
+	private	var	gap		:	CGFloat
 	
 	private var	align	:	Anchor?
 	private var	disp	:	CGFloat
@@ -56,7 +56,7 @@ public struct LayoutStrip {
 		}
 		
 		self.views	=	views
-		self.mingap	=	0
+		self.gap	=	0
 		self.disp	=	0
 		self.p		=	REQUIRED
 	}
@@ -109,9 +109,9 @@ public extension LayoutStrip.View {
 
 public extension LayoutStrip {
 	
-	public func minimumGapBy(gap:CGFloat) -> LayoutStrip {
-		var	l1		=	self
-		l1.mingap	=	gap
+	public func gapBy(gap:CGFloat) -> LayoutStrip {
+		var	l1	=	self
+		l1.gap	=	gap
 		return	l1
 	}
 	
@@ -270,7 +270,7 @@ private typealias	C	=	NSLayoutConstraint
 
 private extension LayoutStrip {
 	func resolveCSForView(targetView:LayoutStrip.View) -> [C] {
-		let	cs1	=	(flow == nil) ? [] : resolveFlowCSBetweenViews(views, flow!, mingap, p)
+		let	cs1	=	(flow == nil) ? [] : resolveFlowCSBetweenViews(views, flow!, gap, p)
 		let	cs2	=	(align == nil) ? [] : resolveAlignmentCS(views, align!, disp, p)
 		return	cs1 + cs2
 	}
@@ -299,7 +299,7 @@ private func resolveAlignmentCS(vs:[LayoutStrip.View], toAnchor:Anchor, withDisp
 //	}
 //	return	a2
 //}
-private func resolveFlowCSBetweenViews(vs:[LayoutStrip.View], flow:FlowDirection, mingap:CGFloat, p:LayoutStrip.Priority) -> [C] {
+private func resolveFlowCSBetweenViews(vs:[LayoutStrip.View], flow:FlowDirection, gap:CGFloat, p:LayoutStrip.Priority) -> [C] {
 	if vs.count < 2 {
 		return	[]
 	}
@@ -314,7 +314,7 @@ private func resolveFlowCSBetweenViews(vs:[LayoutStrip.View], flow:FlowDirection
 	for i in 0..<n {
 		let	v1	=	vs[i+0]
 		let	v2	=	vs[i+1]
-		let	c1	=	C(item: v2, attribute: latterA, relatedBy: NSLayoutRelation.GreaterThanOrEqual, toItem: v1, attribute: formerA, multiplier: 1, constant: mingap)
+		let	c1	=	C(item: v2, attribute: latterA, relatedBy: NSLayoutRelation.Equal, toItem: v1, attribute: formerA, multiplier: 1, constant: gap)
 		c1.priority	=	p
 		a1.append(c1)
 	}
