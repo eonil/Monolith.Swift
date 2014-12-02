@@ -44,9 +44,10 @@ public struct Anchor {
 		self.y		=	y
 	}
 	#endif
+	
+	///	Does not check `translatesAutoresizingMaskIntoConstraints` because AFAIK,
+	///	manual-layout object also can be used for layout expressions.
 	private init(view:View, x:NSLayoutAttribute, y:NSLayoutAttribute) {
-		preconditionNoAutoresizingMasking(view)
-		
 		self.item	=	view
 		self.x		=	x
 		self.y		=	y
