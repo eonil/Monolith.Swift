@@ -114,6 +114,10 @@ public extension LayoutStrip {
 		l1.mingap	=	gap
 		return	l1
 	}
+	
+	///	Set displacement of alignment.
+	///	If you set alignment to left-anchor with displacement +10
+	///	then the view's left will be fixed superview's left + 10.
 	public func displaceBy(displacement:CGFloat) -> LayoutStrip {
 		var	l1	=	self
 		l1.disp	=	displacement
