@@ -45,6 +45,8 @@ public struct Anchor {
 	}
 	#endif
 	private init(view:View, x:NSLayoutAttribute, y:NSLayoutAttribute) {
+		preconditionNoAutoresizingMasking(view)
+		
 		self.item	=	view
 		self.x		=	x
 		self.y		=	y
