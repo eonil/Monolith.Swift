@@ -83,7 +83,13 @@ public extension UIView {
 		}
 	}
 	
-	
+	///	Removes all constraints about the specified view.
+	public func removeConstraintsWithView(v:UIView) {
+		let	a	=	layoutConstraints.filter({$0.firstItem === v || $0.secondItem === v})
+		for c in a {
+			removeConstraint(c)
+		}
+	}
 	
 }
 
