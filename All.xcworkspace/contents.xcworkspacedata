@@ -28,4 +28,7 @@
    <FileRef
       location = "group:Dispatch/Dispatch.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Standards/Standards.xcodeproj">
+   </FileRef>
 </Workspace>
