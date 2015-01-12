@@ -11,16 +11,28 @@ In my opinion, Swift tends to separate each features into smaller modules
 rather than a big one module. I separated each featuers into 
 small projects, and you can use only features that you want. 
 
+Each subprojects are defined as modules. So you need to `import` them one 
+by one to use their features. For example, if you want to use "UIKitExtras", 
+then `import UIKitExtras`.
+
+This is just a rough outlines. See each sbproject's README for details 
+like how to use them. See code documentation for ore details.
 
 
 
 
-
-
-Features - Operators
+`Monolith` Features (Operators)
 --------------------
 
 -	`|||` nil-or operator.
+
+		let	c	=	a ||| b
+		
+	`c` becomes `a` if `a` is non-`nil` value, or `b` otherwise.
+
+
+
+
 
 
 `Standards` Features (Full Implementations)
@@ -53,8 +65,8 @@ standard.
 `UIKitExtras` Features 
 ----------------------
 
--	Operator based auto-layout constraint builder.
--	Many extensions to UIKit classes for convenience with Swift. 
+-	Anchor based auto-layout constraint builder.
+-	Many extensions to UIKit classes for convenience with Swift.
 
 
 
