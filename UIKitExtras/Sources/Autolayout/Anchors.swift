@@ -19,7 +19,7 @@ import AppKit
 
 
 
-
+///	Core type to define attachment anchoring point.
 public struct Anchor {
 	
 	#if	os(iOS)
@@ -84,9 +84,15 @@ private	let	FITTING		=	50		as Float
 
 
 public extension Anchor.View {
+	///	Calls `addConstraintsWithLayoutAnchoring(:,priority:)` with `REQUIRED` priority.
+	///	`REQUIRED` priority is too high for most situations, and you're expected to use
+	///	`addConstraintsWithLayoutAnchoring(:,priority:)` method instead of.
+	///	This method is likely to be deprecated...
 	public func addConstraintsWithLayoutAnchoring(a:[AnchoringEqualityExpression]) {
 		addConstraintsWithLayoutAnchoring(a, priority: REQUIRED)
 	}
+	
+	///	Builds a set of layout-constraints from anchor expressions, 
 	///	Returns array of `NSLayoutConstraint` which are added to the view.
 	public func addConstraintsWithLayoutAnchoring(a:[AnchoringEqualityExpression], priority:Anchor.Priority) -> [NSLayoutConstraint] {
 		let	a1	=	a.map({$0.constraints})
