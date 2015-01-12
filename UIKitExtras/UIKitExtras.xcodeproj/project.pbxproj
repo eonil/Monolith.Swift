@@ -17,7 +17,6 @@
 		45859BE41A277D9200C5CCA2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45859BE21A277D9200C5CCA2 /* LaunchScreen.xib */; };
 		45859BF71A277DA300C5CCA2 /* EonilUIKitExtras.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4537FC1B1A1C950900ABFB64 /* EonilUIKitExtras.framework */; };
 		45859BF81A277DA300C5CCA2 /* EonilUIKitExtras.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4537FC1B1A1C950900ABFB64 /* EonilUIKitExtras.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		458E63321A634413006465B3 /* reasons.md in Sources */ = {isa = PBXBuildFile; fileRef = 458E63311A634413006465B3 /* reasons.md */; };
 		45FDB2661A25EFD600227AB3 /* Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDB2641A25EFD600227AB3 /* Anchors.swift */; };
 		45FDB2671A25EFD600227AB3 /* Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDB2651A25EFD600227AB3 /* Strip.swift */; };
 		45FDB2691A25EFED00227AB3 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDB2681A25EFED00227AB3 /* LayoutConstraint.swift */; };
@@ -419,7 +418,6 @@
 				45FDB2781A25F1F400227AB3 /* SubcomponentHostingStaticTableViewController.swift in Sources */,
 				45FDB2751A25F1F400227AB3 /* StaticTableViewCells.swift in Sources */,
 				45FDB2761A25F1F400227AB3 /* StaticTableViewController.swift in Sources */,
-				458E63321A634413006465B3 /* reasons.md in Sources */,
 				45FDB2671A25EFD600227AB3 /* Strip.swift in Sources */,
 				45FDB27A1A25F21E00227AB3 /* InternalOnlyOperators.swift in Sources */,
 			);

@@ -27,8 +27,9 @@ Here's an example.
 This makes `authorLabel`'s top border to be attached to `self`'s top border.
 Also makes `downloadCountLabel`'s  bottom border to be attached to `self`'s botto border.
 
-Priority 750 is recommended. Priority 1000 (maximum value) means the app will be crashed if 
-the constraint couldn't be satisfied rather than hidden.
+Priority 750 is recommended. Priority 1000 (maximum value) means the app will be crashed 
+rather than hiding some portion of the target views if the constraints couldn't be satisfied.
+That's not pretty desired behavior in most cases...
 
 Here's another example.
 
