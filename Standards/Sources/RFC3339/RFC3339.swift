@@ -350,7 +350,7 @@ private extension RFC3339 {
 		
 		
 		struct IntStacking {
-			let	value:Int?
+			let	value	=	nil as Int?
 			func scan(digit:Int) -> IntStacking {
 				assert(digit >= 0)
 				assert(digit <= 9)
@@ -459,7 +459,7 @@ extension RFC3339 {
 	struct Test {
 		static func run() {
 			typealias	Token	=	Scanner.Stepping.Token
-			func assert(c:@autoclosure()->Bool) {
+			func assert(@autoclosure c:()->Bool) {
 				if c() == false {
 					fatalError("Test assertion failure!")
 				}

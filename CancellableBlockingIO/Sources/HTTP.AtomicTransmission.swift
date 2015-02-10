@@ -137,7 +137,7 @@ public extension HTTP.AtomicTransmission {
 		
 		Debug.log("AtomicTransmission started.")
 		
-		let	addr1	=	NSURL(scheme: (parameters.security ? "https" : "http") as NSString, host: parameters.host as NSString, path: parameters.path as NSString)!
+		let	addr1	=	NSURL(scheme: (parameters.security ? "https" : "http"), host: parameters.host, path: parameters.path)!
 		let	reqe1	=	NSMutableURLRequest(URL: addr1, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: DEFAULT_TIMEOUT)
 		reqe1.HTTPMethod	=	parameters.method
 		for h1 in parameters.headers {
@@ -160,10 +160,10 @@ public extension HTTP.AtomicTransmission {
 				}
 			}
 			
-			let	r1	=	response as NSHTTPURLResponse
+			let	r1	=	response as! NSHTTPURLResponse
 			var	hs1	=	[] as [Header]
 			for h1 in r1.allHeaderFields {
-				hs1.append((name: h1.0 as String, value: h1.1 as String))
+				hs1.append((name: h1.0 as! String, value: h1.1 as! String))
 			}
 			let	r2	=	Response(status: r1.statusCode, headers: hs1, body: data!)
 			tran1.signal(Complete.Done(r2))

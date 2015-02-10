@@ -35,7 +35,7 @@ public class RFC2616 {
 extension RFC2616 {
 	struct Test {
 		static func run() {
-			func assert(c:@autoclosure()->Bool) {
+			func assert(@autoclosure c:()->Bool) {
 				if c() == false {
 					fatalError("Test assertion failure!")
 				}

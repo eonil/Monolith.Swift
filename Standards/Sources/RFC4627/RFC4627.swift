@@ -321,7 +321,7 @@ private struct Converter {
 				///	Must be an OBJC type.
 				if (m1 is NSObject) == false { return Error.trap() }
 				
-				let	m2	=	convertFromOBJ(m1 as NSObject)
+				let	m2	=	convertFromOBJ(m1 as! NSObject)
 				if m2 == nil { return Error.trap() }
 				
 				a2.append(m2!)
@@ -344,7 +344,7 @@ private struct Converter {
 		
 		if v1 is NSNull { return Value.Null }
 		if v1 is NSNumber {
-			let	v2	=	v1 as NSNumber
+			let	v2	=	v1 as! NSNumber
 			///	`NSNumber` can be a `CFBoolean` exceptionally if it was created from a boolean value.
 			if CFGetTypeID(v2) == CFBooleanGetTypeID() {
 				let	v3	=	CFBooleanGetValue(v2) != 0
@@ -356,9 +356,9 @@ private struct Converter {
 				return	Value.Number(RFC4627.Number.Integer(v2.longLongValue))
 			}
 		}
-		if v1 is NSString { return Value.String(v1 as NSString as String) }
-		if v1 is NSArray { return convertArray(v1 as NSArray) }
-		if v1 is NSDictionary { return convertObject(v1 as NSDictionary) }
+		if v1 is NSString { return Value.String(v1 as! NSString as String) }
+		if v1 is NSArray { return convertArray(v1 as! NSArray) }
+		if v1 is NSDictionary { return convertObject(v1 as! NSDictionary) }
 		
 		return	Error.trap("Unsupported type. Failed.")
 	}

@@ -34,7 +34,7 @@ public extension UISegmentedControl {
 public extension UIToolbar {
 	public var	barButtonItems:[UIBarButtonItem] {
 		get {
-			return	self.items as [UIBarButtonItem]
+			return	self.items as! [UIBarButtonItem]
 		}
 		set(v) {
 			self.items	=	v
@@ -73,7 +73,7 @@ public extension UIView {
 	///	Gets and sets all layout-constraints at once.
 	public var layoutConstraints:[NSLayoutConstraint] {
 		get {
-			return	self.constraints() as [NSLayoutConstraint]
+			return	self.constraints() as! [NSLayoutConstraint]
 		}
 		set(v) {			
 			let	cs1	=	self.constraints()

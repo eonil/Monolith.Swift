@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-	var window: UIWindow	=	UIWindow(frame: UIScreen.mainScreen().bounds)
+	var window: UIWindow?	=	UIWindow(frame: UIScreen.mainScreen().bounds)
 
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -19,10 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let	nc	=	UINavigationController()
 		let	vc	=	ViewController()
 		
-		window.rootViewController	=	nc
+		window!.rootViewController	=	nc
 		nc.pushViewController(vc, animated: true)
 		
-		window.makeKeyAndVisible()
+		window!.makeKeyAndVisible()
 		return true
 	}
 

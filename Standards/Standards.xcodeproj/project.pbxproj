@@ -25,8 +25,8 @@
 		454234A61A16C2A20006DB67 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454234A41A16C2A20006DB67 /* Error.swift */; };
 		454234A81A16C2B70006DB67 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454234A71A16C2B70006DB67 /* Operators.swift */; };
 		454234A91A16C2B70006DB67 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454234A71A16C2B70006DB67 /* Operators.swift */; };
-		454234B01A16C2CA0006DB67 /* OBJCLevelFeatures.h in Headers */ = {isa = PBXBuildFile; fileRef = 454234AC1A16C2CA0006DB67 /* OBJCLevelFeatures.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		454234B11A16C2CA0006DB67 /* OBJCLevelFeatures.h in Headers */ = {isa = PBXBuildFile; fileRef = 454234AC1A16C2CA0006DB67 /* OBJCLevelFeatures.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		454234B01A16C2CA0006DB67 /* OBJCLevelFeatures.h in Headers */ = {isa = PBXBuildFile; fileRef = 454234AC1A16C2CA0006DB67 /* OBJCLevelFeatures.h */; };
+		454234B11A16C2CA0006DB67 /* OBJCLevelFeatures.h in Headers */ = {isa = PBXBuildFile; fileRef = 454234AC1A16C2CA0006DB67 /* OBJCLevelFeatures.h */; };
 		454234B21A16C2CA0006DB67 /* OBJCLevelFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 454234AD1A16C2CA0006DB67 /* OBJCLevelFeatures.m */; };
 		454234B31A16C2CA0006DB67 /* OBJCLevelFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 454234AD1A16C2CA0006DB67 /* OBJCLevelFeatures.m */; };
 		454234BB1A16C4AD0006DB67 /* Standards.h in Headers */ = {isa = PBXBuildFile; fileRef = 454234BA1A16C4A30006DB67 /* Standards.h */; settings = {ATTRIBUTES = (Public, ); }; };

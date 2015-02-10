@@ -41,7 +41,7 @@ private extension Atom {
 	var deep:Bool {
 		get {
 			if let a1 = sublistAtoms {
-				return	a1.map({ n in return n.sublistAtoms != nil }).reduce(false, combine: |)
+				return	a1.map({ n in return n.sublistAtoms != nil }).reduce(false, combine: { (a,b) in a || b })
 			}
 			return	false
 		}

@@ -116,7 +116,7 @@ public struct RFC1866 {
 extension RFC1866 {
 	struct Test {
 		static func run() {
-			func assert(c:@autoclosure()->Bool) {
+			func assert(@autoclosure c:()->Bool) {
 				if c() == false {
 					fatalError("Test assertion failure!")
 				}

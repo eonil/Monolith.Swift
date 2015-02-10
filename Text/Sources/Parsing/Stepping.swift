@@ -134,6 +134,7 @@ extension Parsing {
 		}
 		public struct NodeList : Printable {
 			init() {
+				_items	=	[]
 			}
 			init(_ ns1:[Node]) {
 				_items	=	ns1
@@ -176,14 +177,16 @@ extension Parsing {
 				return	NodeList(_items.filter(f))
 			}
 			
-			private let	_items	=	[] as [Node]
+			////
+			
+			private let	_items:[Node]
 			private func hasAnyError() -> Bool {
 				///	TODO:	Optimisation.
-				return	_items.reduce(false, combine: { u, n in return u | n.hasAnyError() })
+				return	_items.reduce(false, combine: { u, n in return u || n.hasAnyError() })
 			}
 			private func hasAnyMarkingAtCurrentLevel() -> Bool {
 				///	TODO:	Optimisation.
-				return	_items.reduce(false, combine: { u, n in return u | (n.marking != nil) })
+				return	_items.reduce(false, combine: { u, n in return u || (n.marking != nil) })
 			}
 		}
 		
@@ -229,7 +232,7 @@ extension Parsing {
 			
 			///	Rule name will be reported if `expectation` is `nil`.
 			struct Mark {
-				let	expectation:String?
+				let	expectation:String?	=	nil
 			}
 			
 	//		enum Mark {
@@ -270,7 +273,7 @@ extension Parsing {
 			}
 			
 			private func hasAnyError() -> Bool {
-				return	(error != nil) | subnodes.hasAnyError()
+				return	(error != nil) || subnodes.hasAnyError()
 			}
 		}
 

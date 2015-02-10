@@ -112,8 +112,8 @@ public extension Parsing.Rule {
 			let	p2	=	p1.match ? p1.remark(Node.Mark(expectation: e1)) : p1
 			return	p2
 		}
-		public static func mark(composition c1:Composition)(cursor:Cursor) -> Parsing.Stepping {
-			let	p1	=	c1(cursor: cursor)
+		public static func mark(composition:Composition)(cursor:Cursor) -> Parsing.Stepping {
+			let	p1	=	composition(cursor: cursor)
 			let	p2	=	p1.match ? p1.remark(Node.Mark(expectation: nil)) : p1
 			return	p2
 		}
@@ -203,7 +203,7 @@ public extension Parsing.Rule {
 				
 				//	Stops on mismatch or overflow.
 				let	over_max	=	ns1.count > range.end
-				let	should_stop	=	p1.mismatch | over_max
+				let	should_stop	=	p1.mismatch || over_max
 				if	should_stop {
 					break
 				}

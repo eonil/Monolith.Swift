@@ -18,7 +18,7 @@ struct Debug {
 	static let	mode	=	false
 #endif
 	
-	static func log<T>(v:@autoclosure()->T) {
+	static func log<T>(@autoclosure v:()->T) {
 		if mode {
 			debugPrintln(v())
 		}
