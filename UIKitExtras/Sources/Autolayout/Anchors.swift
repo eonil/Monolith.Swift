@@ -88,8 +88,8 @@ public extension Anchor.View {
 	///	`REQUIRED` priority is too high for most situations, and you're expected to use
 	///	`addConstraintsWithLayoutAnchoring(:,priority:)` method instead of.
 	///	This method is likely to be deprecated...
-	public func addConstraintsWithLayoutAnchoring(a:[AnchoringEqualityExpression]) {
-		addConstraintsWithLayoutAnchoring(a, priority: REQUIRED)
+	public func addConstraintsWithLayoutAnchoring(a:[AnchoringEqualityExpression]) -> [NSLayoutConstraint] {
+		return	addConstraintsWithLayoutAnchoring(a, priority: REQUIRED)
 	}
 	
 	///	Builds a set of layout-constraints from anchor expressions, 
