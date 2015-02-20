@@ -61,7 +61,7 @@ public struct Anchor {
 		}
 	}
 	
-	///	Returns an anchor object if for same location of the view.
+	///	Returns an anchor object of same location for the view.
 	///	For example, if this anchor was obtained from `leftTop`, 
 	///	this returns `leftTop` of the supplied view.
 	func forView(v:View) -> Anchor {
@@ -73,13 +73,32 @@ public struct Anchor {
 
 
 
-//private let	UILayoutPriorityRequired			=	1000
-//private let	UILayoutPriorityDefaultHigh			=	750
-//private let	UILayoutPriorityFittingSizeLevel	=	50
+
+
+
+
+
+
+
+
+
+
+//	Workaround because compiler emits a link error for below code.
+//	Patch when the error has been fixed.
+
 private let	REQUIRED	=	1000	as Float
 private let	HIGH		=	750		as Float
 private	let	FITTING		=	50		as Float
-
+//#if os(iOS)
+//private let	REQUIRED	=	UILayoutPriorityRequired
+//private let	HIGH		=	UILayoutPriorityDefaultHigh
+//private	let	FITTING		=	UILayoutPriorityFittingSizeLevel
+//#endif
+//#if os(OSX)
+//private let	REQUIRED	=	NSLayoutPriorityRequired
+//private let	HIGH		=	NSLayoutPriorityDefaultHigh
+//private	let	FITTING		=	NSLayoutPriorityFittingSizeLevel
+//#endif
 
 
 
