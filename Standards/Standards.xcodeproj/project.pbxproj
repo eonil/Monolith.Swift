@@ -467,9 +467,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		454234301A16C1170006DB67 /* OSX */ = {
+		454234301A16C1170006DB67 /* Standards OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 454234441A16C1170006DB67 /* Build configuration list for PBXNativeTarget "OSX" */;
+			buildConfigurationList = 454234441A16C1170006DB67 /* Build configuration list for PBXNativeTarget "Standards OSX" */;
 			buildPhases = (
 				4542342C1A16C1170006DB67 /* Sources */,
 				4542342D1A16C1170006DB67 /* Frameworks */,
@@ -480,7 +480,7 @@
 			);
 			dependencies = (
 			);
-			name = OSX;
+			name = "Standards OSX";
 			productName = OSX;
 			productReference = 454234311A16C1170006DB67 /* Standards.framework */;
 			productType = "com.apple.product-type.framework";
@@ -503,9 +503,9 @@
 			productReference = 4542343B1A16C1170006DB67 /* OSXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4542344E1A16C1240006DB67 /* iOS */ = {
+		4542344E1A16C1240006DB67 /* Standards iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 454234621A16C1240006DB67 /* Build configuration list for PBXNativeTarget "iOS" */;
+			buildConfigurationList = 454234621A16C1240006DB67 /* Build configuration list for PBXNativeTarget "Standards iOS" */;
 			buildPhases = (
 				4542344A1A16C1240006DB67 /* Sources */,
 				4542344B1A16C1240006DB67 /* Frameworks */,
@@ -516,7 +516,7 @@
 			);
 			dependencies = (
 			);
-			name = iOS;
+			name = "Standards iOS";
 			productName = iOS;
 			productReference = 4542344F1A16C1240006DB67 /* Standards.framework */;
 			productType = "com.apple.product-type.framework";
@@ -602,9 +602,9 @@
 			);
 			projectRoot = "";
 			targets = (
-				454234301A16C1170006DB67 /* OSX */,
+				454234301A16C1170006DB67 /* Standards OSX */,
 				4542343A1A16C1170006DB67 /* OSXTests */,
-				4542344E1A16C1240006DB67 /* iOS */,
+				4542344E1A16C1240006DB67 /* Standards iOS */,
 				454234581A16C1240006DB67 /* iOSTests */,
 				459B090D1A16C90D0068B462 /* InternalTests */,
 			);
@@ -771,12 +771,12 @@
 /* Begin PBXTargetDependency section */
 		4542343E1A16C1170006DB67 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 454234301A16C1170006DB67 /* OSX */;
+			target = 454234301A16C1170006DB67 /* Standards OSX */;
 			targetProxy = 4542343D1A16C1170006DB67 /* PBXContainerItemProxy */;
 		};
 		4542345C1A16C1240006DB67 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4542344E1A16C1240006DB67 /* iOS */;
+			target = 4542344E1A16C1240006DB67 /* Standards iOS */;
 			targetProxy = 4542345B1A16C1240006DB67 /* PBXContainerItemProxy */;
 		};
 		457E2E2F1A18C131000CEC96 /* PBXTargetDependency */ = {
@@ -1298,7 +1298,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		454234441A16C1170006DB67 /* Build configuration list for PBXNativeTarget "OSX" */ = {
+		454234441A16C1170006DB67 /* Build configuration list for PBXNativeTarget "Standards OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				454234451A16C1170006DB67 /* Debug */,
@@ -1316,7 +1316,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		454234621A16C1240006DB67 /* Build configuration list for PBXNativeTarget "iOS" */ = {
+		454234621A16C1240006DB67 /* Build configuration list for PBXNativeTarget "Standards iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				454234631A16C1240006DB67 /* Debug */,
