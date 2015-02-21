@@ -119,6 +119,20 @@
 			remoteGlobalIDString = 45641AC819F0D52200381269;
 			remoteInfo = "Text OSX";
 		};
+		45857FC61A994D9D007DF9AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454234911A16C2310006DB67 /* Text.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 45641AC819F0D52200381269;
+			remoteInfo = "Text OSX";
+		};
+		45857FCA1A994DA0007DF9AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454234911A16C2310006DB67 /* Text.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4584D80219F18D930093E2B1;
+			remoteInfo = "Text iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -479,6 +493,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				45857FC71A994D9D007DF9AF /* PBXTargetDependency */,
 			);
 			name = "Standards OSX";
 			productName = OSX;
@@ -515,6 +530,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				45857FCB1A994DA0007DF9AF /* PBXTargetDependency */,
 			);
 			name = "Standards iOS";
 			productName = iOS;
@@ -783,6 +799,16 @@
 			isa = PBXTargetDependency;
 			name = "Text OSX";
 			targetProxy = 457E2E2E1A18C131000CEC96 /* PBXContainerItemProxy */;
+		};
+		45857FC71A994D9D007DF9AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Text OSX";
+			targetProxy = 45857FC61A994D9D007DF9AF /* PBXContainerItemProxy */;
+		};
+		45857FCB1A994DA0007DF9AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Text iOS";
+			targetProxy = 45857FCA1A994DA0007DF9AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
