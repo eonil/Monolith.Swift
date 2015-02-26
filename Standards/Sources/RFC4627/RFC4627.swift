@@ -67,6 +67,15 @@ public extension RFC4627 {
 				}
 			}
 		}
+		
+		///	Unexposed intentionally.
+		///	Use equality comparison with `nil` instead of.
+		///
+		///	Example:
+		///
+		///		var a		=	JSON.Value.Null
+		///		var isNull	=	a == nil
+		///
 		var null:Bool {
 			get {
 				switch self {
