@@ -20,7 +20,7 @@ public struct RFC1866 {
 		///	*URL encoded* means it is escaped by URL encoding rules, 
 		///	and nothing related to URL standard (RFC 3986) itself.
 		public struct URLEncoded {
-			public static func encode(parameters:[String:String]) -> String? {
+			public static func encode(parameters:[String:String]) -> String {
 				var	r1	=	[] as [(String,String)]
 				for (k, v) in parameters {
 					r1	+=	[(k, v)]
