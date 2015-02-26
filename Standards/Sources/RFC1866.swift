@@ -65,7 +65,7 @@ public struct RFC1866 {
 					//	
 					//	This is vague, and I couldn't find proper definition. It is unclear
 					//	which are the *alpha-numeric*, and is it fine to escape them too.
-					//	So I just follows most safe conventions. Exclude Roman alphbet and 
+					//	So I just follows most safe conventions. Exclude Roman alphabet and
 					//	number characters from the escape.
 					//
 					//	Added more characters according to this document.
