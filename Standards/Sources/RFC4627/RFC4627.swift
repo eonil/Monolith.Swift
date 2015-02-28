@@ -330,7 +330,7 @@ private struct Converter {
 				///	Must be an OBJC type.
 				if (m1 is NSObject) == false { return Error.trap() }
 				
-				let	m2	=	convertFromOBJ(m1 as! NSObject)
+				let	m2	=	self.convertFromOBJ(m1 as! NSObject)
 				if m2 == nil { return Error.trap() }
 				
 				a2.append(m2!)
@@ -343,7 +343,7 @@ private struct Converter {
 				let	k1	=	p1.key as? String
 				if k1 == nil { return Error.trap() }
 				
-				let	v2	=	convertFromOBJ(p1.value)
+				let	v2	=	self.convertFromOBJ(p1.value)
 				if v2 == nil { return Error.trap() }
 				
 				o2[k1! as String]	=	v2!
@@ -375,7 +375,7 @@ private struct Converter {
 		func convertArray(a1:[Value]) -> NSArray {
 			let	a2	=	NSMutableArray()
 			for m1 in v1.array! {
-				let	m2:AnyObject	=	convertFromSwift(m1)
+				let	m2:AnyObject	=	self.convertFromSwift(m1)
 				a2.addObject(m2)
 			}
 			return	a2
@@ -384,7 +384,7 @@ private struct Converter {
 			let	o2	=	NSMutableDictionary()
 			for (k1, v1) in o1 {
 				let	k2				=	k1 as NSString
-				let	v2:AnyObject	=	convertFromSwift(v1)
+				let	v2:AnyObject	=	self.convertFromSwift(v1)
 				o2.setObject(v2, forKey: k2)
 			}
 			return	o2

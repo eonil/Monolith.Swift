@@ -68,7 +68,7 @@ private extension Entity {
 			func parameterToAtom(p:Entity.Parameter) -> Atom {
 				switch p {
 				case let Entity.Parameter.Expression(state):	return	Atom.Value(expression: state)
-				case let Entity.Parameter.Subentity(state):		return	print(state)
+				case let Entity.Parameter.Subentity(state):		return	self.print(state)
 				}
 			}
 			let	as1	=	[Atom.Value(expression: v.name), Atom.Value(expression: v.type)] + v.parameters.map(parameterToAtom)

@@ -39,9 +39,9 @@ public struct RFC1866 {
 			///	Note: input expression must be URL-encoded string.
 			public static func decode(expression:String) -> [(String, String)]? {
 				var	r1	=	[] as [(String,String)]
-				let	ps1	=	split(expression, { (c:Character) -> Bool in return c == "&" }, maxSplit: Int.max, allowEmptySlices: true)
+				let	ps1	=	split(expression, maxSplit: Int.max, allowEmptySlices: true, isSeparator: { c in c == "&" })
 				for p1 in ps1 {
-					let	ns1	=	split(p1, { (c:Character) -> Bool in return c == "=" }, maxSplit: Int.max, allowEmptySlices: true)
+					let	ns1	=	split(p1, maxSplit: Int.max, allowEmptySlices: true, isSeparator: { c in c == "=" })
 					if ns1.count != 2 {
 						return	nil
 					}
