@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal extension Slice {
+internal extension ArraySlice {
 	var array:Array<Element> {
 		get {
 			return	Array(self)

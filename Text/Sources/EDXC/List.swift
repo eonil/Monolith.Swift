@@ -25,16 +25,16 @@ private extension Atom {
 	var valueExpression:String? {
 		get {
 			switch self {
-			case let Atom.Value(state):		return	state.expression
-			default:						return	nil
+			case Atom.Value(let s):		return	s
+			default:					return	nil
 			}
 		}
 	}
 	var sublistAtoms:[Atom]? {
 		get {
 			switch self {
-			case let Atom.List(state):	return	state.atoms
-			default:						return	nil
+			case Atom.List(let s):		return	s
+			default:					return	nil
 			}
 		}
 	}

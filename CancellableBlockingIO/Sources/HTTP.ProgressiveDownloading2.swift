@@ -96,8 +96,8 @@ extension HTTP.ProgressiveDownloading2.Complete: Printable {
 		get {
 			switch self {
 			case Cancel:		return	"Cancel"
-			case Error(let s):	return	"Error(\(s.message))"
-			case Ready(let s):	return	"Ready(\(s.file))"
+			case Error(let s):	return	"Error(\(s))"
+			case Ready(let s):	return	"Ready(\(s))"
 			}
 		}
 	}

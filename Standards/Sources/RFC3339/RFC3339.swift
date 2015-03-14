@@ -349,8 +349,13 @@ private extension RFC3339 {
 		}
 		
 		
+		
 		struct IntStacking {
-			let	value	=	nil as Int?
+			let	value	:	Int?
+			
+			init(value: Int?) {
+				self.value	=	value
+			}
 			func scan(digit:Int) -> IntStacking {
 				assert(digit >= 0)
 				assert(digit <= 9)

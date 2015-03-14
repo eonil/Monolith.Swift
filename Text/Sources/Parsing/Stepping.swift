@@ -232,7 +232,11 @@ extension Parsing {
 			
 			///	Rule name will be reported if `expectation` is `nil`.
 			struct Mark {
-				let	expectation:String?	=	nil
+				let	expectation: String?
+				
+				init(expectation: String?) {
+					self.expectation	=	expectation
+				}
 			}
 			
 	//		enum Mark {

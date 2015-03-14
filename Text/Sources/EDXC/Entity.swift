@@ -83,7 +83,7 @@ private extension Entity {
 					case let Atom.List(state):	return	nil
 					}
 				}
-				func parameteriseAll(as1:Slice<Atom>) -> [Parameter]? {
+				func parameteriseAll(as1:ArraySlice<Atom>) -> [Parameter]? {
 					func parameterise(a:Atom) -> Parameter? {
 						switch a {
 						case let Atom.Value(state):	return	Parameter.Expression(state)
