@@ -137,7 +137,7 @@ public extension Parsing.Rule {
 				
 				let	p1	=	comp(cursor: c2)
 				c2		=	p1.location
-				ns1		+=	p1.nodes ||| NodeList()
+				ns1		+=	p1.nodes ?? NodeList()
 				assert(ns1.count == 0 || c2 >= ns1.last!.endCursor)
 				
 				///	Exit early on any error.
@@ -193,7 +193,7 @@ public extension Parsing.Rule {
 			
 			while c2.available {
 				let	p1	=	unit(cursor: c2)
-				ns1		+=	p1.nodes ||| NodeList()
+				ns1		+=	p1.nodes ?? NodeList()
 				c2		=	p1.location
 				
 				///	Exit early on any error.

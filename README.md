@@ -21,16 +21,6 @@ like how to use them. See code documentation for ore details.
 
 
 
-`Monolith` Features (Operators)
---------------------
-
--	`|||` nil-or operator.
-
-		let	c	=	a ||| b
-		
-	`c` becomes `a` if `a` is non-`nil` value, or `b` otherwise.
-
-
 
 
 

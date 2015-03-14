@@ -244,7 +244,7 @@ private extension RFC3339 {
 			if !ok { return }
 			let	v1		=	scanner.scanInt(c1)
 			ok			=	v1 != nil
-			destination	=	v1 ||| 0
+			destination	=	v1 ?? 0
 		}
 		mutating func set(inout destination:Int, byScanningCharacters c1:Int) {
 			set(&destination, byScanningCharacters: c1...c1)
