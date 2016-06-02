@@ -12,7 +12,7 @@ import Foundation
 public class Semaphore : Object {
 	var	rawSemaphore:dispatch_semaphore_t {
 		get {
-			return	raw as dispatch_semaphore_t
+			return	rawSemaphore as! dispatch_semaphore_t
 		}
 	}
 

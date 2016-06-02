@@ -107,7 +107,7 @@ func testAtomicTransmission() {
 	case .Abort(let s):		println("Abort: \(s)")
 	case .Done(let s):
 		println("Done: \(s)")
-		let	s3	=	NSString(data: s.body!, encoding: NSUTF8StringEncoding)
+		let	s3	=	NSString(data: s.body, encoding: NSUTF8StringEncoding)
 		println(s3)
 	}
 }

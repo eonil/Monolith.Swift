@@ -15,3 +15,33 @@ import Foundation
 
 
 
+import Foundation
+
+
+
+
+
+
+infix operator ||| {
+
+}
+
+public func ||| <T> (left:T?, right:T) -> T {
+	if left == nil {
+		return	right
+	} else {
+		return	left!
+	}
+}
+
+
+
+/////	Pipe operator works as applying a function to a value and returns a value.
+//func | <T,U> (left:T, right:(T)->U) -> U {
+//	return	right(left)
+//}
+/////	Pipe operator works as applying a function to a value.
+//func | <T> (left:T, right:(T)->()) {
+//	right(left)
+//}
+

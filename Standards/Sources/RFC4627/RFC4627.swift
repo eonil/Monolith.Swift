@@ -67,19 +67,10 @@ public extension RFC4627 {
 				}
 			}
 		}
-		
-		///	Unexposed intentionally.
-		///	Use equality comparison with `nil` instead of.
-		///
-		///	Example:
-		///
-		///		var a		=	JSON.Value.Null
-		///		var isNull	=	a == nil
-		///
 		var null:Bool {
-			get {
-				switch self {
-				case let Null:				return	true
+            get {
+                switch self {
+				case let _:				return	true
 				default:					return	false
 				}
 			}
@@ -118,13 +109,8 @@ public extension RFC4627 {
 
 public extension RFC4627 {
 	public static func deserialise(data:NSData) -> JSON.Value? {
-		var	e1:NSError?		=	nil
-		let	o2:AnyObject?	=	NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &e1)
-		
-		assert(e1 == nil)
-		if e1 != nil { return Error.trap() }
+		let	o2:AnyObject?	=	try! NSJSONSerialization.JSONObjectWithData(data, options: [])
 		if o2 == nil { return Error.trap() }
-		
 		let	o3	=	Converter.convertFromOBJ(o2!)
 		return	o3
 	}
@@ -137,12 +123,10 @@ public extension RFC4627 {
 	static func serialise(value:JSON.Value, allowFragment:Bool) -> NSData? {
 		assert(value.object != nil || value.array != nil)
 		let	o2:AnyObject	=	Converter.convertFromSwift(value)
-		var	e1:NSError?		=	nil
 //		let	d3:NSData?		=	NSJSONSerialization.dataWithJSONObject(o2, options: (NSJSONWritingOptions.allZeros) | NSJSONWritingOptions.PrettyPrinted), error: &e1)
-		let	d3:NSData?		=	NSJSONSerialization.dataWithJSONObject(o2, options: NSJSONWritingOptions.PrettyPrinted, error: &e1)
+		let	d3:NSData?		=	try! NSJSONSerialization.dataWithJSONObject(o2, options: [.PrettyPrinted])
 		///	I don't think there's any reason to return `nil` from JSON serialisation,
 		///	but anyway, OBJC API is written in that way. I just follow it.
-		if e1 != nil { return Error.trap() }
 		if d3 == nil { return Error.trap() }
 		return	d3!
 	}
@@ -330,7 +314,7 @@ private struct Converter {
 				///	Must be an OBJC type.
 				if (m1 is NSObject) == false { return Error.trap() }
 				
-				let	m2	=	self.convertFromOBJ(m1 as! NSObject)
+				let	m2	=	convertFromOBJ(m1 as! NSObject)
 				if m2 == nil { return Error.trap() }
 				
 				a2.append(m2!)
@@ -343,7 +327,7 @@ private struct Converter {
 				let	k1	=	p1.key as? String
 				if k1 == nil { return Error.trap() }
 				
-				let	v2	=	self.convertFromOBJ(p1.value)
+				let	v2	=	convertFromOBJ(p1.value)
 				if v2 == nil { return Error.trap() }
 				
 				o2[k1! as String]	=	v2!
@@ -356,10 +340,10 @@ private struct Converter {
 			let	v2	=	v1 as! NSNumber
 			///	`NSNumber` can be a `CFBoolean` exceptionally if it was created from a boolean value.
 			if CFGetTypeID(v2) == CFBooleanGetTypeID() {
-				let	v3	=	CFBooleanGetValue(v2) != 0
+				let	v3	=	CFBooleanGetValue(v2)
 				return	Value.Boolean(v3)
 			}
-			if CFNumberIsFloatType(v2) != 0 {
+			if CFNumberIsFloatType(v2) {
 				return	Value.Number(RFC4627.Number.Float(v2.doubleValue))
 			} else {
 				return	Value.Number(RFC4627.Number.Integer(v2.longLongValue))
@@ -375,7 +359,7 @@ private struct Converter {
 		func convertArray(a1:[Value]) -> NSArray {
 			let	a2	=	NSMutableArray()
 			for m1 in v1.array! {
-				let	m2:AnyObject	=	self.convertFromSwift(m1)
+				let	m2:AnyObject	=	convertFromSwift(m1)
 				a2.addObject(m2)
 			}
 			return	a2
@@ -384,7 +368,7 @@ private struct Converter {
 			let	o2	=	NSMutableDictionary()
 			for (k1, v1) in o1 {
 				let	k2				=	k1 as NSString
-				let	v2:AnyObject	=	self.convertFromSwift(v1)
+				let	v2:AnyObject	=	convertFromSwift(v1)
 				o2.setObject(v2, forKey: k2)
 			}
 			return	o2
@@ -546,15 +530,15 @@ extension RFC4627 {
 						],
 					] as Value
 				
-				println(a1.object!["aaa"]!)
+				print(a1.object!["aaa"]!)
 				let	v1	=	a1.object!["aaa"]!
 				assert(a1.object!["aaa"]! == nil)
 				
 				let	a2	=	JSON.serialise(a1)!
-				println(a2)
+				print(a2)
 				
 				let	a3	=	JSON.deserialise(a2)!
-				println(a3)
+				print(a3)
 				
 				assert(a3 == a1)
 			}
@@ -577,14 +561,14 @@ extension RFC4627 {
 				
 				
 				let	a2	=	JSON.serialise(a1)!
-				println(a2)
+				print(a2)
 				
 				let	a3	=	JSON.deserialise(a2)!
-				println(a3)
+				print(a3)
 				
 				assert(a3 == a1)
 				
-				println(a3.object!["aaa"]!)
+				print(a3.object!["aaa"]!)
 				let	v1	=	a3.object!["aaa"]!
 				assert(a3.object!["aaa"]! == nil)
 				assert(a3.object!["fff"]! == [d1, d1, d1])

@@ -8,6 +8,29 @@
 
 import Foundation
 
+//prefix operator ~~~ {
+//	
+//}
+//
+//prefix func ~~~ (follower:String) -> Pattern {
+//	return	Patterns.Literal(sample: follower)
+//}
+
+
+
+
+
+infix operator ||| {
+
+}
+
+func ||| <T> (left:T?, right:T) -> T {
+	if left == nil {
+		return	right
+	} else {
+		return	left!
+	}
+}
 
 
 
@@ -21,3 +44,19 @@ func | <T> (left:T, right:(T)->()) {
 }
 
 
+//protocol Summable {
+//	typealias	SelfType
+//	func summationWith(other:SelfType) -> SelfType
+//}
+//
+////func + <T:Summable> (left:T, right:T) -> T {
+////	return	left.summationWith(right)
+////}
+//
+//extension Array {
+//	var rest:Slice<T>? {
+//		get {
+//			return	self[1..<count]
+//		}
+//	}
+//}

@@ -18,11 +18,15 @@ public class FileDescriptor : Handle {
 //	public convenience init(handle:NSFileHandle) {
 //		self.init(UInt(handle.fileDescriptor))		///	TODO:	Check safety of this operation. Make it crash on any issue.
 //	}
-	public convenience init(path:String) {
-		let	p2	=	path.fileSystemRepresentation()
-		let	fd1	=	open(path.fileSystemRepresentation(), O_EVTONLY)
+
+    public convenience init(path:String) {
+        self.init(NSURL(fileURLWithPath: path))
+    }
+    public convenience init(_ u: NSURL) {
+        precondition(u.fileURL)
+		let	fd1	=	open(u.fileSystemRepresentation, O_EVTONLY)
 		if fd1 == -1 {
-			fatalError("Couldn't create a file-descriptor for the path `\(path)`.")
+			fatalError("Couldn't create a file-descriptor for the path `\(u)`.")
 		}
 		self.init(UInt(fd1))		///	TODO:	Check safety of this operation. Make it crash on any issue.
 	}
@@ -59,14 +63,14 @@ public class VNodeSource : Source {
 }
 
 public class Source : Object {
-	var rawSource:dispatch_source_t {
+	var rawSource: dispatch_source_t {
 		get {
-			return	raw as dispatch_source_t
+			return	raw as! dispatch_source_t
 		}
 	}
 	
 	init(type: SourceType, handle: Handle, mask: UInt, queue:Queue) {
-		super.init(dispatch_source_create(type.mapToObjC(), handle.raw, mask, queue.raw))
+		super.init(dispatch_source_create(type.mapToObjC(), handle.raw, mask, queue.rawQueue))
 	}
 	
 	public var	eventHandler:()->() = NOOP {
@@ -88,7 +92,7 @@ public class Source : Object {
 //		dispatch_source_set_cancel_handler(raw, f)
 //	}
 	public func cancel() {
-		dispatch_source_cancel(raw)
+		dispatch_source_cancel(rawSource)
 	}
 	
 }
@@ -148,7 +152,7 @@ public struct VNodeFlags {
 public func | (left:VNodeFlags, right:VNodeFlags) -> VNodeFlags {
 	return	VNodeFlags(rawValue: left.rawValue | right.rawValue)
 }
-extension VNodeFlags : Printable {
+extension VNodeFlags : CustomStringConvertible {
 	public var description:String {
 		get {
 			switch self.mapToObjC() {

@@ -294,6 +294,7 @@
 		45D9879819ECE38C00B96829 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Eonil;
 				TargetAttributes = {

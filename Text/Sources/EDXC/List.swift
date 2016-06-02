@@ -13,7 +13,7 @@ enum Atom {
 	case List(atoms:[Atom])
 }
 
-extension Atom: Printable {
+extension Atom: CustomStringConvertible {
 	var description:String {
 		get {
 			return	print()
@@ -25,23 +25,23 @@ private extension Atom {
 	var valueExpression:String? {
 		get {
 			switch self {
-			case Atom.Value(let s):		return	s
-			default:					return	nil
+			case let Atom.Value(state):		return	state
+			default:						return	nil
 			}
 		}
 	}
 	var sublistAtoms:[Atom]? {
 		get {
 			switch self {
-			case Atom.List(let s):		return	s
-			default:					return	nil
+			case let Atom.List(state):      return	state
+			default:						return	nil
 			}
 		}
 	}
 	var deep:Bool {
 		get {
 			if let a1 = sublistAtoms {
-				return	a1.map({ n in return n.sublistAtoms != nil }).reduce(false, combine: { (a,b) in a || b })
+                return	a1.map({ n in return n.sublistAtoms != nil }).reduce(false, combine: { $0 || $1 })
 			}
 			return	false
 		}
@@ -69,14 +69,14 @@ private extension Atom {
 	struct PrettyPrinter {
 		static func print(atoms:[Atom], joiner:String) -> String {
 			let	ns1	=	atoms.map({ n in return n.description }) as [String]
-			let	s1	=	"(" + join(joiner, ns1) + ")"
+			let	s1	=	"(" + ns1.joinWithSeparator(joiner) + ")"
 			let	s2	=	indentAllEachLines(s1)
 			return	s2
 		}
 		static func indentAllEachLines(s:String) -> String {
 			let	ss1	=	splitIntoLines(s)
 			let	ss2	=	indent(ss1)
-			return	join("\n", ss2)
+			return	ss2.joinWithSeparator("\n")
 		}
 		static func splitIntoLines(s:String) -> [String] {
 			return	s.componentsSeparatedByString("\n")
@@ -93,7 +93,7 @@ private extension Atom {
 		struct WithDoubleQuote {
 			static func escape(s:String) -> String {
 				var	s1	=	""
-				for ch in s {
+				for ch in s.characters {
 					if ch == "\"" {
 						s1	+=	"\\"
 					}

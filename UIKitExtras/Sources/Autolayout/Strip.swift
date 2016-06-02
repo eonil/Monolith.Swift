@@ -75,7 +75,7 @@ public struct LayoutStrip {
 			precondition(views.count >= 1)
 			
 			var	l1		=	self
-			l1.views	=	l1.views[0..<l1.views.count].array
+			l1.views	=	Array(l1.views[0..<(l1.views.count)])
 			return	l1
 		}
 	}
@@ -223,12 +223,12 @@ private enum Alignment {
 	
 	var	stickingToXAxis:Bool {
 		get {
-			return	find([HorizontalCenter, Left, Right], self) != nil
+			return	[HorizontalCenter, Left, Right].contains(self) == true
 		}
 	}
 	var	stickingToYAxis:Bool {
 		get {
-			return	find([VerticalCenter, Top, Bottom, Baseline], self) != nil
+            return [VerticalCenter, Top, Bottom, Baseline].contains(self) == true
 		}
 	}
 	var	attribute:NSLayoutAttribute {
@@ -280,7 +280,7 @@ private extension LayoutStrip {
 
 
 
-private func resolveAlignmentCS(vs:[LayoutStrip.View], toAnchor:Anchor, withDisplacement:CGFloat, priority:LayoutStrip.Priority) -> [C] {
+private func resolveAlignmentCS(vs:[LayoutStrip.View], _ toAnchor:Anchor, _ withDisplacement:CGFloat, _ priority:LayoutStrip.Priority) -> [C] {
 	func proc1(v:LayoutStrip.View) -> [C] {
 		let	a1	=	toAnchor.forView(v)
 		let	x1	=	a1 == toAnchor + CGSize(width: withDisplacement, height: withDisplacement)
@@ -299,7 +299,7 @@ private func resolveAlignmentCS(vs:[LayoutStrip.View], toAnchor:Anchor, withDisp
 //	}
 //	return	a2
 //}
-private func resolveFlowCSBetweenViews(vs:[LayoutStrip.View], flow:FlowDirection, gap:CGFloat, p:LayoutStrip.Priority) -> [C] {
+private func resolveFlowCSBetweenViews(vs:[LayoutStrip.View], _ flow:FlowDirection, _ gap:CGFloat, _ p:LayoutStrip.Priority) -> [C] {
 	if vs.count < 2 {
 		return	[]
 	}

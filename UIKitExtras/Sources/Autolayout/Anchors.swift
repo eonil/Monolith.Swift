@@ -19,7 +19,7 @@ import AppKit
 
 
 
-///	Core type to define attachment anchoring point.
+
 public struct Anchor {
 	
 	#if	os(iOS)
@@ -61,7 +61,7 @@ public struct Anchor {
 		}
 	}
 	
-	///	Returns an anchor object of same location for the view.
+	///	Returns an anchor object if for same location of the view.
 	///	For example, if this anchor was obtained from `leftTop`, 
 	///	this returns `leftTop` of the supplied view.
 	func forView(v:View) -> Anchor {
@@ -73,45 +73,20 @@ public struct Anchor {
 
 
 
-
-
-
-
-
-
-
-
-
-
-//	Workaround because compiler emits a link error for below code.
-//	Patch when the error has been fixed.
-
+//private let	UILayoutPriorityRequired			=	1000
+//private let	UILayoutPriorityDefaultHigh			=	750
+//private let	UILayoutPriorityFittingSizeLevel	=	50
 private let	REQUIRED	=	1000	as Float
 private let	HIGH		=	750		as Float
 private	let	FITTING		=	50		as Float
-//#if os(iOS)
-//private let	REQUIRED	=	UILayoutPriorityRequired
-//private let	HIGH		=	UILayoutPriorityDefaultHigh
-//private	let	FITTING		=	UILayoutPriorityFittingSizeLevel
-//#endif
-//#if os(OSX)
-//private let	REQUIRED	=	NSLayoutPriorityRequired
-//private let	HIGH		=	NSLayoutPriorityDefaultHigh
-//private	let	FITTING		=	NSLayoutPriorityFittingSizeLevel
-//#endif
+
 
 
 
 public extension Anchor.View {
-	///	Calls `addConstraintsWithLayoutAnchoring(:,priority:)` with `REQUIRED` priority.
-	///	`REQUIRED` priority is too high for most situations, and you're expected to use
-	///	`addConstraintsWithLayoutAnchoring(:,priority:)` method instead of.
-	///	This method is likely to be deprecated...
-	public func addConstraintsWithLayoutAnchoring(a:[AnchoringEqualityExpression]) -> [NSLayoutConstraint] {
-		return	addConstraintsWithLayoutAnchoring(a, priority: REQUIRED)
+	public func addConstraintsWithLayoutAnchoring(a:[AnchoringEqualityExpression]) {
+		addConstraintsWithLayoutAnchoring(a, priority: REQUIRED)
 	}
-	
-	///	Builds a set of layout-constraints from anchor expressions, 
 	///	Returns array of `NSLayoutConstraint` which are added to the view.
 	public func addConstraintsWithLayoutAnchoring(a:[AnchoringEqualityExpression], priority:Anchor.Priority) -> [NSLayoutConstraint] {
 		let	a1	=	a.map({$0.constraints})
@@ -374,21 +349,21 @@ public struct AnchoringDisplacementExpression {
 }
 
 public func == (left:Anchor, right:Anchor) -> AnchoringEqualityExpression {
-	return	left == right + CGSize.zeroSize
+	return	left == right + CGSize.zero
 }
 public func == (left:Anchor, right:AnchoringDisplacementExpression) -> AnchoringEqualityExpression {
 	return	AnchoringEqualityExpression(left: left, right: right.anchor, relation: NSLayoutRelation.Equal, displacement: right.displacement)
 }
 
 public func >= (left:Anchor, right:Anchor) -> AnchoringEqualityExpression {
-	return	left >= right + CGSize.zeroSize
+	return	left >= right + CGSize.zero
 }
 public func >= (left:Anchor, right:AnchoringDisplacementExpression) -> AnchoringEqualityExpression {
 	return	AnchoringEqualityExpression(left: left, right: right.anchor, relation: NSLayoutRelation.GreaterThanOrEqual, displacement: right.displacement)
 }
 
 public func <= (left:Anchor, right:Anchor) -> AnchoringEqualityExpression {
-	return	left <= right + CGSize.zeroSize
+	return	left <= right + CGSize.zero
 }
 public func <= (left:Anchor, right:AnchoringDisplacementExpression) -> AnchoringEqualityExpression {
 	return	AnchoringEqualityExpression(left: left, right: right.anchor, relation: NSLayoutRelation.LessThanOrEqual, displacement: right.displacement)

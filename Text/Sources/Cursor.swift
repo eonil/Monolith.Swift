@@ -95,7 +95,7 @@ public struct Cursor {
 }
 
 
-extension Cursor : Printable {
+extension Cursor : CustomStringConvertible {
 	public var description:String {
 		get {
 			return	"Cursor (code Code @) (location String.Index \(location))"

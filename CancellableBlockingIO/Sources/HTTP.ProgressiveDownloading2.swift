@@ -96,8 +96,8 @@ extension HTTP.ProgressiveDownloading2.Complete: Printable {
 		get {
 			switch self {
 			case Cancel:		return	"Cancel"
-			case Error(let s):	return	"Error(\(s))"
-			case Ready(let s):	return	"Ready(\(s))"
+			case let Error(s):	return	"Error(\(s))"
+			case let Ready(s):	return	"Ready(\(s))"
 			}
 		}
 	}
@@ -167,7 +167,7 @@ private final class DownloadController: NSObject, NSURLSessionDelegate, NSURLSes
 	init(_ palette:Palette) {
 		self.palette	=	palette
 	}
-	@objc private func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
+	private func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
 		self.palette.progressChannel.signal(Progress.Done)
 		self.palette.completionChannel.signal(Complete.Ready(file: location))
 	}

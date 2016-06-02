@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0630"
+   LastUpgradeVersion = "0620"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4542344E1A16C1240006DB67"
+               BlueprintIdentifier = "454234301A16C1170006DB67"
                BuildableName = "Standards.framework"
-               BlueprintName = "Standards iOS"
+               BlueprintName = "OSX"
                ReferencedContainer = "container:Standards.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "454234581A16C1240006DB67"
-               BuildableName = "iOSTests.xctest"
-               BlueprintName = "iOSTests"
+               BlueprintIdentifier = "4542343A1A16C1170006DB67"
+               BuildableName = "OSXTests.xctest"
+               BlueprintName = "OSXTests"
                ReferencedContainer = "container:Standards.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "454234581A16C1240006DB67"
-               BuildableName = "iOSTests.xctest"
-               BlueprintName = "iOSTests"
+               BlueprintIdentifier = "4542343A1A16C1170006DB67"
+               BuildableName = "OSXTests.xctest"
+               BlueprintName = "OSXTests"
                ReferencedContainer = "container:Standards.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4542344E1A16C1240006DB67"
+            BlueprintIdentifier = "454234301A16C1170006DB67"
             BuildableName = "Standards.framework"
-            BlueprintName = "Standards iOS"
+            BlueprintName = "OSX"
             ReferencedContainer = "container:Standards.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,9 +75,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4542344E1A16C1240006DB67"
+            BlueprintIdentifier = "454234301A16C1170006DB67"
             BuildableName = "Standards.framework"
-            BlueprintName = "Standards iOS"
+            BlueprintName = "OSX"
             ReferencedContainer = "container:Standards.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -93,9 +93,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4542344E1A16C1240006DB67"
+            BlueprintIdentifier = "454234301A16C1170006DB67"
             BuildableName = "Standards.framework"
-            BlueprintName = "Standards iOS"
+            BlueprintName = "OSX"
             ReferencedContainer = "container:Standards.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

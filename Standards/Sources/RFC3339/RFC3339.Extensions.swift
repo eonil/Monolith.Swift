@@ -8,21 +8,21 @@
 
 import Foundation
 
-extension RFC3339.Expression: Printable {
+extension RFC3339.Expression: CustomStringConvertible {
 	public var	description:String {
 		get {
 			return	"\(date.description)T\(time.description)"
 		}
 	}
 }
-extension RFC3339.Expression.Date: Printable {
+extension RFC3339.Expression.Date: CustomStringConvertible {
 	public var	description:String {
 		get {
 			return	"\(stringifyIntoFourDigits(year)):\(stringifyIntoTwoDigits(month)):\(stringifyIntoTwoDigits(day))"
 		}
 	}
 }
-extension RFC3339.Expression.Time: Printable {
+extension RFC3339.Expression.Time: CustomStringConvertible {
 	public var	description:String {
 		get {
 			if fraction == 0 {
@@ -32,7 +32,7 @@ extension RFC3339.Expression.Time: Printable {
 		}
 	}
 }
-extension RFC3339.Expression.Time.Zone: Printable {
+extension RFC3339.Expression.Time.Zone: CustomStringConvertible {
 	public var	description:String {
 		get {
 			if self == RFC3339.Expression.Time.Zone.UTC {

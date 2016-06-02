@@ -6,7 +6,7 @@ README
 This is a specialized s-expr.
 This is human readable. 
 Very simple and defined strictly.
-Focuses on flexibility. Not for performance.
+Focuses on flexibility. Not not performance.
 
 
 

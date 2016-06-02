@@ -244,7 +244,7 @@ private extension RFC3339 {
 			if !ok { return }
 			let	v1		=	scanner.scanInt(c1)
 			ok			=	v1 != nil
-			destination	=	v1 ?? 0
+			destination	=	v1 ||| 0
 		}
 		mutating func set(inout destination:Int, byScanningCharacters c1:Int) {
 			set(&destination, byScanningCharacters: c1...c1)
@@ -349,13 +349,8 @@ private extension RFC3339 {
 		}
 		
 		
-		
 		struct IntStacking {
-			let	value	:	Int?
-			
-			init(value: Int?) {
-				self.value	=	value
-			}
+			let	value:Int?
 			func scan(digit:Int) -> IntStacking {
 				assert(digit >= 0)
 				assert(digit <= 9)
@@ -464,7 +459,7 @@ extension RFC3339 {
 	struct Test {
 		static func run() {
 			typealias	Token	=	Scanner.Stepping.Token
-			func assert(@autoclosure c:()->Bool) {
+			func assert(@autoclosure c: ()->Bool) {
 				if c() == false {
 					fatalError("Test assertion failure!")
 				}

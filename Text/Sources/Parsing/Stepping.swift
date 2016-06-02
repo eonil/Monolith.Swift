@@ -39,7 +39,7 @@ extension Parsing {
 	///	current pattern, and will emit an error if current pattern cannot be
 	///	completed. This marking-effect will be applied only to current rule
 	///	composition, and disappear when parser switches to another rule.
-	public struct Stepping : Printable {
+	public struct Stepping : CustomStringConvertible {
 		public let	status:Status
 		public let	location:Cursor
 		public let	nodes:NodeList
@@ -132,9 +132,9 @@ extension Parsing {
 			case Match			///<	Exact match found. Good result. Parser will return fully established tree.
 			case Error			///<	No match with some error. Parser quit immediately and will return some result containing error information in tree.
 		}
-		public struct NodeList : Printable {
+		public struct NodeList : CustomStringConvertible {
 			init() {
-				_items	=	[]
+                _items = []
 			}
 			init(_ ns1:[Node]) {
 				_items	=	ns1
@@ -177,9 +177,7 @@ extension Parsing {
 				return	NodeList(_items.filter(f))
 			}
 			
-			////
-			
-			private let	_items:[Node]
+			private let	_items: [Node]
 			private func hasAnyError() -> Bool {
 				///	TODO:	Optimisation.
 				return	_items.reduce(false, combine: { u, n in return u || n.hasAnyError() })
@@ -232,11 +230,7 @@ extension Parsing {
 			
 			///	Rule name will be reported if `expectation` is `nil`.
 			struct Mark {
-				let	expectation: String?
-				
-				init(expectation: String?) {
-					self.expectation	=	expectation
-				}
+				let	expectation:String?
 			}
 			
 	//		enum Mark {

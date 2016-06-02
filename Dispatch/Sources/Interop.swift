@@ -10,13 +10,13 @@ import Foundation
 
 
 public func rawObjectOf(q:Queue) -> dispatch_queue_t {
-	return	q.raw
+	return	q.rawQueue
 }
 public func rawObjectOf(s:Source) -> dispatch_source_t {
-	return	s.raw
+	return	s.rawSource
 }
 public func rawObjectOf(s:Semaphore) -> dispatch_semaphore_t {
-	return	s.raw
+	return	s.rawSemaphore
 }
 
 

@@ -9,25 +9,25 @@
 import Foundation
 
 public class Queue {
-	let	raw:dispatch_queue_t
+	let	rawQueue:dispatch_queue_t
 	
 	
-	init(_ raw:dispatch_queue_t) {
-		self.raw	=	raw
+	init(_ rawQueue:dispatch_queue_t) {
+		self.rawQueue	=	rawQueue
 	}
 	public init(label:String) {
-		raw	=	dispatch_queue_create((label as NSString).UTF8String, nil)
+		rawQueue	=	dispatch_queue_create((label as NSString).UTF8String, nil)
 	}
 	
-	@availability(iOS,introduced=4.3)
-	@availability(OSX,introduced=10.7)
+	@available(iOS,introduced=4.3)
+	@available(OSX,introduced=10.7)
 	public init(label:String, attribute:Attribute) {
-		raw	=	dispatch_queue_create((label as NSString).UTF8String, attribute.mapToObjC())
+		rawQueue	=	dispatch_queue_create((label as NSString).UTF8String, attribute.mapToObjC())
 	}
 	
 	
-	@availability(iOS,introduced=4.3)
-	@availability(OSX,introduced=10.7)
+	@available(iOS,introduced=4.3)
+	@available(OSX,introduced=10.7)
 	public enum Attribute {
 		case Serial
 		case Concurrent

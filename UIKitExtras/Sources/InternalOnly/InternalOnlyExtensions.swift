@@ -8,8 +8,8 @@
 
 import Foundation
 
-internal extension ArraySlice {
-	var array:Array<Element> {
+internal extension Slice {
+	var array: Array<Generator.Element> {
 		get {
 			return	Array(self)
 		}

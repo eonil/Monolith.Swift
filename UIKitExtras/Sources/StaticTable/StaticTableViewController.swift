@@ -221,7 +221,7 @@ public class StaticTable {
 	}
 	public func insertSection(s:Section, atIndex:Int, animation:UITableViewRowAnimation) {
 		precondition(s.table == nil, "Supplied section must not be bound to a table.")
-		assert(hostTableViewController?.tableView == nil || _sections.count == hostTableViewController?.tableView?.numberOfSections())
+		assert(hostTableViewController?.tableView == nil || _sections.count == hostTableViewController?.tableView.numberOfSections)
 		
 		_sections.insert(s, atIndex: atIndex)
 		s.table	=	self
@@ -393,7 +393,7 @@ public class StaticTableSection {
 			return	nil
 		}
 	}
-	private func reloadSelfInTable(#animation:UITableViewRowAnimation) {
+	private func reloadSelfInTable(animation animation:UITableViewRowAnimation) {
 		table?.reloadSectionsAtIndexes([indexInTable!], animation: animation)
 	}
 	private func reloadRowsAtIndexes(indexes:[Int], animation:UITableViewRowAnimation) {
@@ -458,7 +458,7 @@ public class StaticTableRow {
 			return	nil
 		}
 	}
-	private func reloadSelfInSection(#animation:UITableViewRowAnimation) {
+	private func reloadSelfInSection(animation animation:UITableViewRowAnimation) {
 		section?.reloadRowsAtIndexes([indexInSection!], animation: animation)
 	}
 }
@@ -595,7 +595,7 @@ private extension NSIndexSet {
 
 
 private func assertView____SHOULD____SupportTranslationOfAutoresizingLayout(v:UIView?) {
-	assert(v == nil || v!.translatesAutoresizingMaskIntoConstraints() == true, "Layout of table/section header/footer view are controlled by `UITableView`, then it should support translation of autoresizing masks.")
+	assert(v == nil || v!.translatesAutoresizingMaskIntoConstraints == true, "Layout of table/section header/footer view are controlled by `UITableView`, then it should support translation of autoresizing masks.")
 }
 
 

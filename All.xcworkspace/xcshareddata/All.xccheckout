@@ -12,6 +12,8 @@
 	<dict>
 		<key>71A00DDED806E25423061F292531DC609604F42E</key>
 		<string>https://github.com/Eonil/Monolith.Swift.git</string>
+		<key>B621DE208D12C5EEC28285244865E44BE9D6555D</key>
+		<string>https://bitbucket.org/eonil/crateiocatalogue</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>All.xcworkspace</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>71A00DDED806E25423061F292531DC609604F42E</key>
 		<string>..</string>
+		<key>B621DE208D12C5EEC28285244865E44BE9D6555D</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Eonil/Monolith.Swift.git</string>
@@ -28,6 +32,14 @@
 	<string>71A00DDED806E25423061F292531DC609604F42E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B621DE208D12C5EEC28285244865E44BE9D6555D</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

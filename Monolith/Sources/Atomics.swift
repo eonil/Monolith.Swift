@@ -31,7 +31,7 @@ public final class AtomicInt32Slot {
 	}
 	
 	///	:returns: `true` on a match, `false` otherwise.
-	public func compareAndSwapBarrier(#oldValue: Int32, newValue: Int32) -> Bool {
+	public func compareAndSwapBarrier(oldValue oldValue: Int32, newValue: Int32) -> Bool {
 		return	OSAtomicCompareAndSwapIntBarrier(oldValue, newValue, _ptr)
 	}
 }
@@ -49,7 +49,7 @@ public final class AtomicBoolSlot {
 		}
 	}
 	///	Returns `true` on a match, `false` otherwise.
-	public func compareAndSwapBarrier(#oldValue: Bool, newValue: Bool) -> Bool {
+	public func compareAndSwapBarrier(oldValue oldValue: Bool, newValue: Bool) -> Bool {
 		return	int32.compareAndSwapBarrier(oldValue: oldValue ? 1 : 0, newValue: newValue ? 1 : 0)
 	}
 }

@@ -80,7 +80,7 @@ public extension Parsing.Rule {
 	public enum Component {
 		public static func literal(string:String) -> Composition {
 			var	a1	=	[] as [Character]
-			for ch in string {
+			for ch in string.characters {
 				a1	+=	[ch]
 			}
 			
@@ -112,8 +112,8 @@ public extension Parsing.Rule {
 			let	p2	=	p1.match ? p1.remark(Node.Mark(expectation: e1)) : p1
 			return	p2
 		}
-		public static func mark(composition:Composition)(cursor:Cursor) -> Parsing.Stepping {
-			let	p1	=	composition(cursor: cursor)
+		public static func mark(composition c1:Composition)(cursor:Cursor) -> Parsing.Stepping {
+			let	p1	=	c1(cursor: cursor)
 			let	p2	=	p1.match ? p1.remark(Node.Mark(expectation: nil)) : p1
 			return	p2
 		}
@@ -137,7 +137,7 @@ public extension Parsing.Rule {
 				
 				let	p1	=	comp(cursor: c2)
 				c2		=	p1.location
-				ns1		+=	p1.nodes ?? NodeList()
+				ns1		+=	p1.nodes ||| NodeList()
 				assert(ns1.count == 0 || c2 >= ns1.last!.endCursor)
 				
 				///	Exit early on any error.
@@ -193,7 +193,7 @@ public extension Parsing.Rule {
 			
 			while c2.available {
 				let	p1	=	unit(cursor: c2)
-				ns1		+=	p1.nodes ?? NodeList()
+				ns1		+=	p1.nodes ||| NodeList()
 				c2		=	p1.location
 				
 				///	Exit early on any error.

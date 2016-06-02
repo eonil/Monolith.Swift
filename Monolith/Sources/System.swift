@@ -12,14 +12,14 @@ import Foundation
 struct System {
 	
 	@noreturn static func crashByProgramBugWithMessage() {
-		println("CRASH by program bug.")
+		print("CRASH by program bug.")
 		System.Debug.pause()
 		abort()
 	}
 	
 	struct Debug {
 		static func log(object:Any) {
-			println(object)
+			print(object)
 		}
 		
 		@noreturn static func unreachable() {

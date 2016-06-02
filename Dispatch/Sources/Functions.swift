@@ -12,12 +12,12 @@ import Foundation
 
 ///	`dispatch_async`.
 public func async(queue:Queue, f:()->()) {
-	dispatch_async(queue.raw, f)
+	dispatch_async(queue.rawQueue, f)
 }
 
 ///	`dispatch_sync`.
 public func sync(queue:Queue, f:()->()) {
-	dispatch_sync(queue.raw, f)
+	dispatch_sync(queue.rawQueue, f)
 }
 
 

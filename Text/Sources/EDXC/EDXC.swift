@@ -50,7 +50,7 @@ struct EDXC {
 		static let	atomWithSeparator		=	atomSeparator + sub(atomExpression)
 		static let	atomList				=	sub(atomExpression) + atomWithSeparator * (0...Int.max)
 		static let	maybeAtomList			=	atomList * (0...1)
-		static let	listExpression			=	"list-expr"		~~~	mk(lit("(")) + maybeWhitespaceStrip + maybeAtomList + maybeWhitespaceStrip + lit(")")
+		static let	listExpression			=	"list-expr"		~~~	mk(composition: lit("(")) + maybeWhitespaceStrip + maybeAtomList + maybeWhitespaceStrip + lit(")")
 		
 		struct Lazy {
 			static func listExpression()(cursor:Cursor) -> Parsing.Stepping {

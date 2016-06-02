@@ -77,7 +77,6 @@
 		45859BE31A277D9200C5CCA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		45859BEE1A277D9300C5CCA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45859BEF1A277D9300C5CCA2 /* TestdriveAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestdriveAppTests.swift; sourceTree = "<group>"; };
-		458E63311A634413006465B3 /* reasons.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = reasons.md; sourceTree = "<group>"; };
 		45FDB2641A25EFD600227AB3 /* Anchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchors.swift; sourceTree = "<group>"; };
 		45FDB2651A25EFD600227AB3 /* Strip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strip.swift; sourceTree = "<group>"; };
 		45FDB2681A25EFED00227AB3 /* LayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraint.swift; sourceTree = "<group>"; };
@@ -121,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				4537FC3D1A1C95E200ABFB64 /* README.md */,
-				458E63311A634413006465B3 /* reasons.md */,
 				4537FC371A1C952D00ABFB64 /* Sources */,
 				4537FC381A1C952E00ABFB64 /* Tests */,
 				4537FC1D1A1C950900ABFB64 /* UIKitExtras */,
@@ -345,6 +343,7 @@
 		4537FC101A1C94C300ABFB64 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0620;
 				TargetAttributes = {
 					4537FC1A1A1C950900ABFB64 = {
@@ -525,6 +524,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = UIKitExtras/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -572,6 +572,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = UIKitExtras/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;

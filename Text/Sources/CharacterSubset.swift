@@ -25,7 +25,7 @@ public struct CharacterSubset {
 		return	c(ch) == false
 	}
 	public static func any(chs:[Character])(character ch:Character) -> Bool {
-		return	contains(chs, ch)
+		return	chs.contains(ch)
 	}
 	public static func one(ch1:Character)(character ch2:Character) -> Bool {
 		return	ch1 == ch2

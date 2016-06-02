@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Entity: Printable {
+struct Entity: CustomStringConvertible {
 	let	name:String
 	let	type:String
 	let	parameters:[Parameter]
@@ -68,7 +68,7 @@ private extension Entity {
 			func parameterToAtom(p:Entity.Parameter) -> Atom {
 				switch p {
 				case let Entity.Parameter.Expression(state):	return	Atom.Value(expression: state)
-				case let Entity.Parameter.Subentity(state):		return	self.print(state)
+				case let Entity.Parameter.Subentity(state):		return	print(state)
 				}
 			}
 			let	as1	=	[Atom.Value(expression: v.name), Atom.Value(expression: v.type)] + v.parameters.map(parameterToAtom)
@@ -83,7 +83,7 @@ private extension Entity {
 					case let Atom.List(state):	return	nil
 					}
 				}
-				func parameteriseAll(as1:ArraySlice<Atom>) -> [Parameter]? {
+				func parameteriseAll(as1: ArraySlice<Atom>) -> [Parameter]? {
 					func parameterise(a:Atom) -> Parameter? {
 						switch a {
 						case let Atom.Value(state):	return	Parameter.Expression(state)
@@ -112,7 +112,8 @@ private extension Entity {
 				}
 				let	name1	=	symbolify(as1[0])
 				let	type1	=	symbolify(as1[1])
-				let	params1	=	parameteriseAll(as1[2..<as1.count])
+                let range1  =   2..<as1.count
+				let	params1	=	parameteriseAll(as1[range1])
 				if name1 != nil && type1 != nil && params1 != nil {
 					return	Entity(name: name1!, type: type1!, parameters: params1!)
 				}

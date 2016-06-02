@@ -14,7 +14,7 @@ infix operator ||| {
 
 ///	Returns `a` if it is non-nil value.
 ///	Otherwise returns `b`.
-internal func ||| <T> (a:T?, @autoclosure b:()->T) -> T {
+internal func ||| <T> (a:T?, b:@autoclosure()->T) -> T {
 	if let a1 = a { return a1 }
 	return	b()
 }
